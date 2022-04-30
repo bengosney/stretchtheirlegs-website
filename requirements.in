@@ -1,9 +1,10 @@
-django
 boto3
 dj-database-url
+django
 django-csp
 django-health-check
 django-storages
+django_extensions
 gunicorn
 honeybadger
 opencv-python
