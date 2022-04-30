@@ -1,8 +1,10 @@
-from .base import *
+# Locals
+from .base import *  # noqa
 
 DEBUG = False
 
 try:
-    from .local import *
+    # Locals
+    from .local import *  # noqa
 except ImportError:
     pass
