@@ -1,0 +1,16 @@
+@use "sass:math";
+
+header {
+    height: $header_hight;
+    $padding: 1rem;
+    padding: math.div($padding, 2) 0;
+    box-sizing: border-box;
+    a {
+        display: block;
+    }
+    svg {
+        display: block;
+        max-width: 100%;
+        max-height: $header_hight - $padding;
+    }
+}

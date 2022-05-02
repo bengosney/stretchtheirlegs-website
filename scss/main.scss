@@ -1,0 +1,42 @@
+@import '_external.scss';
+@import '_variables.scss';
+@import '_mixins.scss';
+
+@import '_imports.scss';
+
+:root {
+    --max-width: 100%;
+    --container-padding: 20px;
+}
+
+@media screen and (min-width: 576px) {
+    :root {
+        --max-width: 540px;
+        --container-padding: 0;
+    }
+}
+@media screen and (min-width: 768px) {
+    :root {
+        --max-width: 720px;
+    }
+}
+@media screen and (min-width: 992px) {
+    :root {
+        --max-width: 960px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    :root {
+        --max-width: 1140px;
+    }
+}
+@media screen and (min-width: 1400px) {
+    :root {
+        --max-width: 1320px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}

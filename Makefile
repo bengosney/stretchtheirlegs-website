@@ -56,9 +56,17 @@ clean: ## Remove all build files
 	rm -rf .pytest_cache
 	rm -f .testmondata
 
-install: requirements.txt $(REQS) ## Install development requirements (default)
+node_modules: package.json package-lock.json
+	npm install
+	touch $@
+
+node: node_modules
+
+python: requirements.txt $(REQS)
 	@echo "Installing $^"
 	@pip-sync $^
+
+install: python node ## Install development requirements (default)
 
 dev: init install ## Start work
 	code .

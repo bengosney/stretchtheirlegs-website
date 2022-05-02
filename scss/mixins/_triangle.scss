@@ -1,0 +1,50 @@
+@mixin triangle-base {
+    content: ' ';
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+@mixin triangle-parent() {
+    position: relative;
+}
+
+@mixin triangle-bottom($color) {
+    @include triangle-parent();
+    &:after {
+        @include triangle-base();
+        border-bottom: $triangle-vert solid $color;
+        border-left: $triangle-horz solid transparent;
+        bottom: 0;
+        left: 0;
+
+        @content;
+    }
+}
+
+@mixin triangle-top($color) {
+    @include triangle-parent();
+    &:before {
+        @include triangle-base();
+        border-top: $triangle-vert solid $color;
+        border-right: $triangle-horz solid transparent;
+        top: 0;
+        right: 0;
+
+        @content;
+    }
+}
+
+@mixin triangle-left($color) {
+    @include triangle-parent();
+    &:before {
+        @include triangle-base();
+        border-top: $triangle-vert solid $color;
+        border-right: $triangle-horz solid transparent;
+        top: 0;
+        right: 0;
+
+        @content;
+    }
+}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load banner_tags picture_tags %}
+
+{% block content %}
+
+{% get_banner as banner %}
+
+<div class="banner">
+    {% picture banner photo fill-2560x1440 fill-1920x1080 fill-1280x720 fill-800x600 fill-640x480 %}
+</div>
+<div>Home Page</div>
+
+{% endblock content %}
