@@ -80,7 +80,6 @@ module.exports = function (grunt) {
                     require('postcss-import')(),
                     require('postcss-import-url')(),
                     require('pixrem')(),
-                    require('postcss-flexibility')(),
                     require('postcss-preset-env')({stage: 0}),
                     require('css-mqpacker')({sort: true}),
                     require('cssnano')({zindex: false})
