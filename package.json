@@ -1,12 +1,12 @@
 {
-    "name": "stef",
+    "name": "stretch-there-legs",
     "version": "0.0.1",
     "license": "MIT",
     "author": "Ben Gosney",
     "main": "index.js",
     "scripts": {
         "compile": "grunt compile",
-        "start": "grunt",
+        "start": "grunt dev",
         "watch": "grunt watch"
     },
     "devDependencies": {
