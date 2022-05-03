@@ -5,12 +5,20 @@ header {
     $padding: 1rem;
     padding: math.div($padding, 2) 0;
     box-sizing: border-box;
-    a {
-        display: block;
+
+    nav {
+        display: flex;
+        justify-content: space-between;
     }
+
+    a {
+        display: inline-block;
+    }
+
     svg {
-        display: block;
+        display: inline-block;
         max-width: 100%;
+        width: auto;
         max-height: $header_hight - $padding;
     }
 }

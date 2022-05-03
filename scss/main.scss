@@ -7,6 +7,13 @@
 :root {
     --max-width: 100%;
     --container-padding: 20px;
+    --background: white;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: pink;
+    }
 }
 
 @media screen and (min-width: 576px) {
@@ -39,4 +46,8 @@
 img {
     max-width: 100%;
     height: auto;
+}
+
+body {
+    background: var(--background);
 }

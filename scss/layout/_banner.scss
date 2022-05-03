@@ -6,4 +6,7 @@
         max-height: calc(95vh - $header_hight);
         object-fit: cover;
     }
+
+    @include triangle-top(var(--background));
+    @include triangle-bottom(var(--background));
 }

@@ -340,12 +340,38 @@ template {
 
 /* generated with grunt-sass-globbing */
 /* generated with grunt-sass-globbing */
+.banner {
+  position: relative;
+  position: relative;
+}
 .banner img {
   max-width: 100%;
   width: 100vw;
   height: 100vh;
   max-height: calc(95vh - 7rem);
   object-fit: cover;
+}
+.banner:before {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-top: 150px solid var(--background);
+  border-right: 3000px solid transparent;
+  top: 0;
+  right: 0;
+}
+.banner:after {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-bottom: 150px solid var(--background);
+  border-left: 3000px solid transparent;
+  bottom: 0;
+  left: 0;
 }
 
 .container,
@@ -367,20 +393,31 @@ header {
   padding: 0.5rem 0;
   box-sizing: border-box;
 }
+header nav {
+  display: flex;
+  justify-content: space-between;
+}
 header a {
-  display: block;
+  display: inline-block;
 }
 header svg {
-  display: block;
+  display: inline-block;
   max-width: 100%;
+  width: auto;
   max-height: 6rem;
 }
 
 :root {
   --max-width: 100%;
   --container-padding: 20px;
+  --background: white;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: pink;
+  }
+}
 @media screen and (min-width: 576px) {
   :root {
     --max-width: 540px;
@@ -410,6 +447,10 @@ header svg {
 img {
   max-width: 100%;
   height: auto;
+}
+
+body {
+  background: var(--background);
 }
 
 /*# sourceMappingURL=main.css.map */
