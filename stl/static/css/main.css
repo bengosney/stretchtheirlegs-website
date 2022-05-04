@@ -343,6 +343,7 @@ template {
 .banner {
   position: relative;
   position: relative;
+  overflow: hidden;
 }
 .banner img {
   max-width: 100%;
@@ -389,9 +390,17 @@ template {
 }
 
 header {
-  height: 7rem;
-  padding: 0.5rem 0;
+  height: var(--header-heigh);
+  padding: 1rem 0;
   box-sizing: border-box;
+}
+header > div {
+  display: flex;
+}
+header .links {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
 }
 header nav {
   display: flex;
@@ -400,17 +409,30 @@ header nav {
 header a {
   display: inline-block;
 }
-header svg {
+header .logo-link svg {
+  position: relative;
+  z-index: 999;
   display: inline-block;
   max-width: 100%;
   width: auto;
-  max-height: 6rem;
+  height: 7vw;
+  max-height: calc(var(--header-heigh) * 1.7);
+}
+header .logo-link svg path {
+  fill: #582a72;
+}
+header .social-links {
+  color: #582a72;
+}
+header .social-links svg {
+  height: calc(var(--header-heigh) * 0.35);
 }
 
 :root {
   --max-width: 100%;
   --container-padding: 20px;
   --background: white;
+  --header-heigh: 6rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -451,6 +473,21 @@ img {
 
 body {
   background: var(--background);
+}
+
+a {
+  color: #582a72;
+  transition: all 0.2s ease-in-out;
+}
+a:hover {
+  color: #9775aa;
+}
+a:hover path {
+  fill: #9775aa;
+}
+a path {
+  fill: #582a72;
+  transition: all 0.2s ease-in-out;
 }
 
 /*# sourceMappingURL=main.css.map */

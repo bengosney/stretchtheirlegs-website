@@ -1,24 +1,49 @@
 @use "sass:math";
 
 header {
-    height: $header_hight;
-    $padding: 1rem;
-    padding: math.div($padding, 2) 0;
-    box-sizing: border-box;
+  height: var(--header-heigh);
+  $padding: 2rem;
+  padding: math.div($padding, 2) 0;
+  box-sizing: border-box;
 
-    nav {
-        display: flex;
-        justify-content: space-between;
-    }
+  > div {
+    display: flex;
+  }
 
-    a {
-        display: inline-block;
-    }
+  .links {
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+  }
 
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    display: inline-block;
+  }
+
+  .logo-link {
     svg {
-        display: inline-block;
-        max-width: 100%;
-        width: auto;
-        max-height: $header_hight - $padding;
+      position: relative;
+      z-index: 999;
+      display: inline-block;
+      max-width: 100%;
+      width: auto;
+      height: 7vw;
+      max-height: calc(var(--header-heigh) * 1.7);
+      path {
+          fill: $color-primary-0;
+      }
     }
+  }
+
+  .social-links {
+      color: $color-primary-0;
+      svg {
+        height: calc(var(--header-heigh) * 0.35);
+      }
+  }
 }

@@ -1,13 +1,20 @@
 <header>
     <div class="container">
-        <nav>
-            <a href="/" class="logo-link" title="Stretch Their Legs" aria-label="Stretch Their Legs home page">
-                {% include "logo.svg" %}
-            </a>
-            <a href="#">Home</a>
-            <a href="#">Services</a>
-            <a href="#">About Us</a>
-            <a href="#">Contact</a>
-        </nav>
+        <a href="/" class="logo-link" title="Stretch Their Legs" aria-label="Stretch Their Legs home page">
+            {% include "logo.svg" %}
+        </a>
+        <div class="links">
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Services</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+            </nav>
+            <div class="social-links">
+                <a href="#" title="Facebook" aria-label="Facebook" rel="noopener" target="_blank">
+                    {% include "icons/facebook.svg" %}
+                </a>
+            </div>
+        </div>
     </div>
 </header>

@@ -8,6 +8,7 @@
     --max-width: 100%;
     --container-padding: 20px;
     --background: white;
+    --header-heigh: 6rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,4 +51,21 @@ img {
 
 body {
     background: var(--background);
+}
+
+a {
+    color: $color-primary-0;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        color: $color-primary-1;
+        path {
+            fill: $color-primary-1;
+        }
+    }
+
+    path {
+        fill: $color-primary-0;
+        transition: all .2s ease-in-out;
+    }
 }

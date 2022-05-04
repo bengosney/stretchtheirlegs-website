@@ -9,4 +9,5 @@
 
     @include triangle-top(var(--background));
     @include triangle-bottom(var(--background));
+    overflow: hidden;
 }
