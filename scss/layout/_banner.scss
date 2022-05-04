@@ -3,11 +3,15 @@
     max-width: 100%;
     width: 100vw;
     height: 100vh;
-    max-height: calc(95vh - $header_hight);
+    max-height: calc(100vh - var(--header-heigh));
     object-fit: cover;
+    display: block;
   }
 
-  @include triangle-top(var(--background));
-  @include triangle-bottom(var(--background));
-  overflow: hidden;
+  picture {
+    display: block;
+    @include triangle-top(var(--background));
+    @include triangle-bottom(var(--background));
+    overflow: hidden;
+  }
 }

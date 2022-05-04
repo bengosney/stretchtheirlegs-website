@@ -32,8 +32,7 @@ header {
       display: inline-block;
       max-width: 100%;
       width: auto;
-      height: 7vw;
-      max-height: calc(var(--header-heigh) * 1.7);
+      height: calc(2vw + var(--header-heigh));
       path {
         fill: $color-primary-0;
       }
