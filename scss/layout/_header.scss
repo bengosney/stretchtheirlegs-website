@@ -11,9 +11,9 @@ header {
   }
 
   .links {
-      display: flex;
-      justify-content: space-between;
-      flex: 1;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
   }
 
   nav {
@@ -35,15 +35,15 @@ header {
       height: 7vw;
       max-height: calc(var(--header-heigh) * 1.7);
       path {
-          fill: $color-primary-0;
+        fill: $color-primary-0;
       }
     }
   }
 
   .social-links {
-      color: $color-primary-0;
-      svg {
-        height: calc(var(--header-heigh) * 0.35);
-      }
+    color: $color-primary-0;
+    svg {
+      height: calc(var(--header-heigh) * 0.35);
+    }
   }
 }

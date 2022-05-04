@@ -1,13 +1,13 @@
 .banner {
-    img {
-        max-width: 100%;
-        width: 100vw;
-        height: 100vh;
-        max-height: calc(95vh - $header_hight);
-        object-fit: cover;
-    }
+  img {
+    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
+    max-height: calc(95vh - $header_hight);
+    object-fit: cover;
+  }
 
-    @include triangle-top(var(--background));
-    @include triangle-bottom(var(--background));
-    overflow: hidden;
+  @include triangle-top(var(--background));
+  @include triangle-bottom(var(--background));
+  overflow: hidden;
 }

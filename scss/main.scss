@@ -1,71 +1,71 @@
-@import '_external.scss';
-@import '_variables.scss';
-@import '_mixins.scss';
+@import "_external.scss";
+@import "_variables.scss";
+@import "_mixins.scss";
 
-@import '_imports.scss';
+@import "_imports.scss";
 
 :root {
-    --max-width: 100%;
-    --container-padding: 20px;
-    --background: white;
-    --header-heigh: 6rem;
+  --max-width: 100%;
+  --container-padding: 20px;
+  --background: white;
+  --header-heigh: 6rem;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --background: pink;
-    }
+  :root {
+    --background: pink;
+  }
 }
 
 @media screen and (min-width: 576px) {
-    :root {
-        --max-width: 540px;
-        --container-padding: 0;
-    }
+  :root {
+    --max-width: 540px;
+    --container-padding: 0;
+  }
 }
 @media screen and (min-width: 768px) {
-    :root {
-        --max-width: 720px;
-    }
+  :root {
+    --max-width: 720px;
+  }
 }
 @media screen and (min-width: 992px) {
-    :root {
-        --max-width: 960px;
-    }
+  :root {
+    --max-width: 960px;
+  }
 }
 @media screen and (min-width: 1200px) {
-    :root {
-        --max-width: 1140px;
-    }
+  :root {
+    --max-width: 1140px;
+  }
 }
 @media screen and (min-width: 1400px) {
-    :root {
-        --max-width: 1320px;
-    }
+  :root {
+    --max-width: 1320px;
+  }
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 body {
-    background: var(--background);
+  background: var(--background);
 }
 
 a {
-    color: $color-primary-0;
-    transition: all .2s ease-in-out;
+  color: $color-primary-0;
+  transition: all 0.2s ease-in-out;
 
-    &:hover {
-        color: $color-primary-1;
-        path {
-            fill: $color-primary-1;
-        }
-    }
-
+  &:hover {
+    color: $color-primary-1;
     path {
-        fill: $color-primary-0;
-        transition: all .2s ease-in-out;
+      fill: $color-primary-1;
     }
+  }
+
+  path {
+    fill: $color-primary-0;
+    transition: all 0.2s ease-in-out;
+  }
 }
