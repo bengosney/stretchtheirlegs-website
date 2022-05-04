@@ -1,3 +1,4 @@
+{% load navigation_tags %}
 <header>
     <div class="container">
         <a href="/" class="logo-link" title="Stretch Their Legs" aria-label="Stretch Their Legs home page">
@@ -5,10 +6,7 @@
         </a>
         <div class="links">
             <nav>
-                <a href="#" class="active">Home</a>
-                <a href="#">Services</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact</a>
+                {% menu calling_page=self %}
             </nav>
             <div class="social-links">
                 <a href="#" title="Facebook" aria-label="Facebook" rel="noopener" target="_blank">

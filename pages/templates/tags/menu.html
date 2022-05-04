@@ -1,0 +1,17 @@
+{% load navigation_tags wagtailcore_tags %}
+<ul>
+{% for menuitem in menuitems %}
+    <li class="item level-{{ level }} {{ menuitem.title|lower|cut:" " }}{% if menuitem.active %} active{% endif %}{% if menuitem.show_dropdown %} has-submenu{% endif %}">
+        <a 
+        {% if not menuitem.show_dropdown %}href="{% pageurl menuitem %}"{% endif %}
+          class="top-level" 
+          aria-label="{{ menuitem.title }}"
+        >
+            {{ menuitem.title }}
+        </a>
+        {% if menuitem.show_dropdown %}
+            {% menu parent=menuitem calling_page=calling_page level=level %}
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>

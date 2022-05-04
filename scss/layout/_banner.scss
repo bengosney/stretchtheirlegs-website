@@ -4,6 +4,7 @@
     width: 100vw;
     height: 100vh;
     max-height: calc(100vh - var(--header-heigh));
+    min-height: 25rem;
     object-fit: cover;
     display: block;
   }
