@@ -352,10 +352,13 @@ template {
 .banner {
   position: relative;
 }
+body.full-height-banner .banner img {
+  height: 100vh;
+}
 .banner img {
   max-width: 100%;
   width: 100vw;
-  height: 100vh;
+  height: 55vh;
   max-height: calc(100vh - var(--header-heigh));
   min-height: 25rem;
   object-fit: cover;
@@ -396,15 +399,18 @@ template {
   right: 0;
   bottom: 0;
   z-index: 1;
+  display: flex;
+  align-items: center;
 }
 .banner .banner_text .container {
-  height: 100%;
+  width: 100%;
 }
 .banner .banner_text .container .banner_text_inner {
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: center;
+  margin-top: 3rem;
 }
 .banner .banner_text h1,
 .banner .banner_text h2 {
@@ -628,6 +634,15 @@ h4 {
 small,
 .font_small {
   font-size: 0.707em;
+}
+
+::selection {
+  background: #582a72;
+  color: #fff;
+}
+
+a::selection {
+  background: #9775aa;
 }
 
 :root {

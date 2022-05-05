@@ -4,6 +4,14 @@
 
 @import "_imports.scss";
 
+::selection {
+  background: #582a72;
+  color: #fff;
+}
+a::selection {
+  background: #9775aa;
+}
+
 :root {
   --max-width: 100%;
   --container-padding: 20px;

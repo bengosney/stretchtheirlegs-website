@@ -1,8 +1,14 @@
 .banner {
+  body.full-height-banner & {
+    img {
+      height: 100vh;
+    }
+  }
+
   img {
     max-width: 100%;
     width: 100vw;
-    height: 100vh;
+    height: 55vh;
     max-height: calc(100vh - var(--header-heigh));
     min-height: 25rem;
     object-fit: cover;
@@ -25,15 +31,18 @@
     right: 0;
     bottom: 0;
     z-index: 1;
+    display: flex;
+    align-items: center;
 
     .container {
-      height: 100%;
+      width: 100%;
 
       .banner_text_inner {
         display: flex;
         height: 100%;
         flex-direction: column;
         justify-content: center;
+        margin-top: 3rem;
       }
     }
 

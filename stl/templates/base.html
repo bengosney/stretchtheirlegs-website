@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailuserbar %}
+{% load static wagtailcore_tags wagtailuserbar banner_tags picture_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -31,7 +31,27 @@
             {% include 'header.html' %}
         {% endblock %}
 
+        {% block banner %}
+        {% get_banner as banner %}
+        <div class="banner">
+            {% picture banner photo fill-2560x1440 fill-1920x1080 fill-1280x720 fill-800x600 fill-640x480 %}
+            <div class="banner_text">
+                <div class="container">
+                    <div class="banner_text_inner">
+                        {% block banner_text %}
+                        <h1>{{ page.title }}</h1>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+
+        {% block content_outter %}
+        <div class="container">
         {% block content %}{% endblock %}
+        </div>
+        {% endblock %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/stl.js' %}"></script>

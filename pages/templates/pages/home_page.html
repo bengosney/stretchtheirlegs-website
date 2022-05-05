@@ -1,22 +1,31 @@
 {% extends "base.html" %}
 
-{% load banner_tags picture_tags %}
+{% load picture_tags %}
+
+
+{% block body_class %}full-height-banner{% endblock %}
+
+
+{% block banner_text %}
+<h1>Stretch Their Legs</h1>
+<h2 class="alt">Dog walking and animal services</h2>
+{% endblock %}
+
 
 {% block content %}
-
-{% get_banner as banner %}
-
-<div class="banner">
-    {% picture banner photo fill-2560x1440 fill-1920x1080 fill-1280x720 fill-800x600 fill-640x480 %}
-    <div class="banner_text">
-        <div class="container">
-            <div class="banner_text_inner">
-                <h1>Stretch Their Legs</h1>
-                <h2 class="alt">Dog walking and animal services</h2>
-            </div>
-        </div>
-    </div>
-</div>
-<div>Home Page</div>
-
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi semper orci sem, nec ullamcorper lacus semper aliquet. Duis vestibulum consectetur justo vitae tincidunt. Nulla facilisi. Donec odio diam, lobortis id ultrices eu, vehicula sed nulla. Suspendisse nec magna rutrum, bibendum sem sed, malesuada est. Cras in justo vitae nulla cursus blandit. Integer eget nunc accumsan mi suscipit porttitor sit amet non diam. Mauris neque enim, bibendum id purus vel, efficitur blandit ex. Donec ac massa consectetur, sagittis velit vitae, dictum est. Suspendisse tincidunt rhoncus dolor vel gravida. Donec tellus ex, euismod a velit et, commodo aliquam dui. Integer eu dui vel tortor tempor ultrices quis eget arcu. Etiam metus orci, consectetur non pellentesque vel, tincidunt eu tellus. Pellentesque eget mauris libero. Cras nulla lacus, semper ac gravida in, auctor id neque. Sed auctor nulla arcu, id commodo nibh placerat vitae.
+</p>
+<p>
+    Praesent lectus erat, sollicitudin sit amet scelerisque ac, eleifend in nunc. Proin mi lectus, luctus nec urna at, porttitor facilisis sem. Donec ac neque metus. Mauris nec tristique libero. Donec porta leo a fringilla condimentum. Suspendisse eleifend, neque in molestie consequat, leo urna egestas sapien, in fringilla est leo in ligula. Cras at convallis diam.
+</p>
+<p>
+    Nam fringilla mi et nibh fermentum, quis luctus nisi iaculis. Curabitur purus elit, eleifend id quam nec, volutpat ullamcorper dolor. Cras bibendum imperdiet dapibus. Ut rutrum tincidunt sapien ut mollis. Suspendisse consectetur facilisis ligula non condimentum. Nam pulvinar et lorem nec dapibus. Suspendisse dui turpis, aliquam et tellus non, tempor consequat nisi. Sed ut nunc aliquam, condimentum eros non, hendrerit sapien. Sed et maximus risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas augue mi, nec auctor quam elementum varius.
+</p>
+<p>
+    Quisque vitae libero sed turpis elementum porttitor. Suspendisse vel velit non sem dictum pharetra. Donec fringilla ex gravida nisi hendrerit, vitae venenatis nunc vehicula. Etiam quis velit sit amet felis iaculis gravida et non elit. Phasellus fringilla, massa non congue viverra, est nunc egestas tortor, ac lobortis purus arcu eu lectus. Etiam ullamcorper vulputate luctus. Maecenas rutrum dictum ante at faucibus. Mauris semper metus non lacinia laoreet. Proin et ante et purus dapibus accumsan. Mauris pellentesque porttitor augue, non condimentum risus ultricies at. Vestibulum ut consequat diam. Aliquam erat volutpat. Vivamus vitae mi convallis, consequat massa sit amet, iaculis risus. Phasellus lobortis non sem vitae vulputate. Ut ac purus non enim dictum elementum.
+</p>
+<p>
+    Maecenas pretium faucibus nulla, nec dictum sem. Cras euismod tincidunt libero non dictum. Duis vitae auctor mi, sit amet placerat urna. Sed fringilla massa id leo cursus, quis sodales enim congue. Nulla dictum tincidunt faucibus. Ut dignissim cursus suscipit. Vivamus ac varius eros, ut iaculis felis. Integer a euismod lacus. Curabitur lacus velit, aliquet at aliquet a, faucibus id ante. Suspendisse pharetra sem turpis, eget convallis quam hendrerit efficitur. Nullam vel magna quis lectus gravida commodo sed quis augue. Phasellus eu convallis turpis. Fusce ut felis accumsan, elementum mi a, aliquet sem. Aliquam at viverra felis, in sodales nulla. Pellentesque a mi rhoncus, consequat eros in, viverra mi. Cras mollis sit amet eros eget porttitor.
+</p>
 {% endblock content %}
