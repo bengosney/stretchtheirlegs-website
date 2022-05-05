@@ -13,6 +13,10 @@ nav {
       line-height: 1em;
       padding: 0;
       margin: 0;
+
+      a {
+        white-space: nowrap;
+      }
     }
   }
 
@@ -56,13 +60,37 @@ nav {
       border-radius: 4px;
       box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
 
+      $font-size: 1.1rem;
+      $padding: 1rem;
+
+      .has-submenu {
+        position: relative;
+        &:after {
+          position: absolute;
+          content: "";
+          $size: 0.5rem;
+          margin-top: -(math.div(($font-size + ($padding * 2)), 2) + $size);
+          margin-left: calc(100% - ($padding * 1.5));
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: $size 0 $size $size;
+          border-color: transparent transparent transparent $color-primary-0;
+        }
+      }
+
+      ul {
+        margin-top: -($font-size + ($padding * 2));
+        margin-left: calc(100% - math.div($padding, 2));
+      }
+
       flex-direction: column;
       li {
         a {
-          font-size: 1.1rem;
-          display: inline-block;
+          font-size: $font-size;
+          display: block;
           margin: 0;
-          padding: 1em 1.25em;
+          padding: $padding ($padding * 1.25);
         }
       }
     }
