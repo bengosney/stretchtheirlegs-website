@@ -15,4 +15,38 @@
     @include triangle-bottom(var(--background));
     overflow: hidden;
   }
+
+  position: relative;
+
+  .banner_text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+    .container {
+      height: 100%;
+
+      .banner_text_inner {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    h1,
+    h2 {
+      color: #fff;
+      padding: 0;
+      line-height: 1.25em;
+      margin: 0;
+      text-shadow: 0 0 15px #000;
+    }
+    h2 {
+      font-size: 2em;
+    }
+  }
 }

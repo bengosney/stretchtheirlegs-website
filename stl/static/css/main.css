@@ -349,6 +349,9 @@ template {
 }
 
 /* generated with grunt-sass-globbing */
+.banner {
+  position: relative;
+}
 .banner img {
   max-width: 100%;
   width: 100vw;
@@ -385,6 +388,34 @@ template {
   border-left: 3000px solid transparent;
   bottom: 0;
   left: 0;
+}
+.banner .banner_text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.banner .banner_text .container {
+  height: 100%;
+}
+.banner .banner_text .container .banner_text_inner {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+.banner .banner_text h1,
+.banner .banner_text h2 {
+  color: #fff;
+  padding: 0;
+  line-height: 1.25em;
+  margin: 0;
+  text-shadow: 0 0 15px #000;
+}
+.banner .banner_text h2 {
+  font-size: 2em;
 }
 
 .container,
@@ -603,6 +634,7 @@ small,
   --max-width: 100%;
   --container-padding: 20px;
   --background: white;
+  --text-colour: #2a2a2a;
   --header-heigh: 6rem;
 }
 
@@ -644,6 +676,7 @@ img {
 
 body {
   background: var(--background);
+  color: var(--text-colour);
 }
 
 a {

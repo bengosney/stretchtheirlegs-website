@@ -8,6 +8,7 @@
   --max-width: 100%;
   --container-padding: 20px;
   --background: white;
+  --text-colour: #2a2a2a;
   --header-heigh: 6rem;
 }
 
@@ -51,6 +52,7 @@ img {
 
 body {
   background: var(--background);
+  color: var(--text-colour);
 }
 
 a {
