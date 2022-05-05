@@ -2,9 +2,9 @@
 <ul>
 {% for menuitem in menuitems %}
     <li class="item level-{{ level }} {{ menuitem.title|lower|cut:" " }}{% if menuitem.active %} active{% endif %}{% if menuitem.show_dropdown %} has-submenu{% endif %}">
-        <a 
+        <a
         {% if not menuitem.show_dropdown %}href="{% pageurl menuitem %}"{% endif %}
-          class="top-level" 
+          class="top-level"
           aria-label="{{ menuitem.title }}"
         >
             {{ menuitem.title }}

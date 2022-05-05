@@ -2,11 +2,10 @@
 from django import template
 
 # Wagtail
-from wagtail.core.models import Page, Site
+from wagtail.core.models import Site
 
 register = template.Library()
 
-from icecream import ic
 
 @register.simple_tag(takes_context=True)
 def get_site_root(context):
@@ -26,7 +25,7 @@ def is_active(page, current_page):
 
 
 @register.inclusion_tag("tags/menu.html", takes_context=True)
-def menu(context, parent = None, calling_page=None, level=0):
+def menu(context, parent=None, calling_page=None, level=0):
     level += 1
     parent = parent or get_site_root(context)
     menuitems = list(parent.get_children().live().in_menu())
@@ -34,7 +33,7 @@ def menu(context, parent = None, calling_page=None, level=0):
     for menuitem in menuitems:
         menuitem.show_dropdown = has_menu_children(menuitem)
         menuitem.active = calling_page.url_path.startswith(menuitem.url_path) if calling_page else False
-        menuitem.type = 'page'
+        menuitem.type = "page"
 
     if level == 1:
         menuitems.insert(0, parent)
@@ -68,6 +67,3 @@ def top_menu_children(context, parent, calling_page=None):
         # required by the pageurl tag that we want to use within this template
         "request": context["request"],
     }
-
-
-

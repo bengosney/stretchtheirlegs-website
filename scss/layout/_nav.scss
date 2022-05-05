@@ -20,7 +20,7 @@ nav {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    
+
     & > li {
       &.has-submenu {
         & > a {
@@ -30,8 +30,8 @@ nav {
             }
           }
           &:after {
-            $size: .25em;
-            transition: all .2s ease-in-out;
+            $size: 0.25em;
+            transition: all 0.2s ease-in-out;
             content: "";
             display: inline-block;
             position: relative;
@@ -52,10 +52,10 @@ nav {
       background: var(--background);
 
       border: 1px solid #ccc;
-      border: 1px solid rgba(0,0,0,.15);
+      border: 1px solid rgba(0, 0, 0, 0.15);
       border-radius: 4px;
       box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
-      
+
       flex-direction: column;
       li {
         a {
