@@ -482,14 +482,16 @@ nav > ul ul {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
   flex-direction: column;
 }
-nav > ul ul .has-submenu {
+nav > ul ul .has-submenu > a {
   position: relative;
 }
-nav > ul ul .has-submenu:after {
+nav > ul ul .has-submenu > a:hover:after {
+  border-color: transparent transparent transparent #9775aa;
+}
+nav > ul ul .has-submenu > a:after {
   position: absolute;
   content: "";
-  margin-top: -2.05rem;
-  margin-left: calc(100% - 1.5rem);
+  right: 1rem;
   width: 0;
   height: 0;
   border-style: solid;

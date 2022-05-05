@@ -64,18 +64,24 @@ nav {
       $padding: 1rem;
 
       .has-submenu {
-        position: relative;
-        &:after {
-          position: absolute;
-          content: "";
-          $size: 0.5rem;
-          margin-top: -(math.div(($font-size + ($padding * 2)), 2) + $size);
-          margin-left: calc(100% - ($padding * 1.5));
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: $size 0 $size $size;
-          border-color: transparent transparent transparent $color-primary-0;
+        & > a {
+          position: relative;
+          &:hover {
+            &:after {
+              border-color: transparent transparent transparent $color-primary-1;
+            }
+          }
+          &:after {
+            position: absolute;
+            content: "";
+            $size: 0.5rem;
+            right: $padding;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: $size 0 $size $size;
+            border-color: transparent transparent transparent $color-primary-0;
+          }
         }
       }
 
