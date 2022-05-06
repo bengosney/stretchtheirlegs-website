@@ -489,6 +489,9 @@ nav ul li {
 nav ul li a {
   white-space: nowrap;
 }
+nav ul li a:after {
+  transition: all 0.2s ease-in-out;
+}
 nav > ul {
   list-style: none;
   display: flex;
@@ -521,6 +524,7 @@ nav > ul ul {
 }
 nav > ul ul .has-submenu > a {
   position: relative;
+  padding-right: 2.5rem;
 }
 nav > ul ul .has-submenu > a:hover:after {
   border-color: transparent transparent transparent #9775aa;
