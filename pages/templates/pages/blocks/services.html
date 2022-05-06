@@ -1,0 +1,19 @@
+{% load wagtailcore_tags wagtailimages_tags picture_tags %}
+
+
+<div class="service-list-block">
+    <h2>{{ value.title }}</h2>
+    {% if value.body %}
+        <p>{{ value.body }}</p>
+    {% endif %}
+    <div class="service-list">
+        {% for service in value.services %}
+            <a href="{% pageurl service %}" class="service" aria-label="{{ service.title }} details">
+                <h3>{{ service.title }}</h3>
+                {% picture service.image photo fill-640x320 lazy %}
+                <p>{{ service.short_description }}</p>
+                <div class="btn">Find out more</div>
+            </a>
+        {% endfor %}
+    </div>
+</div>

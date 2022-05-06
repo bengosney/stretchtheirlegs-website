@@ -349,6 +349,46 @@ template {
 }
 
 /* generated with grunt-sass-globbing */
+.btn:hover {
+  background-color: #764b8e;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+a.btn,
+.btn,
+.btn-large {
+  color: #fff;
+}
+
+a:hover {
+  color: #9775aa;
+}
+
+a,
+a:visited {
+  color: #582a72;
+}
+
+.btn {
+  text-decoration: none;
+  color: #fff;
+  background-color: #582a72;
+  text-align: center;
+  letter-spacing: 0.5px;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+  font-size: 1rem;
+  outline: 0;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
 .banner {
   position: relative;
 }
@@ -564,6 +604,100 @@ nav a {
 }
 nav a.active {
   text-decoration-color: #582a72;
+}
+
+.service-body picture {
+  display: block;
+  position: relative;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  max-width: 50%;
+  box-sizing: content-box;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 0.5em;
+}
+.service-body picture:before {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-top: 150px solid var(--background);
+  border-right: 3000px solid transparent;
+  top: 0;
+  right: 0;
+}
+.service-body picture:after {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-bottom: 150px solid var(--background);
+  border-left: 3000px solid transparent;
+  bottom: 0;
+  left: 0;
+}
+.service-body picture img {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.service-list-block .service-list {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  grid-column-gap: 5rem;
+}
+.service-list-block .service-list .service {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+.service-list-block .service-list .service h3 {
+  margin-bottom: 0;
+  line-height: 1em;
+  position: relative;
+  z-index: 10;
+}
+.service-list-block .service-list .service p {
+  flex-grow: 1;
+}
+.service-list-block .service-list .service picture {
+  display: block;
+  position: relative;
+  position: relative;
+  overflow: hidden;
+}
+.service-list-block .service-list .service picture:before {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-top: 150px solid var(--background);
+  border-right: 3000px solid transparent;
+  top: 0;
+  right: 0;
+}
+.service-list-block .service-list .service picture:after {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-bottom: 150px solid var(--background);
+  border-left: 3000px solid transparent;
+  bottom: 0;
+  left: 0;
+}
+.service-list-block .service-list .service picture img {
+  display: block;
+  padding: 0;
+  margin: 0;
 }
 
 html,

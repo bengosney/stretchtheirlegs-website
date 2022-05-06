@@ -1,0 +1,58 @@
+.service-body {
+  picture {
+    display: block;
+    @include triangle-top(var(--background));
+    @include triangle-bottom(var(--background));
+    overflow: hidden;
+    float: left;
+    max-width: 50%;
+    box-sizing: content-box;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 0.5em;
+
+    img {
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+.service-list-block {
+  .service-list {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    grid-column-gap: 5rem;
+
+    .service {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+
+      h3 {
+        margin-bottom: 0;
+        line-height: 1em;
+        position: relative;
+        z-index: 10;
+      }
+
+      p {
+        flex-grow: 1;
+      }
+
+      picture {
+        display: block;
+        @include triangle-top(var(--background));
+        @include triangle-bottom(var(--background));
+        overflow: hidden;
+        img {
+          display: block;
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
