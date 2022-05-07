@@ -1,0 +1,43 @@
+footer {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  background: $footer-color;
+  min-height: 10rem;
+
+  @include triangle-top(var(--background));
+
+  .title {
+    @extend h3;
+  }
+
+  .footer-row {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+
+    .footer-col {
+      text-align: center;
+    }
+
+    a {
+      font-size: 1.25rem;
+      line-height: 2em;
+    }
+
+    .social {
+      a {
+        display: inline-block;
+        height: 2em;
+      }
+    }
+
+    .title {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    svg {
+      height: 2em;
+    }
+  }
+}

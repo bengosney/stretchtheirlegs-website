@@ -67,6 +67,10 @@ a {
   color: $color-primary-0;
   transition: all 0.2s ease-in-out;
 
+  &.no-dec {
+    text-decoration: none;
+  }
+
   &:hover {
     color: $color-primary-1;
     path {

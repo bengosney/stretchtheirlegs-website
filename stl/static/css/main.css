@@ -389,6 +389,83 @@ a:visited {
   vertical-align: middle;
 }
 
+html,
+body,
+p,
+h1,
+h2,
+h3,
+footer .title,
+h4 {
+  color: #2a2a2a;
+}
+
+html {
+  font-size: 1em;
+}
+
+body {
+  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+p,
+li {
+  line-height: 1.5em;
+  font-size: 1.25em;
+  letter-spacing: 0.005em;
+}
+
+p {
+  margin-bottom: 1.3em;
+}
+
+li {
+  line-height: 2em;
+}
+
+h1,
+h2,
+h3,
+footer .title,
+h4 {
+  font-family: "Fontdiner Swanky", cursive;
+  margin: 1.414em 0 0.75em;
+  font-weight: inherit;
+  line-height: 1.2;
+  color: #582a72;
+}
+h1.alt,
+h2.alt,
+h3.alt,
+footer .alt.title,
+h4.alt {
+  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.998em;
+}
+
+h2 {
+  font-size: 2.827em;
+}
+
+h3, footer .title {
+  font-size: 1.999em;
+}
+
+h4 {
+  font-size: 1.414em;
+}
+
+small,
+.font_small {
+  font-size: 0.707em;
+}
+
 .banner {
   position: relative;
 }
@@ -478,6 +555,48 @@ body.full-height-banner .banner img {
   padding-right: 0;
 }
 
+footer {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  background: #d3d3d3;
+  min-height: 10rem;
+  position: relative;
+}
+footer:before {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-top: 150px solid var(--background);
+  border-right: 3000px solid transparent;
+  top: 0;
+  right: 0;
+}
+footer .footer-row {
+  padding-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+}
+footer .footer-row .footer-col {
+  text-align: center;
+}
+footer .footer-row a {
+  font-size: 1.25rem;
+  line-height: 2em;
+}
+footer .footer-row .social a {
+  display: inline-block;
+  height: 2em;
+}
+footer .footer-row .title {
+  margin-top: 0;
+  padding-top: 0;
+}
+footer .footer-row svg {
+  height: 2em;
+}
+
 header {
   height: var(--header-heigh);
   padding: 1rem 0;
@@ -510,6 +629,26 @@ header .social-links {
 }
 header .social-links svg {
   height: calc(var(--header-heigh) * 0.35);
+}
+
+.memberships {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: space-around;
+  align-items: center;
+}
+.memberships li {
+  list-style: none;
+}
+.memberships li a {
+  display: inline-block;
+}
+.memberships li a picture {
+  display: inline-block;
+}
+.memberships li a picture img {
+  display: block;
 }
 
 nav {
@@ -657,7 +796,7 @@ nav a.active {
   display: flex;
   flex-direction: column;
 }
-.service-list-block .service-list .service h3 {
+.service-list-block .service-list .service h3, .service-list-block .service-list .service footer .title, footer .service-list-block .service-list .service .title {
   margin-bottom: 0;
   line-height: 1em;
   position: relative;
@@ -698,80 +837,6 @@ nav a.active {
   display: block;
   padding: 0;
   margin: 0;
-}
-
-html,
-body,
-p,
-h1,
-h2,
-h3,
-h4 {
-  color: #2a2a2a;
-}
-
-html {
-  font-size: 1em;
-}
-
-body {
-  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-weight: 400;
-  line-height: 1.45;
-}
-
-p,
-li {
-  line-height: 1.5em;
-  font-size: 1.25em;
-  letter-spacing: 0.005em;
-}
-
-p {
-  margin-bottom: 1.3em;
-}
-
-li {
-  line-height: 2em;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Fontdiner Swanky", cursive;
-  margin: 1.414em 0 0.75em;
-  font-weight: inherit;
-  line-height: 1.2;
-  color: #582a72;
-}
-h1.alt,
-h2.alt,
-h3.alt,
-h4.alt {
-  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-h1 {
-  margin-top: 0;
-  font-size: 3.998em;
-}
-
-h2 {
-  font-size: 2.827em;
-}
-
-h3 {
-  font-size: 1.999em;
-}
-
-h4 {
-  font-size: 1.414em;
-}
-
-small,
-.font_small {
-  font-size: 0.707em;
 }
 
 ::selection {
@@ -835,6 +900,9 @@ body {
 a {
   color: #582a72;
   transition: all 0.2s ease-in-out;
+}
+a.no-dec {
+  text-decoration: none;
 }
 a:hover {
   color: #9775aa;

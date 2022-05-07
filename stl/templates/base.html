@@ -53,6 +53,10 @@
         </div>
         {% endblock %}
 
+        {% block footer %}
+        {% include 'footer.html' %}
+        {% endblock %}
+
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/stl.js' %}"></script>
 

@@ -2,8 +2,7 @@
 
 # Wagtail
 from wagtail.core import blocks
-
-# from .models import ServicePage
+from wagtail.images.blocks import ImageChooserBlock
 
 
 class ServicesBlock(blocks.StructBlock):
@@ -21,3 +20,13 @@ class FormBlock(blocks.StructBlock):
     class Meta:
         template = "pages/blocks/form.html"
         icon = "form"
+
+
+class ItemBlock(blocks.StructBlock):
+    title = blocks.CharBlock(required=True, max_length=255)
+    sub_title = blocks.CharBlock(required=False, max_length=255)
+    image = ImageChooserBlock()
+    body = blocks.RichTextBlock()
+
+    class Meta:
+        template = "pages/blocks/item.html"

@@ -1,0 +1,23 @@
+.memberships {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: space-around;
+  align-items: center;
+
+  li {
+    list-style: none;
+
+    a {
+      display: inline-block;
+
+      picture {
+        display: inline-block;
+
+        img {
+          display: block;
+        }
+      }
+    }
+  }
+}

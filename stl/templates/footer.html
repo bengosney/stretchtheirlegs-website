@@ -1,0 +1,32 @@
+{% load membership_tags %}
+
+<footer>
+    <div class="container">
+        <div class="footer-row">
+            <div class="footer-col">
+                <div class="title">Phone</div>
+                <a href="tel:{{ settings.pages.SiteSettings.phone_number }}" class="no-dec">
+                    {{ settings.pages.SiteSettings.phone_number }}
+                </a>
+            </div>
+            <div class="footer-col">
+                <div class="title">Email</div>
+                <a href="mailto:{{ settings.pages.SiteSettings.email }}">
+                    {{ settings.pages.SiteSettings.email }}
+                </a>
+            </div>
+            <div class="footer-col social">
+                <div class="title">Social</div>
+                <a href="{{ settings.pages.SiteSettings.facebook }}" title="Facebook" aria-label="Facebook" rel="noopener" target="_blank">
+                    {% include "icons/facebook.svg" %}
+                </a>
+            </div>
+            <div class="footer-col">
+                <div class="title">Memberships</div>
+                {% memberships %}
+            </div>
+        </div>
+        <hr />
+        <small>&copy; Stretch Their Legs</small>
+    </div>
+</footer>
