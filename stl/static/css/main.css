@@ -631,6 +631,49 @@ header .social-links svg {
   height: calc(var(--header-heigh) * 0.35);
 }
 
+.item-image {
+  float: left;
+}
+.item-image h3, .item-image footer .title, footer .item-image .title {
+  margin-bottom: 0;
+}
+.item-image picture {
+  display: block;
+  position: relative;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0.5em;
+  margin-right: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.item-image picture:before {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-top: 150px solid var(--background);
+  border-right: 3000px solid transparent;
+  top: 0;
+  right: 0;
+}
+.item-image picture:after {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-bottom: 150px solid var(--background);
+  border-left: 3000px solid transparent;
+  bottom: 0;
+  left: 0;
+}
+.item-image picture img {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
 .memberships {
   display: flex;
   padding: 0;

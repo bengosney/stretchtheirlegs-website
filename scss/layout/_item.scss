@@ -1,0 +1,23 @@
+.item-image {
+  float: left;
+
+  h3 {
+    margin-bottom: 0;
+  }
+
+  picture {
+    display: block;
+    @include triangle-top(var(--background));
+    @include triangle-bottom(var(--background));
+    overflow: hidden;
+    margin-top: 0.5em;
+    margin-right: 1.25rem;
+    margin-bottom: 0.5rem;
+
+    img {
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
