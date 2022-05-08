@@ -575,11 +575,14 @@ footer:before {
 }
 footer .footer-row {
   padding-top: 5rem;
+  padding-bottom: 1rem;
   display: flex;
   justify-content: space-between;
 }
 footer .footer-row .footer-col {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 footer .footer-row a {
   font-size: 1.25rem;
@@ -591,10 +594,47 @@ footer .footer-row .social a {
 }
 footer .footer-row .title {
   margin-top: 0;
+  margin-bottom: 0.5rem;
   padding-top: 0;
+}
+footer .footer-row .content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 footer .footer-row svg {
   height: 2em;
+}
+footer .memberships {
+  background: var(--background);
+  padding: 1rem 0.5rem;
+  width: 100%;
+  position: relative;
+  position: relative;
+  overflow: hidden;
+}
+footer .memberships:before {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-top: 150px solid #d3d3d3;
+  border-right: 3000px solid transparent;
+  top: 0;
+  right: 0;
+}
+footer .memberships:after {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-bottom: 150px solid #d3d3d3;
+  border-left: 3000px solid transparent;
+  bottom: 0;
+  left: 0;
 }
 
 header {
@@ -685,10 +725,10 @@ header .social-links svg {
   list-style: none;
 }
 .memberships li a {
-  display: inline-block;
+  display: block;
 }
 .memberships li a picture {
-  display: inline-block;
+  display: block;
 }
 .memberships li a picture img {
   display: block;

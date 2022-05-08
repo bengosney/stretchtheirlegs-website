@@ -12,11 +12,14 @@ footer {
 
   .footer-row {
     padding-top: 5rem;
+    padding-bottom: 1rem;
     display: flex;
     justify-content: space-between;
 
     .footer-col {
       text-align: center;
+      display: flex;
+      flex-direction: column;
     }
 
     a {
@@ -33,11 +36,29 @@ footer {
 
     .title {
       margin-top: 0;
+      margin-bottom: 0.5rem;
       padding-top: 0;
+    }
+
+    .content {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     svg {
       height: 2em;
     }
+  }
+
+  .memberships {
+    background: var(--background);
+    padding: 1rem 0.5rem;
+    width: 100%;
+
+    @include triangle-top($footer-color);
+    @include triangle-bottom($footer-color);
+    overflow: hidden;
   }
 }
