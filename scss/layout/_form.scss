@@ -1,5 +1,5 @@
 .field-wrapper {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 
   label {
     display: block;
@@ -13,5 +13,30 @@
 
     border: none;
     border-bottom: 1px solid $color-primary-0;
+    padding-left: 0;
+    margin-left: 0;
+
+    &:focus,
+    &:active,
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &.field-checkbox {
+    input,
+    label {
+      display: inline-block;
+      width: auto;
+    }
+
+    input {
+      margin-right: 0.5em;
+    }
+  }
+
+  input[type="button"],
+  input[type="submit"] {
+    @extend .btn;
   }
 }

@@ -349,13 +349,15 @@ template {
 }
 
 /* generated with grunt-sass-globbing */
-.btn:hover {
+.btn:hover, .field-wrapper input[type=button]:hover, .field-wrapper input[type=submit]:hover {
   background-color: #764b8e;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 a.btn,
 .btn,
+.field-wrapper input[type=button],
+.field-wrapper input[type=submit],
 .btn-large {
   color: #fff;
 }
@@ -369,7 +371,7 @@ a:visited {
   color: #582a72;
 }
 
-.btn {
+.btn, .field-wrapper input[type=button], .field-wrapper input[type=submit] {
   text-decoration: none;
   color: #fff;
   background-color: #582a72;
@@ -638,19 +640,34 @@ footer .memberships:after {
 }
 
 .field-wrapper {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .field-wrapper label {
   display: block;
   color: #582a72;
 }
-.field-wrapper input, .field-wrapper textarea {
+.field-wrapper input,
+.field-wrapper textarea {
   width: 100%;
   line-height: 1.75em;
   border: none;
   border-bottom: 1px solid #582a72;
+  padding-left: 0;
+  margin-left: 0;
 }
-
+.field-wrapper input:focus, .field-wrapper input:active, .field-wrapper input:focus-visible,
+.field-wrapper textarea:focus,
+.field-wrapper textarea:active,
+.field-wrapper textarea:focus-visible {
+  outline: none;
+}
+.field-wrapper.field-checkbox input, .field-wrapper.field-checkbox label {
+  display: inline-block;
+  width: auto;
+}
+.field-wrapper.field-checkbox input {
+  margin-right: 0.5em;
+}
 header {
   height: var(--header-heigh);
   padding: 1rem 0;
