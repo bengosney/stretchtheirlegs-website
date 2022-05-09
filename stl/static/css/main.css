@@ -637,6 +637,20 @@ footer .memberships:after {
   left: 0;
 }
 
+.field-wrapper {
+  margin-bottom: 1rem;
+}
+.field-wrapper label {
+  display: block;
+  color: #582a72;
+}
+.field-wrapper input, .field-wrapper textarea {
+  width: 100%;
+  line-height: 1.75em;
+  border: none;
+  border-bottom: 1px solid #582a72;
+}
+
 header {
   height: var(--header-heigh);
   padding: 1rem 0;

@@ -1,0 +1,17 @@
+.field-wrapper {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    color: $color-primary-0;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    line-height: 1.75em;
+
+    border: none;
+    border-bottom: 1px solid $color-primary-0;
+  }
+}
