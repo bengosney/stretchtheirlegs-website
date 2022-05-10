@@ -12,9 +12,11 @@ a::selection {
   background: #9775aa;
 }
 
+$container-gap: 20px;
+
 :root {
   --max-width: 100%;
-  --container-padding: 20px;
+  --container-padding: 0px;
   --background: white;
   --text-colour: #2a2a2a;
   --header-heigh: 6rem;
@@ -26,30 +28,34 @@ a::selection {
   }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (max-width: $screen-xs) {
   :root {
-    --max-width: 540px;
-    --container-padding: 0;
+    --container-padding: 5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $screen-xs) {
   :root {
-    --max-width: 720px;
+    --max-width: #{$screen-xs};
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $screen-sm) {
   :root {
-    --max-width: 960px;
+    --max-width: #{$screen-sm};
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: $screen-md) {
   :root {
-    --max-width: 1140px;
+    --max-width: #{$screen-md};
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: $screen-lg) {
   :root {
-    --max-width: 1320px;
+    --max-width: #{$screen-lg};
+  }
+}
+@media screen and (min-width: $screen-xl) {
+  :root {
+    --max-width: #{$screen-xl};
   }
 }
 

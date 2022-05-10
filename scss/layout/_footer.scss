@@ -20,6 +20,16 @@ footer {
       text-align: center;
       display: flex;
       flex-direction: column;
+
+      /*
+      padding: 0 1rem 1rem;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+      */
     }
 
     a {
@@ -38,6 +48,7 @@ footer {
       margin-top: 0;
       margin-bottom: 0.5rem;
       padding-top: 0;
+      //font-size: clamp(1rem, 2.5vw, 2rem);
     }
 
     .content {
@@ -45,6 +56,11 @@ footer {
       display: flex;
       align-items: center;
       justify-content: center;
+
+      a {
+        //font-size: clamp(1rem, 1.5vw, 2rem);
+        white-space: nowrap;
+      }
     }
 
     svg {
