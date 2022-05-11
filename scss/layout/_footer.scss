@@ -16,6 +16,10 @@ footer {
     display: flex;
     justify-content: space-between;
 
+    @include in-size((xxs, xs)) {
+      flex-direction: column;
+    }
+
     .footer-col {
       text-align: center;
       display: flex;

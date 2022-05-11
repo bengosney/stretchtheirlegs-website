@@ -8,11 +8,11 @@
   img {
     max-width: 100%;
     width: 100vw;
-    height: 55vh;
     max-height: calc(100vh - var(--header-heigh));
     min-height: 25rem;
     object-fit: cover;
     display: block;
+    height: 55vh;
   }
 
   picture {
@@ -48,7 +48,7 @@
     h2 {
       color: #fff;
       padding: 0;
-      line-height: 1.25em;
+      line-height: 1.5em;
       margin: 0;
       text-shadow: 0 0 15px #000;
     }

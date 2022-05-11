@@ -11,6 +11,12 @@
     margin-bottom: 2rem;
     margin-top: 0.5em;
 
+    @include in-size((xxs, xs)) {
+      float: none;
+      max-width: 100%;
+      width: 100%;
+    }
+
     img {
       display: block;
       padding: 0;
@@ -21,17 +27,29 @@
 
 .service-list-block {
   .service-list {
-    display: grid;
-    grid-auto-columns: minmax(0, 1fr);
-    grid-auto-flow: column;
-    grid-column-gap: min(5vw, 3.5rem);
+    display: flex;
+
+    @include in-size((xxs, xs)) {
+      flex-direction: column;
+    }
+
     .service {
+      flex: 1;
+      margin: 0 min(1.5rem, 2vw) 1rem;
       text-decoration: none;
       display: flex;
       flex-direction: column;
 
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
       h3 {
-        margin-bottom: 0;
+        margin-bottom: 0.5rem;
         line-height: 1em;
         position: relative;
         z-index: 10;

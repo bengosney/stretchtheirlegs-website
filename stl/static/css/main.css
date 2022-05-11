@@ -479,11 +479,11 @@ body.full-height-banner .banner img {
 .banner img {
   max-width: 100%;
   width: 100vw;
-  height: 55vh;
   max-height: calc(100vh - var(--header-heigh));
   min-height: 25rem;
   object-fit: cover;
   display: block;
+  height: 55vh;
 }
 .banner picture {
   display: block;
@@ -534,7 +534,7 @@ body.full-height-banner .banner img {
 .banner .banner_text h2 {
   color: #fff;
   padding: 0;
-  line-height: 1.25em;
+  line-height: 1.5em;
   margin: 0;
   text-shadow: 0 0 15px #000;
 }
@@ -583,6 +583,16 @@ footer .footer-row {
   padding-bottom: 1rem;
   display: flex;
   justify-content: space-between;
+}
+@media (max-width: 575px) {
+  footer .footer-row {
+    flex-direction: column;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  footer .footer-row {
+    flex-direction: column;
+  }
 }
 footer .footer-row .footer-col {
   text-align: center;
@@ -678,7 +688,7 @@ footer .memberships:after {
 }
 .field-wrapper.field-checkbox input,
 .field-wrapper.field-checkbox label {
-  display: inline-block;
+  display: inline;
   width: auto;
 }
 .field-wrapper.field-checkbox input {
@@ -806,6 +816,16 @@ nav > ul {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 575px) {
+  nav > ul {
+    flex-direction: column;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  nav > ul {
+    flex-direction: column;
+  }
+}
 nav > ul > li.has-submenu > a:hover:after {
   border-color: #9775aa transparent transparent transparent;
 }
@@ -909,6 +929,20 @@ nav a.active {
   bottom: 0;
   left: 0;
 }
+@media (max-width: 575px) {
+  .service-body picture {
+    float: none;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .service-body picture {
+    float: none;
+    max-width: 100%;
+    width: 100%;
+  }
+}
 .service-body picture img {
   display: block;
   padding: 0;
@@ -916,18 +950,33 @@ nav a.active {
 }
 
 .service-list-block .service-list {
-  display: grid;
-  grid-auto-columns: minmax(0, 1fr);
-  grid-auto-flow: column;
-  grid-column-gap: min(5vw, 3.5rem);
+  display: flex;
+}
+@media (max-width: 575px) {
+  .service-list-block .service-list {
+    flex-direction: column;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .service-list-block .service-list {
+    flex-direction: column;
+  }
 }
 .service-list-block .service-list .service {
+  flex: 1;
+  margin: 0 min(1.5rem, 2vw) 1rem;
   text-decoration: none;
   display: flex;
   flex-direction: column;
 }
+.service-list-block .service-list .service:first-child {
+  margin-left: 0;
+}
+.service-list-block .service-list .service:last-child {
+  margin-right: 0;
+}
 .service-list-block .service-list .service h3, .service-list-block .service-list .service footer .title, footer .service-list-block .service-list .service .title {
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
   line-height: 1em;
   position: relative;
   z-index: 10;

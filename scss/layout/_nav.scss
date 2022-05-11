@@ -26,6 +26,11 @@ nav {
   & > ul {
     list-style: none;
     display: flex;
+
+    @include in-size((xxs, xs)) {
+      flex-direction: column;
+    }
+
     justify-content: space-between;
 
     & > li {
