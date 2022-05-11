@@ -5,8 +5,8 @@
     {% if value.sub_title %}
     <h3>{{ value.sub_title }}</h3>
     {% endif %}
-    <div class="item-image">
-        {% picture value.image fill-460x280 lazy %}
+    <div class="item-body">
+        {% picture value.image fill-566x340 lazy %}
+        {{ value.body }}
     </div>
-    {{ value.body }}
 </div>

@@ -728,13 +728,13 @@ header .social-links svg {
   height: calc(var(--header-heigh) * 0.35);
 }
 
-.item-image {
-  float: left;
-}
-.item-image h3, .item-image footer .title, footer .item-image .title {
+.item h3, .item footer .title, footer .item .title {
   margin-bottom: 0;
 }
-.item-image picture {
+.item picture {
+  float: left;
+  max-width: 50%;
+  width: 100%;
   display: block;
   position: relative;
   position: relative;
@@ -743,7 +743,19 @@ header .social-links svg {
   margin-right: 1.25rem;
   margin-bottom: 0.5rem;
 }
-.item-image picture:before {
+@media (max-width: 575px) {
+  .item picture {
+    float: none;
+    max-width: 100%;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .item picture {
+    float: none;
+    max-width: 100%;
+  }
+}
+.item picture:before {
   content: " ";
   width: 100%;
   position: absolute;
@@ -754,7 +766,7 @@ header .social-links svg {
   top: 0;
   right: 0;
 }
-.item-image picture:after {
+.item picture:after {
   content: " ";
   width: 100%;
   position: absolute;
@@ -765,10 +777,11 @@ header .social-links svg {
   bottom: 0;
   left: 0;
 }
-.item-image picture img {
+.item picture img {
   display: block;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
 .memberships {
