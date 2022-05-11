@@ -5,6 +5,8 @@
             {% include "logo.svg" %}
         </a>
         <div class="links">
+            <label for="nav-toggle" class="nav-toggle-label">Open</label>
+            <input type="checkbox" id="nav-toggle">
             <nav>
                 {% menu calling_page=self %}
             </nav>
