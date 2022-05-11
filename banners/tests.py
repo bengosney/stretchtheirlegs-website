@@ -12,6 +12,13 @@ from icecream import ic
 from .models import Banner
 
 
+class DayMonthFieldTests(TestCase):
+    def test_pre_save(self):
+        with freeze_time("2020-01-01"):
+            banner = Banner.objects.create(show_from=date(2020, 1, 1))
+            self.assertEqual(banner.show_from, date(1970, 1, 1))
+
+
 class BannerTests(TestCase):
     def test_get(self):
         created = Banner.objects.create(show_from=date(2020, 1, 1), show_to=date(2020, 12, 31))
@@ -21,7 +28,7 @@ class BannerTests(TestCase):
         self.assertEqual(created, banner)
 
     def test_image_dates(self):
-        created_first = Banner.objects.create(show_from=date(2020, 1, 1), show_to=date(2020, 6, 1))
+        Banner.objects.create(show_from=date(2020, 1, 1), show_to=date(2020, 6, 1))
         created_second = Banner.objects.create(show_from=date(2020, 6, 2), show_to=date(2020, 12, 31))
 
         for b in Banner.objects.all():

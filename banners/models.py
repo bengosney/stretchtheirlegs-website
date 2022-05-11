@@ -14,10 +14,13 @@ from icecream import ic
 # First Party
 from modulestatus.models import statusMixin
 
+# Locals
+from .fields import DayMonthField
+
 
 class Banner(statusMixin, models.Model):
-    show_from = models.DateField()
-    show_to = models.DateField()
+    show_from = DayMonthField()
+    show_to = DayMonthField(after="show_from")
 
     image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
 
