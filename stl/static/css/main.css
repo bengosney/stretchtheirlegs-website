@@ -821,12 +821,13 @@ header .social-links svg {
     transform: translateX(0px);
     box-shadow: 0 0 5vw rgb(0, 0, 0);
   }
-  nav a {
+  nav a, nav label {
     font-family: "Fontdiner Swanky", cursive;
     font-size: 1.25rem;
     line-height: 3rem;
     width: 100%;
     text-decoration: none;
+    display: block;
   }
   nav ul.nav-level-1 {
     box-sizing: border-box;
@@ -853,6 +854,7 @@ header .social-links svg {
     line-height: 3rem;
     width: 100%;
     text-decoration: none;
+    display: block;
     background: #582a72;
     color: #fff;
     padding: 0.25rem 1rem;
@@ -875,14 +877,14 @@ header .social-links svg {
   nav li {
     line-height: 3rem;
   }
-  nav li a {
+  nav li a, nav li label {
     border-bottom: 1px solid #9775aa;
     padding: 0 1rem;
   }
   nav li ul {
     background: var(--background-alt);
   }
-  nav li ul li a {
+  nav li ul li a, nav li ul li label {
     padding: 0 2rem;
   }
 }

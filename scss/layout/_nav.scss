@@ -33,9 +33,11 @@ $z-index: 5555;
       line-height: 3rem;
       width: 100%;
       text-decoration: none;
+      display: block;
     }
 
-    a {
+    a,
+    label {
       @include nav-item;
     }
 
@@ -88,7 +90,8 @@ $z-index: 5555;
 
     li {
       line-height: 3rem;
-      a {
+      a,
+      label {
         border-bottom: 1px solid $color-primary-1;
         padding: 0 1rem;
       }
@@ -96,7 +99,8 @@ $z-index: 5555;
       ul {
         background: var(--background-alt);
         li {
-          a {
+          a,
+          label {
             padding: 0 2rem;
           }
         }
