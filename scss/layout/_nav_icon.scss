@@ -1,0 +1,71 @@
+@use "sass:math";
+
+.nav-toggle-label {
+  display: none;
+  @media (max-width: $nav-swap) {
+    $icon-size: 0.5rem;
+    $icon-gap: $icon-size * 1;
+    line-height: ($icon-size * 3) + ($icon-gap * 2);
+    height: ($icon-size * 3) + ($icon-gap * 2);
+    display: flex;
+    align-items: center;
+
+    > span {
+      span {
+        display: none;
+      }
+
+      display: block;
+      position: relative;
+      line-height: ($icon-size * 3) + $icon-gap;
+
+      &,
+      &:before,
+      &:after {
+        background: $color-primary-0;
+        width: $icon-size * 6;
+        height: $icon-size;
+        border-radius: math.div($icon-size, 2);
+        position: relative;
+      }
+
+      &:before,
+      &:after {
+        content: " ";
+        position: absolute;
+      }
+
+      &:before {
+        top: -($icon-size + $icon-gap);
+        width: $icon-size * 3;
+      }
+
+      &:after {
+        top: ($icon-size + $icon-gap);
+        width: $icon-size * 4.5;
+      }
+    }
+  }
+}
+
+nav {
+  .nav-toggle-label {
+    position: absolute;
+    top: 0;
+    right: 0.25rem;
+    width: auto;
+    padding: 0.5rem;
+    font-size: 1.75rem;
+    line-height: 1em;
+
+    &::before {
+      height: 1em;
+      line-height: 1em;
+      color: #fff;
+      content: "\2716";
+    }
+    span {
+      display: none;
+    }
+  }
+}

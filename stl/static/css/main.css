@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* generated with grunt-sass-globbing */
 /* generated with grunt-sass-globbing */
 /* fontdiner-swanky-regular - latin */
@@ -805,34 +806,62 @@ header .social-links svg {
   display: block;
 }
 
-header .social-links {
+.nav-toggle-label {
   display: none;
+}
+@media (max-width: 992px) {
+  .nav-toggle-label {
+    line-height: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .nav-toggle-label > span {
+    display: block;
+    position: relative;
+    line-height: 2rem;
+  }
+  .nav-toggle-label > span span {
+    display: none;
+  }
+  .nav-toggle-label > span, .nav-toggle-label > span:before, .nav-toggle-label > span:after {
+    background: #582a72;
+    width: 3rem;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+    position: relative;
+  }
+  .nav-toggle-label > span:before, .nav-toggle-label > span:after {
+    content: " ";
+    position: absolute;
+  }
+  .nav-toggle-label > span:before {
+    top: -1rem;
+    width: 1.5rem;
+  }
+  .nav-toggle-label > span:after {
+    top: 1rem;
+    width: 2.25rem;
+  }
 }
 
-.nav-toggle-label {
-  display: block;
-  position: relative;
-  line-height: 2.625rem;
-}
-.nav-toggle-label span {
-  display: none;
-}
-.nav-toggle-label, .nav-toggle-label:before, .nav-toggle-label:after {
-  background: #582a72;
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-  position: relative;
-}
-.nav-toggle-label:before, .nav-toggle-label:after {
-  content: " ";
+nav .nav-toggle-label {
   position: absolute;
+  top: 0;
+  right: 0.25rem;
+  width: auto;
+  padding: 0.5rem;
+  font-size: 1.75rem;
+  line-height: 1em;
 }
-.nav-toggle-label:before {
-  top: -1.125rem;
+nav .nav-toggle-label::before {
+  height: 1em;
+  line-height: 1em;
+  color: #fff;
+  content: "✖";
 }
-.nav-toggle-label:after {
-  top: 1.125rem;
+nav .nav-toggle-label span {
+  display: none;
 }
 
 @media (max-width: 992px) {
@@ -841,11 +870,14 @@ header .social-links {
     align-items: center;
   }
 
-  .nav-toggle-label {
-    position: absolute;
-    z-index: 5565;
+  nav .social-links a, nav .social-links label {
+    border: none;
+    padding: 0;
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
   }
-
   nav ul {
     padding: 0;
     margin: 0;
@@ -877,7 +909,7 @@ nav label {
     position: fixed;
     top: 0;
     right: 0;
-    bottom: 0;
+    height: 100vh;
     background: var(--background);
     z-index: 5555;
     transform: translateX(clamp(275px, 40vw, 350px));
@@ -929,7 +961,7 @@ nav label {
     position: fixed;
     top: 0;
     right: 0;
-    bottom: 0;
+    height: 100vh;
     left: 100%;
     background: rgba(0, 0, 0, 0.5);
   }
@@ -1065,6 +1097,7 @@ nav ul li label:after {
   nav > ul {
     list-style: none;
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
 }
@@ -1320,7 +1353,7 @@ a::selection, nav label::selection {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: pink;
+    --background: #fff;
   }
 }
 @media screen and (max-width: 576px) {

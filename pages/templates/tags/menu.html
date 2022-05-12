@@ -1,18 +1,30 @@
 {% load navigation_tags wagtailcore_tags %}
 <ul class="nav-level-{{ level }}">
-{% for menuitem in menuitems %}
-    <li class="item level-{{ level }} {{ menuitem.title|lower|cut:" " }}{% if menuitem.active %} active{% endif %}{% if menuitem.show_dropdown %} has-submenu{% endif %}">
-        {% if menuitem.show_dropdown %}
-            <label for="{{ menuitem.title|lower|cut:' ' }}" class="top-level" aria-label="{{ menuitem.title }}">
-                {{ menuitem.title }}
-            </label>
-            <input id="{{ menuitem.title|lower|cut:' ' }}" type="checkbox" class="submenu-toggle" hidden/>
-            {% menu parent=menuitem calling_page=calling_page level=level %}
-        {% else %}
-            <a href="{% pageurl menuitem %}" class="top-level" aria-label="{{ menuitem.title }}">
-                {{ menuitem.title }}
-            </a>
-        {% endif %}
+    {% if level == 1 %}
+    <label for="nav-toggle" class="nav-toggle-label">
+        <span>Close Navigation</span>
+    </label>
+    {% endif %}
+    {% for menuitem in menuitems %}
+        <li class="item level-{{ level }} {{ menuitem.title|lower|cut:" " }}{% if menuitem.active %} active{% endif %}{% if menuitem.show_dropdown %} has-submenu{% endif %}">
+            {% if menuitem.show_dropdown %}
+                <label for="{{ menuitem.title|lower|cut:' ' }}" class="top-level" aria-label="{{ menuitem.title }}">
+                    {{ menuitem.title }}
+                </label>
+                <input id="{{ menuitem.title|lower|cut:' ' }}" type="checkbox" class="submenu-toggle" hidden/>
+                {% menu parent=menuitem calling_page=calling_page level=level %}
+            {% else %}
+                <a href="{% pageurl menuitem %}" class="top-level" aria-label="{{ menuitem.title }}">
+                    {{ menuitem.title }}
+                </a>
+            {% endif %}
+        </li>
+    {% endfor %}
+    {% if level == 1 %}
+    <li class="social-links">
+        <a href="{{ settings.pages.SiteSettings.facebook }}" title="Facebook" aria-label="Facebook" rel="noopener" target="_blank">
+            {% include "icons/facebook.svg" %}
+        </a>
     </li>
-{% endfor %}
+    {% endif %}
 </ul>

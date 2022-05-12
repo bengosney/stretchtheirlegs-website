@@ -1,59 +1,10 @@
 @use "sass:math";
 
-$nav-swap: $screen-md;
-$mobile_width: clamp(275px, 40vw, 350px);
 $z-index: 5555;
 
 nav {
   label {
     @extend a;
-  }
-}
-
-header {
-  .social-links {
-    display: none;
-  }
-}
-
-.nav-toggle-label {
-  $icon-size: 0.75rem;
-  $icon-gap: $icon-size * 0.5;
-
-  //position: absolute;
-  //right: $icon-size * 3;
-  //top: ($icon-size + $icon-gap) + $icon-size;
-
-  span {
-    display: none;
-  }
-
-  display: block;
-  position: relative;
-
-  line-height: ($icon-size * 3) + $icon-gap;
-  &,
-  &:before,
-  &:after {
-    background: $color-primary-0;
-    width: $icon-size;
-    height: $icon-size;
-    border-radius: 50%;
-    position: relative;
-  }
-
-  &:before,
-  &:after {
-    content: " ";
-    position: absolute;
-  }
-
-  &:before {
-    top: -($icon-size + $icon-gap);
-  }
-
-  &:after {
-    top: ($icon-size + $icon-gap);
   }
 }
 
@@ -63,12 +14,18 @@ header {
     align-items: center;
   }
 
-  .nav-toggle-label {
-    position: absolute;
-    z-index: $z-index + 10;
-  }
-
   nav {
+    .social-links {
+      a {
+        border: none;
+        padding: 0;
+        display: flex;
+        height: 3rem;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
     ul {
       padding: 0;
       margin: 0;
@@ -121,7 +78,7 @@ header {
       position: fixed;
       top: 0;
       right: 0;
-      bottom: 0;
+      height: 100vh;
       background: var(--background);
       z-index: $z-index;
 
@@ -170,7 +127,7 @@ header {
       position: fixed;
       top: 0;
       right: 0;
-      bottom: 0;
+      height: 100vh;
       left: 100%;
       background: rgba(0, 0, 0, 0.5);
     }
@@ -237,6 +194,7 @@ header {
     & > ul {
       list-style: none;
       display: flex;
+      align-items: center;
 
       @include in-size((xxs, xs)) {
         flex-direction: column;
