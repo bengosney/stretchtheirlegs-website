@@ -10,7 +10,59 @@ nav {
   }
 }
 
+header {
+  .social-links {
+    display: none;
+  }
+}
+
+.nav-toggle-label {
+  $icon-size: 0.75rem;
+  $icon-gap: $icon-size * 0.5;
+
+  //position: absolute;
+  //right: $icon-size * 3;
+  //top: ($icon-size + $icon-gap) + $icon-size;
+
+  span {
+    display: none;
+  }
+
+  display: block;
+  position: relative;
+
+  line-height: ($icon-size * 3) + $icon-gap;
+  &,
+  &:before,
+  &:after {
+    background: $color-primary-0;
+    width: $icon-size;
+    height: $icon-size;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  &:before,
+  &:after {
+    content: " ";
+    position: absolute;
+  }
+
+  &:before {
+    top: -($icon-size + $icon-gap);
+  }
+
+  &:after {
+    top: ($icon-size + $icon-gap);
+  }
+}
+
 @media (max-width: $nav-swap) {
+  .links {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
   .nav-toggle-label {
     position: absolute;
     z-index: $z-index + 10;
@@ -96,7 +148,6 @@ nav {
         label {
           &::after {
             content: "";
-            //right: $size * 6;
             top: calc(1.25em - math.div($size, 2));
             position: absolute;
             right: $size * 1.5;
