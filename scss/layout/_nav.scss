@@ -4,6 +4,12 @@ $nav-swap: $screen-md;
 $mobile_width: clamp(275px, 40vw, 350px);
 $z-index: 5555;
 
+nav {
+  label {
+    @extend a;
+  }
+}
+
 @media (max-width: $nav-swap) {
   .nav-toggle-label {
     position: absolute;
@@ -74,6 +80,36 @@ $z-index: 5555;
         list-style: none;
         padding: 0;
       }
+
+      ul {
+        display: none;
+      }
+
+      input:checked + ul {
+        display: block;
+      }
+
+      $size: 0.5rem;
+
+      li {
+        position: relative;
+        label {
+          &::after {
+            content: "";
+            //right: $size * 6;
+            top: calc(1.25em - math.div($size, 2));
+            position: absolute;
+            right: $size * 1.5;
+            display: block;
+            float: right;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: $size $size 0 $size;
+            border-color: $color-primary-0 transparent transparent transparent;
+          }
+        }
+      }
     }
 
     &::before {
@@ -101,9 +137,22 @@ $z-index: 5555;
         li {
           a,
           label {
-            padding: 0 2rem;
+            padding-left: 2rem;
           }
         }
+      }
+    }
+  }
+
+  $base: lighten($color-primary-0, 90%);
+  @for $i from 1 through 10 {
+    .nav-level-#{$i} {
+      background: darken($base, $i * 7.5);
+    }
+    .level-#{$i} {
+      a,
+      label {
+        padding-left: 0.25rem + (0.75rem * $i);
       }
     }
   }
@@ -124,7 +173,8 @@ $z-index: 5555;
         padding: 0;
         margin: 0;
 
-        a {
+        a,
+        label {
           white-space: nowrap;
           &:after {
             transition: all 0.2s ease-in-out;
@@ -145,7 +195,8 @@ $z-index: 5555;
 
       & > li {
         &.has-submenu {
-          & > a {
+          & > a,
+          label {
             &:hover {
               &:after {
                 border-color: $color-primary-1 transparent transparent transparent;
@@ -159,10 +210,10 @@ $z-index: 5555;
               position: relative;
               width: 0;
               height: 0;
-              top: -(math.div($size, 2));
               border-style: solid;
               border-width: $size $size 0 $size;
               border-color: $color-primary-0 transparent transparent transparent;
+              top: -(math.div($size, 2));
             }
           }
         }
@@ -182,7 +233,8 @@ $z-index: 5555;
         $padding: 1rem;
 
         .has-submenu {
-          & > a {
+          & > a,
+          label {
             position: relative;
             padding-right: 2.5rem;
             &:hover {
@@ -197,6 +249,7 @@ $z-index: 5555;
               right: $padding;
               width: 0;
               height: 0;
+              top: initial;
               border-style: solid;
               border-width: $size 0 $size $size;
               border-color: transparent transparent transparent $color-primary-0;
@@ -211,7 +264,8 @@ $z-index: 5555;
 
         flex-direction: column;
         li {
-          a {
+          a,
+          label {
             font-size: $font-size;
             display: block;
             margin: 0;
@@ -230,7 +284,8 @@ $z-index: 5555;
       }
     }
 
-    a {
+    a,
+    label {
       font-family: $font-headding;
       padding: 0.5rem;
       margin: 0 1rem;
