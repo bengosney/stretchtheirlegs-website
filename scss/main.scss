@@ -21,6 +21,8 @@ $container-gap: 20px;
   --background-alt: #{lighten($color-primary-2, 35%)};
   --text-colour: #2a2a2a;
   --header-heigh: 6rem;
+  --logo-extra: 2vw;
+  --size-text: "no-size";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,16 +34,19 @@ $container-gap: 20px;
 @media screen and (max-width: $screen-xs) {
   :root {
     --container-padding: 5vw;
+    --logo-extra: 1rem;
   }
 }
 @media screen and (min-width: $screen-xs) {
   :root {
     --max-width: #{$screen-xs};
+    --logo-extra: 0vw;
   }
 }
 @media screen and (min-width: $screen-sm) {
   :root {
     --max-width: #{$screen-sm};
+    --logo-extra: 1vw;
   }
 }
 @media screen and (min-width: $screen-md) {

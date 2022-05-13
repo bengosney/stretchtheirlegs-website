@@ -2,8 +2,7 @@
 
 header {
   height: var(--header-heigh);
-  $padding: 2rem;
-  padding: math.div($padding, 2) 0;
+  padding: 1rem 0;
   box-sizing: border-box;
 
   > div {
@@ -17,9 +16,6 @@ header {
     flex: 1;
   }
 
-  nav {
-  }
-
   a {
     display: inline-block;
   }
@@ -31,7 +27,12 @@ header {
       display: inline-block;
       max-width: 100%;
       width: auto;
-      height: calc(2vw + var(--header-heigh));
+      height: calc(var(--logo-extra) + var(--header-heigh));
+
+      @include in-size(xxs) {
+        height: calc(100% + var(--logo-extra));
+      }
+
       path {
         fill: $color-primary-0;
       }

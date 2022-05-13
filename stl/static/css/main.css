@@ -718,7 +718,12 @@ header .logo-link svg {
   display: inline-block;
   max-width: 100%;
   width: auto;
-  height: calc(2vw + var(--header-heigh));
+  height: calc(var(--logo-extra) + var(--header-heigh));
+}
+@media (max-width: 575px) {
+  header .logo-link svg {
+    height: calc(100% + var(--logo-extra));
+  }
 }
 header .logo-link svg path {
   fill: #582a72;
@@ -1349,6 +1354,8 @@ a::selection, nav label::selection {
   --background-alt: #cbb4d7;
   --text-colour: #2a2a2a;
   --header-heigh: 6rem;
+  --logo-extra: 2vw;
+  --size-text: "no-size" ;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1359,31 +1366,40 @@ a::selection, nav label::selection {
 @media screen and (max-width: 576px) {
   :root {
     --container-padding: 5vw;
+    --size-text: "< xs";
+    --logo-extra: 1rem;
   }
 }
 @media screen and (min-width: 576px) {
   :root {
     --max-width: 576px;
+    --size-text: "xs";
+    --logo-extra: 0vw;
   }
 }
 @media screen and (min-width: 768px) {
   :root {
     --max-width: 768px;
+    --size-text: "sm";
+    --logo-extra: 1vw;
   }
 }
 @media screen and (min-width: 992px) {
   :root {
     --max-width: 992px;
+    --size-text: "md";
   }
 }
 @media screen and (min-width: 1200px) {
   :root {
     --max-width: 1200px;
+    --size-text: "lg";
   }
 }
 @media screen and (min-width: 1400px) {
   :root {
     --max-width: 1400px;
+    --size-text: "xl";
   }
 }
 img {
@@ -1394,6 +1410,15 @@ img {
 body {
   background: var(--background);
   color: var(--text-colour);
+}
+body::before {
+  content: var(--size-text);
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: black;
+  color: white;
+  padding: 0.25rem 0.5rem;
 }
 
 a, nav label {
