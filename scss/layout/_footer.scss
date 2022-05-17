@@ -21,19 +21,12 @@ footer {
     }
 
     .footer-col {
+      @include in-size((xxs, xs)) {
+        margin-bottom: 2rem;
+      }
       text-align: center;
       display: flex;
       flex-direction: column;
-
-      /*
-      padding: 0 1rem 1rem;
-      &:first-child {
-        padding-left: 0;
-      }
-      &:last-child {
-        padding-right: 0;
-      }
-      */
     }
 
     a {
@@ -73,12 +66,15 @@ footer {
   }
 
   .memberships {
-    background: var(--background);
     padding: 1rem 0.5rem;
     width: 100%;
+    a {
+      background: var(--background);
+      padding: 0.5rem;
+    }
 
-    @include triangle-top($footer-color);
-    @include triangle-bottom($footer-color);
+    //@include triangle-top($footer-color);
+    //@include triangle-bottom($footer-color);
     overflow: hidden;
   }
 }

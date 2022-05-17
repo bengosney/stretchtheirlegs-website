@@ -599,15 +599,16 @@ footer .footer-row .footer-col {
   text-align: center;
   display: flex;
   flex-direction: column;
-  /*
-  padding: 0 1rem 1rem;
-  &:first-child {
-    padding-left: 0;
+}
+@media (max-width: 575px) {
+  footer .footer-row .footer-col {
+    margin-bottom: 2rem;
   }
-  &:last-child {
-    padding-right: 0;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  footer .footer-row .footer-col {
+    margin-bottom: 2rem;
   }
-  */
 }
 footer .footer-row a, footer .footer-row nav label, nav footer .footer-row label {
   font-size: 1.25rem;
@@ -635,34 +636,13 @@ footer .footer-row svg {
   height: 2em;
 }
 footer .memberships {
-  background: var(--background);
   padding: 1rem 0.5rem;
   width: 100%;
-  position: relative;
-  position: relative;
   overflow: hidden;
 }
-footer .memberships:before {
-  content: " ";
-  width: 100%;
-  position: absolute;
-  overflow: hidden;
-  pointer-events: none;
-  border-top: 150px solid #d3d3d3;
-  border-right: 3000px solid transparent;
-  top: 0;
-  right: 0;
-}
-footer .memberships:after {
-  content: " ";
-  width: 100%;
-  position: absolute;
-  overflow: hidden;
-  pointer-events: none;
-  border-bottom: 150px solid #d3d3d3;
-  border-left: 3000px solid transparent;
-  bottom: 0;
-  left: 0;
+footer .memberships a, footer .memberships nav label, nav footer .memberships label {
+  background: var(--background);
+  padding: 0.5rem;
 }
 
 .field-wrapper {
@@ -1355,7 +1335,7 @@ a::selection, nav label::selection {
   --text-colour: #2a2a2a;
   --header-heigh: 6rem;
   --logo-extra: 2vw;
-  --size-text: "no-size" ;
+  --size-text: "no-size";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1366,40 +1346,34 @@ a::selection, nav label::selection {
 @media screen and (max-width: 576px) {
   :root {
     --container-padding: 5vw;
-    --size-text: "< xs";
     --logo-extra: 1rem;
   }
 }
 @media screen and (min-width: 576px) {
   :root {
     --max-width: 576px;
-    --size-text: "xs";
     --logo-extra: 0vw;
   }
 }
 @media screen and (min-width: 768px) {
   :root {
     --max-width: 768px;
-    --size-text: "sm";
     --logo-extra: 1vw;
   }
 }
 @media screen and (min-width: 992px) {
   :root {
     --max-width: 992px;
-    --size-text: "md";
   }
 }
 @media screen and (min-width: 1200px) {
   :root {
     --max-width: 1200px;
-    --size-text: "lg";
   }
 }
 @media screen and (min-width: 1400px) {
   :root {
     --max-width: 1400px;
-    --size-text: "xl";
   }
 }
 img {
@@ -1410,15 +1384,6 @@ img {
 body {
   background: var(--background);
   color: var(--text-colour);
-}
-body::before {
-  content: var(--size-text);
-  position: fixed;
-  top: 0;
-  right: 0;
-  background: black;
-  color: white;
-  padding: 0.25rem 0.5rem;
 }
 
 a, nav label {
