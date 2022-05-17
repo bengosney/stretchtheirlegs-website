@@ -474,23 +474,28 @@ small,
 .banner {
   position: relative;
 }
-body.full-height-banner .banner img {
-  height: 100vh;
+body.full-height-banner .banner .banner_text {
+  min-height: calc(100vh - var(--header-heigh));
 }
 .banner img {
-  max-width: 100%;
   width: 100vw;
-  max-height: calc(100vh - var(--header-heigh));
-  min-height: 25rem;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: cover;
   display: block;
-  height: 55vh;
 }
 .banner picture {
   display: block;
   position: relative;
   position: relative;
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
 }
 .banner picture:before {
   content: " ";
@@ -515,21 +520,18 @@ body.full-height-banner .banner img {
   left: 0;
 }
 .banner .banner_text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 .banner .banner_text .container .banner_text_inner {
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 3vw;
+  padding: clamp(4rem, 7.5vw, 9rem) 0;
 }
 .banner .banner_text h1,
 .banner .banner_text h2 {
