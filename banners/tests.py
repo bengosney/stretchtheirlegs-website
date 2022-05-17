@@ -15,7 +15,9 @@ from .models import Banner
 class DayMonthFieldTests(TestCase):
     def test_pre_save(self):
         with freeze_time("2020-01-01"):
-            banner = Banner.objects.create(show_from=date(2020, 1, 1))
+            banner = Banner.objects.create(show_from=date(2020, 1, 1), show_to=date(2021, 5, 5))
+            banner.save()
+
             self.assertEqual(banner.show_from, date(1970, 1, 1))
 
 
@@ -28,8 +30,9 @@ class BannerTests(TestCase):
         self.assertEqual(created, banner)
 
     def test_image_dates(self):
-        Banner.objects.create(show_from=date(2020, 1, 1), show_to=date(2020, 6, 1))
+        Banner.objects.create(show_from=date(2020, 1, 1), show_to=date(2020, 6, 1)).save()
         created_second = Banner.objects.create(show_from=date(2020, 6, 2), show_to=date(2020, 12, 31))
+        created_second.save()
 
         for b in Banner.objects.all():
             ic(b.show_from, b.show_to)

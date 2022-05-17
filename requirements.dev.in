@@ -4,6 +4,7 @@ django-debug-toolbar
 django-debugtools
 django-stubs
 freezegun
+hypothesis
 icecream
 model_bakery
 mypy

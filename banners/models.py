@@ -40,6 +40,7 @@ class Banner(statusMixin, models.Model):
     def getCurrentImage(cls):
         today = datetime.now()
 
+        today = today.replace(year=1970)
         ic(today)
 
         try:

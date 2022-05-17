@@ -32,7 +32,9 @@ async-timeout==4.0.2 \
 attrs==21.4.0 \
     --hash=sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4 \
     --hash=sha256:626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd
-    # via pytest
+    # via
+    #   hypothesis
+    #   pytest
 beautifulsoup4==4.9.3 \
     --hash=sha256:4c98143716ef1cb40bf7f39a8e3eec8f8b009509e74904ba3a7b315431577e35 \
     --hash=sha256:84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25 \
@@ -389,6 +391,10 @@ html5lib==1.1 \
     #   -c requirements.txt
     #   -r requirements.txt
     #   wagtail
+hypothesis==6.46.5 \
+    --hash=sha256:40ebd37782b029b4063f50932c8678b2c494d97b5ec5fadcb02fca4e411a62dc \
+    --hash=sha256:67c17f4555957f76831a831c31f77eb5c6051b671277cf4973d17e0f5169f648
+    # via -r requirements.dev.in
 icecream==2.1.2 \
     --hash=sha256:04b9cea4d9931cf6960db0430ebf11fa34464ce7152e384ddf50f96d25b201b4 \
     --hash=sha256:09300b2d1c678712410cbd47c95198eb1b580f66f311a554ccd6b9e758ece0ee
@@ -840,6 +846,10 @@ six==1.16.0 \
     #   l18n
     #   python-dateutil
     #   virtualenv
+sortedcontainers==2.4.0 \
+    --hash=sha256:25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88 \
+    --hash=sha256:a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0
+    # via hypothesis
 soupsieve==2.3.2.post1 \
     --hash=sha256:3b2503d3c7084a42b1ebd08116e5f81aadfaea95863628c80a3b774a11b7c759 \
     --hash=sha256:fc53893b3da2c33de295667a0e19f078c14bf86544af307354de5fcf12a3f30d

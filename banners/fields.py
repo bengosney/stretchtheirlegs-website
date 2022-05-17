@@ -18,7 +18,7 @@ class DayMonthField(models.DateField):
         super().__init__(*args, **kwargs)
 
     def get_year(self, model_instance):
-        with contextlib.suppress(FieldDoesNotExist, KeyError):
+        with contextlib.suppress(FieldDoesNotExist, KeyError, TypeError):
             if model_instance.__dict__[self.after] > model_instance.__dict__[self.name]:
                 field = model_instance._meta.get_field(self.after)
                 return field.get_year(model_instance) + 1
@@ -27,7 +27,11 @@ class DayMonthField(models.DateField):
     def pre_save(self, model_instance, add):
         year = self.get_year(model_instance)
         value = super().pre_save(model_instance, add)
-        return value.replace(year=year)
+        with contextlib.suppress(AttributeError):
+            value = value.replace(year=year)
+            model_instance.__dict__[self.name] = value
+
+        return value
 
     def from_db_value(self, value, expression, connection):
         return value.replace(year=datetime.now().year)
