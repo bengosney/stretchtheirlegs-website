@@ -7,8 +7,10 @@ from django.test import TestCase
 # Third Party
 from freezegun import freeze_time
 
+# First Party
+from fh_utils.fields import DayMonthField
+
 # Locals
-from .fields import DayMonthField
 from .models import Banner
 
 

@@ -4,8 +4,8 @@ from hypothesis.extra.django import TestCase
 from hypothesis.strategies import dates
 
 # First Party
-from modulestatus import ModelStatus
-from modulestatus.models import statusDateMixin
+from fh_utils import ModelStatus
+from fh_utils.models import statusDateMixin
 
 # Locals
 from . import tomorrow, yesterday

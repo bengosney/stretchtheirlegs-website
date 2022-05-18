@@ -10,7 +10,7 @@ from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from django_extensions.db import fields
 
 # First Party
-from modulestatus.models import statusDateRangeMixin
+from fh_utils.models import statusDateRangeMixin
 
 
 class Message(statusDateRangeMixin, models.Model):

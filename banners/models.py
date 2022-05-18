@@ -10,10 +10,8 @@ from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
 # First Party
-from modulestatus.models import statusMixin
-
-# Locals
-from .fields import DayMonthField
+from fh_utils.fields import DayMonthField
+from fh_utils.models import statusMixin
 
 
 class Banner(statusMixin, models.Model):

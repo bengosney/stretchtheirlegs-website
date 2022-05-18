@@ -2,8 +2,8 @@
 from django.test import TestCase
 
 # First Party
-from modulestatus import ModelStatus
-from modulestatus.models import statusMixin
+from fh_utils import ModelStatus
+from fh_utils.models import statusMixin
 
 # Locals
 from .abstract_mixin import AbstractModelMixinTestCase

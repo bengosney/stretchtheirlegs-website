@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     "search",
     "site_messages",
     "banners",
-    "modulestatus",
+    "fh_utils",
     "wagtail_picture_tag",
     "wagtail.contrib.settings",
     "wagtail.contrib.styleguide",
