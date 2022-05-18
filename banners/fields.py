@@ -1,6 +1,5 @@
 # Standard Library
 import contextlib
-from datetime import datetime
 
 # Django
 from django.core.exceptions import FieldDoesNotExist
@@ -33,5 +32,5 @@ class DayMonthField(models.DateField):
 
         return value
 
-    def from_db_value(self, value, expression, connection):
-        return value.replace(year=datetime.now().year)
+    # def from_db_value(self, value, expression, connection):
+    #    return value.replace(year=datetime.now().year)

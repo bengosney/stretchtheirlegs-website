@@ -45,10 +45,8 @@ class Banner(statusMixin, models.Model):
 
         try:
             image = cls.objects.filter(
-                show_from__month__lte=today.month,
-                show_from__day__lte=today.day,
-                show_to__month__gte=today.month,
-                show_to__day__gte=today.day,
+                show_from__lte=today,
+                show_to__gte=today,
             )[0]
         except IndexError:
             image = None
