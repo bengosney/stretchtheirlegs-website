@@ -15,7 +15,7 @@ class statusManager(models.Manager):
 
 class statusDateManager(statusManager):
     def get_queryset(self):
-        return super().get_queryset().filter(published__lte=datetime.today().date())
+        return super().get_queryset().filter(published__lte=datetime.now().date())
 
 
 class statusDateRangeManager(statusManager):
@@ -28,15 +28,3 @@ class statusDateRangeManager(statusManager):
                 published_to__gte=datetime.today().date(),
             )
         )
-
-
-try:
-    # Third Party
-    from polymorphic_tree.managers import PolymorphicMPTTModelManager
-
-    class PolymorphicMPTTStatusManager(PolymorphicMPTTModelManager):
-        def get_queryset(self):
-            return super().get_queryset().filter(status=ModelStatus.LIVE_STATUS)
-
-except ImportError:
-    pass
