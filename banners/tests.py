@@ -6,9 +6,9 @@ from django.test import TestCase
 
 # Third Party
 from freezegun import freeze_time
-from icecream import ic
 
 # Locals
+from .fields import DayMonthField
 from .models import Banner
 
 
@@ -18,7 +18,7 @@ class DayMonthFieldTests(TestCase):
             banner = Banner.objects.create(show_from=date(2020, 1, 1), show_to=date(2021, 5, 5))
             banner.save()
 
-            self.assertEqual(banner.show_from, date(1970, 1, 1))
+            self.assertEqual(banner.show_from, date(DayMonthField.get_base_year(), 1, 1))
 
 
 class BannerTests(TestCase):
@@ -39,12 +39,15 @@ class BannerTests(TestCase):
 
             self.assertEqual(created_second, banner)
 
-    def test_span_year(self):
-        Banner.objects.create(show_from=date(2020, 11, 1), show_to=date(2021, 2, 1)).save()
+    def test_span_year_end(self):
+        self._test_year_span("2021-12-01")
 
-        for b in Banner.objects.all():
-            ic(b.show_from, b.show_to)
+    def test_span_year_start(self):
+        self._test_year_span("2021-2-01")
 
-        with freeze_time("2021-12-01"):
+    def _test_year_span(self, arg0):
+        Banner.objects.create(show_from=date(2020, 11, 1), show_to=date(2021, 3, 1))
+        with freeze_time(arg0):
             banner = Banner.getCurrentImage()
-            self.assertIsNone(banner)
+
+        self.assertIsNotNone(banner)
