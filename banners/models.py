@@ -25,6 +25,9 @@ class Banner(statusDatePeriodMixin, models.Model):
         FieldPanel("image"),
     ]
 
+    class Meta:
+        default_manager_name = "admin_objects"
+
     @classmethod
     def getCurrentImage(cls):
         try:

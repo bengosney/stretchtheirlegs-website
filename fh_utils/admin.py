@@ -1,26 +1,7 @@
 # Django
-from django.db import models
 
 
-class adminManagerAdmin:
-    model: type[models.Model]
-    is_pagemodel: bool
-
-    def get_queryset(self, request):
-        try:
-            qs = self.model.admin_objects.get_queryset()
-        except AttributeError:
-            qs = self.model._default_manager.get_queryset()
-
-        if ordering := self.get_ordering(request):
-            qs = qs.order_by(*ordering)
-
-        if self.is_pagemodel:
-            qs = qs.exclude(depth=1)
-        return qs
-
-
-class statusAdmin(adminManagerAdmin):
+class statusAdmin:
     def __init__(self, model, admin_site):
         super().__init__(model, admin_site)
 
@@ -28,7 +9,7 @@ class statusAdmin(adminManagerAdmin):
         self.list_filter = ["status"] + list(self.list_filter)
 
 
-class datePeriodAdmin(adminManagerAdmin):
+class datePeriodAdmin:
     def __init__(self, model, admin_site):
         super().__init__(model, admin_site)
 
@@ -36,7 +17,7 @@ class datePeriodAdmin(adminManagerAdmin):
         self.list_filter = ["show_from", "show_to"] + list(self.list_filter)
 
 
-class dateAdmin(adminManagerAdmin):
+class dateAdmin:
     def __init__(self, model, admin_site):
         super().__init__(model, admin_site)
 
@@ -44,7 +25,7 @@ class dateAdmin(adminManagerAdmin):
         self.list_filter = ["status", "published"] + list(self.list_filter)
 
 
-class dateRangeAdmin(adminManagerAdmin):
+class dateRangeAdmin:
     def __init__(self, model, admin_site):
         super().__init__(model, admin_site)
 

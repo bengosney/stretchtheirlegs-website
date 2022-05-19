@@ -15,8 +15,8 @@ from .managers import dateManager, datePeriodManager, dateRangeManager, statusMa
 class statusMixin(models.Model):
     status = models.IntegerField(_("Status"), choices=ModelStatus.STATUS_CHOICES, default=ModelStatus.LIVE_STATUS)
 
-    objects = statusManager()
     admin_objects = models.Manager()
+    objects = statusManager()
 
     class Meta:
         abstract = True
