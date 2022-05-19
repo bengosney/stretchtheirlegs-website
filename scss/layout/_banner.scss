@@ -5,6 +5,16 @@
     }
   }
 
+  @include triangle-top(var(--background));
+  @include triangle-bottom(var(--background));
+  &:after,
+  &:before {
+    z-index: 5;
+  }
+  overflow: hidden;
+  background: $color-primary-1;
+  background: linear-gradient(141deg, $color-primary-0 0%, $color-primary-1 35%, $color-primary-4 100%);
+
   img {
     width: 100vw;
     height: 100%;
@@ -17,8 +27,6 @@
 
   picture {
     display: block;
-    @include triangle-top(var(--background));
-    @include triangle-bottom(var(--background));
     overflow: hidden;
 
     position: absolute;

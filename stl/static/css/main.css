@@ -473,9 +473,39 @@ small,
 
 .banner {
   position: relative;
+  position: relative;
+  overflow: hidden;
+  background: #9775aa;
+  background: linear-gradient(141deg, #582a72 0%, #9775aa 35%, #260339 100%);
+  position: relative;
 }
 body.full-height-banner .banner .banner_text {
   min-height: calc(100vh - var(--header-heigh));
+}
+.banner:before {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-top: 150px solid var(--background);
+  border-right: 3000px solid transparent;
+  top: 0;
+  right: 0;
+}
+.banner:after {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-bottom: 150px solid var(--background);
+  border-left: 3000px solid transparent;
+  bottom: 0;
+  left: 0;
+}
+.banner:after, .banner:before {
+  z-index: 5;
 }
 .banner img {
   width: 100vw;
@@ -487,8 +517,6 @@ body.full-height-banner .banner .banner_text {
 }
 .banner picture {
   display: block;
-  position: relative;
-  position: relative;
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -496,28 +524,6 @@ body.full-height-banner .banner .banner_text {
   right: 0;
   bottom: 0;
   z-index: 1;
-}
-.banner picture:before {
-  content: " ";
-  width: 100%;
-  position: absolute;
-  overflow: hidden;
-  pointer-events: none;
-  border-top: 150px solid var(--background);
-  border-right: 3000px solid transparent;
-  top: 0;
-  right: 0;
-}
-.banner picture:after {
-  content: " ";
-  width: 100%;
-  position: absolute;
-  overflow: hidden;
-  pointer-events: none;
-  border-bottom: 150px solid var(--background);
-  border-left: 3000px solid transparent;
-  bottom: 0;
-  left: 0;
 }
 .banner .banner_text {
   display: flex;
