@@ -1,11 +1,14 @@
 # Wagtail
 from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
 
+# First Party
+from fh_utils.admin import adminManagerAdmin
+
 # Locals
 from .models import Banner
 
 
-class BannerAdmin(ModelAdmin):
+class BannerAdmin(adminManagerAdmin, ModelAdmin):
     model = Banner
     menu_label = "Banner Images"
     menu_icon = "image"
