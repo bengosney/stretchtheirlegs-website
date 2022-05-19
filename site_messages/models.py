@@ -20,6 +20,9 @@ class Message(statusDateRangeMixin, models.Model):
 
     slug = fields.AutoSlugField(populate_from="title")
 
+    class Meta:
+        default_manager_name = "admin_objects"
+
     def __str__(self):
         return f"{self.title}"
 
