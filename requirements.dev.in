@@ -14,5 +14,7 @@ pip-tools
 pre-commit
 pytest
 pytest-clarity
+pytest-cov
 pytest-django
 pytest-picked
+pytest-watch
