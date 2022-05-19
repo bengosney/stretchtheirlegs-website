@@ -8,7 +8,8 @@ from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 
 # Locals
 from . import ModelStatus
-from .managers import dateManager, dateRangeManager, statusManager
+from .fields import DayMonthField
+from .managers import dateManager, datePeriodManager, dateRangeManager, statusManager
 
 
 class statusMixin(models.Model):
@@ -25,6 +26,27 @@ class statusMixin(models.Model):
 
     mixin_panels = [
         FieldPanel("status"),
+    ]
+
+
+class statusDatePeriodMixin(statusMixin):
+    show_from = DayMonthField(_("Show From"))
+    show_to = DayMonthField(_("Show To"), after="show_from")
+
+    objects = type("statusSatePeriodManager", (statusManager, datePeriodManager), {})()
+
+    class Meta:
+        abstract = True
+
+    mixin_panels = [
+        MultiFieldPanel(
+            statusMixin.mixin_panels
+            + [
+                FieldPanel("show_from"),
+                FieldPanel("show_to"),
+            ],
+            heading=_("Date Range"),
+        ),
     ]
 
 
