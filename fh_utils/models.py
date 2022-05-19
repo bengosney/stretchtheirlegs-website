@@ -8,7 +8,7 @@ from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 
 # Locals
 from . import ModelStatus
-from .managers import statusDateManager, statusDateRangeManager, statusManager
+from .managers import dateManager, dateRangeManager, statusManager
 
 
 class statusMixin(models.Model):
@@ -31,7 +31,7 @@ class statusMixin(models.Model):
 class statusDateMixin(statusMixin):
     published = models.DateField(_("Published"))
 
-    objects = statusDateManager()
+    objects = type("statusDateManager", (statusManager, dateManager), {})()
 
     class Meta:
         abstract = True
@@ -51,7 +51,7 @@ class statusDateRangeMixin(statusMixin):
     published_from = models.DateField(_("Published from"))
     published_to = models.DateField(_("Published to"))
 
-    objects = statusDateRangeManager()
+    objects = type("statusDateRangeManager", (statusManager, dateRangeManager), {})()
 
     class Meta:
         abstract = True

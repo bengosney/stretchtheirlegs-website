@@ -13,18 +13,18 @@ class statusManager(models.Manager):
         return super().get_queryset().filter(status=ModelStatus.LIVE_STATUS)
 
 
-class statusDateManager(statusManager):
+class dateManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().filter(published__lte=datetime.now().date())
+        return super().get_queryset().filter(published__lte=datetime.now())
 
 
-class statusDateRangeManager(statusManager):
+class dateRangeManager(models.Manager):
     def get_queryset(self):
         return (
             super()
             .get_queryset()
             .filter(
-                published_from__lte=datetime.today().date(),
-                published_to__gte=datetime.today().date(),
+                published_from__lte=datetime.now(),
+                published_to__gte=datetime.now(),
             )
         )
