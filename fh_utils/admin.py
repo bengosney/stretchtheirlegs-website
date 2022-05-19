@@ -1,4 +1,11 @@
+# Django
+from django.db import models
+
+
 class adminManagerAdmin:
+    model: type[models.Model]
+    is_pagemodel: bool
+
     def get_queryset(self, request):
         try:
             qs = self.model.admin_objects.get_queryset()
@@ -7,8 +14,8 @@ class adminManagerAdmin:
 
         if ordering := self.get_ordering(request):
             qs = qs.order_by(*ordering)
+
         if self.is_pagemodel:
-            # If we're listing pages, exclude the root page
             qs = qs.exclude(depth=1)
         return qs
 
