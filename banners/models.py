@@ -1,23 +1,17 @@
 # Standard Library
-from datetime import datetime
 
 # Django
 from django.db import models
-from django.db.models import Q
 
 # Wagtail
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
 # First Party
-from fh_utils.fields import DayMonthField
-from fh_utils.models import statusMixin
+from fh_utils.models import statusDatePeriodMixin, statusMixin
 
 
-class Banner(statusMixin, models.Model):
-    show_from = DayMonthField()
-    show_to = DayMonthField(after="show_from")
-
+class Banner(statusDatePeriodMixin, models.Model):
     image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
 
     panels = [
@@ -34,13 +28,8 @@ class Banner(statusMixin, models.Model):
 
     @classmethod
     def getCurrentImage(cls):
-        today = datetime.now().replace(year=DayMonthField.get_base_year())
-        nextYear = today.replace(year=today.year + 1)
-
         try:
-            image = cls.objects.filter(
-                Q(show_from__lte=today, show_to__gte=today) | Q(show_from__lte=nextYear, show_to__gte=nextYear)
-            ).order_by("show_from")[0]
+            image = cls.objects.all().order_by("show_from")[0]
         except IndexError:
             image = None
 

@@ -14,7 +14,7 @@ from fh_utils.fields import DayMonthField
 from .models import Banner
 
 
-class DayMonthFieldTests(TestCase):
+class BannerTests(TestCase):
     def test_pre_save(self):
         with freeze_time("2020-01-01"):
             banner = Banner.objects.create(show_from=date(2020, 1, 1), show_to=date(2021, 5, 5))
@@ -22,8 +22,6 @@ class DayMonthFieldTests(TestCase):
 
             self.assertEqual(banner.show_from, date(DayMonthField.get_base_year(), 1, 1))
 
-
-class BannerTests(TestCase):
     def test_get(self):
         created = Banner.objects.create(show_from=date(2020, 1, 1), show_to=date(2020, 12, 31))
 
