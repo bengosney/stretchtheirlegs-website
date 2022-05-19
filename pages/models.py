@@ -2,14 +2,13 @@
 from django.db import models
 
 # Wagtail
-from wagtail.admin.edit_handlers import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel
 from wagtail.contrib.forms.edit_handlers import FormSubmissionsPanel
 from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 
 # Third Party
@@ -35,7 +34,7 @@ class Membership(models.Model):
     panels = [
         FieldPanel("name"),
         FieldPanel("url"),
-        ImageChooserPanel("image"),
+        FieldPanel("image"),
     ]
 
     def __str__(self):
@@ -49,13 +48,14 @@ class HomePage(Page):
         [
             ("Paragraph", blocks.RichTextBlock()),
             ("Services", ServicesBlock()),
-        ]
+        ],
+        use_json_field=True,
     )
 
     parent_page_types = ["wagtailcore.Page"]
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel("body"),
+        FieldPanel("body"),
     ]
 
 
@@ -67,11 +67,12 @@ class InfoPage(Page):
             ("Paragraph", blocks.RichTextBlock()),
             ("Services", ServicesBlock()),
             ("Item", ItemBlock()),
-        ]
+        ],
+        use_json_field=True,
     )
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel("body"),
+        FieldPanel("body"),
     ]
 
 
@@ -83,7 +84,7 @@ class ServicePage(Page):
     image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
 
     content_panels = Page.content_panels + [
-        ImageChooserPanel("image"),
+        FieldPanel("image"),
         FieldPanel("short_description"),
         FieldPanel("body"),
     ]
@@ -101,13 +102,14 @@ class FormPage(AbstractEmailForm):
             ("Form", FormBlock()),
         ],
         blank=True,
+        use_json_field=True,
     )
     thank_you_text = RichTextField(blank=True)
     submit_text = models.CharField(max_length=255, default="Submit")
 
     content_panels = AbstractEmailForm.content_panels + [
         FormSubmissionsPanel(),
-        StreamFieldPanel("body"),
+        FieldPanel("body"),
         InlinePanel("form_fields", label="Form fields"),
         MultiFieldPanel(
             [
