@@ -13,7 +13,7 @@ class TestSiteMessages(TestCase):
         msg = baker.make(Message)
         self.assertEqual(msg.session_key, f"message-{msg.slug}-dismissed")
 
-    def test_dissmiss_session(self):
+    def test_dismiss_session(self):
         msg = baker.make(Message)
 
         session = self.client.session
@@ -28,12 +28,12 @@ class TestSiteMessages(TestCase):
         msg.dismiss(session)
         self.assertEqual(len(Message.get_messages(session)), after)
 
-    def test_dissmissed_get(self):
+    def test_dismissed_get(self):
         baker.make(Message)
         msg = baker.make(Message)
         self.check_dismissed(msg, 2, 1)
 
-    def test_not_dissable(self):
+    def test_not_disable(self):
         baker.make(Message)
         msg = baker.make(Message, dismissible=False)
 
