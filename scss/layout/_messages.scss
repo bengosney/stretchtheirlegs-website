@@ -1,0 +1,43 @@
+.messages {
+  background: $color-primary-0;
+}
+
+.message {
+  & + & {
+    border-top: 1px solid $color-primary-1;
+  }
+
+  position: relative;
+  padding: 1em 0;
+  color: #fff;
+
+  details {
+    summary {
+      cursor: pointer;
+    }
+
+    .body {
+      p {
+        color: #fff;
+      }
+    }
+  }
+
+  .close_button {
+    $size: 1.25em;
+    float: right;
+    color: #fff;
+    font-size: 1.75em;
+    line-height: 1em;
+
+    text-indent: -99999px;
+    overflow: hidden;
+
+    &:before {
+      content: "\2716";
+      text-indent: 0px;
+      float: left;
+      margin: 0;
+    }
+  }
+}

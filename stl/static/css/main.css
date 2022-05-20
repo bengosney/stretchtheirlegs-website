@@ -799,6 +799,39 @@ header .social-links svg {
   display: block;
 }
 
+.messages {
+  background: #582a72;
+}
+
+.message {
+  position: relative;
+  padding: 1em 0;
+  color: #fff;
+}
+.message + .message {
+  border-top: 1px solid #9775aa;
+}
+.message details summary {
+  cursor: pointer;
+}
+.message details .body p {
+  color: #fff;
+}
+.message .close_button {
+  float: right;
+  color: #fff;
+  font-size: 1.75em;
+  line-height: 1em;
+  text-indent: -99999px;
+  overflow: hidden;
+}
+.message .close_button:before {
+  content: "✖";
+  text-indent: 0px;
+  float: left;
+  margin: 0;
+}
+
 .nav-toggle-label {
   display: none;
 }
