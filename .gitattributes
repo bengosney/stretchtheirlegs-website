@@ -1,3 +1,4 @@
 stl/static/**/*.css binary
 stl/static/**/*.map binary
 stl/static/**/*.js binary
+scss/_imports.scss binary
