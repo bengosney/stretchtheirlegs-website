@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailuserbar banner_tags picture_tags %}
+{% load static wagtailcore_tags wagtailuserbar banner_tags picture_tags message_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -26,6 +26,7 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
+        {% messages %}
 
         {% block header %}
             {% include 'header.html' %}
