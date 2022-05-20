@@ -713,14 +713,18 @@ header .logo-link svg {
     height: calc(100% + var(--logo-extra));
   }
 }
-header .logo-link svg path {
-  fill: #582a72;
-}
 header .social-links {
   color: #582a72;
 }
 header .social-links svg {
   height: calc(var(--header-heigh) * 0.35);
+}
+header .social-links svg path {
+  fill: #582a72;
+  transition: all 0.2s ease-in-out;
+}
+header .social-links a:hover svg path, header .social-links nav label:hover svg path, nav header .social-links label:hover svg path {
+  fill: #9775aa;
 }
 
 .item h3, .item footer .title, footer .item .title {
@@ -1436,13 +1440,6 @@ a.no-dec, nav label.no-dec {
 }
 a:hover, nav label:hover {
   color: #9775aa;
-}
-a:hover path, nav label:hover path {
-  fill: #9775aa;
-}
-a path, nav label path {
-  fill: #582a72;
-  transition: all 0.2s ease-in-out;
 }
 
 /*# sourceMappingURL=main.css.map */

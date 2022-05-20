@@ -29,7 +29,7 @@ class Banner(statusDatePeriodMixin, models.Model):
         default_manager_name = "admin_objects"
 
     @classmethod
-    def getCurrentImage(cls):
+    def get_current_image(cls):
         try:
             image = cls.objects.all().order_by("show_from")[0]
         except IndexError:

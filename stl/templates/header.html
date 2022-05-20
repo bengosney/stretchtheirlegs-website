@@ -1,9 +1,7 @@
-{% load navigation_tags %}
+{% load navigation_tags logo_tags %}
 <header>
     <div class="container">
-        <a href="/" class="logo-link" title="Stretch Their Legs" aria-label="Stretch Their Legs home page">
-            {% include "logo.svg" %}
-        </a>
+        {% logo %}
         <div class="links">
             <label for="nav-toggle" class="nav-toggle-label">
                 <span>

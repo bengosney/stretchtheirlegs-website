@@ -9,8 +9,4 @@ register = template.Library()
 
 @register.simple_tag(takes_context=True)
 def get_banner(context):
-    try:
-        banner = Banner.objects.all()[0]
-        return banner.image
-    except IndexError:
-        return None
+    return banner.image if (banner := Banner.get_current_image()) else None

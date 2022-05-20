@@ -25,7 +25,7 @@ class BannerTests(TestCase):
     def test_get(self):
         created = Banner.objects.create(show_from=date(2020, 1, 1), show_to=date(2020, 12, 31))
 
-        banner = Banner.getCurrentImage()
+        banner = Banner.get_current_image()
 
         self.assertEqual(created, banner)
 
@@ -35,7 +35,7 @@ class BannerTests(TestCase):
         created_second.save()
 
         with freeze_time("2022-07-01"):
-            banner = Banner.getCurrentImage()
+            banner = Banner.get_current_image()
 
             self.assertEqual(created_second, banner)
 
@@ -48,6 +48,6 @@ class BannerTests(TestCase):
     def _test_year_span(self, arg0):
         Banner.objects.create(show_from=date(2020, 11, 1), show_to=date(2021, 3, 1))
         with freeze_time(arg0):
-            banner = Banner.getCurrentImage()
+            banner = Banner.get_current_image()
 
         self.assertIsNotNone(banner)

@@ -1,0 +1,7 @@
+<a href="/" class="logo-link" title="{{ title }}" aria-label="Stretch Their Legs home page">
+{% if logo %}
+    {{ logo|safe }}
+{% else %}
+    {% include "logo.svg" %}
+{% endif %}
+</a>
