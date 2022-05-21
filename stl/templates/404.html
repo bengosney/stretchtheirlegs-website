@@ -2,10 +2,17 @@
 
 {% block title %}Page not found{% endblock %}
 
-{% block body_class %}template-404{% endblock %}
+{% block banner_text %}
+<h1>404 - Page not found</h1>
+{% endblock %}
 
 {% block content %}
-    <h1>Page not found</h1>
-
-    <h2>Sorry, this page could not be found.</h2>
+<div class="error404">
+    <blockquote cite="https://www.terrypratchettbooks.com/books/wyrd-sisters/">
+        <p>Granny Weatherwax was not lost. She wasn't the kind of person who ever became lost. It was just that, at the moment, while she knew exactly where SHE was, she didn't know the position of anywhere else.</p>
+        <footer>
+            Terry Pratchett, <cite>Wyrd Sisters</cite>
+        </footer>
+    </blockquote>
+</div>
 {% endblock %}
