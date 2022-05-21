@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "banners",
     "logos",
     "fh_utils",
+    "social",
     "wagtail_picture_tag",
     "wagtail.contrib.settings",
     "wagtail.contrib.styleguide",
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sitemaps",
 ]
 
 MIDDLEWARE = [

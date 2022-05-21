@@ -394,13 +394,17 @@ a:visited {
   vertical-align: middle;
 }
 
+svg.colour {
+  fill: #582a72;
+}
+
 html,
 body,
 p,
 h1,
 h2,
 h3,
-footer .title,
+body > footer .title,
 h4 {
   color: #2a2a2a;
 }
@@ -433,7 +437,7 @@ li {
 h1,
 h2,
 h3,
-footer .title,
+body > footer .title,
 h4 {
   font-family: "Fontdiner Swanky", cursive;
   margin: 1.414em 0 0.75em;
@@ -444,7 +448,7 @@ h4 {
 h1.alt,
 h2.alt,
 h3.alt,
-footer .alt.title,
+body > footer .alt.title,
 h4.alt {
   font-family: -apple-system, blinkmacsystemfont, "Segoe UI", helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
@@ -458,7 +462,7 @@ h2 {
   font-size: 2.827em;
 }
 
-h3, footer .title {
+h3, body > footer .title {
   font-size: 1.999em;
 }
 
@@ -469,6 +473,32 @@ h4 {
 small,
 .font_small {
   font-size: 0.707em;
+}
+
+.error404 {
+  font-size: 1.2em;
+}
+.error404 blockquote {
+  padding: 2em 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50rem;
+}
+.error404 blockquote p::before {
+  content: "“";
+}
+.error404 blockquote p::after {
+  content: "”";
+}
+.error404 blockquote footer {
+  background: none;
+  padding: 0;
+  background: 0 0;
+  padding: 0;
+}
+.error404 blockquote footer:before {
+  content: "–";
+  position: static;
 }
 
 .banner {
@@ -569,14 +599,14 @@ body.full-height-banner .banner .banner_text {
   width: auto;
 }
 
-footer {
+body > footer {
   margin-top: 3rem;
   padding: 2rem 0;
   background: #d3d3d3;
   min-height: 10rem;
   position: relative;
 }
-footer:before {
+body > footer:before {
   content: " ";
   width: 100%;
   position: absolute;
@@ -587,68 +617,68 @@ footer:before {
   top: 0;
   right: 0;
 }
-footer .footer-row {
+body > footer .footer-row {
   padding-top: 5rem;
   padding-bottom: 1rem;
   display: flex;
   justify-content: space-between;
 }
 @media (max-width: 575px) {
-  footer .footer-row {
+  body > footer .footer-row {
     flex-direction: column;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
-  footer .footer-row {
+  body > footer .footer-row {
     flex-direction: column;
   }
 }
-footer .footer-row .footer-col {
+body > footer .footer-row .footer-col {
   text-align: center;
   display: flex;
   flex-direction: column;
 }
 @media (max-width: 575px) {
-  footer .footer-row .footer-col {
+  body > footer .footer-row .footer-col {
     margin-bottom: 2rem;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
-  footer .footer-row .footer-col {
+  body > footer .footer-row .footer-col {
     margin-bottom: 2rem;
   }
 }
-footer .footer-row a, footer .footer-row nav label, nav footer .footer-row label {
+body > footer .footer-row a, body > footer .footer-row nav label, nav body > footer .footer-row label {
   font-size: 1.25rem;
   line-height: 2em;
 }
-footer .footer-row .social a, footer .footer-row .social nav label, nav footer .footer-row .social label {
+body > footer .footer-row .social a, body > footer .footer-row .social nav label, nav body > footer .footer-row .social label {
   display: inline-block;
   height: 2em;
 }
-footer .footer-row .title {
+body > footer .footer-row .title {
   margin-top: 0;
   margin-bottom: 0.5rem;
   padding-top: 0;
 }
-footer .footer-row .content {
+body > footer .footer-row .content {
   flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-footer .footer-row .content a, footer .footer-row .content nav label, nav footer .footer-row .content label {
+body > footer .footer-row .content a, body > footer .footer-row .content nav label, nav body > footer .footer-row .content label {
   white-space: nowrap;
 }
-footer .footer-row svg {
+body > footer .footer-row svg {
   height: 2em;
 }
-footer .memberships {
+body > footer .memberships {
   padding: 1rem 0.5rem;
   width: 100%;
   overflow: hidden;
 }
-footer .memberships a, footer .memberships nav label, nav footer .memberships label {
+body > footer .memberships a, body > footer .memberships nav label, nav body > footer .memberships label {
   background: var(--background);
   padding: 0.5rem;
 }
@@ -727,7 +757,7 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
   fill: #9775aa;
 }
 
-.item h3, .item footer .title, footer .item .title {
+.item h3, .item body > footer .title, body > footer .item .title {
   margin-bottom: 0;
 }
 .item picture {
@@ -1320,7 +1350,7 @@ nav label.active {
 .service-list-block .service-list .service:last-child {
   margin-right: 0;
 }
-.service-list-block .service-list .service h3, .service-list-block .service-list .service footer .title, footer .service-list-block .service-list .service .title {
+.service-list-block .service-list .service h3, .service-list-block .service-list .service body > footer .title, body > footer .service-list-block .service-list .service .title {
   margin-bottom: 0.5rem;
   line-height: 1em;
   position: relative;

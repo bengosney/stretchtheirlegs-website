@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailuserbar banner_tags picture_tags message_tags %}
+{% load static wagtailcore_tags wagtailuserbar banner_tags picture_tags message_tags social_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -15,6 +15,8 @@
         </title>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {% social_tags %}
 
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
@@ -57,9 +59,6 @@
         {% block footer %}
         {% include 'footer.html' %}
         {% endblock %}
-
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/stl.js' %}"></script>
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}

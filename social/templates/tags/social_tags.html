@@ -1,0 +1,9 @@
+{% load wagtailimages_tags %}
+
+{% image og_image original as tmp_img %}
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ og_title }}" />
+<meta property="og:url" content="{{ og_url }}" />
+<meta property="og:description" content="{{ og_description }}" />
+<meta property="og:image" content="{{ og_url }}{{ tmp_img.url }}" />

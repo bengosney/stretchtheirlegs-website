@@ -1,5 +1,6 @@
 # Django
 from django.db import models
+from django.http import Http404
 
 # Wagtail
 from wagtail.admin.edit_handlers import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel
@@ -135,3 +136,9 @@ class FormPage(AbstractEmailForm):
 
 class MenuPage(Page):
     show_in_menus_default = True
+
+    def get_sitemap_urls(self, request=None):
+        return []
+
+    def serve(self, request, *args, **kwargs):
+        raise Http404()
