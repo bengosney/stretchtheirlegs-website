@@ -69,6 +69,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+    "csp.middleware.CSPMiddleware",
 ]
 
 ROOT_URLCONF = "stl.urls"
@@ -175,4 +176,13 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = "http://example.com"
+BASE_URL = "https://www.stretchtheirlegs.co.uk"
+CSRF_TRUSTED_ORIGINS = [BASE_URL]
+
+CSP_DEFAULT_SRC = "'self'"
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com")
+CSP_STYLE_SRC = ("'self'", "fonts.googleapis.com", "'unsafe-inline'")
+CSP_FONT_SRC = ("'self'", "cdn.stretchtheirlegs.co.uk")
+CSP_IMG_SRC = ("'self'", "data:", "cdn.stretchtheirlegs.co.uk")
+
+CSP_EXCLUDE_URL_PREFIXES = ("/admin/",)

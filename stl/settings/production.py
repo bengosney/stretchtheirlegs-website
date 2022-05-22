@@ -1,4 +1,5 @@
 # Standard Library
+import contextlib
 import os
 
 # Third Party
@@ -39,31 +40,33 @@ COMPRESS_CSS_FILTERS = [
 ]
 COMPRESS_CSS_HASHING_METHOD = "content"
 
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+with contextlib.suppress(KeyError):
+    AWS_ACCESS_KEY_ID = env["AWS_ACCESS_KEY_ID"]
+    AWS_SECRET_ACCESS_KEY = env["AWS_SECRET_ACCESS_KEY"]
+    AWS_STORAGE_BUCKET_NAME = env["AWS_STORAGE_BUCKET_NAME"]
+    AWS_QUERYSTRING_AUTH = False
+    AWS_S3_CUSTOM_DOMAIN = env["AWS_S3_CUSTOM_DOMAIN"]
+    AWS_LOCATION = env["AWS_LOCATION"] if "AWS_LOCATION" in env else ""
+    AWS_S3_OBJECT_PARAMETERS = {
+        "CacheControl": "max-age=86400",
+    }
+    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
-AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
-AWS_QUERYSTRING_AUTH = False
-AWS_S3_CUSTOM_DOMAIN = os.environ.get("AWS_S3_CUSTOM_DOMAIN")
-AWS_S3_OBJECT_PARAMETERS = {
-    "CacheControl": "max-age=86400",
-}
-
-HONEYBADGER = {"API_KEY": env["HONEYBADGER_API_KEY"]}
-
-MIDDLEWARE += [  # noqa
-    "honeybadger.contrib.DjangoHoneybadgerMiddleware",
-]
+with contextlib.suppress(KeyError):
+    HONEYBADGER = {"API_KEY": env["HONEYBADGER_API_KEY"]}
+    MIDDLEWARE += [  # noqa
+        "honeybadger.contrib.DjangoHoneybadgerMiddleware",
+    ]
 
 WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = True
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = os.environ.get("SMTP_HOST")
-EMAIL_HOST_USER = os.environ.get("SMTP_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("SMTP_PASS")
-EMAIL_PORT = os.environ.get("SMTP_PORT")
-EMAIL_USE_TLS = True
+with contextlib.suppress(KeyError):
+    EMAIL_HOST = env["SMTP_HOST"]
+    EMAIL_HOST_USER = env["SMTP_USER"]
+    EMAIL_HOST_PASSWORD = env["SMTP_PASS"]
+    EMAIL_PORT = env["SMTP_PORT"]
+    EMAIL_USE_TLS = True
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 
 if "REDIS_URL" in os.environ:
@@ -79,8 +82,6 @@ if "REDIS_URL" in os.environ:
     }
 
 
-try:
+with contextlib.suppress(ImportError):
     # Locals
     from .local import *  # noqa
-except ImportError:
-    pass
