@@ -4,9 +4,6 @@ from django import template
 # Wagtail
 from wagtail.models import Site
 
-# Third Party
-from icecream import ic
-
 # Locals
 from ..models import Social
 
@@ -17,7 +14,7 @@ register = template.Library()
 def social_tags(context):
     site = Site.find_for_request(context["request"])
     settings = Social.for_request(context["request"])
-    ic(settings)
+
     return {
         "og_description": settings.description,
         "og_image": settings.image,

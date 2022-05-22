@@ -8,7 +8,6 @@ from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 
 # Third Party
 from django_extensions.db import fields
-from icecream import ic
 
 # First Party
 from fh_utils.models import statusDateRangeMixin
@@ -28,14 +27,11 @@ class Message(statusDateRangeMixin, models.Model):
         return f"{self.title}"
 
     def dismiss(self, session):
-        print("dismissing")
         if not self.dismissible:
             return
 
         session[self.session_key] = True
         session.modified = True
-        print("dissmissed")
-        ic(session.items())
 
     @property
     def dismiss_url(self):

@@ -6,10 +6,6 @@ from typing import cast
 from django.db import connection
 from django.db.models import Model
 from django.db.models.base import ModelBase
-from django.test.utils import CaptureQueriesContext
-
-# Third Party
-from icecream import ic
 
 # from hypothesis.extra.django import TestCase
 
@@ -38,11 +34,8 @@ class AbstractModelMixinTestCase:
             ),
         )
 
-        with CaptureQueriesContext(connection) as ctx:
-            with connection.schema_editor() as schema_editor:
-                schema_editor.create_model(cls.model)
-
-            ic(ctx.captured_queries)
+        with connection.schema_editor() as schema_editor:
+            schema_editor.create_model(cls.model)
 
         with contextlib.suppress(AttributeError):
             super().setUpClass()
