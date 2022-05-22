@@ -32,6 +32,9 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECRET_KEY = env["SECRET_KEY"]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+MIDDLEWARE += [  # noqa
+    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+]
 
 COMPRESS_OFFLINE = True
 COMPRESS_CSS_FILTERS = [
@@ -54,7 +57,7 @@ with contextlib.suppress(KeyError):
 
 with contextlib.suppress(KeyError):
     HONEYBADGER = {"API_KEY": env["HONEYBADGER_API_KEY"]}
-    MIDDLEWARE += [  # noqa
+    MIDDLEWARE += [
         "honeybadger.contrib.DjangoHoneybadgerMiddleware",
     ]
 
