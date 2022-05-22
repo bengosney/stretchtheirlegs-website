@@ -33,7 +33,7 @@ SECRET_KEY = env["SECRET_KEY"]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 MIDDLEWARE += [  # noqa
-    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 COMPRESS_OFFLINE = True
