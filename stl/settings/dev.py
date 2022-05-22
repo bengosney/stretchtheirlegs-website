@@ -13,6 +13,33 @@ ALLOWED_HOSTS = ["*"]
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
+INSTALLED_APPS += [  # noqa
+    "debug_toolbar",
+    "debugtools",
+]
+
+MIDDLEWARE += [  # noqa
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+]
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "incremental": True,
+    "root": {
+        "level": "DEBUG",
+    },
+}
+
+CSP_DEFAULT_SRC = None
+CSP_STYLE_SRC = None
+CSP_FONT_SRC = None
+CSP_IMG_SRC = None
+
 try:
     # Locals
     from .local import *  # noqa

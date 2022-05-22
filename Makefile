@@ -55,6 +55,8 @@ clean: ## Remove all build files
 	find . -type d -name '__pycache__' -delete
 	rm -rf .pytest_cache
 	rm -f .testmondata
+	rm -rf .mypy_cache
+	rm -rf .hypothesis
 
 package-lock.json: package.json
 	npm install
