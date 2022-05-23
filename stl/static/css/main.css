@@ -757,6 +757,49 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
   fill: #9775aa;
 }
 
+.image_row {
+  display: flex;
+  justify-content: space-evenly;
+}
+.image_row picture {
+  position: relative;
+  position: relative;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+.image_row picture:before {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-top: 150px solid var(--background);
+  border-right: 3000px solid transparent;
+  top: 0;
+  right: 0;
+}
+.image_row picture:after {
+  content: " ";
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-bottom: 150px solid var(--background);
+  border-left: 3000px solid transparent;
+  bottom: 0;
+  left: 0;
+}
+.image_row picture img {
+  display: block;
+  flex: 1;
+}
+.image_row picture:first-child {
+  padding-left: 0;
+}
+.image_row picture:last-child {
+  padding-right: 0;
+}
+
 .item h3, .item body > footer .title, body > footer .item .title {
   margin-bottom: 0;
 }

@@ -227,7 +227,7 @@ module.exports = function (grunt) {
   grunt.registerTask("icons", ["webfont"]);
   grunt.registerTask("scss", ["sass_globbing", "sass"]);
   grunt.registerTask("js", ["babel", "uglify"]);
-  grunt.registerTask("css", ["scss", "purifycss", "postcss"]);
+  grunt.registerTask("css", ["scss", /*"purifycss",*/ "postcss"]);
   grunt.registerTask("fav", ["realFavicon"]);
   grunt.registerTask("compile", ["realFavicon", "icons", "css", "js"]);
   grunt.registerTask("default", ["compile"]);
