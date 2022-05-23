@@ -16,7 +16,7 @@ from wagtail.snippets.models import register_snippet
 from modelcluster.fields import ParentalKey
 
 # Locals
-from .blocks import FormBlock, ItemBlock, ServicesBlock
+from .blocks import FormBlock, ImageRow, ItemBlock, ServicesBlock
 
 
 @register_setting
@@ -49,6 +49,7 @@ class HomePage(Page):
         [
             ("Paragraph", blocks.RichTextBlock()),
             ("Services", ServicesBlock()),
+            ("ImageRow", ImageRow()),
         ],
         use_json_field=True,
     )
@@ -68,6 +69,7 @@ class InfoPage(Page):
             ("Paragraph", blocks.RichTextBlock()),
             ("Services", ServicesBlock()),
             ("Item", ItemBlock()),
+            ("ImageRow", ImageRow()),
         ],
         use_json_field=True,
     )

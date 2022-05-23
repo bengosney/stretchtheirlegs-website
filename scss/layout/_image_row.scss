@@ -1,0 +1,22 @@
+.image_row {
+  display: flex;
+  justify-content: space-evenly;
+  picture {
+    @include triangle-top(var(--background));
+    @include triangle-bottom(var(--background));
+    padding: 0 1rem;
+    overflow: hidden;
+    img {
+      display: block;
+      flex: 1;
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}

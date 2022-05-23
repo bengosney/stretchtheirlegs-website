@@ -5,6 +5,19 @@ from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
 
 
+class FlexBlock(blocks.ListBlock):
+    class Meta:
+        template = "pages/blocks/flex_block.html"
+
+
+class ImageRow(blocks.ListBlock):
+    class Meta:
+        template = "pages/blocks/image_row.html"
+
+    def __init__(self, **kwargs):
+        super().__init__(ImageChooserBlock(), **kwargs)
+
+
 class ServicesBlock(blocks.StructBlock):
     title = blocks.CharBlock(required=True, max_length=255)
     body = blocks.RichTextBlock(required=False)

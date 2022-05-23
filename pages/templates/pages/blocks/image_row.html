@@ -1,0 +1,7 @@
+{% load wagtailcore_tags picture_tags %}
+
+<div class="image_row">
+{% for child in value %}
+    {% picture child width-450 %}
+{% endfor %}
+</div>
