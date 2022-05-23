@@ -9,8 +9,8 @@ module.exports = function (grunt) {
         src: "stl/static/fav-logo.svg",
         dest: "stl/static/favicon/",
         options: {
-          iconsPath: "/static/pages/favicon/",
-          html: ["templates/favicon.html"],
+          iconsPath: "/static/favicon/",
+          html: ["stl/templates/favicon.html"],
           design: {
             ios: {
               pictureAspect: "backgroundAndMargin",
