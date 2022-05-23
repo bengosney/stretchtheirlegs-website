@@ -2,7 +2,6 @@
 /* generated with grunt-sass-globbing */
 /* generated with grunt-sass-globbing */
 /* fontdiner-swanky-regular - latin */
-@import url("https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&display=swap");
 @font-face {
   font-family: "Fontdiner Swanky";
   font-style: normal;
@@ -509,8 +508,18 @@ small,
   background: linear-gradient(141deg, #582a72 0%, #9775aa 35%, #260339 100%);
   position: relative;
 }
-body.full-height-banner .banner .banner_text {
-  min-height: calc(100vh - var(--header-heigh));
+body.full-height-banner .banner .banner_text .container .banner_text_inner {
+  padding: 7rem 0;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  body.full-height-banner .banner .banner_text {
+    min-height: calc(100vh - var(--header-heigh));
+  }
+}
+@media (min-width: 1200px) {
+  body.full-height-banner .banner .banner_text {
+    min-height: calc(100vh - var(--header-heigh));
+  }
 }
 .banner:before {
   content: " ";

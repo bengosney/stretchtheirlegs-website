@@ -1,7 +1,14 @@
 .banner {
   body.full-height-banner & {
     .banner_text {
-      min-height: calc(100vh - var(--header-heigh));
+      .container {
+        .banner_text_inner {
+          padding: 7rem 0;
+        }
+      }
+      @include in-size((md, lg)) {
+        min-height: calc(100vh - var(--header-heigh));
+      }
     }
   }
 
