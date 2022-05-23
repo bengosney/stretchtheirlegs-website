@@ -45,7 +45,9 @@ body > footer {
       margin-top: 0;
       margin-bottom: 0.5rem;
       padding-top: 0;
-      //font-size: clamp(1rem, 2.5vw, 2rem);
+      @include in-size(sm) {
+        font-size: 1.5rem;
+      }
     }
 
     .content {
@@ -55,8 +57,10 @@ body > footer {
       justify-content: center;
 
       a {
-        //font-size: clamp(1rem, 1.5vw, 2rem);
         white-space: nowrap;
+        @include in-size(sm) {
+          font-size: 1rem;
+        }
       }
     }
 

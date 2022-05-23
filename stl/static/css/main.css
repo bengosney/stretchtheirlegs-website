@@ -661,6 +661,11 @@ body > footer .footer-row .title {
   margin-bottom: 0.5rem;
   padding-top: 0;
 }
+@media (min-width: 768px) and (max-width: 991px) {
+  body > footer .footer-row .title {
+    font-size: 1.5rem;
+  }
+}
 body > footer .footer-row .content {
   flex-grow: 1;
   display: flex;
@@ -669,6 +674,11 @@ body > footer .footer-row .content {
 }
 body > footer .footer-row .content a, body > footer .footer-row .content nav label, nav body > footer .footer-row .content label {
   white-space: nowrap;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  body > footer .footer-row .content a, body > footer .footer-row .content nav label, nav body > footer .footer-row .content label {
+    font-size: 1rem;
+  }
 }
 body > footer .footer-row svg {
   height: 2em;
@@ -803,6 +813,12 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
 .item h3, .item body > footer .title, body > footer .item .title {
   margin-bottom: 0;
 }
+.item .item-body {
+  overflow: auto;
+}
+.item p {
+  margin-top: 0;
+}
 .item picture {
   float: left;
   max-width: 50%;
@@ -811,7 +827,7 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
   position: relative;
   position: relative;
   overflow: hidden;
-  margin-top: 0.5em;
+  margin-top: 0.45rem;
   margin-right: 1.25rem;
   margin-bottom: 0.5rem;
 }
