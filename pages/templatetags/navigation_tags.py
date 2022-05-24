@@ -4,6 +4,9 @@ from django import template
 # Wagtail
 from wagtail.core.models import Site
 
+# Locals
+from ..models import SiteSettings
+
 register = template.Library()
 
 
@@ -40,11 +43,14 @@ def menu(context, parent=None, calling_page=None, level=0):
         menuitems[0].show_dropdown = False
         menuitems[0].active = calling_page.url_path == menuitems[0].url_path if calling_page else False
 
+    siteSettings = SiteSettings.for_request(context["request"])
+
     return {
         "level": level,
         "calling_page": calling_page,
         "menuitems": menuitems,
         "request": context["request"],
+        "site_settings": siteSettings,
     }
 
 
