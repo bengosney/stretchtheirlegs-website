@@ -7,7 +7,7 @@ django-storages
 django_extensions
 gunicorn
 honeybadger
-opencv-python
+opencv-python-headless
 psycopg2
 redis
 rustface
