@@ -6,6 +6,7 @@
   font-family: "Fontdiner Swanky";
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: url("https://cdn.stretchtheirlegs.co.uk/fonts/fontdiner-swanky-v8-latin-regular.eot");
   src: local("Fontdiner Swanky Regular"), local("FontdinerSwanky-Regular"), url("https://cdn.stretchtheirlegs.co.uk/fonts/fontdiner-swanky-v8-latin-regular.eot?#iefix") format("embedded-opentype"), url("https://cdn.stretchtheirlegs.co.uk/fonts/fontdiner-swanky-v8-latin-regular.woff2") format("woff2"), url("https://cdn.stretchtheirlegs.co.uk/fonts/fontdiner-swanky-v8-latin-regular.woff") format("woff"), url("https://cdn.stretchtheirlegs.co.uk/fonts/fontdiner-swanky-v8-latin-regular.ttf") format("truetype"), url("https://cdn.stretchtheirlegs.co.uk/fonts/fontdiner-swanky-v8-latin-regular.svg#FontdinerSwanky") format("svg");
 }
