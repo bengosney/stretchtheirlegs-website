@@ -14,10 +14,14 @@ register = template.Library()
 def social_tags(context):
     site = Site.find_for_request(context["request"])
     settings = Social.for_request(context["request"])
+    context["site"] = site
+
+    jsonld = template.Template(settings.json_ld)
 
     return {
         "og_description": settings.description,
         "og_image": settings.image,
         "og_title": site.site_name,
         "og_url": site.root_url,
+        "jsonld": jsonld.render(context),
     }
