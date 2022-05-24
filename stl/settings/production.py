@@ -51,7 +51,7 @@ with contextlib.suppress(KeyError):
     AWS_S3_CUSTOM_DOMAIN = env["AWS_S3_CUSTOM_DOMAIN"]
     AWS_LOCATION = env["AWS_LOCATION"] if "AWS_LOCATION" in env else ""
     AWS_S3_OBJECT_PARAMETERS = {
-        "CacheControl": "max-age=86400",
+        "CacheControl": f"max-age={86400 * 365}",
     }
     DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
