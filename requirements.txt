@@ -171,7 +171,6 @@ django==4.0.4 \
     #   django-csp
     #   django-extensions
     #   django-filter
-    #   django-health-check
     #   django-modelcluster
     #   django-permissionedforms
     #   django-storages
@@ -191,10 +190,6 @@ django-filter==21.1 \
     --hash=sha256:632a251fa8f1aadb4b8cceff932bb52fe2f826dd7dfe7f3eac40e5c463d6836e \
     --hash=sha256:f4a6737a30104c98d2e2a5fb93043f36dd7978e0c7ddc92f5998e85433ea5063
     # via wagtail
-django-health-check==3.16.5 \
-    --hash=sha256:1edfd49293ccebbce29f9da609c407f307aee240ab799ab4201031341ae78c0f \
-    --hash=sha256:8d66781a0ea82b1a8b44878187b38a27370e94f18287312e39be0593e72d8983
-    # via -r requirements.in
 django-modelcluster==6.0 \
     --hash=sha256:4ae46f86c43702020f24f212222eef0a2588df937bbb523a5447da247b5fb130 \
     --hash=sha256:cdcffef5baf5d3759ee04c5b60ffaf1a0c95fc0f265e762f3ddfadde3394e5db
