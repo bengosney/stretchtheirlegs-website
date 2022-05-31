@@ -67,6 +67,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
     "csp.middleware.CSPMiddleware",
+    "stl.middleware.ClacksOverhead",
 ]
 
 ROOT_URLCONF = "stl.urls"
