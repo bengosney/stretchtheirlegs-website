@@ -152,9 +152,9 @@ freezegun==1.2.1 \
     --hash=sha256:15103a67dfa868ad809a8f508146e396be2995172d25f927e48ce51c0bf5cb09 \
     --hash=sha256:b4c64efb275e6bc68dc6e771b17ffe0ff0f90b81a2a5189043550b6519926ba4
     # via -r requirements.dev.in
-hypothesis==6.47.0 \
-    --hash=sha256:76a7d16f78b5691db34ef87fa677d020dd86189f6b748adf801088743b66c889 \
-    --hash=sha256:dd88c57f45032fc3d84596e426d8e3d67f88eda2d8a2d96a5697def036a7e0c7
+hypothesis==6.47.1 \
+    --hash=sha256:4ad26c5d434171ffc02aba569dd52255573d615554c062bc30734dbe6f318c61 \
+    --hash=sha256:69978811f1d9c19710c7d2bf8233dc43c80efa964251b72efbe8274044e073b4
     # via -r requirements.dev.in
 icecream==2.1.2 \
     --hash=sha256:04b9cea4d9931cf6960db0430ebf11fa34464ce7152e384ddf50f96d25b201b4 \
