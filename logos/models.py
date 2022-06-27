@@ -35,7 +35,7 @@ class Logo(statusDatePeriodMixin, models.Model):
 
     @property
     def svg(self):
-        return f'<object data="{self.logo.path}" type="image/svg+xml"></object>'
+        return self.logo.read()
 
     @classmethod
     def get_current_logo(cls):

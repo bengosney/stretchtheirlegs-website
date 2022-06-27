@@ -21,9 +21,7 @@ header {
   }
 
   .logo-link {
-    svg,
-    img,
-    object {
+    svg {
       position: relative;
       z-index: 999;
       display: inline-block;
