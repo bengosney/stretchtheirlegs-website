@@ -750,7 +750,7 @@ header .links {
 header a, header nav label, nav header label {
   display: inline-block;
 }
-header .logo-link svg, header .logo-link img, header .logo-link object {
+header .logo-link svg {
   position: relative;
   z-index: 999;
   display: inline-block;
@@ -759,7 +759,7 @@ header .logo-link svg, header .logo-link img, header .logo-link object {
   height: calc(var(--logo-extra) + var(--header-heigh));
 }
 @media (max-width: 575px) {
-  header .logo-link svg, header .logo-link img, header .logo-link object {
+  header .logo-link svg {
     height: calc(100% + var(--logo-extra));
   }
 }
