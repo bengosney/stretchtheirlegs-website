@@ -34,8 +34,8 @@ class Logo(statusDatePeriodMixin, models.Model):
         default_manager_name = "admin_objects"
 
     @property
-    def svg(self):
-        return self.logo.read()
+    def svg(self) -> str:
+        return self.logo.read().decode("utf-8")
 
     @classmethod
     def get_current_logo(cls):
