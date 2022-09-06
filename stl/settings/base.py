@@ -55,6 +55,15 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
+    "polymorphic",
+    "corsheaders",
+    "rest_framework",
+    "rest_framework_simplejwt",
+    "django_filters",
+    "django_fsm",
+    "django_fsm_log",
+    "djmoney",
+    "cerberus",
 ]
 
 MIDDLEWARE = [
@@ -147,6 +156,10 @@ STATICFILES_FINDERS = [
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, "static"),
 ]
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+DEFAULT_CURRENCY = "GBP"
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
