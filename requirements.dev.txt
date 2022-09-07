@@ -33,9 +33,12 @@ async-timeout==4.0.2
     #   -c requirements.txt
     #   -r requirements.txt
     #   redis
-attrs==21.4.0
+attrs==22.1.0
     # via
+    #   -c requirements.txt
+    #   -r requirements.txt
     #   hypothesis
+    #   jsonschema
     #   pytest
 babel==2.10.3
     # via
@@ -49,11 +52,11 @@ beautifulsoup4==4.11.1
     #   wagtail
 black==22.6.0
     # via -r requirements.dev.in
-boto3==1.24.66
+boto3==1.24.67
     # via
     #   -c requirements.txt
     #   -r requirements.txt
-botocore==1.27.66
+botocore==1.27.67
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -103,7 +106,7 @@ commonmark==0.9.1
     # via rich
 coverage[toml]==6.3.3
     # via pytest-cov
-cryptography==37.0.4
+cryptography==38.0.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -152,6 +155,7 @@ django==4.1.1
     #   django-treebeard
     #   djangorestframework
     #   djangorestframework-simplejwt
+    #   drf-spectacular
     #   model-bakery
     #   wagtail
 django-appconf==1.0.5
@@ -248,6 +252,7 @@ djangorestframework==3.13.1
     #   -r requirements.txt
     #   cerberus
     #   djangorestframework-simplejwt
+    #   drf-spectacular
     #   wagtail
 djangorestframework-simplejwt[crypto]==5.2.0
     # via
@@ -261,6 +266,11 @@ draftjs-exporter==2.1.7
     #   -c requirements.txt
     #   -r requirements.txt
     #   wagtail
+drf-spectacular==0.23.1
+    # via
+    #   -c requirements.txt
+    #   -r requirements.txt
+    #   cerberus
 et-xmlfile==1.1.0
     # via
     #   -c requirements.txt
@@ -305,6 +315,11 @@ idna==3.3
     #   -c requirements.txt
     #   -r requirements.txt
     #   requests
+inflection==0.5.1
+    # via
+    #   -c requirements.txt
+    #   -r requirements.txt
+    #   drf-spectacular
 iniconfig==1.1.1
     # via pytest
 jmespath==1.0.1
@@ -313,6 +328,11 @@ jmespath==1.0.1
     #   -r requirements.txt
     #   boto3
     #   botocore
+jsonschema==4.15.0
+    # via
+    #   -c requirements.txt
+    #   -r requirements.txt
+    #   drf-spectacular
 l18n==2021.3
     # via
     #   -c requirements.txt
@@ -455,6 +475,11 @@ pypdf3==1.0.6
     #   -c requirements.txt
     #   -r requirements.txt
     #   xhtml2pdf
+pyrsistent==0.18.1
+    # via
+    #   -c requirements.txt
+    #   -r requirements.txt
+    #   jsonschema
 pytest==7.1.2
     # via
     #   -r requirements.dev.in
@@ -502,6 +527,7 @@ pyyaml==6.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
+    #   drf-spectacular
     #   pre-commit
     #   pyhanko
 qrcode==7.3.1
@@ -625,6 +651,7 @@ uritemplate==4.1.1
     #   -c requirements.txt
     #   -r requirements.txt
     #   cerberus
+    #   drf-spectacular
 uritools==4.0.0
     # via
     #   -c requirements.txt
