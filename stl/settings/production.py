@@ -12,8 +12,14 @@ DEBUG = False
 
 env = os.environ.copy()
 
-# It's a GOOD idea to lock this down.
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [BASE_URL]  # noqa
+
+CSRF_TRUSTED_ORIGINS = [
+    BASE_URL,  # noqa
+    CERBERUS_URL,  # noqa
+]
+
+CORS_ALLOWED_ORIGINS = CSRF_TRUSTED_ORIGINS
 
 DATABASES["default"] = dj_database_url.config()  # noqa
 

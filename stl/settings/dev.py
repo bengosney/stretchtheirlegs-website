@@ -40,9 +40,12 @@ CSP_STYLE_SRC = None
 CSP_FONT_SRC = None
 CSP_IMG_SRC = None
 
-CORS_ALLOWED_ORIGINS = [
-    "https://cerberus.stretchtheirlegs.co.uk",
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
+
+CORS_ALLOWED_ORIGINS = CSRF_TRUSTED_ORIGINS
 
 try:
     # Locals
