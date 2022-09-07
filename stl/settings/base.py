@@ -69,6 +69,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -190,13 +191,17 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = "https://www.stretchtheirlegs.co.uk"
-CSRF_TRUSTED_ORIGINS = [BASE_URL, "https://cerberus.stretchtheirlegs.co.uk"]
+CDN_URL = "https://cdn.stretchtheirlegs.co.uk"
+CERBERUS_URL = "https://cerberus.stretchtheirlegs.co.uk"
+CSRF_TRUSTED_ORIGINS = (BASE_URL,)
+
+CORS_ALLOWED_ORIGINS = CSRF_TRUSTED_ORIGINS + (CERBERUS_URL,)
 
 CSP_DEFAULT_SRC = "'self'"
 CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com")
 CSP_STYLE_SRC = ("'self'", "fonts.googleapis.com", "'unsafe-inline'")
-CSP_FONT_SRC = ("'self'", "cdn.stretchtheirlegs.co.uk")
-CSP_IMG_SRC = ("'self'", "data:", "cdn.stretchtheirlegs.co.uk")
+CSP_FONT_SRC = ("'self'", CDN_URL)
+CSP_IMG_SRC = ("'self'", "data:", CDN_URL)
 
 CSP_EXCLUDE_URL_PREFIXES = ("/admin/",)
 
