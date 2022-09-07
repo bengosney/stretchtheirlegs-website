@@ -12,7 +12,7 @@ DEBUG = False
 
 env = os.environ.copy()
 
-ALLOWED_HOSTS = [BASE_URL]  # noqa
+ALLOWED_HOSTS = ["www.stretchtheirlegs.co.uk"]
 
 CSRF_TRUSTED_ORIGINS = [
     BASE_URL,  # noqa
