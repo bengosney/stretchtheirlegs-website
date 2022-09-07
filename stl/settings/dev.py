@@ -40,6 +40,10 @@ CSP_STYLE_SRC = None
 CSP_FONT_SRC = None
 CSP_IMG_SRC = None
 
+CORS_ALLOWED_ORIGINS = [
+    "https://cerberus.stretchtheirlegs.co.uk",
+]
+
 try:
     # Locals
     from .local import *  # noqa
