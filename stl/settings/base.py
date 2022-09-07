@@ -190,7 +190,7 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = "https://www.stretchtheirlegs.co.uk"
-CSRF_TRUSTED_ORIGINS = [BASE_URL]
+CSRF_TRUSTED_ORIGINS = [BASE_URL, "https://cerberus.stretchtheirlegs.co.uk"]
 
 CSP_DEFAULT_SRC = "'self'"
 CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com")
