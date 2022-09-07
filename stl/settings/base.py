@@ -193,9 +193,6 @@ WAGTAILSEARCH_BACKENDS = {
 BASE_URL = "https://www.stretchtheirlegs.co.uk"
 CDN_URL = "https://cdn.stretchtheirlegs.co.uk"
 CERBERUS_URL = "https://cerberus.stretchtheirlegs.co.uk"
-CSRF_TRUSTED_ORIGINS = (BASE_URL,)
-
-CORS_ALLOWED_ORIGINS = CSRF_TRUSTED_ORIGINS + (CERBERUS_URL,)
 
 CSP_DEFAULT_SRC = "'self'"
 CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com")
