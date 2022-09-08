@@ -4,8 +4,8 @@
   "license": "MIT",
   "author": "Ben Gosney",
   "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=18.0.0"
+    "npm": ">=6",
+    "node": ">=14"
   },
   "scripts": {
     "compile": "grunt compile",
