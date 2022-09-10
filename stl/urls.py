@@ -1,5 +1,6 @@
 # Django
 from django.conf import settings
+from django.contrib import admin
 from django.urls import include, path
 
 # Wagtail
@@ -14,6 +15,7 @@ from search import views as search_views
 urlpatterns = [
     path("sitemap.xml", sitemap),
     path("admin/", include(wagtailadmin_urls)),
+    path("django-admin/", admin.site.urls),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
     path("messages/", include("site_messages.urls", namespace="site_messages")),
