@@ -69,6 +69,17 @@ with contextlib.suppress(KeyError):
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "default",
+    },
+    "renditions": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "renditions",
+    },
+}
+
 if "REDIS_URL" in os.environ:
     REDIS_URL = os.environ.get("REDIS_URL")
     CACHES = {
