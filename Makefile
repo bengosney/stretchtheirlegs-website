@@ -6,6 +6,8 @@ HOOKS=$(.git/hooks/pre-commit)
 INS=$(wildcard requirements.*.in)
 REQS=$(subst in,txt,$(INS))
 
+DBTOSQLPATH=".direnv/python-3.10.8/bin/db-to-sqlite"
+
 help: ## Display this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
@@ -79,3 +81,9 @@ dev: init install ## Start work
 upgrade: requirements.in
 	@echo "Upgrading pip packages"
 	@python -m piptools compile -q --upgrade requirements.in
+
+$(DBTOSQLPATH):
+	pip install 'db-to-sqlite[postgresql]'
+
+db.sqlite3: $(DBTOSQLPATH)
+	db-to-sqlite $(shell heroku config | grep DATABASE_URL | tr -s " " | cut -d " " -f 2) $@ --all -p
