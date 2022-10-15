@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 # Standard Library
+import contextlib
 import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -238,3 +239,17 @@ SIMPLE_JWT = {
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
 }
+
+
+env = os.environ.copy()
+with contextlib.suppress(KeyError):
+    AWS_ACCESS_KEY_ID = env["AWS_ACCESS_KEY_ID"]
+    AWS_SECRET_ACCESS_KEY = env["AWS_SECRET_ACCESS_KEY"]
+    AWS_STORAGE_BUCKET_NAME = env["AWS_STORAGE_BUCKET_NAME"]
+    AWS_QUERYSTRING_AUTH = False
+    AWS_S3_CUSTOM_DOMAIN = env["AWS_S3_CUSTOM_DOMAIN"]
+    AWS_LOCATION = env["AWS_LOCATION"] if "AWS_LOCATION" in env else ""
+    AWS_S3_OBJECT_PARAMETERS = {
+        "CacheControl": f"max-age={86400 * 365}",
+    }
+    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
