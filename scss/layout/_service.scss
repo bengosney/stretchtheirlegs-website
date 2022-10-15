@@ -28,6 +28,7 @@
 .service-list-block {
   .service-list {
     display: flex;
+    gap: min(3rem, 4vw);
 
     @include in-size((xxs, xs)) {
       flex-direction: column;
@@ -35,18 +36,11 @@
 
     .service {
       flex: 1;
-      margin: 0 min(1.5rem, 2vw) 1rem;
+      margin: 0 0 1rem;
+
       text-decoration: none;
       display: flex;
       flex-direction: column;
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      &:last-child {
-        margin-right: 0;
-      }
 
       h3 {
         margin-bottom: 0.5rem;
