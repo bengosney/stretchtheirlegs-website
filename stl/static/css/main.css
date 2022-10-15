@@ -1,7 +1,5 @@
 @charset "UTF-8";
-/* generated with grunt-sass-globbing */
-/* generated with grunt-sass-globbing */
-/* fontdiner-swanky-regular - latin */
+/* generated with grunt-sass-globbing */ /* generated with grunt-sass-globbing */ /* fontdiner-swanky-regular - latin */
 @font-face {
   font-family: "Fontdiner Swanky";
   font-style: normal;
@@ -18,10 +16,8 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 html {
-  line-height: 1.15;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /* Sections
@@ -56,12 +52,9 @@ h1 {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  box-sizing: content-box;
-  /* 1 */
-  height: 0;
-  /* 1 */
-  overflow: visible;
-  /* 2 */
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
 }
 
 /**
@@ -69,10 +62,8 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 pre {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /* Text-level semantics
@@ -89,12 +80,9 @@ a, nav label {
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 abbr[title] {
-  border-bottom: none;
-  /* 1 */
-  text-decoration: underline;
-  /* 2 */
-  text-decoration: underline dotted;
-  /* 2 */
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -112,10 +100,8 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /**
@@ -165,14 +151,10 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  line-height: 1.15;
-  /* 1 */
-  margin: 0;
-  /* 2 */
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
 }
 
 /**
@@ -240,18 +222,12 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
-  box-sizing: border-box;
-  /* 1 */
-  color: inherit;
-  /* 2 */
-  display: table;
-  /* 1 */
-  max-width: 100%;
-  /* 1 */
-  padding: 0;
-  /* 3 */
-  white-space: normal;
-  /* 1 */
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
 }
 
 /**
@@ -274,10 +250,8 @@ textarea {
  */
 [type=checkbox],
 [type=radio] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
 }
 
 /**
@@ -293,10 +267,8 @@ textarea {
  * 2. Correct the outline style in Safari.
  */
 [type=search] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
 
 /**
@@ -311,10 +283,8 @@ textarea {
  * 2. Change font properties to `inherit` in Safari.
  */
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  /* 1 */
-  font: inherit;
-  /* 2 */
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
 }
 
 /* Interactive
@@ -823,9 +793,6 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
 .item h3, .item body > footer .title, body > footer .item .title {
   margin-bottom: 0;
 }
-.item .item-body {
-  overflow: auto;
-}
 .item p {
   margin-top: 0;
 }
@@ -998,7 +965,6 @@ nav .nav-toggle-label span {
     flex-direction: row-reverse;
     align-items: center;
   }
-
   nav .social-links a, nav .social-links label {
     border: none;
     padding: 0;
@@ -1109,92 +1075,72 @@ nav li label {
 nav li ul li label {
     padding-left: 2rem;
   }
-
   .nav-level-1 {
     background: #eee3f5;
   }
-
   .level-1 a,
 .level-1 label {
     padding-left: 1rem;
   }
-
   .nav-level-2 {
     background: #dec7ea;
   }
-
   .level-2 a,
 .level-2 label {
     padding-left: 1.75rem;
   }
-
   .nav-level-3 {
     background: #cdabe0;
   }
-
   .level-3 a,
 .level-3 label {
     padding-left: 2.5rem;
   }
-
   .nav-level-4 {
     background: #bc8fd6;
   }
-
   .level-4 a,
 .level-4 label {
     padding-left: 3.25rem;
   }
-
   .nav-level-5 {
     background: #ac73cc;
   }
-
   .level-5 a,
 .level-5 label {
     padding-left: 4rem;
   }
-
   .nav-level-6 {
     background: #9b57c1;
   }
-
   .level-6 a,
 .level-6 label {
     padding-left: 4.75rem;
   }
-
   .nav-level-7 {
     background: #8941b1;
   }
-
   .level-7 a,
 .level-7 label {
     padding-left: 5.5rem;
   }
-
   .nav-level-8 {
     background: #733795;
   }
-
   .level-8 a,
 .level-8 label {
     padding-left: 6.25rem;
   }
-
   .nav-level-9 {
     background: #5e2d79;
   }
-
   .level-9 a,
 .level-9 label {
     padding-left: 7rem;
   }
-
   .nav-level-10 {
     background: #48225d;
   }
-
   .level-10 a,
 .level-10 label {
     padding-left: 7.75rem;
@@ -1395,6 +1341,7 @@ nav label.active {
 
 .service-list-block .service-list {
   display: flex;
+  gap: min(3rem, 4vw);
 }
 @media (max-width: 575px) {
   .service-list-block .service-list {
@@ -1408,16 +1355,10 @@ nav label.active {
 }
 .service-list-block .service-list .service {
   flex: 1;
-  margin: 0 min(1.5rem, 2vw) 1rem;
+  margin: 0 0 1rem;
   text-decoration: none;
   display: flex;
   flex-direction: column;
-}
-.service-list-block .service-list .service:first-child {
-  margin-left: 0;
-}
-.service-list-block .service-list .service:last-child {
-  margin-right: 0;
 }
 .service-list-block .service-list .service h3, .service-list-block .service-list .service body > footer .title, body > footer .service-list-block .service-list .service .title {
   margin-bottom: 0.5rem;
