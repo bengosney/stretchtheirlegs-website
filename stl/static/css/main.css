@@ -322,7 +322,7 @@ template {
 /* generated with grunt-sass-globbing */
 .btn:hover, .field-wrapper input[type=button]:hover,
 .field-wrapper input[type=submit]:hover {
-  background-color: #764b8e;
+  background-color: var(---color-primary-2);
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
@@ -335,19 +335,19 @@ a.btn,
 }
 
 a:hover, nav label:hover {
-  color: #9775aa;
+  color: var(---color-primary-1);
 }
 
 a, nav label,
 a:visited {
-  color: #582a72;
+  color: var(---color-primary-0);
 }
 
 .btn, .field-wrapper input[type=button],
 .field-wrapper input[type=submit] {
   text-decoration: none;
   color: #fff;
-  background-color: #582a72;
+  background-color: var(---color-primary-0);
   text-align: center;
   letter-spacing: 0.5px;
   transition: 0.2s ease-out;
@@ -364,10 +364,6 @@ a:visited {
   vertical-align: middle;
 }
 
-svg.colour {
-  fill: #582a72;
-}
-
 html,
 body,
 p,
@@ -376,7 +372,7 @@ h2,
 h3,
 body > footer .title,
 h4 {
-  color: #2a2a2a;
+  color: var(--text-colour);
 }
 
 html {
@@ -413,7 +409,7 @@ h4 {
   margin: 1.414em 0 0.75em;
   font-weight: inherit;
   line-height: 1.2;
-  color: #582a72;
+  color: var(---color-primary-0);
 }
 h1.alt,
 h2.alt,
@@ -475,7 +471,7 @@ small,
   position: relative;
   position: relative;
   overflow: hidden;
-  background: #9775aa;
+  background: var(---color-primary-1);
   background: linear-gradient(141deg, #582a72 0%, #9775aa 35%, #260339 100%);
   position: relative;
 }
@@ -551,7 +547,7 @@ body.full-height-banner .banner .banner_text .container .banner_text_inner {
 }
 .banner .banner_text h1,
 .banner .banner_text h2 {
-  color: #fff;
+  color: var(--banner-text);
   padding: 0;
   line-height: 1.5em;
   margin: 0;
@@ -582,7 +578,7 @@ body.full-height-banner .banner .banner_text .container .banner_text_inner {
 body > footer {
   margin-top: 3rem;
   padding: 2rem 0;
-  background: #d3d3d3;
+  background: var(--footer-colour);
   min-height: 10rem;
   position: relative;
 }
@@ -678,7 +674,7 @@ body > footer .memberships a, body > footer .memberships nav label, nav body > f
 }
 .field-wrapper label {
   display: block;
-  color: #582a72;
+  color: var(---color-primary-0);
 }
 .field-wrapper input,
 .field-wrapper textarea {
@@ -733,18 +729,21 @@ header .logo-link svg {
     height: calc(100% + var(--logo-extra));
   }
 }
+header .logo-link svg path {
+  fill: var(---color-primary-0);
+}
 header .social-links {
-  color: #582a72;
+  color: var(---color-primary-0);
 }
 header .social-links svg {
   height: calc(var(--header-heigh) * 0.35);
 }
 header .social-links svg path {
-  fill: #582a72;
+  fill: var(---color-primary-0);
   transition: all 0.2s ease-in-out;
 }
 header .social-links a:hover svg path, header .social-links nav label:hover svg path, nav header .social-links label:hover svg path {
-  fill: #9775aa;
+  fill: var(---color-primary-1);
 }
 
 .image_row {
@@ -870,7 +869,7 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
 }
 
 .messages {
-  background: #582a72;
+  background: var(---color-primary-0);
 }
 
 .message {
@@ -911,6 +910,7 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
     height: 2.5rem;
     display: flex;
     align-items: center;
+    box-sizing: content-box;
   }
   .nav-toggle-label > span {
     display: block;
@@ -921,7 +921,7 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
     display: none;
   }
   .nav-toggle-label > span, .nav-toggle-label > span:before, .nav-toggle-label > span:after {
-    background: #582a72;
+    background: var(---color-primary-0);
     width: 3rem;
     height: 0.5rem;
     border-radius: 0.25rem;
@@ -992,6 +992,7 @@ nav label {
     width: 100%;
     text-decoration: none;
     display: block;
+    box-sizing: border-box;
   }
   nav ul.nav-level-1 {
     box-sizing: border-box;
@@ -1019,7 +1020,8 @@ nav label {
     width: 100%;
     text-decoration: none;
     display: block;
-    background: #582a72;
+    box-sizing: border-box;
+    background: var(---color-primary-0);
     color: #fff;
     padding: 0.25rem 1rem;
   }
@@ -1047,7 +1049,7 @@ nav label {
     height: 0;
     border-style: solid;
     border-width: 0.5rem 0.5rem 0 0.5rem;
-    border-color: #582a72 transparent transparent transparent;
+    border-color: var(---color-primary-0) transparent transparent transparent;
   }
   nav::before {
     opacity: 0;
@@ -1076,70 +1078,70 @@ nav li ul li label {
     padding-left: 2rem;
   }
   .nav-level-1 {
-    background: #eee3f5;
+    background: var(--nav-bg-1);
   }
   .level-1 a,
 .level-1 label {
     padding-left: 1rem;
   }
   .nav-level-2 {
-    background: #dec7ea;
+    background: var(--nav-bg-2);
   }
   .level-2 a,
 .level-2 label {
     padding-left: 1.75rem;
   }
   .nav-level-3 {
-    background: #cdabe0;
+    background: var(--nav-bg-3);
   }
   .level-3 a,
 .level-3 label {
     padding-left: 2.5rem;
   }
   .nav-level-4 {
-    background: #bc8fd6;
+    background: var(--nav-bg-4);
   }
   .level-4 a,
 .level-4 label {
     padding-left: 3.25rem;
   }
   .nav-level-5 {
-    background: #ac73cc;
+    background: var(--nav-bg-5);
   }
   .level-5 a,
 .level-5 label {
     padding-left: 4rem;
   }
   .nav-level-6 {
-    background: #9b57c1;
+    background: var(--nav-bg-6);
   }
   .level-6 a,
 .level-6 label {
     padding-left: 4.75rem;
   }
   .nav-level-7 {
-    background: #8941b1;
+    background: var(--nav-bg-7);
   }
   .level-7 a,
 .level-7 label {
     padding-left: 5.5rem;
   }
   .nav-level-8 {
-    background: #733795;
+    background: var(--nav-bg-8);
   }
   .level-8 a,
 .level-8 label {
     padding-left: 6.25rem;
   }
   .nav-level-9 {
-    background: #5e2d79;
+    background: var(--nav-bg-9);
   }
   .level-9 a,
 .level-9 label {
     padding-left: 7rem;
   }
   .nav-level-10 {
-    background: #48225d;
+    background: var(--nav-bg-10);
   }
   .level-10 a,
 .level-10 label {
@@ -1189,7 +1191,7 @@ nav ul li label:after {
 @media (min-width: 992px) {
   nav > ul > li.has-submenu > a:hover:after,
 nav > ul > li.has-submenu label:hover:after {
-    border-color: #9775aa transparent transparent transparent;
+    border-color: var(---color-primary-1) transparent transparent transparent;
   }
   nav > ul > li.has-submenu > a:after,
 nav > ul > li.has-submenu label:after {
@@ -1201,7 +1203,7 @@ nav > ul > li.has-submenu label:after {
     height: 0;
     border-style: solid;
     border-width: 0.25em 0.25em 0 0.25em;
-    border-color: #582a72 transparent transparent transparent;
+    border-color: var(---color-primary-0) transparent transparent transparent;
     top: -0.125em;
   }
 }
@@ -1268,7 +1270,7 @@ nav label {
   }
   nav a.active,
 nav label.active {
-    text-decoration-color: #582a72;
+    text-decoration-color: var(---color-primary-0);
   }
 }
 @keyframes fadeIn {
@@ -1404,12 +1406,12 @@ nav label.active {
 }
 
 ::selection {
-  background: #582a72;
+  background: var(---color-primary-0);
   color: #fff;
 }
 
 a::selection, nav label::selection {
-  background: #9775aa;
+  background: var(---color-primary-1);
 }
 
 :root {
@@ -1418,14 +1420,50 @@ a::selection, nav label::selection {
   --background: white;
   --background-alt: #cbb4d7;
   --text-colour: #2a2a2a;
+  ---color-primary-0: #582a72;
+  ---color-primary-1: #9775aa;
+  ---color-primary-2: #764b8e;
+  ---color-primary-3: #3d1255;
+  ---color-primary-4: #260339;
   --header-heigh: 6rem;
   --logo-extra: 2vw;
   --size-text: "no-size";
+  --footer-colour: #d3d3d3;
+  --banner-text: #fff;
+  --nav-bg-1: #eee3f5;
+  --nav-bg-2: #dec7ea;
+  --nav-bg-3: #cdabe0;
+  --nav-bg-4: #bc8fd6;
+  --nav-bg-5: #ac73cc;
+  --nav-bg-6: #9b57c1;
+  --nav-bg-7: #8941b1;
+  --nav-bg-8: #733795;
+  --nav-bg-9: #5e2d79;
+  --nav-bg-10: #48225d;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #fff;
+    --background: #181a1b;
+    --background-alt: #150d19;
+    --text-colour: #cdc9c3;
+    --banner-text: var(--text-colour);
+    ---color-primary-0: #9775aa;
+    ---color-primary-1: #764b8e;
+    ---color-primary-2: #764b8e;
+    ---color-primary-3: #3d1255;
+    ---color-primary-4: #260339;
+    --footer-colour: #2d2d2d;
+    --nav-bg-1: #242729;
+    --nav-bg-2: #303436;
+    --nav-bg-3: #3c4144;
+    --nav-bg-4: #484e51;
+    --nav-bg-5: #545b5f;
+    --nav-bg-6: #60686c;
+    --nav-bg-7: #6c757a;
+    --nav-bg-8: #788287;
+    --nav-bg-9: #868f93;
+    --nav-bg-10: #939b9f;
   }
 }
 @media screen and (max-width: 576px) {
@@ -1472,14 +1510,21 @@ body {
 }
 
 a, nav label {
-  color: #582a72;
+  color: var(---color-primary-0);
   transition: all 0.2s ease-in-out;
 }
 a.no-dec, nav label.no-dec {
   text-decoration: none;
 }
+a svg, nav label svg {
+  fill: var(---color-primary-0);
+  transition: all 0.2s ease-in-out;
+}
 a:hover, nav label:hover {
-  color: #9775aa;
+  color: var(---color-primary-1);
+}
+a:hover svg, nav label:hover svg {
+  fill: var(---color-primary-1);
 }
 
 /*# sourceMappingURL=main.css.map */

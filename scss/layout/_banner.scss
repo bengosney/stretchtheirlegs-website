@@ -19,7 +19,7 @@
     z-index: 5;
   }
   overflow: hidden;
-  background: $color-primary-1;
+  background: var(---color-primary-1);
   background: linear-gradient(141deg, $color-primary-0 0%, $color-primary-1 35%, $color-primary-4 100%);
 
   img {
@@ -65,7 +65,7 @@
 
     h1,
     h2 {
-      color: #fff;
+      color: var(--banner-text);
       padding: 0;
       line-height: 1.5em;
       margin: 0;

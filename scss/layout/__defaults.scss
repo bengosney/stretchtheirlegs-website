@@ -1,5 +1,5 @@
 .btn:hover {
-  background-color: $color-primary-2;
+  background-color: var(---color-primary-2);
   box-shadow: 0 3px 3px 0 rgb(0 0 0 / 14%), 0 1px 7px 0 rgb(0 0 0 / 12%), 0 3px 1px -1px rgb(0 0 0 / 20%);
 }
 a.btn,
@@ -9,16 +9,16 @@ a.btn,
 }
 
 a:hover {
-  color: $color-primary-1;
+  color: var(---color-primary-1);
 }
 a,
 a:visited {
-  color: $color-primary-0;
+  color: var(---color-primary-0);
 }
 .btn {
   text-decoration: none;
   color: #fff;
-  background-color: $color-primary-0;
+  background-color: var(---color-primary-0);
   text-align: center;
   letter-spacing: 0.5px;
   transition: 0.2s ease-out;
@@ -33,10 +33,4 @@ a:visited {
   padding: 0 2rem;
   text-transform: uppercase;
   vertical-align: middle;
-}
-
-svg {
-  &.colour {
-    fill: $color-primary-0;
-  }
 }

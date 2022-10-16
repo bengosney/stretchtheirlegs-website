@@ -5,11 +5,11 @@
 @import "_imports.scss";
 
 ::selection {
-  background: $color-primary-0;
+  background: var(---color-primary-0);
   color: #fff;
 }
 a::selection {
-  background: $color-primary-1;
+  background: var(---color-primary-1);
 }
 
 $container-gap: 20px;
@@ -20,14 +20,40 @@ $container-gap: 20px;
   --background: white;
   --background-alt: #{lighten($color-primary-2, 35%)};
   --text-colour: #2a2a2a;
+  ---color-primary-0: #{$color-primary-0};
+  ---color-primary-1: #{$color-primary-1};
+  ---color-primary-2: #{$color-primary-2};
+  ---color-primary-3: #{$color-primary-3};
+  ---color-primary-4: #{$color-primary-4};
   --header-heigh: 6rem;
   --logo-extra: 2vw;
   --size-text: "no-size";
+  --footer-colour: #d3d3d3;
+  --banner-text: #fff;
+
+  $base: lighten($color-primary-0, 90%);
+  @for $i from 1 through 10 {
+    --nav-bg-#{$i}: #{darken($base, $i * 7.5)};
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #fff;
+    --background: #181a1b;
+    --background-alt: #{darken($color-primary-2, 35%)};
+    --text-colour: #cdc9c3;
+    --banner-text: var(--text-colour);
+    ---color-primary-0: #{$color-primary-1};
+    ---color-primary-1: #{$color-primary-2};
+    ---color-primary-2: #{$color-primary-2};
+    ---color-primary-3: #{$color-primary-3};
+    ---color-primary-4: #{$color-primary-4};
+    --footer-colour: #2d2d2d;
+
+    $base: #181a1b;
+    @for $i from 1 through 10 {
+      --nav-bg-#{$i}: #{lighten($base, $i * 5)};
+    }
   }
 }
 
@@ -76,14 +102,23 @@ body {
 }
 
 a {
-  color: $color-primary-0;
+  color: var(---color-primary-0);
   transition: all 0.2s ease-in-out;
 
   &.no-dec {
     text-decoration: none;
   }
 
+  svg {
+    fill: var(---color-primary-0);
+    transition: all 0.2s ease-in-out;
+  }
+
   &:hover {
-    color: $color-primary-1;
+    color: var(---color-primary-1);
+
+    svg {
+      fill: var(---color-primary-1);
+    }
   }
 }
