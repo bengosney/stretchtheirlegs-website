@@ -32,15 +32,19 @@ header {
       @include in-size(xxs) {
         height: calc(100% + var(--logo-extra));
       }
+
+      path {
+        fill: var(---color-primary-0);
+      }
     }
   }
 
   .social-links {
-    color: $color-primary-0;
+    color: var(---color-primary-0);
     svg {
       height: calc(var(--header-heigh) * 0.35);
       path {
-        fill: $color-primary-0;
+        fill: var(---color-primary-0);
         transition: all 0.2s ease-in-out;
       }
     }
@@ -49,7 +53,7 @@ header {
       &:hover {
         svg {
           path {
-            fill: $color-primary-1;
+            fill: var(---color-primary-1);
           }
         }
       }

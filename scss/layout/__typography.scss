@@ -5,7 +5,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: $text-color;
+  color: var(--text-colour);
 }
 
 html {
@@ -41,7 +41,7 @@ h4 {
   margin: 1.414em 0 0.75em;
   font-weight: inherit;
   line-height: 1.2;
-  color: $color-primary-0;
+  color: var(---color-primary-0);
 
   &.alt {
     font-family: $font-body;

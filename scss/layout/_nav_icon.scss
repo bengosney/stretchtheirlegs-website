@@ -9,6 +9,7 @@
     height: ($icon-size * 3) + ($icon-gap * 2);
     display: flex;
     align-items: center;
+    box-sizing: content-box;
 
     > span {
       span {
@@ -22,7 +23,7 @@
       &,
       &:before,
       &:after {
-        background: $color-primary-0;
+        background: var(---color-primary-0);
         width: $icon-size * 6;
         height: $icon-size;
         border-radius: math.div($icon-size, 2);
