@@ -6,6 +6,8 @@ HOOKS=$(.git/hooks/pre-commit)
 INS=$(wildcard requirements.*.in)
 REQS=$(subst in,txt,$(INS))
 
+SCSS=$(shell find scss/ -name "*.scss")
+
 DBTOSQLPATH=".direnv/python-3.10.8/bin/db-to-sqlite"
 
 help: ## Display this help
@@ -87,3 +89,11 @@ $(DBTOSQLPATH):
 
 db.sqlite3: $(DBTOSQLPATH)
 	db-to-sqlite $(shell heroku config | grep DATABASE_URL | tr -s " " | cut -d " " -f 2) $@ --all -p
+
+stl/static/css/%.css: scss/%.scss $(SCSS)
+	npx sass $< $@
+
+stl/static/css/%.min.css: stl/static/css/%.css
+	npx postcss $^ > $@
+
+css: stl/static/css/main.min.css
