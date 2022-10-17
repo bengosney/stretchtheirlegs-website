@@ -95,5 +95,6 @@ stl/static/css/%.css: scss/%.scss $(SCSS)
 
 stl/static/css/%.min.css: stl/static/css/%.css
 	npx postcss $^ > $@
+	sed -e "s/sourceMappingURL//g" -i $@
 
 css: stl/static/css/main.min.css
