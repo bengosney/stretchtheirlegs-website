@@ -789,6 +789,9 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
   padding-right: 0;
 }
 
+.item {
+  overflow: auto;
+}
 .item h3, .item body > footer .title, body > footer .item .title {
   margin-bottom: 0;
 }
@@ -811,12 +814,16 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
   .item picture {
     float: none;
     max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .item picture {
     float: none;
     max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 .item picture:before {
