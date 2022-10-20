@@ -1,4 +1,6 @@
 .item {
+  overflow: auto;
+
   h3 {
     margin-bottom: 0;
   }
@@ -15,6 +17,8 @@
     @include in-size((xxs, xs)) {
       float: none;
       max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
     }
 
     display: block;
