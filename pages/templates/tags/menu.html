@@ -1,9 +1,9 @@
 {% load navigation_tags wagtailcore_tags %}
 <ul class="nav-level-{{ level }}">
     {% if level == 1 %}
-    <label for="nav-toggle" class="nav-toggle-label">
-        <span>Close Navigation</span>
-    </label>
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span>Close Navigation</span>
+        </label>
     {% endif %}
     {% for menuitem in menuitems %}
         <li class="item level-{{ level }} {{ menuitem.title|lower|cut:" " }}{% if menuitem.active %} active{% endif %}{% if menuitem.show_dropdown %} has-submenu{% endif %}">
@@ -21,10 +21,10 @@
         </li>
     {% endfor %}
     {% if level == 1 %}
-    <li class="social-links">
-        <a href="{{ site_settings.facebook }}" title="Facebook" aria-label="Facebook" rel="noopener" target="_blank">
-            {% include "icons/facebook.svg" %}
-        </a>
-    </li>
+        <li class="social-links">
+            <a href="{{ site_settings.facebook }}" title="Facebook" aria-label="Facebook" rel="noopener" target="_blank">
+                {% include "icons/facebook.svg" %}
+            </a>
+        </li>
     {% endif %}
 </ul>

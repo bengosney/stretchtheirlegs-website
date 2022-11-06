@@ -9,7 +9,7 @@ anyascii==0.3.1
     #   -c requirements.txt
     #   -r requirements.txt
     #   wagtail
-arabic-reshaper==2.1.3
+arabic-reshaper==2.1.4
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -26,7 +26,7 @@ asn1crypto==1.5.1
     #   oscrypto
     #   pyhanko
     #   pyhanko-certvalidator
-asttokens==2.0.5
+asttokens==2.1.0
     # via icecream
 async-timeout==4.0.2
     # via
@@ -40,7 +40,7 @@ attrs==22.1.0
     #   hypothesis
     #   jsonschema
     #   pytest
-babel==2.10.3
+babel==2.11.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -50,13 +50,13 @@ beautifulsoup4==4.11.1
     #   -c requirements.txt
     #   -r requirements.txt
     #   wagtail
-black==22.6.0
+black==22.10.0
     # via -r requirements.dev.in
-boto3==1.24.70
+boto3==1.26.3
     # via
     #   -c requirements.txt
     #   -r requirements.txt
-botocore==1.27.70
+botocore==1.29.3
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -67,13 +67,13 @@ brotli==1.0.9
     #   -c requirements.txt
     #   -r requirements.txt
     #   whitenoise
-build==0.8.0
+build==0.9.0
     # via pip-tools
 cerberus @ git+https://github.com/bengosney/cerberus
     # via
     #   -c requirements.txt
     #   -r requirements.txt
-certifi==2022.6.15.1
+certifi==2022.9.24
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -98,21 +98,22 @@ click==8.1.3
     #   black
     #   pip-tools
     #   pyhanko
-colorama==0.4.4
+colorama==0.4.6
     # via
     #   icecream
     #   pytest-watch
 commonmark==0.9.1
     # via rich
-coverage[toml]==6.3.3
+coverage[toml]==6.5.0
     # via pytest-cov
-cryptography==38.0.1
+cryptography==38.0.3
     # via
     #   -c requirements.txt
     #   -r requirements.txt
+    #   djangorestframework-simplejwt
     #   pyhanko
     #   pyhanko-certvalidator
-cssselect2==0.6.0
+cssselect2==0.7.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -122,14 +123,14 @@ deprecated==1.2.13
     #   -c requirements.txt
     #   -r requirements.txt
     #   redis
-distlib==0.3.4
+distlib==0.3.6
     # via virtualenv
 dj-database-url==1.0.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
     #   cerberus
-django==4.1.1
+django==4.1.3
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -172,7 +173,7 @@ django-csp==3.7
     # via
     #   -c requirements.txt
     #   -r requirements.txt
-django-debug-toolbar==3.5.0
+django-debug-toolbar==3.7.0
     # via -r requirements.dev.in
 django-debugtools==2.0
     # via -r requirements.dev.in
@@ -222,7 +223,7 @@ django-polymorphic==3.1.0
     #   -c requirements.txt
     #   -r requirements.txt
     #   cerberus
-django-reversion==5.0.2
+django-reversion==5.0.3
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -231,9 +232,9 @@ django-storages==1.13.1
     # via
     #   -c requirements.txt
     #   -r requirements.txt
-django-stubs==1.12.0
+django-stubs==1.13.0
     # via -r requirements.dev.in
-django-stubs-ext==0.4.0
+django-stubs-ext==0.7.0
     # via django-stubs
 django-taggit==3.0.0
     # via
@@ -246,7 +247,7 @@ django-treebeard==4.5.1
     #   -c requirements.txt
     #   -r requirements.txt
     #   wagtail
-djangorestframework==3.13.1
+djangorestframework==3.14.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -254,7 +255,7 @@ djangorestframework==3.13.1
     #   djangorestframework-simplejwt
     #   drf-spectacular
     #   wagtail
-djangorestframework-simplejwt[crypto]==5.2.0
+djangorestframework-simplejwt[crypto]==5.2.2
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -266,7 +267,7 @@ draftjs-exporter==2.1.7
     #   -c requirements.txt
     #   -r requirements.txt
     #   wagtail
-drf-spectacular==0.23.1
+drf-spectacular==0.24.2
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -276,13 +277,15 @@ et-xmlfile==1.1.0
     #   -c requirements.txt
     #   -r requirements.txt
     #   openpyxl
-exceptiongroup==1.0.0rc8
-    # via hypothesis
-executing==0.8.3
+exceptiongroup==1.0.1
+    # via
+    #   hypothesis
+    #   pytest
+executing==1.2.0
     # via icecream
-filelock==3.6.0
+filelock==3.8.0
     # via virtualenv
-freezegun==1.2.1
+freezegun==1.2.2
     # via -r requirements.dev.in
 future==0.18.2
     # via
@@ -294,7 +297,7 @@ gunicorn==20.1.0
     #   -c requirements.txt
     #   -r requirements.txt
     #   cerberus
-honeybadger==0.10.0
+honeybadger==0.12.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -304,13 +307,13 @@ html5lib==1.1
     #   -r requirements.txt
     #   wagtail
     #   xhtml2pdf
-hypothesis==6.50.1
+hypothesis==6.56.4
     # via -r requirements.dev.in
-icecream==2.1.2
+icecream==2.1.3
     # via -r requirements.dev.in
-identify==2.5.0
+identify==2.5.8
     # via pre-commit
-idna==3.3
+idna==3.4
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -328,7 +331,7 @@ jmespath==1.0.1
     #   -r requirements.txt
     #   boto3
     #   botocore
-jsonschema==4.16.0
+jsonschema==4.17.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -353,9 +356,9 @@ milksnake==0.1.5
     #   -c requirements.txt
     #   -r requirements.txt
     #   rustface
-model-bakery==1.6.0
+model-bakery==1.9.0
     # via -r requirements.dev.in
-mypy==0.961
+mypy==0.982
     # via
     #   -r requirements.dev.in
     #   django-stubs
@@ -363,9 +366,9 @@ mypy-extensions==0.4.3
     # via
     #   black
     #   mypy
-nodeenv==1.6.0
+nodeenv==1.7.0
     # via pre-commit
-numpy==1.23.3
+numpy==1.23.4
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -378,7 +381,7 @@ openpyxl==3.0.10
     # via
     #   -c requirements.txt
     #   -r requirements.txt
-    #   tablib
+    #   wagtail
 oscrypto==1.3.0
     # via
     #   -c requirements.txt
@@ -392,11 +395,11 @@ packaging==21.3
     #   build
     #   pytest
     #   redis
-pathspec==0.9.0
+pathspec==0.10.1
     # via black
-pep517==0.12.0
+pep517==0.13.0
     # via build
-pillow==9.2.0
+pillow==9.3.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -404,14 +407,14 @@ pillow==9.2.0
     #   wagtail
     #   willowavif
     #   xhtml2pdf
-pillow-avif-plugin==1.2.2
+pillow-avif-plugin==1.3.1
     # via
     #   -c requirements.txt
     #   -r requirements.txt
     #   willowavif
 pip-chill==1.0.1
     # via -r requirements.dev.in
-pip-tools==6.8.0
+pip-tools==6.9.0
     # via -r requirements.dev.in
 platformdirs==2.5.2
     # via
@@ -423,18 +426,16 @@ pprintpp==0.4.0
     # via pytest-clarity
 pre-commit==2.20.0
     # via -r requirements.dev.in
-psutil==5.9.2
+psutil==5.9.3
     # via
     #   -c requirements.txt
     #   -r requirements.txt
     #   honeybadger
-psycopg2==2.9.3
+psycopg2==2.9.5
     # via
     #   -c requirements.txt
     #   -r requirements.txt
     #   cerberus
-py==1.11.0
-    # via pytest
 py-moneyed==2.0
     # via
     #   -c requirements.txt
@@ -445,22 +446,22 @@ pycparser==2.21
     #   -c requirements.txt
     #   -r requirements.txt
     #   cffi
-pygments==2.12.0
+pygments==2.13.0
     # via
     #   icecream
     #   rich
-pyhanko==0.13.2
+pyhanko==0.15.1
     # via
     #   -c requirements.txt
     #   -r requirements.txt
     #   xhtml2pdf
-pyhanko-certvalidator==0.19.5
+pyhanko-certvalidator==0.19.6
     # via
     #   -c requirements.txt
     #   -r requirements.txt
     #   pyhanko
     #   xhtml2pdf
-pyjwt==2.4.0
+pyjwt==2.6.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -475,12 +476,12 @@ pypdf3==1.0.6
     #   -c requirements.txt
     #   -r requirements.txt
     #   xhtml2pdf
-pyrsistent==0.18.1
+pyrsistent==0.19.2
     # via
     #   -c requirements.txt
     #   -r requirements.txt
     #   jsonschema
-pytest==7.1.2
+pytest==7.2.0
     # via
     #   -r requirements.dev.in
     #   pytest-clarity
@@ -490,7 +491,7 @@ pytest==7.1.2
     #   pytest-watch
 pytest-clarity==1.0.1
     # via -r requirements.dev.in
-pytest-cov==3.0.0
+pytest-cov==4.0.0
     # via -r requirements.dev.in
 pytest-django==4.5.2
     # via -r requirements.dev.in
@@ -509,7 +510,7 @@ python-dateutil==2.8.2
     #   -r requirements.txt
     #   botocore
     #   freezegun
-pytz==2022.2.1
+pytz==2022.6
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -539,7 +540,7 @@ redis==4.3.4
     # via
     #   -c requirements.txt
     #   -r requirements.txt
-reportlab==3.6.11
+reportlab==3.6.12
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -553,7 +554,7 @@ requests==2.28.1
     #   pyhanko
     #   pyhanko-certvalidator
     #   wagtail
-rich==12.3.0
+rich==12.6.0
     # via pytest-clarity
 rustface==0.1.0
     # via
@@ -574,7 +575,6 @@ six==1.16.0
     #   l18n
     #   python-bidi
     #   python-dateutil
-    #   virtualenv
 sortedcontainers==2.4.0
     # via hypothesis
 soupsieve==2.3.2.post1
@@ -582,7 +582,7 @@ soupsieve==2.3.2.post1
     #   -c requirements.txt
     #   -r requirements.txt
     #   beautifulsoup4
-sqlparse==0.4.2
+sqlparse==0.4.3
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -593,17 +593,12 @@ svglib==1.4.1
     #   -c requirements.txt
     #   -r requirements.txt
     #   xhtml2pdf
-tablib[xls,xlsx]==3.2.1
+telepath==0.3
     # via
     #   -c requirements.txt
     #   -r requirements.txt
     #   wagtail
-telepath==0.2
-    # via
-    #   -c requirements.txt
-    #   -r requirements.txt
-    #   wagtail
-tinycss2==1.1.1
+tinycss2==1.2.1
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -624,11 +619,11 @@ tqdm==4.64.1
     #   -c requirements.txt
     #   -r requirements.txt
     #   pypdf3
-types-pytz==2021.3.7
+types-pytz==2022.6.0.1
     # via django-stubs
-types-pyyaml==6.0.7
+types-pyyaml==6.0.12.1
     # via django-stubs
-typing-extensions==4.3.0
+typing-extensions==4.4.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -636,7 +631,7 @@ typing-extensions==4.3.0
     #   django-stubs-ext
     #   mypy
     #   py-moneyed
-tzdata==2022.2
+tzdata==2022.6
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -663,9 +658,9 @@ urllib3==1.26.12
     #   -r requirements.txt
     #   botocore
     #   requests
-virtualenv==20.14.1
+virtualenv==20.16.6
     # via pre-commit
-wagtail==4.0.1
+wagtail==4.1
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -674,7 +669,7 @@ wagtail-picture-tag==1.0.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
-watchdog==2.1.8
+watchdog==2.1.9
     # via pytest-watch
 webencodings==0.5.1
     # via
@@ -683,7 +678,7 @@ webencodings==0.5.1
     #   cssselect2
     #   html5lib
     #   tinycss2
-wheel==0.37.1
+wheel==0.38.2
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -714,21 +709,6 @@ xhtml2pdf==0.2.8
     #   -c requirements.txt
     #   -r requirements.txt
     #   cerberus
-xlrd==2.0.1
-    # via
-    #   -c requirements.txt
-    #   -r requirements.txt
-    #   tablib
-xlsxwriter==3.0.3
-    # via
-    #   -c requirements.txt
-    #   -r requirements.txt
-    #   wagtail
-xlwt==1.3.0
-    # via
-    #   -c requirements.txt
-    #   -r requirements.txt
-    #   tablib
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip

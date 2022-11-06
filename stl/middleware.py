@@ -1,5 +1,5 @@
 # Standard Library
-from typing import Callable
+from collections.abc import Callable
 
 # Django
 from django.http import HttpRequest, HttpResponse
