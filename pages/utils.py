@@ -25,8 +25,7 @@ def send_mail(self, subject, message, recipient_list, from_email=None, reply_to=
         },
     }
     mail = EmailMultiAlternatives(subject, message, from_email, recipient_list, reply_to=reply_to, **multi_alt_kwargs)
-    html_message = kwargs.get("html_message", None)
-    if html_message:
+    if html_message := kwargs.get("html_message", None):
         mail.attach_alternative(html_message, "text/html")
 
     return mail.send()
