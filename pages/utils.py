@@ -4,7 +4,7 @@ from django.core.mail import get_connection
 from django.core.mail.message import EmailMultiAlternatives
 
 
-def send_mail(self, subject, message, recipient_list, from_email=None, reply_to=None, **kwargs):
+def send_mail(subject, message, recipient_list, from_email=None, reply_to=None, **kwargs):
     if not from_email:
         if hasattr(settings, "WAGTAILADMIN_NOTIFICATION_FROM_EMAIL"):
             from_email = settings.WAGTAILADMIN_NOTIFICATION_FROM_EMAIL
