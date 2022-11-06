@@ -80,9 +80,11 @@ install: python node ## Install development requirements (default)
 dev: init install ## Start work
 	code .
 
-upgrade: requirements.in
+_upgrade: requirements.in
 	@echo "Upgrading pip packages"
 	@python -m piptools compile -q --upgrade requirements.in
+
+upgrade: _upgrade python
 
 $(DBTOSQLPATH):
 	pip install 'db-to-sqlite[postgresql]'

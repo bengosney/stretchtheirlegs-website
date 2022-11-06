@@ -4,9 +4,9 @@
 
 
 {% block content %}
-<h2>Details</h2>
-<div class="service-body">
-    {% picture page.image photo fill-660x446 lazy %}
-    {{ page.body|safe }}
-</div>
+    <h2>Details</h2>
+    <div class="service-body">
+        {% picture page.image photo fill-660x446 lazy %}
+        {{ page.body|safe }}
+    </div>
 {% endblock content %}

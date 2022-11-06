@@ -6,16 +6,16 @@
         <link rel="preconnect" href="https://cdn.stretchtheirlegs.co.uk" />
         <meta charset="utf-8" />
         {% spaceless %}
-        <title>
-            {% block title %}
-                {% wagtail_site as current_site %}
-                {% if page.seo_title %}
-                    {{ page.seo_title }}
-                {% else %}
-                    {{ page.title }}{% block title_suffix %}{% if current_site and current_site.site_name %} - {{ current_site.site_name }}{% endif %}{% endblock %}
-                {% endif %}
-            {% endblock %}
-        </title>
+            <title>
+                {% block title %}
+                    {% wagtail_site as current_site %}
+                    {% if page.seo_title %}
+                        {{ page.seo_title }}
+                    {% else %}
+                        {{ page.title }}{% block title_suffix %}{% if current_site and current_site.site_name %} - {{ current_site.site_name }}{% endif %}{% endblock %}
+                    {% endif %}
+                {% endblock %}
+            </title>
         {% endspaceless %}
         <meta name="description" content="{{ page.search_description }}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,29 +41,29 @@
         {% endblock %}
 
         {% block banner %}
-        {% get_banner as banner %}
-        <div class="banner">
-            {% picture banner photo fill-2560x1440 fill-1920x1080 fill-1280x720 fill-800x600 fill-640x480 %}
-            <div class="banner_text">
-                <div class="container">
-                    <div class="banner_text_inner">
-                        {% block banner_text %}
-                        <h1>{{ page.title }}</h1>
-                        {% endblock %}
+            {% get_banner as banner %}
+            <div class="banner">
+                {% picture banner photo fill-2560x1440 fill-1920x1080 fill-1280x720 fill-800x600 fill-640x480 %}
+                <div class="banner_text">
+                    <div class="container">
+                        <div class="banner_text_inner">
+                            {% block banner_text %}
+                                <h1>{{ page.title }}</h1>
+                            {% endblock %}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         {% endblock %}
 
         {% block content_outter %}
-        <div class="container">
-        {% block content %}{% endblock %}
-        </div>
+            <div class="container">
+                {% block content %}{% endblock %}
+            </div>
         {% endblock %}
 
         {% block footer %}
-        {% include 'footer.html' %}
+            {% include 'footer.html' %}
         {% endblock %}
 
         {% block extra_js %}
