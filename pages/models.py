@@ -17,6 +17,7 @@ from modelcluster.fields import ParentalKey
 
 # Locals
 from .blocks import FormBlock, ImageRow, ItemBlock, ServicesBlock
+from .utils import send_mail
 
 
 @register_setting
@@ -134,6 +135,14 @@ class FormPage(AbstractEmailForm):
             "Email",
         ),
     ]
+
+    def send_mail(self, form):
+        addresses = [x.strip() for x in self.to_address.split(",")]
+
+        if reply_to := form.cleaned_data.get("email"):
+            reply_to = [r.strip() for r in reply_to.split(",")]
+
+        return send_mail(self.subject, self.render_email(form), addresses, self.from_address, reply_to=reply_to)
 
 
 class MenuPage(Page):
