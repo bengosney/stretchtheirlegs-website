@@ -29,7 +29,6 @@ $container-gap: 20px;
   --logo-extra: 2vw;
   --size-text: "no-size";
   --footer-colour: #d3d3d3;
-  --banner-text: #fff;
 
   $base: lighten($color-primary-0, 90%);
   @for $i from 1 through 10 {
@@ -37,12 +36,12 @@ $container-gap: 20px;
   }
 }
 
-@media (prefers-color-scheme: dark) {
+//@media (prefers-color-scheme: dark) {
+@media screen and (min-width: 200px) {
   :root {
-    --background: #181a1b;
+    --background: #{$color-primary-4};
     --background-alt: #{darken($color-primary-2, 35%)};
     --text-colour: #cdc9c3;
-    --banner-text: var(--text-colour);
     ---color-primary-0: #{$color-primary-1};
     ---color-primary-1: #{$color-primary-2};
     ---color-primary-2: #{$color-primary-2};
