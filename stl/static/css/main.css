@@ -1448,7 +1448,7 @@ a::selection, nav label::selection {
   --nav-bg-10: #48225d;
 }
 
-@media screen and (min-width: 200px) {
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #260339;
     --background-alt: #150d19;

@@ -36,8 +36,7 @@ $container-gap: 20px;
   }
 }
 
-//@media (prefers-color-scheme: dark) {
-@media screen and (min-width: 200px) {
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #{$color-primary-4};
     --background-alt: #{darken($color-primary-2, 35%)};
