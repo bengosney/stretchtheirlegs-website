@@ -547,7 +547,7 @@ body.full-height-banner .banner .banner_text .container .banner_text_inner {
 }
 .banner .banner_text h1,
 .banner .banner_text h2 {
-  color: var(--banner-text);
+  color: #fff;
   padding: 0;
   line-height: 1.5em;
   margin: 0;
@@ -1436,7 +1436,6 @@ a::selection, nav label::selection {
   --logo-extra: 2vw;
   --size-text: "no-size";
   --footer-colour: #d3d3d3;
-  --banner-text: #fff;
   --nav-bg-1: #eee3f5;
   --nav-bg-2: #dec7ea;
   --nav-bg-3: #cdabe0;
@@ -1449,12 +1448,11 @@ a::selection, nav label::selection {
   --nav-bg-10: #48225d;
 }
 
-@media (prefers-color-scheme: dark) {
+@media screen and (min-width: 200px) {
   :root {
-    --background: #181a1b;
+    --background: #260339;
     --background-alt: #150d19;
     --text-colour: #cdc9c3;
-    --banner-text: var(--text-colour);
     ---color-primary-0: #9775aa;
     ---color-primary-1: #764b8e;
     ---color-primary-2: #764b8e;
