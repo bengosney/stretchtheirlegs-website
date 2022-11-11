@@ -19,6 +19,7 @@ urlpatterns = [
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
     path("messages/", include("site_messages.urls", namespace="site_messages")),
+    path("robots.txt", include("robots.urls")),
     path("cerberus/api/", include("cerberus.urls")),
 ]
 

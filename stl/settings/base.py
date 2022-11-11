@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     "django_fsm_log",
     "djmoney",
     "cerberus",
+    "robots",
 ]
 
 MIDDLEWARE = [
