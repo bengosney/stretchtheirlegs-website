@@ -33,11 +33,17 @@ header {
         height: calc(100% + var(--logo-extra));
       }
 
-      path.foreground {
-        fill: var(---color-primary-0);
+      .foreground {
+        &,
+        path {
+          fill: var(---color-primary-0);
+        }
       }
-      path.background {
-        fill: var(--background);
+      .background {
+        &,
+        path {
+          fill: var(--background);
+        }
       }
     }
   }

@@ -731,10 +731,12 @@ header .logo-link svg {
     height: calc(100% + var(--logo-extra));
   }
 }
-header .logo-link svg path.foreground {
+header .logo-link svg .foreground,
+header .logo-link svg .foreground path {
   fill: var(---color-primary-0);
 }
-header .logo-link svg path.background {
+header .logo-link svg .background,
+header .logo-link svg .background path {
   fill: var(--background);
 }
 header .social-links {
