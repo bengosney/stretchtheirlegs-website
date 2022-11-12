@@ -733,11 +733,11 @@ header .logo-link svg {
 }
 header .logo-link svg .foreground,
 header .logo-link svg .foreground path {
-  fill: var(---color-primary-0);
+  fill: var(---color-primary-0) !important;
 }
 header .logo-link svg .background,
 header .logo-link svg .background path {
-  fill: var(--background);
+  fill: var(--background) !important;
 }
 header .social-links {
   color: var(---color-primary-0);

@@ -36,13 +36,13 @@ header {
       .foreground {
         &,
         path {
-          fill: var(---color-primary-0);
+          fill: var(---color-primary-0) !important;
         }
       }
       .background {
         &,
         path {
-          fill: var(--background);
+          fill: var(--background) !important;
         }
       }
     }
