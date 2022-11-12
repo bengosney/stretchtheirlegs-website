@@ -12,10 +12,10 @@ def logo():
     if logo := Logo.get_current_logo():
         return {
             "logo": logo.svg,
-            "title": logo.title or "",
+            "title": logo.title or None,
         }
     else:
         return {
             "logo": None,
-            "title": "Stretch Their Legs",
+            "title": None,
         }

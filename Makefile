@@ -1,4 +1,4 @@
-.PHONY: help clean test install all init dev
+.PHONY: help clean test install all init dev css watch
 .DEFAULT_GOAL := install
 .PRECIOUS: requirements.%.in
 
@@ -100,3 +100,9 @@ stl/static/css/%.min.css: stl/static/css/%.css
 	sed -e "s/sourceMappingURL//g" -i $@
 
 css: stl/static/css/main.min.css
+
+watch:
+	@echo "Watching scss"
+	@while inotifywait -qr -e close_write scss/; do \
+		$(MAKE) css; \
+	done

@@ -1,4 +1,5 @@
-<a href="/" class="logo-link" title="{{ title }}" aria-label="Stretch Their Legs home page">
+{% load wagtailcore_tags %}
+<a href="/" class="logo-link" title="{{ title|default:'Stretch Their Legs' }}" aria-label="Stretch Their Legs home page">
     {% if logo %}
         {{ logo|safe }}
     {% else %}
