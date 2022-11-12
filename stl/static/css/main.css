@@ -684,6 +684,8 @@ body > footer .memberships a, body > footer .memberships nav label, nav body > f
   border-bottom: 1px solid #582a72;
   padding-left: 0;
   margin-left: 0;
+  background: var(--background);
+  color: var(--text-colour);
 }
 .field-wrapper input:focus, .field-wrapper input:active, .field-wrapper input:focus-visible,
 .field-wrapper textarea:focus,
@@ -729,7 +731,7 @@ header .logo-link svg {
     height: calc(100% + var(--logo-extra));
   }
 }
-header .logo-link svg path {
+header .logo-link svg path.colour {
   fill: var(---color-primary-0);
 }
 header .social-links {
