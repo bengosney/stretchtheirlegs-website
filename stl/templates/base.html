@@ -1,12 +1,12 @@
 {% load static wagtailcore_tags wagtailuserbar banner_tags picture_tags message_tags social_tags %}
-
+{% load util_tags %}
 <!DOCTYPE html>
 <html class="no-js" lang="en">
     <head>
         <link rel="preconnect" href="https://cdn.stretchtheirlegs.co.uk" />
         <meta name="color-scheme" content="light dark">
         <meta charset="utf-8" />
-        {% spaceless %}
+        {% compress %}
             <title>
                 {% block title %}
                     {% wagtail_site as current_site %}
@@ -17,7 +17,7 @@
                     {% endif %}
                 {% endblock %}
             </title>
-        {% endspaceless %}
+        {% endcompress %}
         <meta name="description" content="{{ page.search_description }}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
