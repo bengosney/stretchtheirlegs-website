@@ -16,6 +16,9 @@
     padding-left: 0;
     margin-left: 0;
 
+    background: var(--background);
+    color: var(--text-colour);
+
     &:focus,
     &:active,
     &:focus-visible {
