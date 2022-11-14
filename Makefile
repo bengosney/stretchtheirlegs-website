@@ -8,7 +8,14 @@ REQS=$(subst in,txt,$(INS))
 
 SCSS=$(shell find scss/ -name "*.scss")
 
-DBTOSQLPATH=".direnv/python-3.10.8/bin/db-to-sqlite"
+BINPATH=$(shell which python | xargs dirname | xargs realpath --relative-to=".")
+DBTOSQLPATH=$(BINPATH)/db-to-sqlite
+
+PYTHON_VERSION:=$(shell python --version | cut -d " " -f 2)
+PIP_PATH:=$(BINPATH)/pip
+WHEEL_PATH:=$(BINPATH)/wheel
+PIP_SYNC_PATH:=$(BINPATH)/pip-sync
+PRE_COMMIT_PATH:=$(BINPATH)/pre-commit
 
 help: ## Display this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -30,20 +37,20 @@ requirements.%.in:
 requirements.in:
 	@touch $@
 
-requirements.%.txt: requirements.%.in requirements.txt
+requirements.%.txt: $(PIP_SYNC_PATH) requirements.%.in requirements.txt
 	@echo "Builing $@"
-	@python -m piptools compile -q -o $@ $^
+	@python -m piptools compile -q -o $@ $(filter-out $<,$^)
 
-requirements.txt: requirements.in
+requirements.txt: $(PIP_SYNC_PATH) requirements.in
 	@echo "Builing $@"
-	@python -m piptools compile -q $^
+	@python -m piptools compile -q $(filter-out $<,$^)
 
 .direnv: .envrc
 	python -m pip install --upgrade pip
 	python -m pip install wheel pip-tools
 	@touch $@ $^
 
-.git/hooks/pre-commit: .pre-commit-config.yaml
+.git/hooks/pre-commit: $(PRE_COMMIT_PATH) .pre-commit-config.yaml
 	pre-commit install
 
 .envrc:
@@ -52,7 +59,24 @@ requirements.txt: requirements.in
 	@touch -d '+1 minute' $@
 	@false
 
-init: .direnv .git .git/hooks/pre-commit requirements.dev.txt ## Initalise a enviroment
+$(PIP_PATH):
+	@python -m ensurepip
+	@python -m pip install --upgrade pip
+	@touch $@
+
+$(WHEEL_PATH): $(PIP_PATH)
+	python -m pip install wheel
+	@touch $@
+
+$(PIP_SYNC_PATH): $(PIP_PATH) $(WHEEL_PATH)
+	python -m pip install pip-tools
+	@touch $@
+
+$(PRE_COMMIT_PATH): $(PIP_PATH) $(WHEEL_PATH)
+	python -m pip install pre-commit
+	@touch $@
+
+init: .direnv $(PIP_SYNC_PATH) .git .git/hooks/pre-commit requirements.dev.txt ## Initalise a enviroment
 
 clean: ## Remove all build files
 	find . -name '*.pyc' -delete
@@ -67,21 +91,19 @@ package-lock.json: package.json
 
 node_modules: package.json package-lock.json
 	npm install
-	touch $@
+	@touch $@
 
 node: node_modules
 
-python: requirements.txt $(REQS)
-	@echo "Installing $^"
-	@python -m piptools sync $^
+python: $(PIP_SYNC_PATH) requirements.txt $(REQS)
+	@echo "Installing $(filter-out $<,$^)"
+	@python -m piptools sync $(filter-out $<,$^)
 
 install: python node ## Install development requirements (default)
 
-dev: init install ## Start work
-	code .
-
 _upgrade: requirements.in
 	@echo "Upgrading pip packages"
+	@python -m pip install --upgrade pip
 	@python -m piptools compile -q --upgrade requirements.in
 
 upgrade: _upgrade python
