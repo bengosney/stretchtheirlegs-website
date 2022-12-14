@@ -1,0 +1,10 @@
+{% if fireworks %}
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js"></script>
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            const container = document.querySelector('.banner');
+            const fireworks = new Fireworks(container);
+            fireworks.start();
+        }
+    </script>
+{% endif %}

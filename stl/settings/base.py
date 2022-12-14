@@ -197,7 +197,7 @@ CDN_URL = "https://cdn.stretchtheirlegs.co.uk"
 CERBERUS_URL = "https://cerberus.stretchtheirlegs.co.uk"
 
 CSP_DEFAULT_SRC = "'self'"
-CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com")
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net")
 CSP_STYLE_SRC = ("'self'", "fonts.googleapis.com", "'unsafe-inline'")
 CSP_FONT_SRC = ("'self'", CDN_URL)
 CSP_IMG_SRC = ("'self'", "data:", CDN_URL)

@@ -1419,6 +1419,15 @@ nav label.active {
   margin: 0;
 }
 
+.banner canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
 ::selection {
   background: var(---color-primary-0);
   color: #fff;
