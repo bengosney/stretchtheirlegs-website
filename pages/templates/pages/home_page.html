@@ -1,17 +1,21 @@
 {% extends "base.html" %}
 
 {% load wagtailcore_tags picture_tags %}
+{% load logo_tags %}
 
 
 {% block body_class %}full-height-banner{% endblock %}
 
+{% block theme %}dark{% endblock %}
 
 {% block banner_text %}
     <h1>Stretch Their Legs</h1>
     <h2 class="alt">Dog walking and animal services</h2>
+    <div class="fireworks"></div>
 {% endblock %}
 
 
 {% block content %}
     {% include_block page.body %}
+    {% fireworks %}
 {% endblock content %}

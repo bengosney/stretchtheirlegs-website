@@ -12,6 +12,7 @@ from fh_utils.models import statusDatePeriodMixin, statusMixin
 class Logo(statusDatePeriodMixin, models.Model):
     title = models.TextField(_("Title"))
     logo = models.FileField(_("Logo SVG"), upload_to="logos")
+    fireworks = models.BooleanField(_("Show fireworks"), default=False)
 
     panels = [
         *statusMixin.mixin_panels,
@@ -26,12 +27,16 @@ class Logo(statusDatePeriodMixin, models.Model):
             [
                 FieldPanel("title"),
                 FieldPanel("logo"),
+                FieldPanel("fireworks"),
             ]
         ),
     ]
 
     class Meta:
         default_manager_name = "admin_objects"
+
+    def __str__(self):
+        return self.title
 
     @property
     def svg(self) -> str:

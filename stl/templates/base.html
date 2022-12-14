@@ -33,7 +33,7 @@
         {% include "favicon.html" %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body class="{% block body_class %}{% endblock %}" data-theme="{% block theme %}system{% endblock %}">
         {% wagtailuserbar %}
         {% messages %}
 
