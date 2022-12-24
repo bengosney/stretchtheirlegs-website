@@ -8,3 +8,13 @@
         }
     </script>
 {% endif %}
+{% if snow %}
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            var script = document.createElement("script");
+            script.src = "https://app.embed.im/snow.js";
+
+            document.head.appendChild(script);
+        }
+    </script>
+{% endif %}

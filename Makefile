@@ -109,10 +109,10 @@ _upgrade: requirements.in
 upgrade: _upgrade python
 
 $(DBTOSQLPATH):
-	pip install 'db-to-sqlite[postgresql]'
+	pip install git+https://github.com/bengosney/db-to-sqlite.git
 
 db.sqlite3: $(DBTOSQLPATH)
-	db-to-sqlite $(shell heroku config | grep DATABASE_URL | tr -s " " | cut -d " " -f 2) $@ --all -p
+	db-to-sqlite $(shell heroku config | grep DATABASE_URL | tr -s " " | cut -d " " -f 2) $@ --all --skip "cerberus_*" -p
 
 stl/static/css/%.css: scss/%.scss $(SCSS)
 	npx sass $< $@
@@ -121,9 +121,9 @@ stl/static/css/%.min.css: stl/static/css/%.css
 	npx postcss $^ > $@
 	sed -e "s/sourceMappingURL//g" -i $@
 
-css: stl/static/css/main.min.css
+css: stl/static/css/main.min.css ## Build the css
 
-watch:
+watch: ## Watch and build the css
 	@echo "Watching scss"
 	@while inotifywait -qr -e close_write scss/; do \
 		$(MAKE) css; \

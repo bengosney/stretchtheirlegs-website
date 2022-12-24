@@ -13,6 +13,7 @@ class Logo(statusDatePeriodMixin, models.Model):
     title = models.TextField(_("Title"))
     logo = models.FileField(_("Logo SVG"), upload_to="logos")
     fireworks = models.BooleanField(_("Show fireworks"), default=False)
+    snow = models.BooleanField(_("Show snow"), default=False)
 
     panels = [
         *statusMixin.mixin_panels,
@@ -27,8 +28,15 @@ class Logo(statusDatePeriodMixin, models.Model):
             [
                 FieldPanel("title"),
                 FieldPanel("logo"),
+            ],
+            heading="Details",
+        ),
+        MultiFieldPanel(
+            [
                 FieldPanel("fireworks"),
-            ]
+                FieldPanel("snow"),
+            ],
+            heading="Effects",
         ),
     ]
 
@@ -40,7 +48,10 @@ class Logo(statusDatePeriodMixin, models.Model):
 
     @property
     def svg(self) -> str:
-        return self.logo.read().decode("utf-8")
+        try:
+            return self.logo.read().decode("utf-8")
+        except FileNotFoundError:
+            return ""
 
     @classmethod
     def get_current_logo(cls):
