@@ -7,13 +7,18 @@ from ..models import Logo
 register = template.Library()
 
 
-@register.inclusion_tag("tags/fireworks.html")
-def fireworks():
+@register.inclusion_tag("tags/effects.html")
+def effects():
     if logo := Logo.get_current_logo():
-        print(f"logo.fireworks: {logo.fireworks}")
-        return {"fireworks": logo.fireworks}
+        return {
+            "fireworks": logo.fireworks,
+            "snow": logo.snow,
+        }
     else:
-        return {"fireworks": False}
+        return {
+            "fireworks": False,
+            "snow": False,
+        }
 
 
 @register.inclusion_tag("tags/logo.html")
