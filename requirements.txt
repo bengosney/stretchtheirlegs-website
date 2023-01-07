@@ -8,7 +8,7 @@ anyascii==0.3.1
     # via wagtail
 arabic-reshaper==2.1.4
     # via xhtml2pdf
-asgiref==3.5.2
+asgiref==3.6.0
     # via django
 asn1crypto==1.5.1
     # via
@@ -17,15 +17,15 @@ asn1crypto==1.5.1
     #   pyhanko-certvalidator
 async-timeout==4.0.2
     # via redis
-attrs==22.1.0
+attrs==22.2.0
     # via jsonschema
 babel==2.11.0
     # via py-moneyed
 beautifulsoup4==4.11.1
     # via wagtail
-boto3==1.26.30
+boto3==1.26.45
     # via -r requirements.in
-botocore==1.29.30
+botocore==1.29.45
     # via
     #   boto3
     #   s3transfer
@@ -43,7 +43,7 @@ charset-normalizer==2.1.1
     # via requests
 click==8.1.3
     # via pyhanko
-cryptography==38.0.4
+cryptography==39.0.0
     # via
     #   djangorestframework-simplejwt
     #   pyhanko
@@ -54,7 +54,7 @@ dj-database-url==1.2.0
     # via
     #   -r requirements.in
     #   cerberus
-django==4.1.4
+django==4.1.5
     # via
     #   -r requirements.in
     #   cerberus
@@ -108,13 +108,13 @@ django-polymorphic==3.1.0
     # via cerberus
 django-reversion==5.0.4
     # via cerberus
-django-storages==1.13.1
+django-storages==1.13.2
     # via -r requirements.in
 django-taggit==3.1.0
     # via
     #   cerberus
     #   wagtail
-django-treebeard==4.5.1
+django-treebeard==4.6.0
     # via wagtail
 djangorestframework==3.14.0
     # via
@@ -126,7 +126,7 @@ djangorestframework-simplejwt[crypto]==5.2.2
     # via cerberus
 draftjs-exporter==2.1.7
     # via wagtail
-drf-spectacular==0.25.0
+drf-spectacular==0.25.1
     # via cerberus
 et-xmlfile==1.1.0
     # via openpyxl
@@ -160,15 +160,15 @@ markdown==3.4.1
     # via cerberus
 milksnake==0.1.5
     # via rustface
-numpy==1.23.5
+numpy==1.24.1
     # via opencv-python-headless
-opencv-python-headless==4.6.0.66
+opencv-python-headless==4.7.0.68
     # via -r requirements.in
 openpyxl==3.0.10
     # via wagtail
 oscrypto==1.3.0
     # via pyhanko-certvalidator
-pillow==9.3.0
+pillow==9.4.0
     # via
     #   reportlab
     #   wagtail
@@ -186,9 +186,9 @@ py-moneyed==2.0
     # via django-money
 pycparser==2.21
     # via cffi
-pyhanko==0.15.1
+pyhanko==0.16.0
     # via xhtml2pdf
-pyhanko-certvalidator==0.19.7
+pyhanko-certvalidator==0.19.8
     # via
     #   pyhanko
     #   xhtml2pdf
@@ -196,13 +196,13 @@ pyjwt==2.6.0
     # via djangorestframework-simplejwt
 pypdf3==1.0.6
     # via xhtml2pdf
-pyrsistent==0.19.2
+pyrsistent==0.19.3
     # via jsonschema
 python-bidi==0.4.2
     # via xhtml2pdf
 python-dateutil==2.8.2
     # via botocore
-pytz==2022.6
+pytz==2022.7
     # via
     #   babel
     #   django-modelcluster
@@ -244,7 +244,7 @@ soupsieve==2.3.2.post1
     # via beautifulsoup4
 sqlparse==0.4.3
     # via django
-svglib==1.4.1
+svglib==1.5.1
     # via xhtml2pdf
 telepath==0.3
     # via wagtail
@@ -274,7 +274,7 @@ wagtail==4.1.1
     # via
     #   -r requirements.in
     #   wagtail-picture-tag
-wagtail-picture-tag==1.0.0
+wagtail-picture-tag==1.0.1
     # via -r requirements.in
 webencodings==0.5.1
     # via
@@ -285,7 +285,7 @@ wheel==0.38.4
     # via
     #   -r requirements.in
     #   cerberus
-whitenoise[brotli]==6.2.0
+whitenoise[brotli]==6.3.0
     # via
     #   -r requirements.in
     #   cerberus
