@@ -1,4 +1,4 @@
-{% load wagtailimages_tags %}
+{% load wagtailimages_tags social_tags %}
 
 {% image og_image original as tmp_img %}
 
@@ -8,6 +8,4 @@
 <meta property="og:description" content="{{ og_description }}" />
 <meta property="og:image" content="{{ tmp_img.url }}" />
 
-<script type="application/ld+json">
-    {{ jsonld }}
-</script>
+{{ jsonld|jsonld:4 }}
