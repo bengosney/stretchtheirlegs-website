@@ -8,6 +8,4 @@
 <meta property="og:description" content="{{ og_description }}" />
 <meta property="og:image" content="{{ tmp_img.url }}" />
 
-{% for blob in jsonld %}
-    {{ blob|jsonld:4 }}
-{% endfor %}
+{{ jsonld|jsonld:4 }}

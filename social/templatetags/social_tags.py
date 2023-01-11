@@ -1,5 +1,7 @@
 # Standard Library
+import contextlib
 import json
+from collections.abc import Iterable
 
 # Django
 from django import template
@@ -19,11 +21,21 @@ register = template.Library()
 
 @register.filter()
 def jsonld(value, indent=None):
-    return mark_safe(
-        f"""
-<script type="application/ld+json">{json.dumps(value, indent=indent)}</script>
-    """
-    )
+    return mark_safe(f"""<script type="application/ld+json">{json.dumps(value, indent=indent)}</script>""")
+
+
+def get_breadcrumbs(ancestors: list) -> Iterable:
+    for i, ancestor_page in enumerate(ancestors, start=1):
+        ancestor = ancestor_page.get_specific()
+        if ancestor.id > 1:
+            yield {
+                "@type": "ListItem",
+                "position": i,
+                "item": {
+                    "@id": ancestor.get_full_url() or ancestor.title,
+                    "name": ancestor.title,
+                },
+            }
 
 
 @register.inclusion_tag("tags/social_tags.html", takes_context=True)
@@ -44,10 +56,19 @@ def social_tags(context):
     except Exception:
         jsonld = []
 
-    try:
-        context.flatten()["page"]
-    except KeyError:
-        pass
+    flat_context = context.flatten()
+
+    with contextlib.suppress(KeyError):
+        jsonld.append(
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": list(get_breadcrumbs(flat_context["page"].get_ancestors(inclusive=True))),
+            }
+        )
+
+    with contextlib.suppress(KeyError, AttributeError):
+        jsonld.append(flat_context["page"].get_jsonld())
 
     return {
         "og_description": settings.description,

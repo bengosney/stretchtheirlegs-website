@@ -93,6 +93,13 @@ class ServicePage(Page):
         FieldPanel("body"),
     ]
 
+    def get_jsonld(self):
+        return {
+            "@context": "https://schema.org/",
+            "@type": "Service",
+            "serviceType": self.title,
+        }
+
 
 class FormField(AbstractFormField):
     page = ParentalKey("FormPage", on_delete=models.CASCADE, related_name="form_fields")
@@ -147,6 +154,9 @@ class FormPage(AbstractEmailForm):
 
 class MenuPage(Page):
     show_in_menus_default = True
+
+    def get_url_parts(self, request=None):
+        return None
 
     def get_sitemap_urls(self, request=None):
         return []
