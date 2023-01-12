@@ -1,5 +1,6 @@
 # Django
 from django import template
+from django.utils.safestring import mark_safe
 
 # Locals
 from ..models import Logo
@@ -19,6 +20,15 @@ def effects():
             "fireworks": False,
             "snow": False,
         }
+
+
+@register.simple_tag()
+def effects_container():
+    if logo := Logo.get_current_logo():
+        if logo.fireworks:
+            return mark_safe('<div class="fireworks"></div>')
+
+    return ""
 
 
 @register.inclusion_tag("tags/logo.html")
