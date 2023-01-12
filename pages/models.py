@@ -46,6 +46,9 @@ class Membership(models.Model):
 class HomePage(Page):
     show_in_menus_default = True
 
+    banner_title = models.CharField(max_length=60)
+    banner_sub_title = models.CharField(max_length=120)
+
     body = StreamField(
         [
             ("Paragraph", blocks.RichTextBlock()),
@@ -58,6 +61,13 @@ class HomePage(Page):
     parent_page_types = ["wagtailcore.Page"]
 
     content_panels = Page.content_panels + [
+        MultiFieldPanel(
+            [
+                FieldPanel("banner_title"),
+                FieldPanel("banner_sub_title"),
+            ],
+            "Banner",
+        ),
         FieldPanel("body"),
     ]
 
@@ -83,11 +93,13 @@ class InfoPage(Page):
 class ServicePage(Page):
     show_in_menus_default = True
 
+    sub_title = models.CharField(max_length=120, blank=True, default="Details")
     short_description = models.CharField(max_length=350, blank=True)
     body = RichTextField(blank=True)
     image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
 
     content_panels = Page.content_panels + [
+        FieldPanel("sub_title"),
         FieldPanel("image"),
         FieldPanel("short_description"),
         FieldPanel("body"),
