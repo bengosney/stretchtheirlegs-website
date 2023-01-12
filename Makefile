@@ -128,3 +128,6 @@ watch: ## Watch and build the css
 	@while inotifywait -qr -e close_write scss/; do \
 		$(MAKE) css; \
 	done
+
+bs: ## Run browser-sync
+	browser-sync start --proxy localhost:8000 --files "./**/*.css" --files "./**/*.js" --files "./**/*.html"
