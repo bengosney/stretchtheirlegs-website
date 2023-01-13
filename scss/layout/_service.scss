@@ -29,13 +29,11 @@
   .service-list {
     display: flex;
     gap: min(3rem, 4vw);
-
-    @include in-size((xxs, xs)) {
-      flex-direction: column;
-    }
+    flex-wrap: wrap;
 
     .service {
       flex: 1;
+      flex-basis: 339px;
       margin: 0 0 1rem;
 
       text-decoration: none;

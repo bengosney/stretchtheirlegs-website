@@ -1358,19 +1358,11 @@ nav label.active {
 .service-list-block .service-list {
   display: flex;
   gap: min(3rem, 4vw);
-}
-@media (max-width: 575px) {
-  .service-list-block .service-list {
-    flex-direction: column;
-  }
-}
-@media (min-width: 576px) and (max-width: 767px) {
-  .service-list-block .service-list {
-    flex-direction: column;
-  }
+  flex-wrap: wrap;
 }
 .service-list-block .service-list .service {
   flex: 1;
+  flex-basis: 339px;
   margin: 0 0 1rem;
   text-decoration: none;
   display: flex;
