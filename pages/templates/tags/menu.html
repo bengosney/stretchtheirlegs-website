@@ -1,5 +1,5 @@
 {% load navigation_tags wagtailcore_tags %}
-<ul class="nav-level-{{ level }}">
+<menu class="nav-level-{{ level }}">
     {% if level == 1 %}
         <label for="nav-toggle" class="nav-toggle-label">
             <span>Close Navigation</span>
@@ -27,4 +27,4 @@
             </a>
         </li>
     {% endif %}
-</ul>
+</menu>
