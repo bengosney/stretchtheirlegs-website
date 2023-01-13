@@ -987,14 +987,14 @@ nav .nav-toggle-label span {
     align-items: center;
     justify-content: center;
   }
-  nav ul {
+  nav menu {
     padding: 0;
     margin: 0;
   }
   input:checked + nav::before {
     animation: fadeIn 0.5s ease-in-out forwards;
   }
-  input:checked + nav ul.nav-level-1 {
+  input:checked + nav menu.nav-level-1 {
     transform: translateX(0px);
     box-shadow: 0 0 5vw rgb(0, 0, 0);
   }
@@ -1008,7 +1008,7 @@ nav label {
     display: block;
     box-sizing: border-box;
   }
-  nav ul.nav-level-1 {
+  nav menu.nav-level-1 {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -1025,7 +1025,7 @@ nav label {
     transform: translateX(clamp(275px, 40vw, 350px));
     transition: all 0.5s ease;
   }
-  nav ul.nav-level-1::before {
+  nav menu.nav-level-1::before {
     content: "Menu";
     display: block;
     font-family: "Fontdiner Swanky", cursive;
@@ -1039,20 +1039,20 @@ nav label {
     color: #fff;
     padding: 0.25rem 1rem;
   }
-  nav ul.nav-level-1 li {
+  nav menu.nav-level-1 li {
     list-style: none;
     padding: 0;
   }
-  nav ul.nav-level-1 ul {
+  nav menu.nav-level-1 menu {
     display: none;
   }
-  nav ul.nav-level-1 input:checked + ul {
+  nav menu.nav-level-1 input:checked + menu {
     display: block;
   }
-  nav ul.nav-level-1 li {
+  nav menu.nav-level-1 li {
     position: relative;
   }
-  nav ul.nav-level-1 li label::after {
+  nav menu.nav-level-1 li label::after {
     content: "";
     top: calc(1.25em - 0.25rem);
     position: absolute;
@@ -1084,11 +1084,11 @@ nav li label {
     border-bottom: 1px solid #9775aa;
     padding: 0 1rem;
   }
-  nav li ul {
+  nav li menu {
     background: var(--background-alt);
   }
-  nav li ul li a,
-nav li ul li label {
+  nav li menu li a,
+nav li menu li label {
     padding-left: 2rem;
   }
   .nav-level-1 {
@@ -1167,25 +1167,25 @@ nav li ul li label {
     position: relative;
     z-index: 999;
   }
-  nav ul {
+  nav menu {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  nav ul li {
+  nav menu li {
     line-height: 1em;
     padding: 0;
     margin: 0;
   }
-  nav ul li a,
-nav ul li label {
+  nav menu li a,
+nav menu li label {
     white-space: nowrap;
   }
-  nav ul li a:after,
-nav ul li label:after {
+  nav menu li a:after,
+nav menu li label:after {
     transition: all 0.2s ease-in-out;
   }
-  nav > ul {
+  nav > menu {
     list-style: none;
     display: flex;
     align-items: center;
@@ -1193,22 +1193,22 @@ nav ul li label:after {
   }
 }
 @media (min-width: 992px) and (max-width: 575px) {
-  nav > ul {
+  nav > menu {
     flex-direction: column;
   }
 }
 @media (min-width: 992px) and (min-width: 576px) and (max-width: 767px) {
-  nav > ul {
+  nav > menu {
     flex-direction: column;
   }
 }
 @media (min-width: 992px) {
-  nav > ul > li.has-submenu > a:hover:after,
-nav > ul > li.has-submenu label:hover:after {
+  nav > menu > li.has-submenu > a:hover:after,
+nav > menu > li.has-submenu label:hover:after {
     border-color: var(---color-primary-1) transparent transparent transparent;
   }
-  nav > ul > li.has-submenu > a:after,
-nav > ul > li.has-submenu label:after {
+  nav > menu > li.has-submenu > a:after,
+nav > menu > li.has-submenu label:after {
     transition: all 0.2s ease-in-out;
     content: "";
     display: inline-block;
@@ -1222,7 +1222,7 @@ nav > ul > li.has-submenu label:after {
   }
 }
 @media (min-width: 992px) {
-  nav > ul ul {
+  nav > menu menu {
     display: none;
     position: absolute;
     background: var(--background);
@@ -1232,17 +1232,17 @@ nav > ul > li.has-submenu label:after {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
     flex-direction: column;
   }
-  nav > ul ul .has-submenu > a,
-nav > ul ul .has-submenu label {
+  nav > menu menu .has-submenu > a,
+nav > menu menu .has-submenu label {
     position: relative;
     padding-right: 2.5rem;
   }
-  nav > ul ul .has-submenu > a:hover:after,
-nav > ul ul .has-submenu label:hover:after {
+  nav > menu menu .has-submenu > a:hover:after,
+nav > menu menu .has-submenu label:hover:after {
     border-color: transparent transparent transparent #9775aa;
   }
-  nav > ul ul .has-submenu > a:after,
-nav > ul ul .has-submenu label:after {
+  nav > menu menu .has-submenu > a:after,
+nav > menu menu .has-submenu label:after {
     position: absolute;
     content: "";
     right: 1rem;
@@ -1253,12 +1253,12 @@ nav > ul ul .has-submenu label:after {
     border-width: 0.5rem 0 0.5rem 0.5rem;
     border-color: transparent transparent transparent #582a72;
   }
-  nav > ul ul ul {
+  nav > menu menu menu {
     margin-top: -3.1rem;
     margin-left: calc(100% - 0.5rem);
   }
-  nav > ul ul li a,
-nav > ul ul li label {
+  nav > menu menu li a,
+nav > menu menu li label {
     font-size: 1.1rem;
     display: block;
     margin: 0;
@@ -1266,7 +1266,7 @@ nav > ul ul li label {
   }
 }
 @media (min-width: 992px) {
-  nav > ul li:hover > ul {
+  nav > menu li:hover > menu {
     display: block;
     display: flex;
   }

@@ -26,7 +26,7 @@ nav {
       }
     }
 
-    ul {
+    menu {
       padding: 0;
       margin: 0;
     }
@@ -36,7 +36,7 @@ nav {
         animation: fadeIn 0.5s ease-in-out forwards;
       }
 
-      ul.nav-level-1 {
+      menu.nav-level-1 {
         transform: translateX(0px);
         box-shadow: 0 0 5vw rgb(0 0 0 / 100%);
       }
@@ -57,7 +57,7 @@ nav {
       @include nav-item;
     }
 
-    ul.nav-level-1 {
+    menu.nav-level-1 {
       &::before {
         content: "Menu";
         display: block;
@@ -91,11 +91,11 @@ nav {
         padding: 0;
       }
 
-      ul {
+      menu {
         display: none;
       }
 
-      input:checked + ul {
+      input:checked + menu {
         display: block;
       }
 
@@ -141,7 +141,7 @@ nav {
         padding: 0 1rem;
       }
 
-      ul {
+      menu {
         background: var(--background-alt);
         li {
           a,
@@ -172,7 +172,7 @@ nav {
     position: relative;
     z-index: 999;
 
-    ul {
+    menu {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -192,7 +192,7 @@ nav {
       }
     }
 
-    & > ul {
+    & > menu {
       list-style: none;
       display: flex;
       align-items: center;
@@ -229,7 +229,7 @@ nav {
         }
       }
 
-      ul {
+      menu {
         display: none;
         position: absolute;
         background: var(--background);
@@ -267,7 +267,7 @@ nav {
           }
         }
 
-        ul {
+        menu {
           margin-top: -($font-size + ($padding * 2));
           margin-left: calc(100% - math.div($padding, 2));
         }
@@ -286,7 +286,7 @@ nav {
 
       li {
         &:hover {
-          & > ul {
+          & > menu {
             display: block;
             display: flex;
           }
