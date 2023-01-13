@@ -9,7 +9,7 @@
             {% csrf_token %}
             {{ form.non_field_errors }}
             {% for field in form %}
-                <div class="field-wrapper field-{{ field.field.widget.input_type }} {{ field.id_for_label }}">
+                <div class="field-wrapper field-{{ field.field.widget.input_type|default:"textarea" }} {{ field.id_for_label }}">
                     {{ field.errors }}
                     {% if field.field.widget.input_type == 'checkbox' %}
                         {{ field }}
@@ -21,7 +21,7 @@
                 </div>
             {% endfor %}
 
-            <div class="field-wrapper field-{{ field.field.widget.input_type }} submit-button">
+            <div class="field-wrapper field-submit submit-button">
                 <input type="submit" value="{{ page.submit_text }}" />
             </div>
         </form>

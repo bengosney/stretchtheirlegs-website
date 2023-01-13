@@ -1,45 +1,63 @@
-.field-wrapper {
-  margin-bottom: 2rem;
+form {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
 
-  label {
-    display: block;
-    color: var(---color-primary-0);
-  }
+  .field-wrapper {
+    flex-grow: 1;
+    flex-basis: 272px;
 
-  input,
-  textarea {
-    width: 100%;
-    line-height: 1.75em;
-
-    border: none;
-    border-bottom: 1px solid $color-primary-0;
-    padding-left: 0;
-    margin-left: 0;
-
-    background: var(--background);
-    color: var(--text-colour);
-
-    &:focus,
-    &:active,
-    &:focus-visible {
-      outline: none;
+    &.field-textarea,
+    &.field-submit,
+    &.field-email {
+      flex-basis: 100%;
     }
-  }
 
-  &.field-checkbox {
-    input,
     label {
-      display: inline;
-      width: auto;
+      display: block;
+      color: var(---color-primary-0);
     }
 
-    input {
-      margin-right: 0.5em;
-    }
-  }
+    $line_height: 1.75em;
+    input,
+    textarea {
+      width: 100%;
+      line-height: $line_height;
 
-  input[type="button"],
-  input[type="submit"] {
-    @extend .btn;
+      border: none;
+      border-bottom: 1px solid $color-primary-0;
+      padding-left: 0;
+      margin-left: 0;
+
+      background: var(--background);
+      color: var(--text-colour);
+
+      &:focus,
+      &:active,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    textarea {
+      height: $line_height * 5;
+    }
+
+    &.field-checkbox {
+      input,
+      label {
+        display: inline;
+        width: auto;
+      }
+
+      input {
+        margin-right: 0.5em;
+      }
+    }
+
+    input[type="button"],
+    input[type="submit"] {
+      @extend .btn;
+    }
   }
 }

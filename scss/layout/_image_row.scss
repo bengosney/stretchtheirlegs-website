@@ -1,22 +1,22 @@
 .image_row {
   display: flex;
   justify-content: space-evenly;
+  gap: min(3rem, 4vw);
+  flex-wrap: wrap;
+
   picture {
+    flex: 1;
+    flex-basis: 272px;
+    max-width: 450px;
+    height: auto;
+
     @include triangle-top(var(--background));
     @include triangle-bottom(var(--background));
-    padding: 0 1rem;
+    padding: 0;
     overflow: hidden;
     img {
       display: block;
       flex: 1;
-    }
-
-    &:first-child {
-      padding-left: 0;
-    }
-
-    &:last-child {
-      padding-right: 0;
     }
   }
 }
