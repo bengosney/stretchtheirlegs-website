@@ -410,6 +410,10 @@ h4 {
   font-weight: inherit;
   line-height: 1.2;
   color: var(---color-primary-0);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 10 3 4;
 }
 h1.alt,
 h2.alt,
@@ -425,7 +429,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.827em;
+  font-size: 2.627em;
 }
 
 h3, body > footer .title {
@@ -756,11 +760,17 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
 .image_row {
   display: flex;
   justify-content: space-evenly;
+  gap: min(3rem, 4vw);
+  flex-wrap: wrap;
 }
 .image_row picture {
+  flex: 1;
+  flex-basis: 272px;
+  max-width: 450px;
+  height: auto;
   position: relative;
   position: relative;
-  padding: 0 1rem;
+  padding: 0;
   overflow: hidden;
 }
 .image_row picture:before {
@@ -788,12 +798,6 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
 .image_row picture img {
   display: block;
   flex: 1;
-}
-.image_row picture:first-child {
-  padding-left: 0;
-}
-.image_row picture:last-child {
-  padding-right: 0;
 }
 
 .item {
