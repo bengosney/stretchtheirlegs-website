@@ -320,16 +320,16 @@ template {
 }
 
 /* generated with grunt-sass-globbing */
-.btn:hover, .field-wrapper input[type=button]:hover,
-.field-wrapper input[type=submit]:hover {
+.btn:hover, form .field-wrapper input[type=button]:hover,
+form .field-wrapper input[type=submit]:hover {
   background-color: var(---color-primary-2);
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 a.btn,
 .btn,
-.field-wrapper input[type=button],
-.field-wrapper input[type=submit],
+form .field-wrapper input[type=button],
+form .field-wrapper input[type=submit],
 .btn-large {
   color: #fff;
 }
@@ -343,8 +343,8 @@ a:visited {
   color: var(---color-primary-0);
 }
 
-.btn, .field-wrapper input[type=button],
-.field-wrapper input[type=submit] {
+.btn, form .field-wrapper input[type=button],
+form .field-wrapper input[type=submit] {
   text-decoration: none;
   color: #fff;
   background-color: var(---color-primary-0);
@@ -673,15 +673,24 @@ body > footer .memberships a, body > footer .memberships nav label, nav body > f
   padding: 0.5rem;
 }
 
-.field-wrapper {
-  margin-bottom: 2rem;
+form {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
-.field-wrapper label {
+form .field-wrapper {
+  flex-grow: 1;
+  flex-basis: 272px;
+}
+form .field-wrapper.field-textarea, form .field-wrapper.field-submit, form .field-wrapper.field-email {
+  flex-basis: 100%;
+}
+form .field-wrapper label {
   display: block;
   color: var(---color-primary-0);
 }
-.field-wrapper input,
-.field-wrapper textarea {
+form .field-wrapper input,
+form .field-wrapper textarea {
   width: 100%;
   line-height: 1.75em;
   border: none;
@@ -691,18 +700,21 @@ body > footer .memberships a, body > footer .memberships nav label, nav body > f
   background: var(--background);
   color: var(--text-colour);
 }
-.field-wrapper input:focus, .field-wrapper input:active, .field-wrapper input:focus-visible,
-.field-wrapper textarea:focus,
-.field-wrapper textarea:active,
-.field-wrapper textarea:focus-visible {
+form .field-wrapper input:focus, form .field-wrapper input:active, form .field-wrapper input:focus-visible,
+form .field-wrapper textarea:focus,
+form .field-wrapper textarea:active,
+form .field-wrapper textarea:focus-visible {
   outline: none;
 }
-.field-wrapper.field-checkbox input,
-.field-wrapper.field-checkbox label {
+form .field-wrapper textarea {
+  height: 8.75em;
+}
+form .field-wrapper.field-checkbox input,
+form .field-wrapper.field-checkbox label {
   display: inline;
   width: auto;
 }
-.field-wrapper.field-checkbox input {
+form .field-wrapper.field-checkbox input {
   margin-right: 0.5em;
 }
 header {
