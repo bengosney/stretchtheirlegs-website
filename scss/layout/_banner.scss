@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .banner {
   body.full-height-banner & {
     .banner_text {
@@ -63,16 +65,22 @@
       }
     }
 
+    $line-height: 1.5em;
     h1,
     h2 {
       color: #fff;
       padding: 0;
-      line-height: 1.5em;
+      line-height: $line-height;
       margin: 0;
       text-shadow: 0 0 15px #000;
     }
+    h1 {
+      &.site-name {
+        @include fluid-type(3.3rem, $h1-size);
+      }
+    }
     h2 {
-      font-size: 2em;
+      @include fluid-type(1.75rem, 2rem);
     }
   }
 }

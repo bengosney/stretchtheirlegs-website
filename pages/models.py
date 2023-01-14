@@ -43,6 +43,14 @@ class Membership(models.Model):
         return self.name
 
 
+class ParentTools:
+    @property
+    def parent_title(self):
+        parent = self.get_parent().get_specific()
+        if not parent.is_site_root():
+            return parent.title
+
+
 class HomePage(Page):
     show_in_menus_default = True
 
@@ -72,7 +80,7 @@ class HomePage(Page):
     ]
 
 
-class InfoPage(Page):
+class InfoPage(Page, ParentTools):
     show_in_menus_default = True
 
     body = StreamField(
@@ -90,7 +98,7 @@ class InfoPage(Page):
     ]
 
 
-class ServicePage(Page):
+class ServicePage(Page, ParentTools):
     show_in_menus_default = True
 
     sub_title = models.CharField(max_length=120, blank=True, default="Details")
@@ -117,7 +125,7 @@ class FormField(AbstractFormField):
     page = ParentalKey("FormPage", on_delete=models.CASCADE, related_name="form_fields")
 
 
-class FormPage(AbstractEmailForm):
+class FormPage(AbstractEmailForm, ParentTools):
     show_in_menus_default = True
     body = StreamField(
         [

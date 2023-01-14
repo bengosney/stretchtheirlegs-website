@@ -4,6 +4,11 @@ from django.template import Library, Node
 register = Library()
 
 
+@register.filter()
+def longest_word(value):
+    return len(max(value.split(), key=len))
+
+
 @register.tag
 def compress(parser, token):
     nodelist = parser.parse(("endcompress",))
