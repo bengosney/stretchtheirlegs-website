@@ -11,12 +11,16 @@ $h1-vw: 12vw;
 $h4-vw: 4.5vw;
 
 @function rescale($num) {
-  @return (($h1-vw - $h4-vw) * ($num - $h4-size) / ($h1-size - $h4-size)) + $h4-vw;
+  @return math.div(($h1-vw - $h4-vw) * ($num - $h4-size), ($h1-size - $h4-size)) + $h4-vw;
 }
 
 $h2-vw: rescale($h2-size);
 $h3-vw: rescale($h3-size);
 $h4-vw: rescale($h4-size);
+
+@mixin heading($size) {
+  font-size: clamp($base-size, rescale($size), $size);
+}
 
 html,
 body,

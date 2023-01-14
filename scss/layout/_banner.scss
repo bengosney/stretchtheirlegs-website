@@ -71,8 +71,13 @@
       margin: 0;
       text-shadow: 0 0 15px #000;
     }
+    h1 {
+      &.site-name {
+        @include heading($h1-size * 1.1);
+      }
+    }
     h2 {
-      font-size: 2em;
+      @include heading(2rem);
     }
   }
 }
