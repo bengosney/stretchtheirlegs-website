@@ -388,7 +388,7 @@ body {
 p,
 li {
   line-height: 1.5em;
-  font-size: clamp(1rem, 1.25rem, 4vw);
+  font-size: 1.25rem;
   letter-spacing: 0.005em;
 }
 
@@ -558,10 +558,10 @@ body.full-height-banner .banner .banner_text .container .banner_text_inner {
   text-shadow: 0 0 15px #000;
 }
 .banner .banner_text h1.site-name {
-  font-size: clamp(1.25rem, 13.1604102167vw, 4.3978rem);
+  font-size: clamp(1.999rem, 16vw, 3.998rem);
 }
 .banner .banner_text h2 {
-  font-size: clamp(1.25rem, 6.2008513932vw, 2rem);
+  font-size: clamp(1.25rem, 9vw, 2rem);
 }
 
 .container,

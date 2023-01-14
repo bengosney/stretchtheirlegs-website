@@ -45,7 +45,7 @@ body {
 p,
 li {
   line-height: 1.5em;
-  font-size: clamp(1rem, $base-size, $base-vw);
+  font-size: $base-size;
   letter-spacing: 0.005em;
 }
 

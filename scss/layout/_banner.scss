@@ -73,11 +73,11 @@
     }
     h1 {
       &.site-name {
-        @include heading($h1-size * 1.1);
+        font-size: clamp($h1-size * 0.5, 16vw, $h1-size);
       }
     }
     h2 {
-      @include heading(2rem);
+      font-size: clamp($base-size, 9vw, 2rem);
     }
   }
 }
