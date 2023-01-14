@@ -408,7 +408,7 @@ h4 {
   font-family: "Fontdiner Swanky", cursive;
   margin: 1.414em 0 0.75em;
   font-weight: inherit;
-  line-height: 1.2;
+  line-height: 1.25;
   color: var(---color-primary-0);
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -556,6 +556,24 @@ body.full-height-banner .banner .banner_text .container .banner_text_inner {
   line-height: 1.5em;
   margin: 0;
   text-shadow: 0 0 15px #000;
+}
+.banner .banner_text h1[data-max-length="7"] {
+  font-size: min(3.998em, 17vw);
+}
+.banner .banner_text h1[data-max-length="8"] {
+  font-size: min(3.998em, 16vw);
+}
+.banner .banner_text h1[data-max-length="9"] {
+  font-size: min(3.998em, 15vw);
+}
+.banner .banner_text h1[data-max-length="10"] {
+  font-size: min(3.998em, 14vw);
+}
+.banner .banner_text h1[data-max-length="11"] {
+  font-size: min(3.998em, 13vw);
+}
+.banner .banner_text h1[data-max-length="12"] {
+  font-size: min(3.998em, 12vw);
 }
 .banner .banner_text h2 {
   font-size: 2em;
