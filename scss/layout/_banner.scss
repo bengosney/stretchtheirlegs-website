@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .banner {
   body.full-height-banner & {
     .banner_text {
@@ -63,11 +65,12 @@
       }
     }
 
+    $line-height: 1.5em;
     h1,
     h2 {
       color: #fff;
       padding: 0;
-      line-height: 1.5em;
+      line-height: $line-height;
       margin: 0;
       text-shadow: 0 0 15px #000;
     }
