@@ -1,25 +1,29 @@
 @use "sass:math";
 
 $base-size: 1.25rem;
-$base-vw: 4vw;
 
 $h1-size: 3.998rem;
 $h2-size: 2.627rem;
 $h3-size: 1.999rem;
 $h4-size: 1.414rem;
-$h1-vw: 12vw;
-$h4-vw: 4.5vw;
 
-@function rescale($num) {
-  @return math.div(($h1-vw - $h4-vw) * ($num - $h4-size), ($h1-size - $h4-size)) + $h4-vw;
+@function fluid($min-size, $max-size, $min-breakpoint: 20rem, $max-breakpoint: 60rem, $unit: vw) {
+  $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
+  $slope-to-unit: $slope * 100;
+  $intercept-rem: $min-size - $slope * $min-breakpoint;
+  $min-size-rem: $min-size;
+  $max-size-rem: $max-size;
+
+  @return clamp(#{$min-size-rem}, #{$slope-to-unit}#{$unit} + #{$intercept-rem}, #{$max-size-rem});
 }
 
-$h2-vw: rescale($h2-size);
-$h3-vw: rescale($h3-size);
-$h4-vw: rescale($h4-size);
+@mixin fluid-type($min-size, $max-size) {
+  font-size: $min-size;
+  font-size: fluid($min-size, $max-size);
+}
 
-@mixin heading($size) {
-  font-size: clamp($base-size, rescale($size), $size);
+@mixin fluid-auto($size) {
+  @include fluid-type($size - (($size - $base-size) * 0.556), $size);
 }
 
 html,
@@ -45,7 +49,7 @@ body {
 p,
 li {
   line-height: 1.5em;
-  font-size: $base-size;
+  @include fluid-type(1.1rem, $base-size);
   letter-spacing: 0.005em;
 }
 
@@ -54,7 +58,6 @@ p {
 }
 
 li {
-  //line-height: 2em;
   + li {
     margin-top: 0.75em;
   }
@@ -82,19 +85,19 @@ h4 {
 
 h1 {
   margin-top: 0;
-  font-size: clamp($base-size, $h1-vw, $h1-size);
+  @include fluid-auto($h1-size);
 }
 
 h2 {
-  font-size: clamp($base-size, $h2-vw, $h2-size);
+  @include fluid-auto($h2-size);
 }
 
 h3 {
-  font-size: clamp($base-size, $h3-vw, $h3-size);
+  @include fluid-auto($h3-size);
 }
 
 h4 {
-  font-size: clamp($base-size, $h4-vw, $h4-size);
+  @include fluid-auto($h4-size);
 }
 
 small,

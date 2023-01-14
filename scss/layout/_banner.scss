@@ -73,11 +73,11 @@
     }
     h1 {
       &.site-name {
-        font-size: clamp($h1-size * 0.5, 16vw, $h1-size);
+        @include fluid-type(3.3rem, $h1-size);
       }
     }
     h2 {
-      font-size: clamp($base-size, 9vw, 2rem);
+      @include fluid-type(1.75rem, 2rem);
     }
   }
 }
