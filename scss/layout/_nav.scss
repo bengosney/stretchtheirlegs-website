@@ -6,6 +6,13 @@ nav {
   label {
     @extend a;
   }
+
+  menu {
+    li {
+      margin-top: 0;
+      line-height: 2em;
+    }
+  }
 }
 
 @media (max-width: $nav-swap) {

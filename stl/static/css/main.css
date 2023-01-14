@@ -993,6 +993,11 @@ nav .nav-toggle-label span {
   display: none;
 }
 
+nav menu li {
+  margin-top: 0;
+  line-height: 2em;
+}
+
 @media (max-width: 992px) {
   .links {
     flex-direction: row-reverse;
