@@ -388,7 +388,7 @@ body {
 p,
 li {
   line-height: 1.5em;
-  font-size: 1.25em;
+  font-size: clamp(1rem, 1.25rem, 4vw);
   letter-spacing: 0.005em;
 }
 
@@ -396,8 +396,8 @@ p {
   margin-bottom: 1.3em;
 }
 
-li {
-  line-height: 2em;
+li + li {
+  margin-top: 0.75em;
 }
 
 h1,
@@ -425,19 +425,19 @@ h4.alt {
 
 h1 {
   margin-top: 0;
-  font-size: 3.998em;
+  font-size: clamp(1.25rem, 12vw, 3.998rem);
 }
 
 h2 {
-  font-size: 2.627em;
+  font-size: clamp(1.25rem, 8.0207043344vw, 2.627rem);
 }
 
 h3, body > footer .title {
-  font-size: 1.999em;
+  font-size: clamp(1.25rem, 6.1979489164vw, 1.999rem);
 }
 
 h4 {
-  font-size: 1.414em;
+  font-size: clamp(1.25rem, 4.5vw, 1.414rem);
 }
 
 small,
@@ -556,24 +556,6 @@ body.full-height-banner .banner .banner_text .container .banner_text_inner {
   line-height: 1.5em;
   margin: 0;
   text-shadow: 0 0 15px #000;
-}
-.banner .banner_text h1[data-max-length="7"] {
-  font-size: min(3.998em, 17vw);
-}
-.banner .banner_text h1[data-max-length="8"] {
-  font-size: min(3.998em, 16vw);
-}
-.banner .banner_text h1[data-max-length="9"] {
-  font-size: min(3.998em, 15vw);
-}
-.banner .banner_text h1[data-max-length="10"] {
-  font-size: min(3.998em, 14vw);
-}
-.banner .banner_text h1[data-max-length="11"] {
-  font-size: min(3.998em, 13vw);
-}
-.banner .banner_text h1[data-max-length="12"] {
-  font-size: min(3.998em, 12vw);
 }
 .banner .banner_text h2 {
   font-size: 2em;

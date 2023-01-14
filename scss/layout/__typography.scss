@@ -1,3 +1,23 @@
+@use "sass:math";
+
+$base-size: 1.25rem;
+$base-vw: 4vw;
+
+$h1-size: 3.998rem;
+$h2-size: 2.627rem;
+$h3-size: 1.999rem;
+$h4-size: 1.414rem;
+$h1-vw: 12vw;
+$h4-vw: 4.5vw;
+
+@function rescale($num) {
+  @return (($h1-vw - $h4-vw) * ($num - $h4-size) / ($h1-size - $h4-size)) + $h4-vw;
+}
+
+$h2-vw: rescale($h2-size);
+$h3-vw: rescale($h3-size);
+$h4-vw: rescale($h4-size);
+
 html,
 body,
 p,
@@ -21,7 +41,7 @@ body {
 p,
 li {
   line-height: 1.5em;
-  font-size: 1.25em;
+  font-size: clamp(1rem, $base-size, $base-vw);
   letter-spacing: 0.005em;
 }
 
@@ -30,7 +50,10 @@ p {
 }
 
 li {
-  line-height: 2em;
+  //line-height: 2em;
+  + li {
+    margin-top: 0.75em;
+  }
 }
 
 h1,
@@ -53,26 +76,21 @@ h4 {
   }
 }
 
-$h1-size: 3.998em;
-$h2-size: 2.627em;
-$h3-size: 1.999em;
-$h4-size: 1.414em;
-
 h1 {
   margin-top: 0;
-  font-size: $h1-size;
+  font-size: clamp($base-size, $h1-vw, $h1-size);
 }
 
 h2 {
-  font-size: $h2-size;
+  font-size: clamp($base-size, $h2-vw, $h2-size);
 }
 
 h3 {
-  font-size: $h3-size;
+  font-size: clamp($base-size, $h3-vw, $h3-size);
 }
 
 h4 {
-  font-size: $h4-size;
+  font-size: clamp($base-size, $h4-vw, $h4-size);
 }
 
 small,
