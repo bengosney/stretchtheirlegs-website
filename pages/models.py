@@ -1,3 +1,6 @@
+# Standard Library
+import contextlib
+
 # Django
 from django.db import models
 from django.http import Http404
@@ -46,9 +49,10 @@ class Membership(models.Model):
 class ParentTools:
     @property
     def parent_title(self):
-        parent = self.get_parent().get_specific()
-        if not parent.is_site_root():
-            return parent.title
+        with contextlib.suppress(AttributeError):
+            parent = self.get_parent().get_specific()
+            if not parent.is_site_root():
+                return parent.title
 
 
 class HomePage(Page):
