@@ -107,6 +107,8 @@ _upgrade: requirements.in
 	@python -m piptools compile -q --upgrade requirements.in
 
 upgrade: _upgrade python
+	@echo "Updateing module paths"
+	wagtail updatemodulepaths --ignore-dir .direnv
 
 $(DBTOSQLPATH):
 	pip install git+https://github.com/bengosney/db-to-sqlite.git

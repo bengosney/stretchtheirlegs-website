@@ -2,7 +2,7 @@
 from django.core.management.base import BaseCommand
 
 # Wagtail
-from wagtail.core.models import Page
+from wagtail.models import Page
 
 
 class Command(BaseCommand):

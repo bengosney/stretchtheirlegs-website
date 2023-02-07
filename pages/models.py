@@ -6,13 +6,14 @@ from django.db import models
 from django.http import Http404
 
 # Wagtail
-from wagtail.admin.edit_handlers import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel
-from wagtail.contrib.forms.edit_handlers import FormSubmissionsPanel
+from wagtail import blocks
+from wagtail.admin.mail import send_mail
+from wagtail.admin.panels import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel
 from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
+from wagtail.contrib.forms.panels import FormSubmissionsPanel
 from wagtail.contrib.settings.models import BaseSetting, register_setting
-from wagtail.core import blocks
-from wagtail.core.fields import RichTextField, StreamField
-from wagtail.core.models import Page
+from wagtail.fields import RichTextField, StreamField
+from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
 
 # Third Party
@@ -20,7 +21,6 @@ from modelcluster.fields import ParentalKey
 
 # Locals
 from .blocks import FormBlock, ImageRow, ItemBlock, ServicesBlock
-from .utils import send_mail
 
 
 @register_setting
