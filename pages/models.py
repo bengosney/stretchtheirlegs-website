@@ -7,6 +7,7 @@ from django.http import Http404
 
 # Wagtail
 from wagtail import blocks
+from wagtail.admin.mail import send_mail
 from wagtail.admin.panels import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel
 from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
 from wagtail.contrib.forms.panels import FormSubmissionsPanel
@@ -20,7 +21,6 @@ from modelcluster.fields import ParentalKey
 
 # Locals
 from .blocks import FormBlock, ImageRow, ItemBlock, ServicesBlock
-from .utils import send_mail
 
 
 @register_setting
