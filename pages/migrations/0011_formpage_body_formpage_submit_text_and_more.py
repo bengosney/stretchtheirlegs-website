@@ -3,8 +3,8 @@
 from django.db import migrations, models
 import django.db.models.deletion
 import modelcluster.fields
-import wagtail.core.blocks
-import wagtail.core.fields
+import wagtail.blocks
+import wagtail.fields
 import wagtail.images.blocks
 
 
@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='formpage',
             name='body',
-            field=wagtail.core.fields.StreamField([('Paragraph', wagtail.core.blocks.RichTextBlock()), ('Form', wagtail.core.blocks.StructBlock([('title', wagtail.core.blocks.CharBlock(required=False))]))], blank=True),
+            field=wagtail.fields.StreamField([('Paragraph', wagtail.blocks.RichTextBlock()), ('Form', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock(required=False))]))], blank=True),
         ),
         migrations.AddField(
             model_name='formpage',
@@ -28,12 +28,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='formpage',
             name='thank_you_text',
-            field=wagtail.core.fields.RichTextField(blank=True),
+            field=wagtail.fields.RichTextField(blank=True),
         ),
         migrations.AlterField(
             model_name='infopage',
             name='body',
-            field=wagtail.core.fields.StreamField([('Paragraph', wagtail.core.blocks.RichTextBlock()), ('Services', wagtail.core.blocks.StructBlock([('title', wagtail.core.blocks.CharBlock(max_length=255, required=True)), ('body', wagtail.core.blocks.RichTextBlock(required=False)), ('services', wagtail.core.blocks.ListBlock(wagtail.core.blocks.PageChooserBlock(page_type=['pages.ServicePage'])))])), ('Item', wagtail.core.blocks.StructBlock([('title', wagtail.core.blocks.CharBlock(max_length=255, required=True)), ('sub_title', wagtail.core.blocks.CharBlock(max_length=255, required=False)), ('image', wagtail.images.blocks.ImageChooserBlock()), ('body', wagtail.core.blocks.RichTextBlock())]))]),
+            field=wagtail.fields.StreamField([('Paragraph', wagtail.blocks.RichTextBlock()), ('Services', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock(max_length=255, required=True)), ('body', wagtail.blocks.RichTextBlock(required=False)), ('services', wagtail.blocks.ListBlock(wagtail.blocks.PageChooserBlock(page_type=['pages.ServicePage'])))])), ('Item', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock(max_length=255, required=True)), ('sub_title', wagtail.blocks.CharBlock(max_length=255, required=False)), ('image', wagtail.images.blocks.ImageChooserBlock()), ('body', wagtail.blocks.RichTextBlock())]))]),
         ),
         migrations.CreateModel(
             name='FormField',

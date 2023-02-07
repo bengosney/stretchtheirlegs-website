@@ -2,7 +2,7 @@
 from django import template
 
 # Wagtail
-from wagtail.core.models import Site
+from wagtail.models import Site
 
 # Locals
 from ..models import SiteSettings
