@@ -4,7 +4,6 @@ django
 django-csp
 django-storages
 django_extensions
-git+https://github.com/bengosney/cerberus#egg=cerberus
 gunicorn
 honeybadger
 opencv-python-headless

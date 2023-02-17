@@ -2,7 +2,6 @@
 
 # Standard Library
 import contextlib
-import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -49,20 +48,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
-    "polymorphic",
-    "corsheaders",
-    "rest_framework",
-    "rest_framework_simplejwt",
-    "django_filters",
-    "django_fsm",
-    "django_fsm_log",
-    "djmoney",
-    "cerberus",
     "robots",
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -155,8 +144,6 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-DEFAULT_CURRENCY = "GBP"
-
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
 # See https://docs.djangoproject.com/en/4.0/ref/contrib/staticfiles/#manifeststaticfilesstorage
@@ -185,7 +172,6 @@ WAGTAILSEARCH_BACKENDS = {
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = "https://www.stretchtheirlegs.co.uk"
 CDN_URL = "https://cdn.stretchtheirlegs.co.uk"
-CERBERUS_URL = "https://cerberus.stretchtheirlegs.co.uk"
 
 CSP_DEFAULT_SRC = "'self'"
 CSP_SCRIPT_SRC = (
@@ -200,44 +186,6 @@ CSP_FONT_SRC = ("'self'", CDN_URL)
 CSP_IMG_SRC = ("'self'", "data:", CDN_URL)
 
 CSP_EXCLUDE_URL_PREFIXES = ("/admin/",)
-
-
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-        "rest_framework.authentication.SessionAuthentication",
-        "rest_framework.authentication.BasicAuthentication",
-    ],
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
-    ],
-    "DEFAULT_FILTER_BACKENDS": [
-        "django_filters.rest_framework.DjangoFilterBackend",
-    ],
-    "DEFAULT_RENDERER_CLASSES": [
-        "rest_framework.renderers.JSONRenderer",
-        "rest_framework.renderers.BrowsableAPIRenderer",
-        "rest_framework.renderers.TemplateHTMLRenderer",
-    ],
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
-    "PAGE_SIZE": 10,
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-}
-
-SPECTACULAR_SETTINGS = {
-    "TITLE": "Cerberus API",
-    "DESCRIPTION": "Cerberus API",
-    "VERSION": "1.0.0",
-    "SERVE_INCLUDE_SCHEMA": False,
-}
-
-SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": datetime.timedelta(minutes=5),
-    "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=10),
-    "ROTATE_REFRESH_TOKENS": True,
-    "BLACKLIST_AFTER_ROTATION": True,
-}
-
 
 env = os.environ.copy()
 with contextlib.suppress(KeyError):
