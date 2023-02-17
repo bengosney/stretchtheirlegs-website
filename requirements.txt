@@ -6,21 +6,10 @@
 #
 anyascii==0.3.1
     # via wagtail
-arabic-reshaper==3.0.0
-    # via xhtml2pdf
 asgiref==3.6.0
     # via django
-asn1crypto==1.5.1
-    # via
-    #   oscrypto
-    #   pyhanko
-    #   pyhanko-certvalidator
 async-timeout==4.0.2
     # via redis
-attrs==22.2.0
-    # via jsonschema
-babel==2.11.0
-    # via py-moneyed
 beautifulsoup4==4.11.2
     # via wagtail
 boto3==1.26.65
@@ -31,131 +20,64 @@ botocore==1.29.65
     #   s3transfer
 brotli==1.0.9
     # via whitenoise
-cerberus @ git+https://github.com/bengosney/cerberus
-    # via -r requirements.in
 certifi==2022.12.7
     # via requests
 cffi==1.15.1
-    # via
-    #   cryptography
-    #   milksnake
+    # via milksnake
 charset-normalizer==3.0.1
     # via requests
-click==8.1.3
-    # via pyhanko
-cryptography==39.0.0
-    # via
-    #   djangorestframework-simplejwt
-    #   pyhanko
-    #   pyhanko-certvalidator
-cssselect2==0.7.0
-    # via svglib
 dj-database-url==1.2.0
-    # via
-    #   -r requirements.in
-    #   cerberus
+    # via -r requirements.in
 django==4.1.6
     # via
     #   -r requirements.in
-    #   cerberus
     #   dj-database-url
-    #   django-appconf
-    #   django-cors-headers
     #   django-csp
     #   django-extensions
     #   django-filter
-    #   django-fsm-log
-    #   django-model-utils
     #   django-modelcluster
-    #   django-money
     #   django-permissionedforms
-    #   django-polymorphic
-    #   django-reversion
     #   django-storages
     #   django-taggit
     #   django-treebeard
     #   djangorestframework
-    #   djangorestframework-simplejwt
-    #   drf-spectacular
     #   wagtail
-django-appconf==1.0.5
-    # via django-fsm-log
-django-cors-headers==3.13.0
-    # via cerberus
 django-csp==3.7
     # via -r requirements.in
 django-extensions==3.2.1
     # via -r requirements.in
 django-filter==22.1
-    # via
-    #   cerberus
-    #   wagtail
-django-fsm==2.8.1
-    # via
-    #   cerberus
-    #   django-fsm-log
-django-fsm-log==3.0.0
-    # via cerberus
-django-model-utils==4.3.1
-    # via cerberus
+    # via wagtail
 django-modelcluster==6.0
     # via wagtail
-django-money==3.0.0
-    # via cerberus
 django-permissionedforms==0.1
     # via wagtail
-django-polymorphic==3.1.0
-    # via cerberus
-django-reversion==5.0.4
-    # via cerberus
 django-storages==1.13.2
     # via -r requirements.in
 django-taggit==3.1.0
-    # via
-    #   cerberus
-    #   wagtail
+    # via wagtail
 django-treebeard==4.6.1
     # via wagtail
 djangorestframework==3.14.0
-    # via
-    #   cerberus
-    #   djangorestframework-simplejwt
-    #   drf-spectacular
-    #   wagtail
-djangorestframework-simplejwt[crypto]==5.2.2
-    # via cerberus
+    # via wagtail
 draftjs-exporter==2.1.7
     # via wagtail
-drf-spectacular==0.25.1
-    # via cerberus
 et-xmlfile==1.1.0
     # via openpyxl
 gunicorn==20.1.0
-    # via
-    #   -r requirements.in
-    #   cerberus
+    # via -r requirements.in
 honeybadger==0.15.0
     # via -r requirements.in
 html5lib==1.1
-    # via
-    #   wagtail
-    #   xhtml2pdf
+    # via wagtail
 idna==3.4
     # via requests
-inflection==0.5.1
-    # via drf-spectacular
 jmespath==1.0.1
     # via
     #   boto3
     #   botocore
-jsonschema==4.17.3
-    # via drf-spectacular
 l18n==2021.3
     # via wagtail
-lxml==4.9.2
-    # via svglib
-markdown==3.4.1
-    # via cerberus
 milksnake==0.1.5
     # via rustface
 numpy==1.24.2
@@ -164,71 +86,29 @@ opencv-python-headless==4.7.0.68
     # via -r requirements.in
 openpyxl==3.1.0
     # via wagtail
-oscrypto==1.3.0
-    # via pyhanko-certvalidator
 pillow==9.4.0
     # via
-    #   reportlab
     #   wagtail
     #   willowavif
-    #   xhtml2pdf
 pillow-avif-plugin==1.3.1
     # via willowavif
 psutil==5.9.4
     # via honeybadger
 psycopg2==2.9.5
-    # via
-    #   -r requirements.in
-    #   cerberus
-py-moneyed==2.0
-    # via django-money
+    # via -r requirements.in
 pycparser==2.21
     # via cffi
-pyhanko==0.17.0
-    # via xhtml2pdf
-pyhanko-certvalidator==0.20.0
-    # via
-    #   pyhanko
-    #   xhtml2pdf
-pyjwt==2.6.0
-    # via djangorestframework-simplejwt
-pypdf==3.4.0
-    # via xhtml2pdf
-pypng==0.20220715.0
-    # via qrcode
-pyrsistent==0.19.3
-    # via jsonschema
-python-bidi==0.4.2
-    # via xhtml2pdf
 python-dateutil==2.8.2
     # via botocore
 pytz==2022.7.1
     # via
-    #   babel
     #   django-modelcluster
     #   djangorestframework
     #   l18n
-    #   pyhanko
-pytz-deprecation-shim==0.1.0.post0
-    # via tzlocal
-pyyaml==6.0
-    # via
-    #   drf-spectacular
-    #   pyhanko
-qrcode==7.4.2
-    # via pyhanko
 redis==4.4.2
     # via -r requirements.in
-reportlab==3.6.12
-    # via
-    #   cerberus
-    #   svglib
-    #   xhtml2pdf
 requests==2.28.2
-    # via
-    #   pyhanko
-    #   pyhanko-certvalidator
-    #   wagtail
+    # via wagtail
 rustface==0.1.0
     # via -r requirements.in
 s3transfer==0.6.0
@@ -238,34 +118,13 @@ six==1.16.0
     #   honeybadger
     #   html5lib
     #   l18n
-    #   python-bidi
     #   python-dateutil
 soupsieve==2.3.2.post1
     # via beautifulsoup4
 sqlparse==0.4.3
     # via django
-svglib==1.5.1
-    # via xhtml2pdf
 telepath==0.3
     # via wagtail
-tinycss2==1.2.1
-    # via
-    #   cssselect2
-    #   svglib
-typing-extensions==4.4.0
-    # via
-    #   py-moneyed
-    #   qrcode
-tzdata==2022.7
-    # via pytz-deprecation-shim
-tzlocal==4.2
-    # via pyhanko
-uritemplate==4.1.1
-    # via
-    #   cerberus
-    #   drf-spectacular
-uritools==4.0.1
-    # via pyhanko-certvalidator
 urllib3==1.26.14
     # via
     #   botocore
@@ -277,26 +136,17 @@ wagtail==4.2
 wagtail-picture-tag==1.0.1
     # via -r requirements.in
 webencodings==0.5.1
-    # via
-    #   cssselect2
-    #   html5lib
-    #   tinycss2
+    # via html5lib
 wheel==0.38.4
-    # via
-    #   -r requirements.in
-    #   cerberus
+    # via -r requirements.in
 whitenoise[brotli]==6.3.0
-    # via
-    #   -r requirements.in
-    #   cerberus
+    # via -r requirements.in
 willow==1.4.1
     # via
     #   wagtail
     #   willowavif
 willowavif==0.0.1
     # via -r requirements.in
-xhtml2pdf==0.2.9
-    # via cerberus
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
