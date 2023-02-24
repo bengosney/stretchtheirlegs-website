@@ -1,5 +1,6 @@
 # Standard Library
 import contextlib
+from textwrap import shorten
 
 # Django
 from django.db import models
@@ -174,6 +175,9 @@ class FormPage(AbstractEmailForm, ParentTools):
             reply_to = [r.strip() for r in reply_to.split(",")]
 
         return send_mail(self.subject, self.render_email(form), addresses, self.from_address, reply_to=reply_to)
+
+    def get_data_fields(self):
+        return [(name, shorten(label, 30, placeholder="...")) for name, label in super().get_data_fields()]
 
 
 class MenuPage(Page):
