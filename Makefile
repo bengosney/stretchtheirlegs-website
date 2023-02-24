@@ -109,6 +109,7 @@ _upgrade: requirements.in
 upgrade: _upgrade python
 	@echo "Updateing module paths"
 	wagtail updatemodulepaths --ignore-dir .direnv
+	python -m pre_commit autoupdate
 
 $(DBTOSQLPATH):
 	pip install git+https://github.com/bengosney/db-to-sqlite.git

@@ -3,7 +3,7 @@
 exclude: 'migrations/.*\.py|Procfile|[aw]sgi\.py|node_modules|.git|\.polar'
 repos:
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: 1.12.0
+    rev: 1.13.0
     hooks:
       - id: django-upgrade
         args: [--target-version, "4.1"]
@@ -33,7 +33,7 @@ repos:
     hooks:
       - id: yesqa
   - repo: https://github.com/myint/docformatter
-    rev: v1.6.0.rc1
+    rev: v1.5.1
     hooks:
       - id: docformatter
         args: [--in-place]
@@ -64,6 +64,6 @@ repos:
       - id: prettier
         language_version: 16.0.0
   - repo: https://github.com/rtts/djhtml
-    rev: v2.0.0
+    rev: 3.0.2
     hooks:
       - id: djhtml
