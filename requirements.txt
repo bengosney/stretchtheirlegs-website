@@ -145,7 +145,7 @@ willow==1.4.1
     # via
     #   wagtail
     #   willowavif
-willowavif==0.0.1
+willowavif==0.1.0
     # via -r requirements.in
 
 # The following packages are considered to be unsafe in a requirements file:
