@@ -26,3 +26,7 @@ class StatusTests(AbstractModelMixinTestCase, TestCase):
         self.model.objects.create(status=ModelStatus.HIDDEN_STATUS)
         all_items = self.model.objects.all()
         self.assertEqual(len(all_items), 0)
+
+    def test_status_string(self):
+        obj = self.model.objects.create(status=ModelStatus.DRAFT_STATUS)
+        self.assertEqual(f"{obj}", f"{ModelStatus.DRAFT_STATUS}")

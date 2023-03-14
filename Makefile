@@ -17,6 +17,8 @@ WHEEL_PATH:=$(BINPATH)/wheel
 PIP_SYNC_PATH:=$(BINPATH)/pip-sync
 PRE_COMMIT_PATH:=$(BINPATH)/pre-commit
 
+PYTHON_FILES:=$(wildcard ./**/*.py ./**/tests/*.py)
+
 help: ## Display this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
@@ -134,3 +136,6 @@ watch: ## Watch and build the css
 
 bs: ## Run browser-sync
 	browser-sync start --proxy localhost:8000 --files "./**/*.css" --files "./**/*.js" --files "./**/*.html"
+
+cov.xml: $(PYTHON_FILES)
+	python3 -m pytest --cov=. --cov-report xml:$@
