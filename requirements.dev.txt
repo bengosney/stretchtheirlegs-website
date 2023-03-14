@@ -158,7 +158,7 @@ virtualenv==20.17.1
     # via pre-commit
 watchdog==2.2.1
     # via pytest-watch
-wheel==0.38.4
+wheel==0.40.0
     # via
     #   -c requirements.txt
     #   pip-tools
