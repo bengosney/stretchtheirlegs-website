@@ -51,3 +51,7 @@ class BannerTests(TestCase):
             banner = Banner.get_current_image()
 
         self.assertIsNotNone(banner)
+
+    def test_no_image(self):
+        with freeze_time("2050-01-01"):
+            self.assertIsNone(Banner.get_current_image())

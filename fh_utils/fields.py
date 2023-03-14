@@ -6,13 +6,8 @@ from django.db import models
 
 
 class DayMonthField(models.DateField):
-    def __init__(self, *args, **kwargs):
-        try:
-            self.after = kwargs["after"]
-            del kwargs["after"]
-        except KeyError:
-            self.after = None
-
+    def __init__(self, *args: str, after: str | None = None, **kwargs):
+        self.after = after
         super().__init__(*args, **kwargs)
 
     @staticmethod
