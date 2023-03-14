@@ -32,3 +32,21 @@ class DateRangeTests(AbstractModelMixinTestCase, TestCase):
         self.model.objects.create(published_from=published_from, published_to=published_to, status=ModelStatus.LIVE_STATUS)
         all_items = self.model.objects.all()
         self.assertEqual(len(all_items), 0)
+
+    @given(published_from=dates(max_value=today), published_to=dates(min_value=tomorrow))
+    def test_has_passed(self, published_from, published_to):
+        obj = self.model.objects.create(
+            published_from=published_from,
+            published_to=published_to,
+            status=ModelStatus.LIVE_STATUS,
+        )
+        self.assertTrue(obj.has_passed)
+
+    @given(published_from=dates(min_value=today), published_to=dates(min_value=tomorrow))
+    def test_has_not_passed(self, published_from, published_to):
+        obj = self.model.objects.create(
+            published_from=published_from,
+            published_to=published_to,
+            status=ModelStatus.LIVE_STATUS,
+        )
+        self.assertFalse(obj.has_passed)

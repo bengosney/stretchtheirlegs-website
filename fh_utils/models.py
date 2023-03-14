@@ -91,4 +91,4 @@ class statusDateRangeMixin(statusMixin):
 
     @property
     def has_passed(self):
-        return self.published_from < timezone.now()
+        return self.published_from < timezone.now().date()
