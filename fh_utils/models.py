@@ -1,4 +1,5 @@
 # Django
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
@@ -92,3 +93,11 @@ class statusDateRangeMixin(statusMixin):
     @property
     def has_passed(self):
         return self.published_from < timezone.now().date()
+
+    def _validate_start_end_dates(self):
+        if self.published_to < self.published_from:
+            raise ValidationError(f"published_to({self.published_to}) can not be before published_from({self.published_from})")
+
+    def save(self, *args, **kwargs):
+        self._validate_start_end_dates()
+        return super().save(*args, **kwargs)
