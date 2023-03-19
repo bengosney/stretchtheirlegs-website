@@ -12,7 +12,13 @@ class TestSiteMessages(TestCase):
     def test_jsonld(self):
         data = [{"@context": "http://schema.org", "@type": "LocalBusiness", "name": "mock business"}]
 
-        expected = '<script type="application/ld+json">[{"@context": "http://schema.org", "@type": "LocalBusiness", "name": "mock business"}]</script>'  # noqa
+        expected = (
+            '<script type="application/ld+json">[{'
+            '"@context": "http://schema.org", '
+            '"@type": "LocalBusiness", '
+            '"name": "mock business"'
+            "}]</script>"
+        )
         got = jsonld(data)
 
         self.assertEqual(got, expected)
