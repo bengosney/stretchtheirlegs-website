@@ -1,11 +1,13 @@
 # Django
 from django.test import TestCase
+from django.urls import reverse
 
 # Third Party
 from model_bakery import baker
 
 # Locals
 from .models import Message
+from .templatetags.message_tags import messages
 
 
 class TestSiteMessages(TestCase):
@@ -21,6 +23,18 @@ class TestSiteMessages(TestCase):
         self.assertIsNone(session.get(msg.session_key))
         msg.dismiss(session)
         self.assertTrue(session.get(msg.session_key))
+
+    def test_dismiss_view(self):
+        msg = baker.make(Message)
+
+        self.assertIsNone(self.client.session.get(msg.session_key))
+        self.client.get(msg.dismiss_url)
+        self.assertTrue(self.client.session.get(msg.session_key))
+
+    def test_dismiss_url(self):
+        msg = baker.make(Message)
+        msg_url = reverse("site_messages:dismiss", kwargs={"slug": msg.slug})
+        self.assertEqual(msg.dismiss_url, msg_url)
 
     def check_dismissed(self, msg, before, after):
         session = self.client.session
@@ -38,3 +52,21 @@ class TestSiteMessages(TestCase):
         msg = baker.make(Message, dismissible=False)
 
         self.check_dismissed(msg, 2, 2)
+
+    def test_str(self):
+        msg = baker.make(Message)
+
+        self.assertEqual(f"{msg}", msg.title)
+
+    def test_message_tag(self):
+        msgs = []
+        for _ in range(5):
+            msgs.append(baker.make(Message))
+
+        class mockContext:
+            def __init__(self, request) -> None:
+                self.request = request
+
+        context = mockContext(self.client)
+
+        self.assertEqual(messages(context), {"messages": msgs})
