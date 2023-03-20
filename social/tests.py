@@ -1,5 +1,7 @@
 # Django
+from django.template import Context, Template
 from django.test import TestCase
+from django.test.client import RequestFactory
 
 # First Party
 from pages.models import Page
@@ -54,3 +56,15 @@ class TestSiteMessages(TestCase):
         ]
 
         self.assertEqual(list(crumbs), expected)
+
+    def test_empty_social_tags(self):
+        factory = RequestFactory()
+        request = factory.get("/")
+        context = Context({"request": request})
+        template = Template("{{% load social_tags %}}{{% social_tags %}}")
+
+        got = template.render(context)
+        expected = """<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost" />"""
+
+        self.assertHTMLEqual(got, expected)
