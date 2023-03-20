@@ -61,7 +61,7 @@ class TestSiteMessages(TestCase):
         factory = RequestFactory()
         request = factory.get("/")
         context = Context({"request": request})
-        template = Template("{{% load social_tags %}}{{% social_tags %}}")
+        template = Template("{% load social_tags %}{% social_tags %}")
 
         got = template.render(context)
         expected = """<meta property="og:type" content="website" />
