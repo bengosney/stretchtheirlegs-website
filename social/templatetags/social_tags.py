@@ -21,7 +21,8 @@ register = template.Library()
 
 @register.filter()
 def jsonld(value, indent=None):
-    return mark_safe(f"""<script type="application/ld+json">{json.dumps(value, indent=indent)}</script>""")
+    json_output = json.dumps(value, indent=indent)
+    return mark_safe(f"""<script type="application/ld+json">{json_output}</script>""")
 
 
 def get_breadcrumbs(ancestors: list) -> Iterable:
