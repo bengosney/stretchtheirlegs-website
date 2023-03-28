@@ -40,9 +40,9 @@ COMPRESS_CSS_HASHING_METHOD = "content"
 
 with contextlib.suppress(KeyError):
     HONEYBADGER = {"API_KEY": env["HONEYBADGER_API_KEY"]}
-    MIDDLEWARE += [
+    MIDDLEWARE = [
         "honeybadger.contrib.DjangoHoneybadgerMiddleware",
-    ]
+    ] + MIDDLEWARE
 
 WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = True
 
