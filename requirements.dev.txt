@@ -65,7 +65,7 @@ identify==2.5.12
     # via pre-commit
 iniconfig==2.0.0
     # via pytest
-model-bakery==1.10.3
+model-bakery==1.11.0
     # via -r requirements.dev.in
 mypy==1.1.1
     # via
