@@ -67,7 +67,7 @@ iniconfig==2.0.0
     # via pytest
 model-bakery==1.11.0
     # via -r requirements.dev.in
-mypy==1.1.1
+mypy==1.2.0
     # via
     #   -r requirements.dev.in
     #   django-stubs
