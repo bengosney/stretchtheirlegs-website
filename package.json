@@ -19,7 +19,7 @@
     "babel-core": "*",
     "babel-preset-es2015": "*",
     "css-mqpacker": "^7.0.0",
-    "cssnano": "^5.1.13",
+    "cssnano": "^6.0.0",
     "grunt": "^1.5.3",
     "grunt-babel": "^8.0.0",
     "grunt-browser-sync": "*",
