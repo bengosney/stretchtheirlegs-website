@@ -43,9 +43,9 @@ django-debug-toolbar==4.0.0
     # via -r requirements.dev.in
 django-debugtools==2.0
     # via -r requirements.dev.in
-django-stubs==1.16.0
+django-stubs==4.2.0
     # via -r requirements.dev.in
-django-stubs-ext==0.8.0
+django-stubs-ext==4.2.0
     # via django-stubs
 docopt==0.6.2
     # via pytest-watch
@@ -141,8 +141,6 @@ sqlparse==0.4.3
     #   -c requirements.txt
     #   django
     #   django-debug-toolbar
-tomli==2.0.1
-    # via django-stubs
 types-pytz==2022.7.0.0
     # via django-stubs
 types-pyyaml==6.0.12.2
