@@ -1,8 +1,8 @@
 """Django settings for stl project."""
 
 # Standard Library
-import contextlib
 
+# Standard Library
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
@@ -147,7 +147,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
 # See https://docs.djangoproject.com/en/4.0/ref/contrib/staticfiles/#manifeststaticfilesstorage
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+    },
+}
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
@@ -186,16 +193,3 @@ CSP_FONT_SRC = ("'self'", CDN_URL)
 CSP_IMG_SRC = ("'self'", "data:", CDN_URL)
 
 CSP_EXCLUDE_URL_PREFIXES = ("/admin/",)
-
-env = os.environ.copy()
-with contextlib.suppress(KeyError):
-    AWS_ACCESS_KEY_ID = env["AWS_ACCESS_KEY_ID"]
-    AWS_SECRET_ACCESS_KEY = env["AWS_SECRET_ACCESS_KEY"]
-    AWS_STORAGE_BUCKET_NAME = env["AWS_STORAGE_BUCKET_NAME"]
-    AWS_QUERYSTRING_AUTH = False
-    AWS_S3_CUSTOM_DOMAIN = env["AWS_S3_CUSTOM_DOMAIN"]
-    AWS_LOCATION = env["AWS_LOCATION"] if "AWS_LOCATION" in env else ""
-    AWS_S3_OBJECT_PARAMETERS = {
-        "CacheControl": f"max-age={86400 * 365}",
-    }
-    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
