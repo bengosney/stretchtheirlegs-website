@@ -1,5 +1,6 @@
 # Standard Library
 import contextlib
+import functools
 from typing import cast
 
 # Django
@@ -7,7 +8,15 @@ from django.db import connection
 from django.db.models import Model
 from django.db.models.base import ModelBase
 
-# from hypothesis.extra.django import TestCase
+
+def clean_models(func):
+    @functools.wraps(func)
+    def wrapper_clean_models(*args, **kwargs):
+        args[0].model.objects.all().delete()
+        func(*args, **kwargs)
+        return func(*args, **kwargs)
+
+    return wrapper_clean_models
 
 
 class AbstractModelMixinTestCase:

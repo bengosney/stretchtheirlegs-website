@@ -12,6 +12,16 @@ DEBUG = False
 
 env = os.environ.copy()
 
+AWS_ACCESS_KEY_ID = env["AWS_ACCESS_KEY_ID"]
+AWS_SECRET_ACCESS_KEY = env["AWS_SECRET_ACCESS_KEY"]
+AWS_STORAGE_BUCKET_NAME = env["AWS_STORAGE_BUCKET_NAME"]
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_CUSTOM_DOMAIN = env["AWS_S3_CUSTOM_DOMAIN"]
+AWS_LOCATION = env.get("AWS_LOCATION", "")
+AWS_S3_OBJECT_PARAMETERS = {
+    "CacheControl": f"max-age={86400 * 365}",
+}
+
 ALLOWED_HOSTS = ["www.stretchtheirlegs.co.uk"]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -25,7 +35,15 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 SECRET_KEY = env["SECRET_KEY"]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 MIDDLEWARE += [  # noqa
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
