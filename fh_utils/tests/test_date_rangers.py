@@ -41,7 +41,7 @@ class DateRangeTests(AbstractModelMixinTestCase, TestCase):
         all_items = self.model.objects.all()
         self.assertEqual(len(all_items), 0)
 
-    @given(published_from=dates(max_value=today))
+    @given(published_from=dates(max_value=yesterday))
     def test_has_passed(self, published_from):
         published_to = published_from + datetime.timedelta(days=1)
 
