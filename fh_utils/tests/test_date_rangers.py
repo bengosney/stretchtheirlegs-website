@@ -15,18 +15,20 @@ from fh_utils.models import statusDateRangeMixin
 
 # Locals
 from . import today, tomorrow, yesterday
-from .abstract_mixin import AbstractModelMixinTestCase
+from .abstract_mixin import AbstractModelMixinTestCase, clean_models
 
 
 class DateRangeTests(AbstractModelMixinTestCase, TestCase):
     mixin = statusDateRangeMixin
 
+    @clean_models
     @given(published_from=dates(max_value=today), published_to=dates(min_value=today))
     def test_get(self, published_from, published_to) -> None:
         self.model.objects.create(published_from=published_from, published_to=published_to, status=ModelStatus.LIVE_STATUS)
         all_items = self.model.objects.all()
         self.assertEqual(len(all_items), 1)
 
+    @clean_models
     @given(published_from=dates(max_value=yesterday))
     def test_date_in_past(self, published_from) -> None:
         published_to = published_from + datetime.timedelta(days=1)
@@ -34,6 +36,7 @@ class DateRangeTests(AbstractModelMixinTestCase, TestCase):
         all_items = self.model.objects.all()
         self.assertEqual(len(all_items), 0)
 
+    @clean_models
     @given(published_from=dates(min_value=tomorrow))
     def test_date_in_future(self, published_from) -> None:
         published_to = published_from + datetime.timedelta(days=1)
