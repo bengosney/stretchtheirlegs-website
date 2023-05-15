@@ -9,6 +9,9 @@ from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.contrib.sitemaps.views import sitemap
 from wagtail.documents import urls as wagtaildocs_urls
 
+# Third Party
+from wagtail_transfer import urls as wagtailtransfer_urls
+
 # First Party
 from search import views as search_views
 
@@ -20,6 +23,7 @@ urlpatterns = [
     path("search/", search_views.search, name="search"),
     path("messages/", include("site_messages.urls", namespace="site_messages")),
     path("robots.txt", include("robots.urls")),
+    path("wagtail-transfer/", include(wagtailtransfer_urls)),
 ]
 
 
