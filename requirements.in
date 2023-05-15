@@ -12,7 +12,6 @@ redis
 rustface
 wagtail
 wagtail-picture-tag
-wagtail-transfer
 wheel
 whitenoise
 whitenoise[brotli]

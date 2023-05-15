@@ -1,6 +1,3 @@
-# Standard Library
-import os
-
 # Locals
 from .base import *  # noqa
 
@@ -47,14 +44,6 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
-
-if "TRANSFER_KEY" in os.environ:
-    WAGTAILTRANSFER_SOURCES = {
-        "production": {
-            "BASE_URL": "https://www.stretchtheirlegs.co.uk/wagtail-transfer/",
-            "SECRET_KEY": os.environ.get("TRANSFER_KEY"),
-        },
-    }
 
 try:
     # Locals
