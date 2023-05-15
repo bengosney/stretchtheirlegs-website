@@ -10,10 +10,12 @@ from fh_utils.models import statusDatePeriodMixin, statusMixin
 
 EFFECT_SNOW = "snow"
 EFFECT_FIREWORKS = "fireworks"
+EFFECT_CONFETTI = "confetti"
 
 EFFECTS = (
     EFFECT_SNOW,
     EFFECT_FIREWORKS,
+    EFFECT_CONFETTI,
 )
 
 

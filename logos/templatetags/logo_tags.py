@@ -14,6 +14,7 @@ def effects():
         return {
             "fireworks": logo.fireworks,
             "snow": logo.snow,
+            "confetti": logo.confetti,
         }
     else:
         return {
