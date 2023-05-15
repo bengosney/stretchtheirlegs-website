@@ -8,12 +8,27 @@ from wagtail.admin.panels import FieldPanel, MultiFieldPanel
 # First Party
 from fh_utils.models import statusDatePeriodMixin, statusMixin
 
+EFFECT_SNOW = "snow"
+EFFECT_FIREWORKS = "fireworks"
+
+EFFECTS = (
+    EFFECT_SNOW,
+    EFFECT_FIREWORKS,
+)
+
 
 class Logo(statusDatePeriodMixin, models.Model):
     title = models.TextField(_("Title"))
     logo = models.FileField(_("Logo SVG"), upload_to="logos")
-    fireworks = models.BooleanField(_("Show fireworks"), default=False)
-    snow = models.BooleanField(_("Show snow"), default=False)
+
+    effect = models.CharField(
+        _("Effect"),
+        max_length=max([len(e) for e in EFFECTS]),
+        choices=zip(EFFECTS, [e.capitalize() for e in EFFECTS]),
+        default=None,
+        blank=True,
+        null=True,
+    )
 
     panels = [
         *statusMixin.mixin_panels,
@@ -28,15 +43,9 @@ class Logo(statusDatePeriodMixin, models.Model):
             [
                 FieldPanel("title"),
                 FieldPanel("logo"),
+                FieldPanel("effect"),
             ],
             heading="Details",
-        ),
-        MultiFieldPanel(
-            [
-                FieldPanel("fireworks"),
-                FieldPanel("snow"),
-            ],
-            heading="Effects",
         ),
     ]
 
@@ -59,3 +68,9 @@ class Logo(statusDatePeriodMixin, models.Model):
             return cls.objects.all().order_by("show_from")[0]
         except IndexError:
             return None
+
+    def __getattr__(self, attr):
+        if attr in EFFECTS:
+            return attr == self.effect
+
+        raise AttributeError(f"{self.__class__} does not contain {attr}")
