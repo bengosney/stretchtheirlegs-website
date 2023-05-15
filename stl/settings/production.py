@@ -97,9 +97,6 @@ if "REDIS_URL" in os.environ:
         },
     }
 
-if "TRANSFER_KEY" in os.environ:
-    WAGTAILTRANSFER_SECRET_KEY = os.environ.get("TRANSFER_KEY")
-
 
 with contextlib.suppress(ImportError):
     # Locals
