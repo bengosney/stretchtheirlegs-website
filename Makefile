@@ -155,3 +155,6 @@ bs: ## Run browser-sync
 
 cov.xml: $(PYTHON_FILES)
 	python3 -m pytest --cov=. --cov-report xml:$@
+
+coverage: $(PYTHON_FILES)
+	python3 -m pytest --cov=. --cov-report html:$@
