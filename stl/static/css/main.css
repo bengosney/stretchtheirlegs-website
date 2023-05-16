@@ -1442,13 +1442,26 @@ nav label.active {
   margin: 0;
 }
 
-.banner canvas {
+.banner picture img {
+  opacity: 1;
+  transition: 1s opacity ease-in-out;
+}
+
+body .banner canvas,
+body .banner #embedim--snow {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   z-index: 2;
+}
+
+body.effect-fireworks .banner picture {
+  background: #000;
+}
+body.effect-fireworks .banner picture img {
+  opacity: 0.25;
 }
 
 ::selection {

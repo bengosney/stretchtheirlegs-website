@@ -128,10 +128,26 @@ stl/static/css/%.min.css: stl/static/css/%.css
 
 css: stl/static/css/main.min.css ## Build the css
 
-watch: ## Watch and build the css
+JS_SRC = $(wildcard js/*.ts)
+JS_LIB = $(JS_SRC:js/%.ts=stl/static/js/%.js)
+
+stl/static/js/: $(JS_LIB)
+stl/static/js/%.js: js/%.ts $(JS_SRC)
+	@mkdir -p $(@D)
+	npx parcel build $< --dist-dir $(@D)
+
+js: stl/static/js/stl.js ## Build the js
+
+watch-css: ## Watch and build the css
 	@echo "Watching scss"
 	@while inotifywait -qr -e close_write scss/; do \
 		$(MAKE) css; \
+	done
+
+watch-js: ## Watch and build the js
+	@echo "Watching js"
+	@while inotifywait -qr -e close_write js/; do \
+		$(MAKE) js; \
 	done
 
 bs: ## Run browser-sync
