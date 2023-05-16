@@ -20,6 +20,7 @@ def effects():
         return {
             "fireworks": False,
             "snow": False,
+            "confetti": False,
         }
 
 
