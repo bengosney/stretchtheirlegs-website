@@ -19,6 +19,8 @@ $container-gap: 20px;
   --container-padding: 0px;
   --background: white;
   --background-alt: #{lighten($color-primary-2, 35%)};
+  --drop-shadow: rgb(0 0 0 / 18%);
+  --nav-border: rgba(0, 0, 0, 0.15);
   --text-colour: #2a2a2a;
   ---color-primary-0: #{$color-primary-0};
   ---color-primary-1: #{$color-primary-1};
@@ -40,6 +42,8 @@ $container-gap: 20px;
   :root {
     --background: #{$color-primary-4};
     --background-alt: #{darken($color-primary-2, 35%)};
+    --drop-shadow: rgb(0 0 0 / 80%);
+    --nav-border: #{rgba($color-primary-1, 0.25)};
     --text-colour: #cdc9c3;
     ---color-primary-0: #{$color-primary-1};
     ---color-primary-1: #{$color-primary-2};

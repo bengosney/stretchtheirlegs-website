@@ -1257,10 +1257,9 @@ nav > menu > li.has-submenu label:after {
     display: none;
     position: absolute;
     background: var(--background);
-    border: 1px solid #ccc;
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--nav-border);
     border-radius: 4px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 6px 12px var(--drop-shadow);
     flex-direction: column;
   }
   nav > menu menu .has-submenu > a,
@@ -1478,6 +1477,8 @@ a::selection, nav label::selection {
   --container-padding: 0px;
   --background: white;
   --background-alt: #cbb4d7;
+  --drop-shadow: rgb(0 0 0 / 18%);
+  --nav-border: rgba(0, 0, 0, 0.15);
   --text-colour: #2a2a2a;
   ---color-primary-0: #582a72;
   ---color-primary-1: #9775aa;
@@ -1504,6 +1505,8 @@ a::selection, nav label::selection {
   :root {
     --background: #260339;
     --background-alt: #150d19;
+    --drop-shadow: rgb(0 0 0 / 80%);
+    --nav-border: rgba(151, 117, 170, 0.25);
     --text-colour: #cdc9c3;
     ---color-primary-0: #9775aa;
     ---color-primary-1: #764b8e;

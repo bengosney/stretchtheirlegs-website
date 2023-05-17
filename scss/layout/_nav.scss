@@ -241,10 +241,9 @@ nav {
         position: absolute;
         background: var(--background);
 
-        border: 1px solid #ccc;
-        border: 1px solid rgba(0, 0, 0, 0.15);
+        border: 1px solid var(--nav-border);
         border-radius: 4px;
-        box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+        box-shadow: 0 6px 12px var(--drop-shadow);
 
         $font-size: 1.1rem;
         $padding: 1rem;
