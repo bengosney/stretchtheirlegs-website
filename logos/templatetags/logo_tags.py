@@ -1,36 +1,16 @@
 # Django
 from django import template
-from django.utils.safestring import mark_safe
 
 # Locals
-from ..models import Logo
+from ..models import EFFECTS, Logo
 
 register = template.Library()
 
 
 @register.inclusion_tag("tags/effects.html")
 def effects():
-    if logo := Logo.get_current_logo():
-        return {
-            "fireworks": logo.fireworks,
-            "snow": logo.snow,
-            "confetti": logo.confetti,
-        }
-    else:
-        return {
-            "fireworks": False,
-            "snow": False,
-            "confetti": False,
-        }
-
-
-@register.simple_tag()
-def effects_container():
-    if logo := Logo.get_current_logo():
-        if logo.fireworks:
-            return mark_safe('<div class="fireworks"></div>')
-
-    return ""
+    logo = Logo.get_current_logo() or Logo()
+    return {k: getattr(logo, k) for k in EFFECTS}
 
 
 @register.inclusion_tag("tags/logo.html")
