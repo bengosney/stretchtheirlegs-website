@@ -2,8 +2,6 @@
 
 from django.db import migrations, models
 
-from icecream import ic
-
 
 def copy_effects(apps, schema_editor):
     Logo = apps.get_model("logos", "logo")
