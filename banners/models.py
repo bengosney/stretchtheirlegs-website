@@ -4,7 +4,7 @@
 from django.db import models
 
 # Wagtail
-from wagtail.admin.panels import FieldPanel, MultiFieldPanel
+from wagtail.admin.panels import FieldPanel, FieldRowPanel
 
 # First Party
 from fh_utils.models import statusDatePeriodMixin, statusMixin
@@ -15,7 +15,7 @@ class Banner(statusDatePeriodMixin, models.Model):
 
     panels = [
         *statusMixin.mixin_panels,
-        MultiFieldPanel(
+        FieldRowPanel(
             [
                 FieldPanel("show_from"),
                 FieldPanel("show_to"),

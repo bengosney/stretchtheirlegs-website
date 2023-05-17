@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 # Wagtail
-from wagtail.admin.panels import FieldPanel, MultiFieldPanel
+from wagtail.admin.panels import FieldPanel, FieldRowPanel, MultiFieldPanel
 
 # First Party
 from fh_utils.models import statusDatePeriodMixin, statusMixin
@@ -38,18 +38,18 @@ class Logo(statusDatePeriodMixin, models.Model):
         *statusMixin.mixin_panels,
         MultiFieldPanel(
             [
-                FieldPanel("show_from"),
-                FieldPanel("show_to"),
-            ],
-            heading="Date Range",
-        ),
-        MultiFieldPanel(
-            [
                 FieldPanel("title"),
                 FieldPanel("logo"),
                 FieldPanel("effect"),
             ],
             heading="Details",
+        ),
+        FieldRowPanel(
+            [
+                FieldPanel("show_from"),
+                FieldPanel("show_to"),
+            ],
+            heading="Date Range",
         ),
     ]
 

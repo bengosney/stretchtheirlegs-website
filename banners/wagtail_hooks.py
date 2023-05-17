@@ -9,7 +9,7 @@ class BannerAdmin(ModelAdmin):
     model = Banner
     menu_label = "Banner Images"
     menu_icon = "image"
-    list_display = ("status", "show_from", "show_to", "image")
+    list_display = ("image", "status", "show_from", "show_to")
     list_filter = ("status",)
 
 
