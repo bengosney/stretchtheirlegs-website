@@ -59,7 +59,7 @@ class NavigationTagsTests(TestCase):
         with freeze_time("2020-01-02"):
             context = effects()
 
-        self.assertEqual(sum([int(e) for e in context.values()]), 1)
+        self.assertEqual(sum(int(e) for e in context.values()), 1)
         self.assertTrue(context["snow"])
         self.assertListEqual(sorted(list(context.keys())), sorted(list(EFFECTS)))
 
