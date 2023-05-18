@@ -87,6 +87,7 @@ class HomePage(Page):
 
 class InfoPage(Page, ParentTools):
     show_in_menus_default = True
+    sub_heading = models.CharField(max_length=255, default="", blank=True)
 
     body = StreamField(
         [
@@ -99,6 +100,7 @@ class InfoPage(Page, ParentTools):
     )
 
     content_panels = Page.content_panels + [
+        FieldPanel("sub_heading"),
         FieldPanel("body"),
     ]
 
@@ -106,12 +108,14 @@ class InfoPage(Page, ParentTools):
 class ServicePage(Page, ParentTools):
     show_in_menus_default = True
 
+    sub_heading = models.CharField(max_length=255, default="", blank=True)
     sub_title = models.CharField(max_length=120, blank=True, default="Details")
     short_description = models.CharField(max_length=350, blank=True)
     body = RichTextField(blank=True)
     image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
 
     content_panels = Page.content_panels + [
+        FieldPanel("sub_heading"),
         FieldPanel("sub_title"),
         FieldPanel("image"),
         FieldPanel("short_description"),
@@ -131,6 +135,7 @@ class FormField(AbstractFormField):
 
 
 class FormPage(AbstractEmailForm, ParentTools):
+    sub_heading = models.CharField(max_length=255, default="", blank=True)
     show_in_menus_default = True
     body = StreamField(
         [
@@ -144,6 +149,7 @@ class FormPage(AbstractEmailForm, ParentTools):
     submit_text = models.CharField(max_length=255, default="Submit")
 
     content_panels = AbstractEmailForm.content_panels + [
+        FieldPanel("sub_heading"),
         FormSubmissionsPanel(),
         FieldPanel("body"),
         InlinePanel("form_fields", label="Form fields"),
