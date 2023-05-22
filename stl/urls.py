@@ -17,7 +17,7 @@ urlpatterns = [
     path("admin/", include(wagtailadmin_urls)),
     path("django-admin/", admin.site.urls),
     path("documents/", include(wagtaildocs_urls)),
-    path("search/", search_views.search, name="search"),
+    # path("search/", search_views.search, name="search"),
     path("messages/", include("site_messages.urls", namespace="site_messages")),
     path("robots.txt", include("robots.urls")),
 ]
