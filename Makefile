@@ -90,6 +90,7 @@ clean: ## Remove all build files
 	rm -rf .parcel-cache
 	rm -rf .sass-cache
 	rm -f .coverage
+	find . -type d -empty -delete
 
 package-lock.json: package.json
 	npm install
