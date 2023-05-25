@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "logos",
     "fh_utils",
     "social",
+    "articles",
     "wagtail_picture_tag",
     "wagtail.contrib.settings",
     "wagtail.contrib.styleguide",
