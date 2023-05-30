@@ -1,3 +1,6 @@
+# Standard Library
+import re
+
 # Django
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db import models
@@ -8,6 +11,9 @@ from wagtail.admin.panels import FieldPanel
 from wagtail.fields import StreamField
 from wagtail.models import Page
 from wagtail.search import index
+
+# Third Party
+from bs4 import BeautifulSoup
 
 # First Party
 from pages.blocks import ImageRow, ItemBlock, ServicesBlock
@@ -41,7 +47,7 @@ class ArticleList(Page):
 
         articles = Article.objects.child_of(self).live()
 
-        paginator = Paginator(articles, 2)
+        paginator = Paginator(articles, 10)
         try:
             articles = paginator.page(page)
         except PageNotAnInteger:
@@ -55,8 +61,11 @@ class ArticleList(Page):
 
 
 class Article(Page):
+    MAX_SUMMARY_LENGTH = 200
+
     show_in_menus_default = False
-    sub_heading = models.CharField(max_length=255, default="", blank=True)
+    sub_heading = models.CharField(max_length=50, default="", blank=True)
+    summary = models.CharField(max_length=MAX_SUMMARY_LENGTH, default="", blank=True)
 
     date = models.DateField("Post date", null=True, blank=True)
     banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
@@ -77,6 +86,7 @@ class Article(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel("sub_heading"),
+        FieldPanel("summary"),
         FieldPanel("banner_image"),
         FieldPanel("body"),
     ]
@@ -85,3 +95,22 @@ class Article(Page):
         index.SearchField("body"),
         index.FilterField("date"),
     ]
+
+    @property
+    def summary_length(self):
+        return self.MAX_SUMMARY_LENGTH * 0.75
+
+    @property
+    def summary_text(self):
+        if self.summary:
+            return self.summary
+
+        html = self.body.render_as_block()
+        bs = BeautifulSoup(html)
+        text = bs.get_text()
+
+        for i in range(6):
+            for item in bs.select(f"h{i}"):
+                item.extract()
+
+        return re.sub(r"\s+", " ", text, 0, re.MULTILINE)

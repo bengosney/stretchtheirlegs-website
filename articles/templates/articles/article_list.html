@@ -1,6 +1,6 @@
 {% extends request.htmx|yesno:"base_htmx.html,base.html" %}
 
-{% load wagtailcore_tags picture_tags %}
+{% load wagtailcore_tags picture_tags picture_tags %}
 {% load static %}
 {% load django_htmx %}
 
@@ -11,13 +11,23 @@
     {% endif %}
 
     <div class="article-list">
-        <ul>
+        <ol>
             {% for article in articles %}
-                <li>
-                    <a href="{{ article.url }}">{{ article.title }}</a>
+                <li >
+                    <a href="{{ article.url }}">
+                        {% if article.banner_image %}
+                            {% picture article.banner_image photo fill-640x320 lazy %}
+                        {% else %}
+                            <picture></picture>
+                        {% endif %}
+                        <span>
+                            <span class="title">{{ article.title }}</span>
+                            <span class="summary">{{ article.summary_text|truncatechars:article.summary_length }}</span>
+                        </span>
+                    </a>
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
 
         {% if articles.paginator.num_pages > 1 %}
             <div class="pagination" hx-boost="true" hx-target=".article-list">
