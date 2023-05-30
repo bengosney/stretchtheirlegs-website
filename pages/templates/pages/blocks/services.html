@@ -10,7 +10,11 @@
         {% for service in value.services %}
             <a href="{% pageurl service %}" class="service" aria-label="{{ service.title }} details">
                 <h3>{{ service.title }}</h3>
-                {% picture service.image photo fill-640x320 lazy %}
+                {% if value.services|length == 1 %}
+                    {% picture service.image photo fill-1280x480 lazy %}
+                {% else %}
+                    {% picture service.image photo fill-640x320 lazy %}
+                {% endif %}
                 <p>{{ service.short_description }}</p>
                 <div class="btn">Find out more</div>
             </a>
