@@ -20,6 +20,8 @@ from pages.blocks import ImageRow, ItemBlock, ServicesBlock
 
 
 class ArticleList(Page):
+    NPP = 10
+
     show_in_menus_default = True
     sub_heading = models.CharField(max_length=255, default="", blank=True)
 
@@ -47,7 +49,7 @@ class ArticleList(Page):
 
         articles = Article.objects.child_of(self).live()
 
-        paginator = Paginator(articles, 10)
+        paginator = Paginator(articles, self.NPP)
         try:
             articles = paginator.page(page)
         except PageNotAnInteger:

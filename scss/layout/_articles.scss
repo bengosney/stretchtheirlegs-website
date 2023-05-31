@@ -69,10 +69,19 @@
           var(---color-primary-1) 100%
         );
 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         img {
           display: block;
           padding: 0;
           margin: 0;
+
+          &.no-img {
+            width: 128px;
+            height: 128px;
+          }
         }
       }
 
@@ -82,7 +91,17 @@
 
       a {
         text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
       }
+
+      .details {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
       .title {
         text-decoration: underline;
         font-size: 1.2em;
@@ -90,6 +109,10 @@
       }
       .summary {
         color: var(--text-colour);
+        flex-grow: 1;
+      }
+      .readmore {
+        text-decoration: underline;
       }
     }
   }
