@@ -1617,6 +1617,27 @@ body.effect-fireworks .banner picture img {
   display: block;
 }
 
+.breadcrumbs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.breadcrumbs ul li {
+  padding: 0;
+  margin: 0;
+}
+.breadcrumbs ul li + li {
+  padding-left: 0.5em;
+}
+.breadcrumbs ul li + li::before {
+  padding-right: 0.5em;
+  content: "»";
+}
+
 ::selection {
   background: var(---color-primary-0);
   color: #fff;
