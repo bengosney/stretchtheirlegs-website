@@ -1318,6 +1318,12 @@ nav label {
     position: relative;
   }
 }
+@media (min-width: 992px) and (min-width: 992px) and (max-width: 1199px) {
+  nav a,
+nav label {
+    font-size: 1.2rem;
+  }
+}
 @media (min-width: 992px) {
   nav .active > label, nav .active > a {
     text-decoration-color: var(---color-primary-0);
