@@ -172,6 +172,15 @@ nav {
       }
     }
   }
+
+  .active {
+    & > label,
+    & > a {
+      &::before {
+        content: "\00BB";
+      }
+    }
+  }
 }
 
 @media (min-width: $nav-swap) {
@@ -306,11 +315,15 @@ nav {
       padding: 0.5rem;
       margin: 0 1rem;
       font-size: 1.5rem;
+      text-decoration: underline;
       text-decoration-color: var(--background);
       line-height: 1em;
       position: relative;
+    }
 
-      &.active {
+    .active {
+      & > label,
+      & > a {
         text-decoration-color: var(---color-primary-0);
       }
     }
