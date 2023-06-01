@@ -321,7 +321,12 @@ template {
 
 /* generated with grunt-sass-globbing */
 .btn:hover, form .field-wrapper input[type=button]:hover,
-form .field-wrapper input[type=submit]:hover {
+form .field-wrapper input[type=submit]:hover, a:hover .btn, nav label:hover .btn, a:hover form .field-wrapper input[type=button], nav label:hover form .field-wrapper input[type=button], form .field-wrapper a:hover input[type=button], form .field-wrapper nav label:hover input[type=button], nav form .field-wrapper label:hover input[type=button],
+a:hover form .field-wrapper input[type=submit],
+nav label:hover form .field-wrapper input[type=submit],
+form .field-wrapper a:hover input[type=submit],
+form .field-wrapper nav label:hover input[type=submit],
+nav form .field-wrapper label:hover input[type=submit] {
   background-color: var(---color-primary-2);
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
@@ -334,8 +339,15 @@ form .field-wrapper input[type=submit],
   color: #fff;
 }
 
+a img, nav label img {
+  filter: opacity(1);
+  transition: filter 0.2s ease-in-out;
+}
 a:hover, nav label:hover {
   color: var(---color-primary-1);
+}
+a:hover img, nav label:hover img {
+  filter: opacity(0.85);
 }
 
 a, nav label,
@@ -479,7 +491,9 @@ small,
 
 .banner {
   position: relative;
+  z-index: 1;
   position: relative;
+  z-index: 1;
   overflow: hidden;
   background: var(---color-primary-1);
   background: linear-gradient(141deg, #582a72 0%, #9775aa 35%, #260339 100%);
@@ -504,6 +518,7 @@ body.full-height-banner .banner .banner_text .container .banner_text_inner {
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-top: 150px solid var(--background);
   border-right: 3000px solid transparent;
   top: 0;
@@ -515,6 +530,7 @@ body.full-height-banner .banner .banner_text .container .banner_text_inner {
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-bottom: 150px solid var(--background);
   border-left: 3000px solid transparent;
   bottom: 0;
@@ -596,6 +612,7 @@ body > footer {
   background: var(--footer-colour);
   min-height: 10rem;
   position: relative;
+  z-index: 1;
 }
 body > footer:before {
   content: " ";
@@ -603,6 +620,7 @@ body > footer:before {
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-top: 150px solid var(--background);
   border-right: 3000px solid transparent;
   top: 0;
@@ -792,7 +810,9 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
   max-width: 450px;
   height: auto;
   position: relative;
+  z-index: 1;
   position: relative;
+  z-index: 1;
   padding: 0;
   overflow: hidden;
 }
@@ -802,6 +822,7 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-top: 150px solid var(--background);
   border-right: 3000px solid transparent;
   top: 0;
@@ -813,6 +834,7 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-bottom: 150px solid var(--background);
   border-left: 3000px solid transparent;
   bottom: 0;
@@ -838,7 +860,9 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
   width: 100%;
   display: block;
   position: relative;
+  z-index: 1;
   position: relative;
+  z-index: 1;
   overflow: hidden;
   margin-top: 0.45rem;
   margin-right: 1.25rem;
@@ -866,6 +890,7 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-top: 150px solid var(--background);
   border-right: 3000px solid transparent;
   top: 0;
@@ -877,6 +902,7 @@ header .social-links a:hover svg path, header .social-links nav label:hover svg 
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-bottom: 150px solid var(--background);
   border-left: 3000px solid transparent;
   bottom: 0;
@@ -1346,7 +1372,9 @@ nav label {
 .service-body picture {
   display: block;
   position: relative;
+  z-index: 1;
   position: relative;
+  z-index: 1;
   overflow: hidden;
   float: left;
   max-width: 50%;
@@ -1361,6 +1389,7 @@ nav label {
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-top: 150px solid var(--background);
   border-right: 3000px solid transparent;
   top: 0;
@@ -1372,6 +1401,7 @@ nav label {
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-bottom: 150px solid var(--background);
   border-left: 3000px solid transparent;
   bottom: 0;
@@ -1415,6 +1445,10 @@ nav label {
   line-height: 1em;
   position: relative;
   z-index: 10;
+  transition: color 0.2s ease-in-out;
+}
+.service-list-block .service-list .service:hover h3, .service-list-block .service-list .service:hover body > footer .title, body > footer .service-list-block .service-list .service:hover .title {
+  color: var(---color-primary-1);
 }
 .service-list-block .service-list .service p, .service-list-block .service-list .service .pagination {
   flex-grow: 1;
@@ -1422,7 +1456,9 @@ nav label {
 .service-list-block .service-list .service picture {
   display: block;
   position: relative;
+  z-index: 1;
   position: relative;
+  z-index: 1;
   overflow: hidden;
 }
 .service-list-block .service-list .service picture:before {
@@ -1431,6 +1467,7 @@ nav label {
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-top: 150px solid var(--background);
   border-right: 3000px solid transparent;
   top: 0;
@@ -1442,6 +1479,7 @@ nav label {
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-bottom: 150px solid var(--background);
   border-left: 3000px solid transparent;
   bottom: 0;
@@ -1540,7 +1578,9 @@ body.effect-fireworks .banner picture img {
 .article-list ol li picture {
   display: block;
   position: relative;
+  z-index: 1;
   position: relative;
+  z-index: 1;
   overflow: hidden;
   box-sizing: content-box;
   margin-bottom: 1rem;
@@ -1558,6 +1598,7 @@ body.effect-fireworks .banner picture img {
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-top: 150px solid var(--background);
   border-right: 3000px solid transparent;
   top: 0;
@@ -1569,6 +1610,7 @@ body.effect-fireworks .banner picture img {
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
   border-bottom: 150px solid var(--background);
   border-left: 3000px solid transparent;
   bottom: 0;

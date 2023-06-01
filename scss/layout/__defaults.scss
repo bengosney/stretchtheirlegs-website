@@ -1,15 +1,35 @@
-.btn:hover {
+.btn:hover,
+%btn_hover {
   background-color: var(---color-primary-2);
-  box-shadow: 0 3px 3px 0 rgb(0 0 0 / 14%), 0 1px 7px 0 rgb(0 0 0 / 12%), 0 3px 1px -1px rgb(0 0 0 / 20%);
+  box-shadow:
+    0 3px 3px 0 rgb(0 0 0 / 14%),
+    0 1px 7px 0 rgb(0 0 0 / 12%),
+    0 3px 1px -1px rgb(0 0 0 / 20%);
 }
+
 a.btn,
 .btn,
 .btn-large {
   color: #fff;
 }
 
-a:hover {
-  color: var(---color-primary-1);
+a {
+  img {
+    filter: opacity(1);
+    transition: filter 0.2s ease-in-out;
+  }
+
+  &:hover {
+    color: var(---color-primary-1);
+
+    .btn {
+      @extend %btn_hover;
+    }
+
+    img {
+      filter: opacity(0.85);
+    }
+  }
 }
 a,
 a:visited {
