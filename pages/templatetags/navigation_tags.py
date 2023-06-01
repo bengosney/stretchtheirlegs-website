@@ -12,7 +12,8 @@ register = template.Library()
 
 @register.simple_tag(takes_context=True)
 def get_site_root(context):
-    return Site.find_for_request(context["request"]).root_page
+    site = Site.find_for_request(context["request"])
+    return site.root_page if site else None
 
 
 def has_menu_children(page):
