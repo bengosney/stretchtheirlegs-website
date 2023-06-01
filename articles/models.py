@@ -24,6 +24,7 @@ class ArticleList(Page):
 
     show_in_menus_default = True
     sub_heading = models.CharField(max_length=255, default="", blank=True)
+    list_title = models.CharField(max_length=255, default="", blank=True, help_text="This is shown above the actual list")
 
     body = StreamField(
         [
@@ -40,6 +41,7 @@ class ArticleList(Page):
     content_panels = Page.content_panels + [
         FieldPanel("sub_heading"),
         FieldPanel("body"),
+        FieldPanel("list_title"),
     ]
 
     def get_context(self, request, *args, **kwargs):

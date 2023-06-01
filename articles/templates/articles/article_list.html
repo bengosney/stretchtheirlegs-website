@@ -8,6 +8,9 @@
 {% block content %}
     {% if not request.htmx %}
         {% include_block page.body %}
+        {% if page.list_title %}
+            <h3>{{ page.list_title }}</h3>
+        {% endif %}
     {% endif %}
 
     <div class="article-list">
