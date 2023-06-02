@@ -321,7 +321,14 @@ template {
 
 /* generated with grunt-sass-globbing */
 .btn:hover, form .field-wrapper input[type=button]:hover,
-form .field-wrapper input[type=submit]:hover, a:hover .btn, nav label:hover .btn, a:hover form .field-wrapper input[type=button], nav label:hover form .field-wrapper input[type=button], form .field-wrapper a:hover input[type=button], form .field-wrapper nav label:hover input[type=button], nav form .field-wrapper label:hover input[type=button],
+form .field-wrapper input[type=submit]:hover,
+a:hover .btn,
+nav label:hover .btn,
+a:hover form .field-wrapper input[type=button],
+nav label:hover form .field-wrapper input[type=button],
+form .field-wrapper a:hover input[type=button],
+form .field-wrapper nav label:hover input[type=button],
+nav form .field-wrapper label:hover input[type=button],
 a:hover form .field-wrapper input[type=submit],
 nav label:hover form .field-wrapper input[type=submit],
 form .field-wrapper a:hover input[type=submit],
@@ -1586,8 +1593,6 @@ body.effect-fireworks .banner picture img {
   margin-bottom: 1rem;
   margin-top: 0.5em;
   aspect-ratio: 2;
-  background: var(---color-primary-3);
-  background: linear-gradient(110deg, var(---color-primary-3) 0%, var(---color-primary-2) 35%, var(---color-primary-1) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
