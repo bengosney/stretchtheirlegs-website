@@ -1063,8 +1063,8 @@ nav menu li {
     transform: translateX(0px);
     box-shadow: 0 0 5vw rgb(0, 0, 0);
   }
-  nav a,
-nav label {
+  nav .item a,
+nav .item label {
     font-family: "Fontdiner Swanky", cursive;
     font-size: 1.25rem;
     line-height: 3rem;
@@ -1072,6 +1072,15 @@ nav label {
     text-decoration: none;
     display: block;
     box-sizing: border-box;
+  }
+  nav .item a::before,
+nav .item label::before {
+    content: "";
+    width: 0.75rem;
+    display: inline-block;
+  }
+  nav .item.active > label::before, nav .item.active > a::before {
+    content: "»";
   }
   nav menu.nav-level-1 {
     box-sizing: border-box;
@@ -1161,73 +1170,70 @@ nav li menu li label {
   }
   .level-1 a,
 .level-1 label {
-    padding-left: 1rem;
+    padding-left: 0.75rem;
   }
   .nav-level-2 {
     background: var(--nav-bg-2);
   }
   .level-2 a,
 .level-2 label {
-    padding-left: 1.75rem;
+    padding-left: 1.25rem;
   }
   .nav-level-3 {
     background: var(--nav-bg-3);
   }
   .level-3 a,
 .level-3 label {
-    padding-left: 2.5rem;
+    padding-left: 1.75rem;
   }
   .nav-level-4 {
     background: var(--nav-bg-4);
   }
   .level-4 a,
 .level-4 label {
-    padding-left: 3.25rem;
+    padding-left: 2.25rem;
   }
   .nav-level-5 {
     background: var(--nav-bg-5);
   }
   .level-5 a,
 .level-5 label {
-    padding-left: 4rem;
+    padding-left: 2.75rem;
   }
   .nav-level-6 {
     background: var(--nav-bg-6);
   }
   .level-6 a,
 .level-6 label {
-    padding-left: 4.75rem;
+    padding-left: 3.25rem;
   }
   .nav-level-7 {
     background: var(--nav-bg-7);
   }
   .level-7 a,
 .level-7 label {
-    padding-left: 5.5rem;
+    padding-left: 3.75rem;
   }
   .nav-level-8 {
     background: var(--nav-bg-8);
   }
   .level-8 a,
 .level-8 label {
-    padding-left: 6.25rem;
+    padding-left: 4.25rem;
   }
   .nav-level-9 {
     background: var(--nav-bg-9);
   }
   .level-9 a,
 .level-9 label {
-    padding-left: 7rem;
+    padding-left: 4.75rem;
   }
   .nav-level-10 {
     background: var(--nav-bg-10);
   }
   .level-10 a,
 .level-10 label {
-    padding-left: 7.75rem;
-  }
-  .active > label::before, .active > a::before {
-    content: "»";
+    padding-left: 5.25rem;
   }
 }
 @media (min-width: 992px) {

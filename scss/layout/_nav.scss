@@ -21,6 +21,8 @@ nav {
     align-items: center;
   }
 
+  $menuPadding: 0.5rem;
+
   nav {
     .social-links {
       a {
@@ -59,9 +61,25 @@ nav {
       box-sizing: border-box;
     }
 
-    a,
-    label {
-      @include nav-item;
+    .item {
+      a,
+      label {
+        @include nav-item;
+        &::before {
+          content: "";
+          width: $menuPadding + 0.25rem;
+          display: inline-block;
+        }
+      }
+
+      &.active {
+        & > label,
+        & > a {
+          &::before {
+            content: "\00BB";
+          }
+        }
+      }
     }
 
     menu.nav-level-1 {
@@ -168,16 +186,7 @@ nav {
     .level-#{$i} {
       a,
       label {
-        padding-left: 0.25rem + (0.75rem * $i);
-      }
-    }
-  }
-
-  .active {
-    & > label,
-    & > a {
-      &::before {
-        content: "\00BB";
+        padding-left: 0.25rem + ($menuPadding * $i);
       }
     }
   }
