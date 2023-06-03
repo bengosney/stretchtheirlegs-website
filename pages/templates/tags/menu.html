@@ -11,7 +11,7 @@
                 <label for="{{ menuitem.title|lower|cut:' ' }}" class="top-level" aria-label="{{ menuitem.title }}">
                     {{ menuitem.title }}
                 </label>
-                <input id="{{ menuitem.title|lower|cut:' ' }}" type="checkbox" class="submenu-toggle" hidden/>
+                <input id="{{ menuitem.title|lower|cut:' ' }}" type="checkbox" class="submenu-toggle"{% if menuitem.active %} checked{% endif %} hidden/>
                 {% menu parent=menuitem calling_page=calling_page level=level %}
             {% else %}
                 <a href="{% pageurl menuitem %}" class="top-level" aria-label="{{ menuitem.title }}">
