@@ -1068,7 +1068,6 @@ nav .item label {
     font-family: "Fontdiner Swanky", cursive;
     font-size: 1.25rem;
     line-height: 3rem;
-    width: 100%;
     text-decoration: none;
     display: block;
     box-sizing: border-box;
@@ -1105,7 +1104,6 @@ nav .item label::before {
     font-family: "Fontdiner Swanky", cursive;
     font-size: 1.25rem;
     line-height: 3rem;
-    width: 100%;
     text-decoration: none;
     display: block;
     box-sizing: border-box;
@@ -1235,6 +1233,29 @@ nav li menu li label {
 .level-10 label {
     padding-left: 5.25rem;
   }
+  .item.has-submenu {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .item.has-submenu > a, nav .item.has-submenu > label {
+    flex-grow: 1;
+    width: auto;
+  }
+  .item.has-submenu > a + label, nav .item.has-submenu > label + label {
+    flex-basis: 2.75rem;
+    flex-grow: 0;
+    padding: 0;
+    border-left: 1px solid var(---color-primary-0);
+  }
+  .item.has-submenu > a + label::before, nav .item.has-submenu > label + label::before {
+    content: "";
+  }
+  .item.has-submenu > a + label span, nav .item.has-submenu > label + label span {
+    display: none;
+  }
+  .item.has-submenu menu {
+    width: 100%;
+  }
 }
 @media (min-width: 992px) {
   nav {
@@ -1361,6 +1382,11 @@ nav label {
   nav a,
 nav label {
     font-size: 1.2rem;
+  }
+}
+@media (min-width: 992px) {
+  nav a + label, nav label + label {
+    display: none;
   }
 }
 @media (min-width: 992px) {

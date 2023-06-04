@@ -25,6 +25,9 @@ class ArticleList(Page):
     show_in_menus_default = True
     sub_heading = models.CharField(max_length=255, default="", blank=True)
     list_title = models.CharField(max_length=255, default="", blank=True, help_text="This is shown above the actual list")
+    collection_title = models.CharField(
+        max_length=255, default="Article Collections", help_text="This is shown above any sub lists"
+    )
 
     body = StreamField(
         [
@@ -36,11 +39,12 @@ class ArticleList(Page):
         use_json_field=True,
     )
 
-    subpage_types = ["articles.Article"]
+    subpage_types = ["articles.Article", "articles.ArticleList"]
 
     content_panels = Page.content_panels + [
         FieldPanel("sub_heading"),
         FieldPanel("body"),
+        FieldPanel("collection_title"),
         FieldPanel("list_title"),
     ]
 
@@ -49,7 +53,7 @@ class ArticleList(Page):
 
         page = request.GET.get("page", 1)
 
-        articles = Article.objects.child_of(self).live()
+        articles = Article.objects.descendant_of(self).live().order_by("-first_published_at")
 
         paginator = Paginator(articles, self.NPP)
         try:
@@ -60,6 +64,8 @@ class ArticleList(Page):
             articles = paginator.page(paginator.num_pages)
 
         context["articles"] = articles
+
+        context["article_list"] = ArticleList.objects.descendant_of(self).live()
 
         return context
 
@@ -84,9 +90,9 @@ class Article(Page):
         use_json_field=True,
     )
 
-    subpage_types = []
+    subpage_types = ["articles.Article"]
 
-    parent_page_types = ["articles.ArticleList"]
+    parent_page_types = ["articles.ArticleList", "articles.Article"]
 
     content_panels = Page.content_panels + [
         FieldPanel("sub_heading"),

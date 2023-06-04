@@ -8,6 +8,20 @@
 {% block content %}
     {% if not request.htmx %}
         {% include_block page.body %}
+
+        {% if article_list %}
+            <h3>{{ page.list_list_title|default:"Article Collections" }}</h3>
+            <div class="article-list-list">
+                <ul>
+                    {% for list in article_list %}
+                        <li>
+                            <a href="{{ list.url }}">{{ list.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
         {% if page.list_title %}
             <h3>{{ page.list_title }}</h3>
         {% endif %}

@@ -55,7 +55,6 @@ nav {
       font-family: $font-headding;
       font-size: 1.25rem;
       line-height: 3rem;
-      width: 100%;
       text-decoration: none;
       display: block;
       box-sizing: border-box;
@@ -187,6 +186,37 @@ nav {
       a,
       label {
         padding-left: 0.25rem + ($menuPadding * $i);
+      }
+    }
+  }
+
+  .item {
+    &.has-submenu {
+      display: flex;
+      flex-wrap: wrap;
+
+      & > a {
+        flex-grow: 1;
+        width: auto;
+
+        & + label {
+          flex-basis: 2.75rem;
+          flex-grow: 0;
+          padding: 0;
+          border-left: 1px solid var(---color-primary-0);
+
+          &::before {
+            content: "";
+          }
+
+          span {
+            display: none;
+          }
+        }
+      }
+
+      menu {
+        width: 100%;
       }
     }
   }
@@ -331,6 +361,10 @@ nav {
       text-decoration-color: var(--background);
       line-height: 1em;
       position: relative;
+    }
+
+    a + label {
+      display: none;
     }
 
     .active {
