@@ -25,11 +25,11 @@ beautifulsoup4==4.11.2
     #   wagtail
 black==23.3.0
     # via -r requirements.dev.in
-boto3==1.26.140
+boto3==1.26.145
     # via
     #   -c requirements.txt
     #   -r requirements.txt
-botocore==1.29.140
+botocore==1.29.145
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -139,7 +139,7 @@ django-storages==1.13.2
     #   -r requirements.txt
 django-stubs==4.2.0
     # via -r requirements.dev.in
-django-stubs-ext==4.2.0
+django-stubs-ext==4.2.1
     # via django-stubs
 django-taggit==3.1.0
     # via
@@ -400,7 +400,7 @@ urllib3==1.26.15
     #   requests
 virtualenv==20.17.1
     # via pre-commit
-wagtail==5.0
+wagtail==5.0.1
     # via
     #   -c requirements.txt
     #   -r requirements.txt

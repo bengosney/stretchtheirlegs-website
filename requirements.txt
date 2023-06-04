@@ -10,9 +10,9 @@ asgiref==3.6.0
     # via django
 beautifulsoup4==4.11.2
     # via wagtail
-boto3==1.26.140
+boto3==1.26.145
     # via -r requirements.in
-botocore==1.29.140
+botocore==1.29.145
     # via
     #   boto3
     #   s3transfer
@@ -136,7 +136,7 @@ urllib3==1.26.15
     # via
     #   botocore
     #   requests
-wagtail==5.0
+wagtail==5.0.1
     # via
     #   -r requirements.in
     #   wagtail-picture-tag
