@@ -1,0 +1,15 @@
+{% load static wagtailcore_tags %}
+
+<div class="breadcrumbs">
+    {% if self.get_ancestors|length > 2 %}
+        <ul >
+            {% for page in self.get_ancestors %}
+                {% if page.is_root == False and page.title != "Home" %}
+                    <li><a aria-label="{{ page.title }}" href="{% pageurl page %}">{{ page.title }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            <li class="active">{{ self.title }}</li>
+        </ul>
+    {% endif %}
+</div>

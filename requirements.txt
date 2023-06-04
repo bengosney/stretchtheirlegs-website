@@ -35,6 +35,7 @@ django==4.2.1
     #   django-csp
     #   django-extensions
     #   django-filter
+    #   django-htmx
     #   django-modelcluster
     #   django-permissionedforms
     #   django-storages
@@ -48,6 +49,8 @@ django-extensions==3.2.1
     # via -r requirements.in
 django-filter==22.1
     # via wagtail
+django-htmx==1.14.0
+    # via -r requirements.in
 django-modelcluster==6.0
     # via wagtail
 django-permissionedforms==0.1

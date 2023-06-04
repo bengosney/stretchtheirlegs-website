@@ -21,6 +21,8 @@ nav {
     align-items: center;
   }
 
+  $menuPadding: 0.5rem;
+
   nav {
     .social-links {
       a {
@@ -53,15 +55,30 @@ nav {
       font-family: $font-headding;
       font-size: 1.25rem;
       line-height: 3rem;
-      width: 100%;
       text-decoration: none;
       display: block;
       box-sizing: border-box;
     }
 
-    a,
-    label {
-      @include nav-item;
+    .item {
+      a,
+      label {
+        @include nav-item;
+        &::before {
+          content: "";
+          width: $menuPadding + 0.25rem;
+          display: inline-block;
+        }
+      }
+
+      &.active {
+        & > label,
+        & > a {
+          &::before {
+            content: "\00BB";
+          }
+        }
+      }
     }
 
     menu.nav-level-1 {
@@ -168,7 +185,38 @@ nav {
     .level-#{$i} {
       a,
       label {
-        padding-left: 0.25rem + (0.75rem * $i);
+        padding-left: 0.25rem + ($menuPadding * $i);
+      }
+    }
+  }
+
+  .item {
+    &.has-submenu {
+      display: flex;
+      flex-wrap: wrap;
+
+      & > a {
+        flex-grow: 1;
+        width: auto;
+
+        & + label {
+          flex-basis: 2.75rem;
+          flex-grow: 0;
+          padding: 0;
+          border-left: 1px solid var(---color-primary-0);
+
+          &::before {
+            content: "";
+          }
+
+          span {
+            display: none;
+          }
+        }
+      }
+
+      menu {
+        width: 100%;
       }
     }
   }
@@ -306,11 +354,22 @@ nav {
       padding: 0.5rem;
       margin: 0 1rem;
       font-size: 1.5rem;
+      @include in-size(md) {
+        font-size: 1.2rem;
+      }
+      text-decoration: underline;
       text-decoration-color: var(--background);
       line-height: 1em;
       position: relative;
+    }
 
-      &.active {
+    a + label {
+      display: none;
+    }
+
+    .active {
+      & > label,
+      & > a {
         text-decoration-color: var(---color-primary-0);
       }
     }

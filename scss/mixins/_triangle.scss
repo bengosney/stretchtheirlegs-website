@@ -4,10 +4,12 @@
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
 }
 
 @mixin triangle-parent() {
   position: relative;
+  z-index: 1;
 }
 
 @mixin triangle-bottom($color) {

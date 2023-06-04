@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags picture_tags %}
+
+
+{% block content %}
+    <div class="article">
+        {% include_block page.body %}
+    </div>
+{% endblock content %}

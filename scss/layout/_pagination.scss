@@ -1,0 +1,21 @@
+.pagination {
+  margin-top: 2em;
+  @extend p;
+
+  a {
+    font-size: 1.5em;
+    line-height: 1em;
+    text-decoration: none;
+    margin-top: -0.1em;
+  }
+
+  .step-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    > * {
+      display: block;
+    }
+  }
+}

@@ -24,6 +24,8 @@ INSTALLED_APPS = [
     "logos",
     "fh_utils",
     "social",
+    "articles",
+    "django_htmx",
     "wagtail_picture_tag",
     "wagtail.contrib.settings",
     "wagtail.contrib.styleguide",
@@ -61,6 +63,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
     "csp.middleware.CSPMiddleware",
+    "django_htmx.middleware.HtmxMiddleware",
     "stl.middleware.ClacksOverhead",
 ]
 

@@ -87,6 +87,10 @@ clean: ## Remove all build files
 	rm -f .testmondata
 	rm -rf .mypy_cache
 	rm -rf .hypothesis
+	rm -rf .parcel-cache
+	rm -rf .sass-cache
+	rm -f .coverage
+	find . -type d -empty -delete
 
 package-lock.json: package.json
 	npm install

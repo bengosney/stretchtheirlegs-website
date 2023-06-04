@@ -1,7 +1,7 @@
-import initPreloads from "./pre-load";
 import loadEffect, { isEffect } from "./effect";
+//import initPreloads from "./pre-load";
 
-initPreloads();
+//initPreloads();
 
 const _window = window as any;
 _window.loadEffect = loadEffect;

@@ -12,7 +12,8 @@ register = template.Library()
 
 @register.simple_tag(takes_context=True)
 def get_site_root(context):
-    return Site.find_for_request(context["request"]).root_page
+    site = Site.find_for_request(context["request"])
+    return site.root_page if site else None
 
 
 def has_menu_children(page):
@@ -31,7 +32,7 @@ def is_active(page, current_page):
 def menu(context, parent=None, calling_page=None, level=0):
     level += 1
     parent = parent or get_site_root(context)
-    menuitems = list(parent.get_children().live().in_menu())
+    menuitems = list(parent.get_children().live().in_menu().specific())
 
     for menuitem in menuitems:
         menuitem.show_dropdown = has_menu_children(menuitem)
