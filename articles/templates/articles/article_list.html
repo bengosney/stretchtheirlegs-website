@@ -7,20 +7,25 @@
 
 {% block content %}
     {% if not request.htmx %}
-        {% include_block page.body %}
-
-        {% if article_list %}
-            <h3>{{ page.list_list_title|default:"Article Collections" }}</h3>
-            <div class="article-list-list">
-                <ul>
-                    {% for list in article_list %}
-                        <li>
-                            <a href="{{ list.url }}">{{ list.title }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
+        <div class="article-list-body">
+            <div class="content">
+                {% include_block page.body %}
             </div>
-        {% endif %}
+            {% if article_list %}
+                <div class="collections">
+                    {% if collection_title %}<h3>{{ page.collection_title }}</h3>{% endif %}
+                    <div class="article-list-list">
+                        <ul>
+                            {% for list in article_list %}
+                                <li>
+                                    <a href="{{ list.url }}">{{ list.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
 
         {% if page.list_title %}
             <h3>{{ page.list_title }}</h3>

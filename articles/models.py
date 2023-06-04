@@ -25,9 +25,7 @@ class ArticleList(Page):
     show_in_menus_default = True
     sub_heading = models.CharField(max_length=255, default="", blank=True)
     list_title = models.CharField(max_length=255, default="", blank=True, help_text="This is shown above the actual list")
-    collection_title = models.CharField(
-        max_length=255, default="Article Collections", help_text="This is shown above any sub lists"
-    )
+    collection_title = models.CharField(max_length=255, default="", blank=True, help_text="This is shown above any sub lists")
 
     body = StreamField(
         [
