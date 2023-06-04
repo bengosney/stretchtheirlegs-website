@@ -1,5 +1,5 @@
-import initPreloads from "./pre-load";
 import loadEffect, { isEffect } from "./effect";
+//import initPreloads from "./pre-load";
 
 //initPreloads();
 
