@@ -1039,7 +1039,28 @@ nav menu li {
   line-height: 2em;
 }
 
+.nav-shroud {
+  display: none;
+}
+
 @media (max-width: 992px) {
+  .nav-shroud {
+    background: rgba(0, 0, 0, 0.5);
+    display: block;
+    opacity: 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 100%;
+    top: 0;
+    z-index: 5554;
+    transition: left 0s ease-in-out 0.2s, opacity 0.2s ease-in-out;
+  }
+  input:checked + nav .nav-shroud {
+    transition: left 0s ease-in-out, opacity 0.2s ease-in-out;
+    left: 0%;
+    opacity: 1;
+  }
   .links {
     flex-direction: row-reverse;
     align-items: center;
@@ -1055,9 +1076,6 @@ nav menu li {
   nav menu {
     padding: 0;
     margin: 0;
-  }
-  input:checked + nav::before {
-    animation: fadeIn 0.5s ease-in-out forwards;
   }
   input:checked + nav menu.nav-level-1 {
     transform: translateX(0px);
@@ -1136,17 +1154,6 @@ nav .item label::before {
     border-style: solid;
     border-width: 0.5rem 0.5rem 0 0.5rem;
     border-color: var(---color-primary-0) transparent transparent transparent;
-  }
-  nav::before {
-    opacity: 0;
-    z-index: 5554;
-    content: " ";
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    left: 100%;
-    background: rgba(0, 0, 0, 0.5);
   }
   nav li {
     line-height: 3rem;
@@ -1392,20 +1399,6 @@ nav label {
 @media (min-width: 992px) {
   nav .active > label, nav .active > a {
     text-decoration-color: var(---color-primary-0);
-  }
-}
-@keyframes fadeIn {
-  0% {
-    left: 100%;
-    opacity: 0;
-  }
-  1% {
-    left: 0;
-    opacity: 0;
-  }
-  100% {
-    left: 0%;
-    opacity: 1;
   }
 }
 .service-body picture {
@@ -1724,7 +1717,8 @@ body.effect-fireworks .banner picture img {
   gap: 0.5rem;
   list-style: none;
 }
-.article-list-body .article-list-list ul, .article-list-body .article-list-list ul li {
+.article-list-body .article-list-list ul,
+.article-list-body .article-list-list ul li {
   padding: 0;
   margin: 0;
 }
