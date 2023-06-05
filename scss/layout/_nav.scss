@@ -30,11 +30,18 @@ nav {
     left: 100%;
     top: 0;
     z-index: $z-index - 1;
+    transition:
+      left 0s ease-in-out 0.2s,
+      opacity 0.2s ease-in-out;
   }
 
   input:checked + nav {
     .nav-shroud {
-      animation: fadeIn 0.5s ease-in-out forwards;
+      transition:
+        left 0s ease-in-out,
+        opacity 0.2s ease-in-out;
+      left: 0%;
+      opacity: 1;
     }
   }
 
@@ -379,20 +386,5 @@ nav {
         text-decoration-color: var(---color-primary-0);
       }
     }
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    left: 100%;
-    opacity: 0;
-  }
-  1% {
-    left: 0;
-    opacity: 0;
-  }
-  100% {
-    left: 0%;
-    opacity: 1;
   }
 }
