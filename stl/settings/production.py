@@ -7,6 +7,7 @@ import dj_database_url
 
 # Locals
 from .base import *  # noqa
+from .base import BASE_URL, DATABASES, MIDDLEWARE
 
 DEBUG = False
 
@@ -25,10 +26,10 @@ AWS_S3_OBJECT_PARAMETERS = {
 ALLOWED_HOSTS = ["www.stretchtheirlegs.co.uk"]
 
 CSRF_TRUSTED_ORIGINS = [
-    BASE_URL,  # noqa
+    BASE_URL,
 ]
 
-DATABASES["default"] = dj_database_url.config()  # noqa
+DATABASES["default"] = dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -44,7 +45,7 @@ STORAGES = {
     },
 }
 
-MIDDLEWARE += [  # noqa
+MIDDLEWARE += [
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
