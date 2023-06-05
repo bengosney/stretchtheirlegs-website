@@ -45,7 +45,7 @@ django==4.2.2
     #   wagtail
 django-csp==3.7
     # via -r requirements.in
-django-extensions==3.2.1
+django-extensions==3.2.3
     # via -r requirements.in
 django-filter==22.1
     # via wagtail
