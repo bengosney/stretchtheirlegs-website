@@ -127,8 +127,7 @@ stl/static/css/%.css: scss/%.scss $(SCSS)
 	npx sass $< $@
 
 stl/static/css/%.min.css: stl/static/css/%.css
-	npx postcss $^ > $@
-	sed -e "s/sourceMappingURL//g" -i $@
+	npx postcss $^ -o $@
 
 css: stl/static/css/main.min.css ## Build the css
 
@@ -144,6 +143,7 @@ js: stl/static/js/stl.js ## Build the js
 
 watch-css: ## Watch and build the css
 	@echo "Watching scss"
+	$(MAKE) css
 	@while inotifywait -qr -e close_write scss/; do \
 		$(MAKE) css; \
 	done

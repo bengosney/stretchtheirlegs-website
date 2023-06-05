@@ -1,4 +1,5 @@
 module.exports = {
+  map: { inline: false },
   plugins: [
     require("pixrem")(),
     require("autoprefixer")(),

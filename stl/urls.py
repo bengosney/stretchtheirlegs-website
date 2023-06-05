@@ -9,9 +9,6 @@ from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.contrib.sitemaps.views import sitemap
 from wagtail.documents import urls as wagtaildocs_urls
 
-# First Party
-from search import views as search_views
-
 urlpatterns = [
     path("sitemap.xml", sitemap),
     path("admin/", include(wagtailadmin_urls)),
@@ -31,6 +28,7 @@ if settings.DEBUG:
     # Serve static and media files from development server
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.SCSS_SOURCEMAP_URL, document_root=settings.SCSS_SOURCEMAP_ROOT)
     urlpatterns += (path("__debug__/", include("debug_toolbar.urls")),)
 
 urlpatterns = urlpatterns + [
