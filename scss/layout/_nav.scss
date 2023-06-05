@@ -15,7 +15,29 @@ nav {
   }
 }
 
+.nav-shroud {
+  display: none;
+}
+
 @media (max-width: $nav-swap) {
+  .nav-shroud {
+    background: rgba(0, 0, 0, 0.5);
+    display: block;
+    opacity: 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 100%;
+    top: 0;
+    z-index: $z-index - 1;
+  }
+
+  input:checked + nav {
+    .nav-shroud {
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+  }
+
   .links {
     flex-direction: row-reverse;
     align-items: center;
@@ -41,10 +63,6 @@ nav {
     }
 
     input:checked + & {
-      &::before {
-        animation: fadeIn 0.5s ease-in-out forwards;
-      }
-
       menu.nav-level-1 {
         transform: translateX(0px);
         box-shadow: 0 0 5vw rgb(0 0 0 / 100%);
@@ -143,18 +161,6 @@ nav {
           }
         }
       }
-    }
-
-    &::before {
-      opacity: 0;
-      z-index: $z-index - 1;
-      content: " ";
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      left: 100%;
-      background: rgba(0, 0, 0, 0.5);
     }
 
     li {
