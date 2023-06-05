@@ -83,6 +83,9 @@ nav {
       text-decoration: none;
       display: block;
       box-sizing: border-box;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
 
     .item {
@@ -97,7 +100,7 @@ nav {
       }
 
       &.active {
-        & > label,
+        & > .nav-title label,
         & > a {
           &::before {
             content: "\00BB";
@@ -141,11 +144,17 @@ nav {
       }
 
       menu {
-        display: none;
+        li {
+          transition: max-height 0.2s ease-in-out;
+          overflow: hidden;
+          max-height: 0em;
+        }
       }
 
       input:checked + menu {
-        display: block;
+        li {
+          max-height: 3em;
+        }
       }
 
       $size: 0.5rem;
@@ -175,7 +184,7 @@ nav {
       a,
       label {
         border-bottom: 1px solid $color-primary-1;
-        padding: 0 1rem;
+        padding: 0 1.5em;
       }
 
       menu {
@@ -199,37 +208,6 @@ nav {
       a,
       label {
         padding-left: 0.25rem + ($menuPadding * $i);
-      }
-    }
-  }
-
-  .item {
-    &.has-submenu {
-      display: flex;
-      flex-wrap: wrap;
-
-      & > a {
-        flex-grow: 1;
-        width: auto;
-
-        & + label {
-          flex-basis: 2.75rem;
-          flex-grow: 0;
-          padding: 0;
-          border-left: 1px solid var(---color-primary-0);
-
-          &::before {
-            content: "";
-          }
-
-          span {
-            display: none;
-          }
-        }
-      }
-
-      menu {
-        width: 100%;
       }
     }
   }

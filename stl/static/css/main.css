@@ -1089,6 +1089,9 @@ nav .item label {
     text-decoration: none;
     display: block;
     box-sizing: border-box;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   nav .item a::before,
 nav .item label::before {
@@ -1096,7 +1099,7 @@ nav .item label::before {
     width: 0.75rem;
     display: inline-block;
   }
-  nav .item.active > label::before, nav .item.active > a::before {
+  nav .item.active > .nav-title label::before, nav .item.active > a::before, nav .item.active > label::before {
     content: "»";
   }
   nav menu.nav-level-1 {
@@ -1125,6 +1128,9 @@ nav .item label::before {
     text-decoration: none;
     display: block;
     box-sizing: border-box;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     background: var(---color-primary-0);
     color: #fff;
     padding: 0.25rem 1rem;
@@ -1133,11 +1139,13 @@ nav .item label::before {
     list-style: none;
     padding: 0;
   }
-  nav menu.nav-level-1 menu {
-    display: none;
+  nav menu.nav-level-1 menu li {
+    transition: max-height 0.2s ease-in-out;
+    overflow: hidden;
+    max-height: 0em;
   }
-  nav menu.nav-level-1 input:checked + menu {
-    display: block;
+  nav menu.nav-level-1 input:checked + menu li {
+    max-height: 3em;
   }
   nav menu.nav-level-1 li {
     position: relative;
@@ -1161,7 +1169,7 @@ nav .item label::before {
   nav li a,
 nav li label {
     border-bottom: 1px solid #9775aa;
-    padding: 0 1rem;
+    padding: 0 1.5em;
   }
   nav li menu {
     background: var(--background-alt);
@@ -1239,29 +1247,6 @@ nav li menu li label {
   .level-10 a,
 .level-10 label {
     padding-left: 5.25rem;
-  }
-  .item.has-submenu {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .item.has-submenu > a, nav .item.has-submenu > label {
-    flex-grow: 1;
-    width: auto;
-  }
-  .item.has-submenu > a + label, nav .item.has-submenu > label + label {
-    flex-basis: 2.75rem;
-    flex-grow: 0;
-    padding: 0;
-    border-left: 1px solid var(---color-primary-0);
-  }
-  .item.has-submenu > a + label::before, nav .item.has-submenu > label + label::before {
-    content: "";
-  }
-  .item.has-submenu > a + label span, nav .item.has-submenu > label + label span {
-    display: none;
-  }
-  .item.has-submenu menu {
-    width: 100%;
   }
 }
 @media (min-width: 992px) {

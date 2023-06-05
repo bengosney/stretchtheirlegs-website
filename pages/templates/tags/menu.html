@@ -7,15 +7,10 @@
     {% endif %}
     {% for menuitem in menuitems %}
         {% pageurl menuitem as url %}
-        <li class="item level-{{ level }} {{ menuitem.title|lower|cut:" " }}{% if menuitem.active %} active{% endif %}{% if menuitem.show_dropdown %} has-submenu{% endif %}{% if url %} has-link{% endif %}">
+        <li class="item level-{{ level }} {{ menuitem.title|lower|cut:" " }}{% if menuitem.active %} active{% endif %}{% if menuitem.show_dropdown %} has-submenu{% endif %}">
             {% if menuitem.show_dropdown %}
-                {% if url %}
-                    <a href="{{ url }}" class="drowndown-link" aria-label="{{ menuitem.title }}">
-                        {{ menuitem.title }}
-                    </a>
-                {% endif %}
                 <label for="{{ menuitem.title|lower|cut:' ' }}" class="top-level" aria-label="{{ menuitem.title }}">
-                    <span>{{ menuitem.title }}</span>
+                    {{ menuitem.title }}
                 </label>
                 <input id="{{ menuitem.title|lower|cut:' ' }}" type="checkbox" class="submenu-toggle"{% if menuitem.active %} checked{% endif %} hidden/>
                 {% menu parent=menuitem calling_page=calling_page level=level %}
