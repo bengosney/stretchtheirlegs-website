@@ -101,8 +101,8 @@ nav {
       }
 
       &.active {
-        & > .nav-title label,
-        & > a {
+        & > div .top-level,
+        & > .top-level {
           &::before {
             content: "\00BB";
           }
@@ -211,20 +211,22 @@ nav {
     }
   }
 
-  .item {
-    & > div {
-      display: flex;
-      .top-level {
-        flex-grow: 1;
-      }
+  nav {
+    .item {
+      & > div {
+        display: flex;
+        .top-level {
+          flex-grow: 1;
+        }
 
-      label {
-        flex-grow: 0;
-        border-left: 1px solid $color-primary-1;
-        width: $triangleSize * 5;
-        padding: 0;
-        span {
-          display: none;
+        label {
+          flex-grow: 0;
+          border-left: 1px solid $color-primary-1;
+          width: $triangleSize * 5;
+          padding: 0;
+          span {
+            display: none;
+          }
         }
       }
     }
@@ -387,6 +389,7 @@ nav {
 
     .active {
       & > label,
+      & > div a,
       & > a {
         text-decoration-color: var(---color-primary-0);
       }

@@ -1099,7 +1099,7 @@ nav .item label::before {
     width: 0.75rem;
     display: inline-block;
   }
-  nav .item.active > .nav-title label::before, nav .item.active > a::before, nav .item.active > label::before {
+  nav .item.active > div .top-level::before, nav .item.active > .top-level::before {
     content: "»";
   }
   nav menu.nav-level-1 {
@@ -1248,19 +1248,19 @@ nav li menu li label {
 .level-10 label {
     padding-left: 5.25rem;
   }
-  .item > div {
+  nav .item > div {
     display: flex;
   }
-  .item > div .top-level {
+  nav .item > div .top-level {
     flex-grow: 1;
   }
-  .item > div label {
+  nav .item > div label {
     flex-grow: 0;
     border-left: 1px solid #9775aa;
     width: 2.5em;
     padding: 0;
   }
-  .item > div label span {
+  nav .item > div label span {
     display: none;
   }
 }
@@ -1403,7 +1403,7 @@ nav label {
   }
 }
 @media (min-width: 992px) {
-  nav .active > label, nav .active > a {
+  nav .active > label, nav .active > div a, nav .active > div label, nav .active > a {
     text-decoration-color: var(---color-primary-0);
   }
 }
