@@ -1679,6 +1679,7 @@ body.effect-fireworks .banner picture img {
   text-decoration: underline;
   font-size: 1.2em;
   line-height: 2em;
+  font-family: "Fontdiner Swanky", cursive;
 }
 .article-list ol li .summary {
   color: var(--text-colour);
