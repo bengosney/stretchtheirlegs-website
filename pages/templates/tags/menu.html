@@ -11,10 +11,10 @@
             {% if menuitem.show_dropdown %}
                 {% if url %}
                     <div>
+                        <a href="{{ url }}" class="top-level">{{ menuitem.title }}</a>
                         <label for="{{ menuitem.title|lower|cut:' ' }}" aria-label="{{ menuitem.title }}">
                             <span>open</span>
                         </label>
-                        <a href="{{ url }}">{{ menuitem.title }}</a>
                     </div>
                 {% else %}
                     <label for="{{ menuitem.title|lower|cut:' ' }}" class="top-level" aria-label="{{ menuitem.title }}">
