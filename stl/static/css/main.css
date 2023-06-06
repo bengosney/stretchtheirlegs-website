@@ -1273,6 +1273,9 @@ nav li menu li label {
     padding: 0;
     margin: 0;
   }
+  nav menu li div > label {
+    display: none;
+  }
   nav menu li a,
 nav menu li label {
     white-space: nowrap;
@@ -1299,11 +1302,14 @@ nav menu li label:after {
   }
 }
 @media (min-width: 992px) {
-  nav > menu > li.has-submenu > a:hover:after,
+  nav > menu > li.has-submenu > div a:after, nav > menu > li.has-submenu > div label:after {
+    margin-left: 0.25em;
+  }
+  nav > menu > li.has-submenu > div a:hover:after,
 nav > menu > li.has-submenu label:hover:after {
     border-color: var(---color-primary-1) transparent transparent transparent;
   }
-  nav > menu > li.has-submenu > a:after,
+  nav > menu > li.has-submenu > div a:after,
 nav > menu > li.has-submenu label:after {
     transition: all 0.2s ease-in-out;
     content: "";

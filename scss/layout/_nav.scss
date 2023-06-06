@@ -241,6 +241,10 @@ nav {
         padding: 0;
         margin: 0;
 
+        div > label {
+          display: none;
+        }
+
         a,
         label {
           white-space: nowrap;
@@ -264,7 +268,12 @@ nav {
 
       & > li {
         &.has-submenu {
-          & > a,
+          & > div a {
+            &:after {
+              margin-left: 0.25em;
+            }
+          }
+          & > div a,
           label {
             &:hover {
               &:after {
