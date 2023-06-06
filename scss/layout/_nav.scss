@@ -51,6 +51,7 @@ nav {
   }
 
   $menuPadding: 0.5rem;
+  $triangleSize: 0.5em;
 
   nav {
     .social-links {
@@ -157,22 +158,20 @@ nav {
         }
       }
 
-      $size: 0.5rem;
-
       li {
         position: relative;
         label {
           &::after {
             content: "";
-            top: calc(1.25em - math.div($size, 2));
+            top: calc(1.25em - math.div($triangleSize, 2));
             position: absolute;
-            right: $size * 1.5;
+            right: $triangleSize * 1.5;
             display: block;
             float: right;
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: $size $size 0 $size;
+            border-width: $triangleSize $triangleSize 0 $triangleSize;
             border-color: var(---color-primary-0) transparent transparent transparent;
           }
         }
@@ -208,6 +207,20 @@ nav {
       a,
       label {
         padding-left: 0.25rem + ($menuPadding * $i);
+      }
+    }
+  }
+
+  .item {
+    & > div {
+      label {
+        float: right;
+        border-left: 1px solid $color-primary-1;
+        width: $triangleSize * 5;
+        padding: 0;
+        span {
+          display: none;
+        }
       }
     }
   }
