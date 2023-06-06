@@ -126,8 +126,8 @@ db.sqlite3: $(DBTOSQLPATH)
 stl/static/css/%.css: scss/%.scss $(SCSS)
 	npx sass $< $@
 
-stl/static/css/%.min.css: stl/static/css/%.css
-	npx postcss $^ -o $@
+stl/static/css/%.min.css: stl/static/css/%.css postcss.config.js
+	npx postcss $< -o $@
 
 css: stl/static/css/main.min.css ## Build the css
 
