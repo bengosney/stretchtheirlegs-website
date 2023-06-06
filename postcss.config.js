@@ -6,6 +6,10 @@ module.exports = {
     require("postcss-preset-env")({ stage: 0 }),
     require("css-mqpacker")({ sort: true }),
     require("cssnano")({ zindex: false }),
-    //require("@fullhuman/postcss-purgecss")({ content: ["./**/*.html"], safelist: [/^nav-level-\d$/], skippedContentGlobs: ['node_modules/**', '.direnv/**'] }),
+    require("@fullhuman/postcss-purgecss")({
+      content: ["./**/*.html"],
+      safelist: [/^nav-level-\d$/],
+      skippedContentGlobs: ["node_modules/**", ".direnv/**"],
+    }),
   ],
 };

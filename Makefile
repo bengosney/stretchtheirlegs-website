@@ -152,6 +152,7 @@ watch-css: ## Watch and build the css
 
 watch-js: ## Watch and build the js
 	@echo "Watching js"
+	$(MAKE) js
 	@while inotifywait -qr -e close_write js/; do \
 		$(MAKE) js; \
 	done
