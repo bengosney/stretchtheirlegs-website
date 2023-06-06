@@ -128,6 +128,7 @@ stl/static/css/%.css: scss/%.scss $(SCSS)
 
 stl/static/css/%.min.css: stl/static/css/%.css postcss.config.js
 	npx postcss $< -o $@
+	@touch $@
 
 css: stl/static/css/main.min.css ## Build the css
 
@@ -138,6 +139,7 @@ stl/static/js/: $(JS_LIB)
 stl/static/js/%.js: js/%.ts $(JS_SRC)
 	@mkdir -p $(@D)
 	npx parcel build $< --dist-dir $(@D)
+	@touch $@
 
 js: stl/static/js/stl.js ## Build the js
 
