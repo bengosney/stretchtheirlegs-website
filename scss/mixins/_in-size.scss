@@ -1,27 +1,27 @@
 @mixin in-size($sizes) {
   @each $size in $sizes {
     @if ($size == "xxs") {
-      @media (max-width: ($screen-xs - 1)) {
+      @media (max-width: ($screen_xs - 1)) {
         @content;
       }
     }
     @if ($size == "xs") {
-      @media (min-width: $screen-xs) and (max-width: ($screen-sm - 1)) {
+      @media (min-width: $screen_xs) and (max-width: ($screen_sm - 1)) {
         @content;
       }
     }
     @if ($size == "sm") {
-      @media (min-width: $screen-sm) and (max-width: ($screen-md - 1)) {
+      @media (min-width: $screen_sm) and (max-width: ($screen_md - 1)) {
         @content;
       }
     }
     @if ($size == "md") {
-      @media (min-width: $screen-md) and (max-width: ($screen-lg - 1)) {
+      @media (min-width: $screen_md) and (max-width: ($screen_lg - 1)) {
         @content;
       }
     }
     @if ($size == "lg") {
-      @media (min-width: $screen-lg) {
+      @media (min-width: $screen_lg) {
         @content;
       }
     }

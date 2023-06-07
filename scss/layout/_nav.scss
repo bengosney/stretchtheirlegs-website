@@ -267,10 +267,6 @@ nav {
       display: flex;
       align-items: center;
 
-      @include in-size((xxs, xs)) {
-        flex-direction: column;
-      }
-
       justify-content: space-between;
 
       & > li {
@@ -374,7 +370,7 @@ nav {
       padding: 0.5rem;
       margin: 0 1rem;
       font-size: 1.5rem;
-      @include in-size(md) {
+      @media (max-width: $screen_lg) and (min-width: $screen_md) {
         font-size: 1.2rem;
       }
       text-decoration: underline;
