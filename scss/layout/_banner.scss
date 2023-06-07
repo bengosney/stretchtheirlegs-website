@@ -8,7 +8,7 @@
           padding: 7rem 0;
         }
       }
-      @include in-size((md, lg)) {
+      @media (min-width: $screen_md) {
         min-height: calc(100vh - var(--header-heigh));
       }
     }

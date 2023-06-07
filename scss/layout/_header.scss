@@ -29,7 +29,7 @@ header {
       width: auto;
       height: calc(var(--logo-extra) + var(--header-heigh));
 
-      @include in-size(xxs) {
+      @media (max-width: $screen_xs) {
         height: calc(100% + var(--logo-extra));
       }
 

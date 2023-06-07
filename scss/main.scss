@@ -59,37 +59,37 @@ $container-gap: 20px;
   }
 }
 
-@media screen and (max-width: $screen-xs) {
+@media screen and (max-width: $screen_xs) {
   :root {
     --container-padding: 5vw;
     --logo-extra: 1rem;
   }
 }
-@media screen and (min-width: $screen-xs) {
+@media screen and (min-width: $screen_xs) {
   :root {
-    --max-width: #{$screen-xs};
+    --max-width: #{$screen_xs};
     --logo-extra: 0vw;
   }
 }
-@media screen and (min-width: $screen-sm) {
+@media screen and (min-width: $screen_sm) {
   :root {
-    --max-width: #{$screen-sm};
+    --max-width: #{$screen_sm};
     --logo-extra: 1vw;
   }
 }
-@media screen and (min-width: $screen-md) {
+@media screen and (min-width: $screen_md) {
   :root {
-    --max-width: #{$screen-md};
+    --max-width: #{$screen_md};
   }
 }
-@media screen and (min-width: $screen-lg) {
+@media screen and (min-width: $screen_lg) {
   :root {
-    --max-width: #{$screen-lg};
+    --max-width: #{$screen_lg};
   }
 }
-@media screen and (min-width: $screen-xl) {
+@media screen and (min-width: $screen_xl) {
   :root {
-    --max-width: #{$screen-xl};
+    --max-width: #{$screen_xl};
   }
 }
 

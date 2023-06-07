@@ -2,6 +2,8 @@
 .DEFAULT_GOAL := install
 .PRECIOUS: requirements.%.in
 
+MAKEFLAGS += -j4
+
 HOOKS=$(.git/hooks/pre-commit)
 INS=$(wildcard requirements.*.in)
 REQS=$(subst in,txt,$(INS))

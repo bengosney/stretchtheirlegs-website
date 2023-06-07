@@ -14,7 +14,7 @@
     max-width: 50%;
     width: 100%;
 
-    @include in-size((xxs, xs)) {
+    @media (max-width: $screen_sm) {
       float: none;
       max-width: 100%;
       margin-left: 0;
