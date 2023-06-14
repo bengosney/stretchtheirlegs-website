@@ -97,7 +97,7 @@ pluggy==1.0.0
     # via pytest
 pprintpp==0.4.0
     # via pytest-clarity
-pre-commit==3.3.2
+pre-commit==3.3.3
     # via -r requirements.dev.in
 pygments==2.14.0
     # via
