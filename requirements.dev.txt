@@ -77,6 +77,7 @@ nodeenv==1.7.0
     # via pre-commit
 packaging==23.1
     # via
+    #   -c requirements.txt
     #   -r requirements.dev.in
     #   black
     #   build
@@ -87,7 +88,7 @@ pep517==0.13.0
     # via build
 pip-chill==1.0.3
     # via -r requirements.dev.in
-pip-tools==7.0.0
+pip-tools==7.1.0
     # via -r requirements.dev.in
 platformdirs==2.6.2
     # via
