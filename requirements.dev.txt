@@ -118,7 +118,7 @@ pytest-cov==4.1.0
     # via -r requirements.dev.in
 pytest-django==4.5.2
     # via -r requirements.dev.in
-pytest-picked==0.4.6
+pytest-picked==0.5.0
     # via -r requirements.dev.in
 pytest-watch==4.2.0
     # via -r requirements.dev.in
