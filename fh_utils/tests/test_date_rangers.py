@@ -29,7 +29,7 @@ class DateRangeTests(AbstractModelMixinTestCase, TestCase):
         self.assertEqual(len(all_items), 1)
 
     @clean_models
-    @given(published_from=dates(max_value=yesterday))
+    @given(published_from=dates(max_value=yesterday + datetime.timedelta(days=-1)))
     def test_date_in_past(self, published_from) -> None:
         published_to = published_from + datetime.timedelta(days=1)
         self.model.objects.create(published_from=published_from, published_to=published_to, status=ModelStatus.LIVE_STATUS)
