@@ -197,3 +197,6 @@ class MenuPage(Page):
 
     def serve(self, request, *args, **kwargs):
         raise Http404()
+
+    def get_preview_template(self, request, mode_name):
+        return "404.html"
