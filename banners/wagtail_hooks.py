@@ -1,11 +1,12 @@
 # Wagtail
-from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
+from wagtail.snippets.models import register_snippet
+from wagtail.snippets.views.snippets import SnippetViewSet
 
 # Locals
 from .models import Banner
 
 
-class BannerAdmin(ModelAdmin):
+class BannerAdmin(SnippetViewSet):
     model = Banner
     menu_label = "Banner Images"
     menu_icon = "image"
@@ -13,4 +14,4 @@ class BannerAdmin(ModelAdmin):
     list_filter = ("status",)
 
 
-modeladmin_register(BannerAdmin)
+register_snippet(BannerAdmin)

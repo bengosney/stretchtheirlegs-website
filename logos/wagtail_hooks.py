@@ -1,11 +1,12 @@
 # Wagtail
-from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
+from wagtail.snippets.models import register_snippet
+from wagtail.snippets.views.snippets import SnippetViewSet
 
 # Locals
 from .models import Logo
 
 
-class LogoAdmin(ModelAdmin):
+class LogoAdmin(SnippetViewSet):
     model = Logo
     menu_label = "Logos"
     menu_icon = "image"
@@ -14,4 +15,4 @@ class LogoAdmin(ModelAdmin):
     search_fields = ("title",)
 
 
-modeladmin_register(LogoAdmin)
+register_snippet(LogoAdmin)

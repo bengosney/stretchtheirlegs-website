@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     "wagtail_picture_tag",
     "wagtail.contrib.settings",
     "wagtail.contrib.styleguide",
-    "wagtail.contrib.modeladmin",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
