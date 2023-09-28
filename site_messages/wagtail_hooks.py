@@ -1,11 +1,12 @@
 # Wagtail
-from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
+from wagtail.snippets.models import register_snippet
+from wagtail.snippets.views.snippets import SnippetViewSet
 
 # Locals
 from .models import Message
 
 
-class MessageAdmin(ModelAdmin):
+class MessageAdmin(SnippetViewSet):
     model = Message
     menu_label = "Site Messages"
     menu_icon = "list-ul"
@@ -13,4 +14,4 @@ class MessageAdmin(ModelAdmin):
     list_filter = ("status",)
 
 
-modeladmin_register(MessageAdmin)
+register_snippet(MessageAdmin)
