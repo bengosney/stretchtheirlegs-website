@@ -10,9 +10,9 @@ asgiref==3.7.2
     # via django
 beautifulsoup4==4.11.2
     # via wagtail
-boto3==1.28.56
+boto3==1.28.57
     # via -r requirements.in
-botocore==1.31.56
+botocore==1.31.57
     # via
     #   boto3
     #   s3transfer
@@ -20,7 +20,7 @@ brotli==1.1.0
     # via whitenoise
 certifi==2023.7.22
     # via requests
-cffi==1.15.1
+cffi==1.16.0
     # via milksnake
 charset-normalizer==3.2.0
     # via requests
@@ -87,7 +87,7 @@ milksnake==0.1.5
     # via rustface
 numpy==1.26.0
     # via opencv-python-headless
-opencv-python-headless==4.8.0.76
+opencv-python-headless==4.8.1.78
     # via -r requirements.in
 openpyxl==3.1.2
     # via wagtail
@@ -104,7 +104,7 @@ pillow-heif==0.13.0
     # via willow
 psutil==5.9.5
     # via honeybadger
-psycopg2==2.9.7
+psycopg2==2.9.8
     # via -r requirements.in
 pycparser==2.21
     # via cffi
