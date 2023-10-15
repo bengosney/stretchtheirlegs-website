@@ -9,10 +9,11 @@ from .models import Logo
 class LogoAdmin(SnippetViewSet):
     model = Logo
     menu_label = "Logos"
-    menu_icon = "image"
+    icon = "image"
     list_display = ("title", "status", "show_from", "show_to", "logo")
     list_filter = ("status",)
     search_fields = ("title",)
+    add_to_admin_menu = True
 
 
 register_snippet(LogoAdmin)
