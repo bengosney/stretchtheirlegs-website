@@ -9,9 +9,10 @@ from .models import Message
 class MessageAdmin(SnippetViewSet):
     model = Message
     menu_label = "Site Messages"
-    menu_icon = "list-ul"
+    icon = "tasks"
     list_display = ("title", "dismissible", "status", "published_from", "published_to")
     list_filter = ("status",)
+    add_to_settings_menu = True
 
 
 register_snippet(MessageAdmin)
