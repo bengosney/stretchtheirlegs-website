@@ -137,7 +137,7 @@ telepath==0.3.1
     # via wagtail
 typing-extensions==4.8.0
     # via dj-database-url
-urllib3==1.26.17
+urllib3==1.26.18
     # via
     #   botocore
     #   requests
