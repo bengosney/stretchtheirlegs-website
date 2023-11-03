@@ -1,10 +1,10 @@
-{% load picture_tags %}
+{% load wagtailimages_tags %}
 {% if memberships %}
     <ul class="memberships">
         {% for membership in memberships %}
             <li>
                 <a {% if membership.url %}href="{{ membership.url }}"{% endif %} title="{{ membership.name }}">
-                    {% picture membership.image transparent max-60x60 lazy %}
+                    {% picture membership.image format-{avif,webp,png} max-60x60 %}
                 </a>
             </li>
         {% endfor %}

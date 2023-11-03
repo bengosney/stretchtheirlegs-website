@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     "social",
     "articles",
     "django_htmx",
-    "wagtail_picture_tag",
     "wagtail.contrib.settings",
     "wagtail.contrib.styleguide",
     "wagtail.contrib.forms",

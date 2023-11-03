@@ -1,4 +1,4 @@
-{% load wagtailcore_tags wagtailimages_tags picture_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 <div class="item">
     <h2>{{ value.title }}</h2>
@@ -6,7 +6,7 @@
         <h3>{{ value.sub_title }}</h3>
     {% endif %}
     <div class="item-body">
-        {% picture value.image fill-566x340 lazy %}
+        {% picture value.image format-{avif,webp,jpeg} fill-566x340 %}
         {{ value.body }}
     </div>
 </div>
