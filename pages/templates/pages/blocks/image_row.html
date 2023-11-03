@@ -1,7 +1,7 @@
-{% load wagtailcore_tags picture_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 <div class="image_row">
     {% for child in value %}
-        {% picture child width-450 lazy %}
+        {% picture child format-{avif,webp,jpeg} width-450 %}
     {% endfor %}
 </div>

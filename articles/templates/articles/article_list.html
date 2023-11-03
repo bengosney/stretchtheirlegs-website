@@ -1,8 +1,6 @@
 {% extends request.htmx|yesno:"base_htmx.html,base.html" %}
 
-{% load wagtailcore_tags picture_tags picture_tags %}
-{% load static %}
-{% load django_htmx %}
+{% load wagtailcore_tags wagtailimages_tags static django_htmx %}
 
 
 {% block content %}
@@ -38,7 +36,7 @@
                 <li >
                     <a href="{{ article.url }}">
                         {% if article.banner_image %}
-                            {% picture article.banner_image photo fill-640x320 lazy %}
+                            {% picture article.banner_image format-{avif,webp,jpeg} fill-640x320 %}
                         {% else %}
                             <picture>
                                 <img class="no-img" src="{% static "images/logo.png" %}" width="128px" height="128px" alt="No Image" />

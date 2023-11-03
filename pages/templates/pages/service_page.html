@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags picture_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 
 {% block content %}
     <h2>{{ page.sub_title }}</h2>
     <div class="service-body">
-        {% picture page.image photo fill-660x446 lazy %}
+        {% picture page.image format-{avif,webp,jpeg} fill-660x446 %}
         {{ page.body|safe }}
     </div>
 {% endblock content %}

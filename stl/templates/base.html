@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailuserbar banner_tags picture_tags message_tags social_tags %}
+{% load static wagtailcore_tags wagtailuserbar banner_tags message_tags social_tags wagtailimages_tags %}
 {% load util_tags %}
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -44,7 +44,7 @@
         {% block banner %}
             {% get_banner as banner_image %}
             <div class="banner" id="banner">
-                {% picture banner_image photo fill-2560x1440 fill-1920x1080 fill-1280x720 fill-800x600 fill-640x480 %}
+                {% picture banner_image format-{avif} fill-{2560x1440,1920x1080,1280x720,800x600,640x480} sizes="100vw" %}
                 <div class="banner_text">
                     <div class="container">
                         <div class="banner_text_inner">
