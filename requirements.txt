@@ -10,9 +10,9 @@ asgiref==3.7.2
     # via django
 beautifulsoup4==4.11.2
     # via wagtail
-boto3==1.28.77
+boto3==1.28.78
     # via -r requirements.in
-botocore==1.31.77
+botocore==1.31.78
     # via
     #   boto3
     #   s3transfer
@@ -147,4 +147,6 @@ wheel==0.41.3
 whitenoise[brotli]==6.6.0
     # via -r requirements.in
 willow[heif]==1.6.2
-    # via wagtail
+    # via
+    #   wagtail
+    #   willow
