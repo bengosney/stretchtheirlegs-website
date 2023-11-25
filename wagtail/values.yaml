@@ -1,0 +1,12 @@
+replicaCount: 2
+
+image: "stl"
+
+service:
+  name: nginx-service
+  type: ClusterIP
+  port: 8000
+  targetPort: 9000
+
+env:
+  name: dev

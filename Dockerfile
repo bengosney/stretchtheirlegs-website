@@ -18,6 +18,8 @@ RUN pip install --no-cache-dir "gunicorn==21.0.1"
 
 COPY requirements.txt /
 RUN pip install --no-cache-dir -r /requirements.txt
+COPY requirements.dev.txt /
+RUN pip install --no-cache-dir -r /requirements.dev.txt
 
 WORKDIR /app
 
@@ -27,7 +29,10 @@ COPY --chown=wagtail:wagtail . .
 
 USER wagtail
 
-ENV DJANGO_SETTINGS_MODULE=stl.settings.production
+ENV DJANGO_SETTINGS_MODULE=stl.settings.dev
 RUN python manage.py collectstatic --noinput --clear
 
+COPY db.sqlite3 .
+
+EXPOSE 8000/tcp
 CMD ["gunicorn", "stl.wsgi:application"]

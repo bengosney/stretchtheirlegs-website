@@ -1,0 +1,9 @@
+apiVersion: v2
+name: wagtail
+description: A Helm chart for Wagtail
+type: application
+version: 0.1.0
+appVersion: "2.0.0"
+maintainers:
+  - email: bengosney@googlemail.com
+    name: Ben Gosney

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-wagtail
+  labels:
+    app: wagtail
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: wagtail
+  template:
+    metadata:
+      labels:
+        app: wagtail
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: stl
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
