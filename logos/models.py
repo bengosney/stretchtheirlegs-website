@@ -1,5 +1,7 @@
 # Django
+from django.contrib import admin
 from django.db import models
+from django.utils.html import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 # Wagtail
@@ -58,6 +60,10 @@ class Logo(statusDatePeriodMixin, models.Model):
 
     def __str__(self):
         return self.title
+
+    @admin.display(description="preview")
+    def admin_preview(self) -> str:
+        return mark_safe(self.svg)
 
     @property
     def svg(self) -> str:
