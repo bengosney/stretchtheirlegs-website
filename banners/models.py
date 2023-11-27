@@ -1,7 +1,8 @@
-# Standard Library
-
 # Django
+from django.contrib import admin
 from django.db import models
+from django.forms.utils import flatatt
+from django.utils.html import mark_safe
 
 # Wagtail
 from wagtail.admin.panels import FieldPanel, FieldRowPanel
@@ -36,3 +37,20 @@ class Banner(statusDatePeriodMixin, models.Model):
             image = None
 
         return image
+
+    @admin.display(description="preview")
+    def admin_preview(self) -> str:
+        if not self.image:
+            return ""
+
+        WIDTH = 50
+
+        rendition = self.image.get_rendition(f"width-{WIDTH}")
+        img_attrs = {
+            "src": rendition.url,
+            "width": WIDTH,
+            "decoding": "async",
+            "loading": "lazy",
+        }
+
+        return mark_safe(f"<img{flatatt(img_attrs)}>")

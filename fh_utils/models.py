@@ -1,4 +1,5 @@
 # Django
+from django.contrib import admin
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
@@ -25,6 +26,11 @@ class statusMixin(models.Model):
     def __str__(self):
         return f"{self.status}"
 
+    @property
+    @admin.display(description="status")
+    def status_name(self) -> str:
+        return ModelStatus.getName(self.status)
+
     mixin_panels = [
         FieldPanel("status"),
     ]
@@ -35,6 +41,16 @@ class statusDatePeriodMixin(statusMixin):
     show_to = DayMonthField(_("Show To"), after="show_from")
 
     objects = type("statusSatePeriodManager", (statusManager, datePeriodManager), {})()
+
+    @property
+    @admin.display(description="show from")
+    def admin_show_from(self) -> str:
+        return self.show_from.strftime("%B %d")
+
+    @property
+    @admin.display(description="show to")
+    def admin_show_to(self) -> str:
+        return self.show_to.strftime("%B %d")
 
     class Meta:
         abstract = True
