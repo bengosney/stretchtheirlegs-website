@@ -49,7 +49,7 @@ body {
 p,
 li {
   line-height: 1.5em;
-  @include fluid-type(1.1rem, $base-size);
+  @include fluid-type(1.2rem, $base-size + 0.1rem);
   letter-spacing: 0.005em;
 }
 
