@@ -65,7 +65,7 @@ frozenlist==1.4.0
     # via
     #   aiohttp
     #   aiosignal
-hypothesis==6.92.0
+hypothesis==6.92.1
     # via -r requirements.dev.in
 icecream==2.1.3
     # via -r requirements.dev.in
