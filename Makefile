@@ -47,7 +47,7 @@ requirements.%.txt: $(PIP_SYNC_PATH) requirements.%.in requirements.txt
 
 requirements.txt: $(PIP_SYNC_PATH) requirements.in
 	@echo "Builing $@"
-	@python -m piptools compile -q $(filter-out $<,$^)
+	@python -m piptools compile -q -o $@ $(filter-out $<,$^)
 
 .direnv: .envrc
 	python -m pip install --upgrade pip
