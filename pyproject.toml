@@ -2,9 +2,7 @@
 name = "StretchTheirLegs"
 version = "2.0.0"
 description = "Corporate website for Stretch Their Legs"
-authors = [
-    {name = "Ben Gosney", email = "bengosney@googlemail.com"},
-]
+authors = [{ name = "Ben Gosney", email = "bengosney@googlemail.com" }]
 requires-python = ">=3.12.1"
 
 [build-system]
@@ -23,3 +21,10 @@ plugins = ["mypy_django_plugin.main"]
 
 [tool.django-stubs]
 django_settings_module = "stl.settings"
+
+[tool.ruff]
+line-length = 128
+target-version = "py312"
+exclude = ["*/migrations/*.py"]
+select = ["A", "B", "E", "F", "ISC", "UP", "RUF", "DJ"]
+extend-ignore = ["RUF005", "DJ001", "B905", "A003", "ISC001"]

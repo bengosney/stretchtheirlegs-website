@@ -14,7 +14,7 @@ from fh_utils.models import statusDatePeriodMixin, statusMixin
 class Banner(statusDatePeriodMixin, models.Model):
     image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
 
-    panels = [
+    panels = (
         *statusMixin.mixin_panels,
         FieldRowPanel(
             [
@@ -24,10 +24,13 @@ class Banner(statusDatePeriodMixin, models.Model):
             heading="Date Range",
         ),
         FieldPanel("image"),
-    ]
+    )
 
     class Meta:
         default_manager_name = "admin_objects"
+
+    def __str__(self) -> str:
+        return str(self.image) if self.image else "No Image"
 
     @classmethod
     def get_current_image(cls):

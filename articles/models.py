@@ -37,7 +37,7 @@ class ArticleList(Page):
         use_json_field=True,
     )
 
-    subpage_types = ["articles.Article", "articles.ArticleList"]
+    subpage_types = ("articles.Article", "articles.ArticleList")
 
     content_panels = Page.content_panels + [
         FieldPanel("sub_heading"),
@@ -88,9 +88,9 @@ class Article(Page):
         use_json_field=True,
     )
 
-    subpage_types = ["articles.Article"]
+    subpage_types = "articles.Article"
 
-    parent_page_types = ["articles.ArticleList", "articles.Article"]
+    parent_page_types = ("articles.ArticleList", "articles.Article")
 
     content_panels = Page.content_panels + [
         FieldPanel("sub_heading"),
@@ -121,4 +121,4 @@ class Article(Page):
             for item in bs.select(f"h{i}"):
                 item.extract()
 
-        return re.sub(r"\s+", " ", text, 0, re.MULTILINE)
+        return re.sub(r"\s+", " ", text, flags=re.MULTILINE)
