@@ -1,3 +1,6 @@
+# Standard Library
+from typing import Any
+
 # Django
 from django.template import Context, Template, TemplateSyntaxError
 from django.test import Client, TestCase
@@ -7,7 +10,9 @@ class LinelessNodeTestCase(TestCase):
     def setUp(self):
         self.client = Client()
 
-    def render_template(self, template_string, context={}):
+    def render_template(self, template_string: str, context: dict[str, Any] | None = None) -> str:
+        if context is None:
+            context = {}
         template = Template("{% load util_tags %}" + template_string)
         return template.render(Context(context))
 
