@@ -36,23 +36,24 @@ class Logo(statusDatePeriodMixin, models.Model):
         null=True,
     )
 
-    panels = statusMixin.mixin_panels + (
+    panels = [
+        *statusMixin.mixin_panels,
         MultiFieldPanel(
-            (
+            [
                 FieldPanel("title"),
                 FieldPanel("logo"),
                 FieldPanel("effect"),
-            ),
+            ],
             heading="Details",
         ),
         FieldRowPanel(
-            (
+            [
                 FieldPanel("show_from"),
                 FieldPanel("show_to"),
-            ),
+            ],
             heading="Date Range",
         ),
-    )
+    ]
 
     class Meta:
         default_manager_name = "admin_objects"

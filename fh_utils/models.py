@@ -31,7 +31,9 @@ class statusMixin(models.Model):
     def status_name(self) -> str:
         return ModelStatus.getName(self.status)
 
-    mixin_panels = (FieldPanel("status"),)
+    mixin_panels = [
+        FieldPanel("status"),
+    ]
 
 
 class statusDatePeriodMixin(statusMixin):
@@ -53,16 +55,16 @@ class statusDatePeriodMixin(statusMixin):
     class Meta:
         abstract = True
 
-    mixin_panels = (
+    mixin_panels = [
         MultiFieldPanel(
             statusMixin.mixin_panels
-            + (
+            + [
                 FieldPanel("show_from"),
                 FieldPanel("show_to"),
-            ),
+            ],
             heading=_("Date Range"),
         ),
-    )
+    ]
 
 
 class statusDateMixin(statusMixin):
@@ -73,12 +75,15 @@ class statusDateMixin(statusMixin):
     class Meta:
         abstract = True
 
-    mixin_panels = (
+    mixin_panels = [
         MultiFieldPanel(
-            statusMixin.mixin_panels + (FieldPanel("published"),),
+            statusMixin.mixin_panels
+            + [
+                FieldPanel("published"),
+            ],
             heading=_("Published"),
         ),
-    )
+    ]
 
 
 class statusDateRangeMixin(statusMixin):
@@ -90,16 +95,16 @@ class statusDateRangeMixin(statusMixin):
     class Meta:
         abstract = True
 
-    mixin_panels = (
+    mixin_panels = [
         MultiFieldPanel(
             statusMixin.mixin_panels
-            + (
+            + [
                 FieldPanel("published_from"),
                 FieldPanel("published_to"),
-            ),
+            ],
             heading=_("Published"),
         ),
-    )
+    ]
 
     @property
     def has_passed(self):

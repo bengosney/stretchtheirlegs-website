@@ -37,11 +37,11 @@ class Membership(models.Model):
     url = models.URLField(blank=True)
     image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
 
-    panels = (
+    panels = [
         FieldPanel("name"),
         FieldPanel("url"),
         FieldPanel("image"),
-    )
+    ]
 
     def __str__(self):
         return self.name
@@ -71,7 +71,7 @@ class HomePage(Page):
         use_json_field=True,
     )
 
-    parent_page_types = ("wagtailcore.Page",)
+    parent_page_types = ["wagtailcore.Page"]
 
     content_panels = Page.content_panels + [
         MultiFieldPanel(

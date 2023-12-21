@@ -365,8 +365,6 @@ requests==2.31.0
     #   wagtail
 rich==13.6.0
     # via pytest-clarity
-ruff==0.1.8
-    # via -r requirements.dev.in
 rustface==0.1.0
     # via
     #   -c requirements.txt

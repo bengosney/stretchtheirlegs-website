@@ -50,7 +50,7 @@ class NavigationTagsTests(TestCase):
         logo = self.make_logo()
 
         with self.assertRaises(AttributeError):
-            _ = logo.some_effect_that_doest_exist
+            logo.some_effect_that_doest_exist
 
     def test_effect(self):
         logo = self.make_logo(effect=EFFECT_SNOW)

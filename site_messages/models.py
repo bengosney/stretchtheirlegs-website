@@ -45,7 +45,7 @@ class Message(statusDateRangeMixin, models.Model):
     def get_messages(cls, session):
         return [o for o in cls.objects.all() if not session.get(o.session_key, False) or not o.dismissible]
 
-    panels = statusDateRangeMixin.mixin_panels + (
+    panels = statusDateRangeMixin.mixin_panels + [
         MultiFieldPanel(
             [
                 FieldPanel("title"),
@@ -54,4 +54,4 @@ class Message(statusDateRangeMixin, models.Model):
             ],
             heading="Message",
         ),
-    )
+    ]

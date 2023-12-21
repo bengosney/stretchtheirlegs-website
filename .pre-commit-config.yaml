@@ -62,9 +62,3 @@ repos:
     rev: 3.0.6
     hooks:
       - id: djhtml
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.8
-    hooks:
-      - id: ruff
-        args: [--fix]
-      - id: ruff-format
