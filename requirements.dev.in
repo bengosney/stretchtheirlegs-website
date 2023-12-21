@@ -18,4 +18,3 @@ pytest-cov
 pytest-django
 pytest-picked
 pytest-watch
-ruff
