@@ -9,6 +9,7 @@ gunicorn
 honeybadger
 opencv-python-headless
 psycopg2
+python-dateutil
 redis
 rustface
 wagtail

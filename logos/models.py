@@ -1,6 +1,8 @@
 # Django
+from django import forms
 from django.contrib import admin
 from django.db import models
+from django.db.models import Q
 from django.utils.html import mark_safe
 from django.utils.translation import gettext_lazy as _
 
@@ -8,7 +10,9 @@ from django.utils.translation import gettext_lazy as _
 from wagtail.admin.panels import FieldPanel, FieldRowPanel, MultiFieldPanel
 
 # First Party
+from fh_utils.managers import datePeriodManager, statusManager
 from fh_utils.models import statusDatePeriodMixin, statusMixin
+from fh_utils.utils import is_easter
 
 EFFECT_SNOW = "snow"
 EFFECT_FIREWORKS = "fireworks"
@@ -23,9 +27,15 @@ EFFECTS = (
 )
 
 
+class EasterManager(statusManager):
+    def get_queryset(self):
+        return super().get_queryset().filter(Q(easter=is_easter()) | Q(datePeriodManager._get_q()))
+
+
 class Logo(statusDatePeriodMixin, models.Model):
     title = models.TextField(_("Title"))
     logo = models.FileField(_("Logo SVG"), upload_to="logos")
+    easter = models.BooleanField(_("Easter"), db_default=False)
 
     effect = models.CharField(
         _("Effect"),
@@ -35,6 +45,8 @@ class Logo(statusDatePeriodMixin, models.Model):
         blank=True,
         null=True,
     )
+
+    objects = EasterManager()
 
     panels = [
         *statusMixin.mixin_panels,
@@ -46,17 +58,39 @@ class Logo(statusDatePeriodMixin, models.Model):
             ],
             heading="Details",
         ),
-        FieldRowPanel(
+        MultiFieldPanel(
             [
-                FieldPanel("show_from"),
-                FieldPanel("show_to"),
+
+                FieldRowPanel(
+                    [
+                        FieldPanel("show_from"),
+                        FieldPanel("show_to"),
+                    ],
+                    attrs={
+                        "x-show": "easter == false",
+                        "x-transition": True,
+                    },
+                ),
+                FieldPanel(
+                    "easter",
+                    widget=forms.CheckboxInput(
+                        attrs={
+                            "x-model": "easter",
+                            "x-init": "easter = $el.checked",
+                        }
+                    ),
+                ),
             ],
+            attrs={
+                "x-data": "{ easter: false }",
+            },
             heading="Date Range",
         ),
     ]
 
     class Meta:
         default_manager_name = "admin_objects"
+        ordering = ["-easter", "show_from"]
 
     def __str__(self):
         return self.title
@@ -75,7 +109,7 @@ class Logo(statusDatePeriodMixin, models.Model):
     @classmethod
     def get_current_logo(cls):
         try:
-            return cls.objects.all().order_by("show_from")[0]
+            return cls.objects.all()[0]
         except IndexError:
             return None
 
