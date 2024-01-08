@@ -29,7 +29,10 @@ EFFECTS = (
 
 class EasterManager(statusManager):
     def get_queryset(self):
-        return super().get_queryset().filter(Q(easter=is_easter()) | Q(datePeriodManager._get_q()))
+        if is_easter():
+            return super().get_queryset().filter(Q(easter=True) | Q(datePeriodManager._get_q()))
+        else:
+            return super().get_queryset().filter(Q(easter=False) & Q(datePeriodManager._get_q()))
 
 
 class Logo(statusDatePeriodMixin, models.Model):
