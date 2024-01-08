@@ -12,10 +12,7 @@ from logos.models import EFFECT_SNOW, EFFECTS, Logo
 from logos.templatetags.logo_tags import effects
 
 
-class NavigationTagsTests(TestCase):
-    def setUp(self):
-        pass
-
+class LogoEffectsTests(TestCase):
     def make_logo(self, **kwargs) -> Logo:
         defaults = {
             "show_from": date(2020, 1, 1),
