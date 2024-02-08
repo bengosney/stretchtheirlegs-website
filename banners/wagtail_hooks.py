@@ -1,5 +1,4 @@
 # Wagtail
-from wagtail.contrib.modeladmin.mixins import ThumbnailMixin
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.views.snippets import SnippetViewSet
 
@@ -7,7 +6,7 @@ from wagtail.snippets.views.snippets import SnippetViewSet
 from .models import Banner
 
 
-class BannerAdmin(ThumbnailMixin, SnippetViewSet):
+class BannerAdmin(SnippetViewSet):
     model = Banner
     menu_label = "Banner Images"
     icon = "image"
