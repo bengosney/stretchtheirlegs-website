@@ -27,7 +27,6 @@ INSTALLED_APPS = [
     "articles",
     "django_htmx",
     "wagtail.contrib.settings",
-    "wagtail.contrib.styleguide",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
