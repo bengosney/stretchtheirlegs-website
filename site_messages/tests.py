@@ -5,9 +5,9 @@ from django.urls import reverse
 # Third Party
 from model_bakery import baker
 
-# Locals
-from .models import Message
-from .templatetags.message_tags import messages
+# First Party
+from site_messages.models import Message
+from site_messages.templatetags.message_tags import messages
 
 
 class TestSiteMessages(TestCase):
@@ -63,10 +63,10 @@ class TestSiteMessages(TestCase):
         for _ in range(5):
             msgs.append(baker.make(Message))
 
-        class mockContext:
+        class MockContext:
             def __init__(self, request) -> None:
                 self.request = request
 
-        context = mockContext(self.client)
+        context = MockContext(self.client)
 
         self.assertEqual(messages(context), {"messages": msgs})

@@ -5,15 +5,13 @@ from hypothesis.strategies import dates
 
 # First Party
 from fh_utils import ModelStatus
-from fh_utils.models import statusDateMixin
-
-# Locals
-from . import tomorrow, yesterday
-from .abstract_mixin import AbstractModelMixinTestCase
+from fh_utils.models import StatusDateMixin
+from fh_utils.tests import tomorrow, yesterday
+from fh_utils.tests.abstract_mixin import AbstractModelMixinTestCase
 
 
 class DateTests(AbstractModelMixinTestCase, TestCase):
-    mixin = statusDateMixin
+    mixin = StatusDateMixin
 
     @given(published=dates(max_value=yesterday))
     def test_get(self, published):

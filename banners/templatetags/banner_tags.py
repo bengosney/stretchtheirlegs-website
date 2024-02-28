@@ -1,8 +1,8 @@
 # Django
 from django import template
 
-# Locals
-from ..models import Banner
+# First Party
+from banners.models import Banner
 
 register = template.Library()
 

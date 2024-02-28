@@ -1,7 +1,7 @@
 # Django
 
 
-class statusAdmin:
+class StatusAdmin:
     def __init__(self, model, admin_site):
         super().__init__(model, admin_site)
 
@@ -9,7 +9,7 @@ class statusAdmin:
         self.list_filter = ["status"] + list(self.list_filter)
 
 
-class datePeriodAdmin:
+class DatePeriodAdmin:
     def __init__(self, model, admin_site):
         super().__init__(model, admin_site)
 
@@ -17,7 +17,7 @@ class datePeriodAdmin:
         self.list_filter = ["show_from", "show_to"] + list(self.list_filter)
 
 
-class dateAdmin:
+class DateAdmin:
     def __init__(self, model, admin_site):
         super().__init__(model, admin_site)
 
@@ -25,7 +25,7 @@ class dateAdmin:
         self.list_filter = ["status", "published"] + list(self.list_filter)
 
 
-class dateRangeAdmin:
+class DateRangeAdmin:
     def __init__(self, model, admin_site):
         super().__init__(model, admin_site)
 

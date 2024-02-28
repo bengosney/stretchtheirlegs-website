@@ -9,14 +9,12 @@ from freezegun import freeze_time
 
 # First Party
 from fh_utils.fields import DayMonthField
-from fh_utils.models import statusDatePeriodMixin
-
-# Locals
-from .abstract_mixin import AbstractModelMixinTestCase
+from fh_utils.models import StatusDatePeriodMixin
+from fh_utils.tests.abstract_mixin import AbstractModelMixinTestCase
 
 
 class Tests(AbstractModelMixinTestCase, TestCase):
-    mixin = statusDatePeriodMixin
+    mixin = StatusDatePeriodMixin
 
     def test_pre_save(self):
         with freeze_time("2020-01-01"):

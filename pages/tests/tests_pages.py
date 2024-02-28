@@ -4,8 +4,8 @@
 from wagtail.models import Page
 from wagtail.test.utils import WagtailPageTestCase
 
-# Locals
-from ..models import InfoPage
+# First Party
+from pages.models import InfoPage
 
 
 class ParentToolTests(WagtailPageTestCase):

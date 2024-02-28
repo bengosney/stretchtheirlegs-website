@@ -1,8 +1,8 @@
 # Django
 from django.urls import path
 
-# Locals
-from . import views
+# First Party
+from site_messages import views
 
 app_name = "site_messages"
 urlpatterns = [

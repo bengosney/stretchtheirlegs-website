@@ -5,9 +5,9 @@ import os
 # Third Party
 import dj_database_url
 
-# Locals
-from .base import *  # noqa
-from .base import BASE_URL, DATABASES, MIDDLEWARE
+# First Party
+from stl.settings.base import *  # noqa
+from stl.settings.base import BASE_URL, DATABASES, MIDDLEWARE
 
 DEBUG = False
 
@@ -100,5 +100,5 @@ if "REDIS_URL" in os.environ:
 
 
 with contextlib.suppress(ImportError):
-    # Locals
-    from .local import *  # noqa
+    # First Party
+    from stl.settings.local import *  # noqa

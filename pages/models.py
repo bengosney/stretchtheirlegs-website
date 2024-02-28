@@ -20,8 +20,8 @@ from wagtail.snippets.models import register_snippet
 # Third Party
 from modelcluster.fields import ParentalKey
 
-# Locals
-from .blocks import FormBlock, ImageRow, ItemBlock, ServicesBlock
+# First Party
+from pages.blocks import FormBlock, ImageRow, ItemBlock, ServicesBlock
 
 
 @register_setting

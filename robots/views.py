@@ -1,8 +1,8 @@
 # Django
 from django.http import HttpResponse
 
-# Locals
-from .models import Robots
+# First Party
+from robots.models import Robots
 
 
 def robots(request):

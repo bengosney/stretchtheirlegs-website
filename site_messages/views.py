@@ -6,8 +6,8 @@ import contextlib
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 
-# Locals
-from .models import Message
+# First Party
+from site_messages.models import Message
 
 
 def dismiss(request, slug):

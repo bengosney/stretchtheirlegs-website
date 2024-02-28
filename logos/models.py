@@ -10,8 +10,8 @@ from django.utils.translation import gettext_lazy as _
 from wagtail.admin.panels import FieldPanel, FieldRowPanel, MultiFieldPanel
 
 # First Party
-from fh_utils.managers import datePeriodManager, statusManager
-from fh_utils.models import statusDatePeriodMixin, statusMixin
+from fh_utils.managers import DatePeriodManager, StatusManager
+from fh_utils.models import StatusDatePeriodMixin, StatusMixin
 from fh_utils.utils import is_easter
 
 EFFECT_SNOW = "snow"
@@ -27,15 +27,15 @@ EFFECTS = (
 )
 
 
-class EasterManager(statusManager):
+class EasterManager(StatusManager):
     def get_queryset(self):
         if is_easter():
-            return super().get_queryset().filter(Q(easter=True) | Q(datePeriodManager._get_q()))
+            return super().get_queryset().filter(Q(easter=True) | Q(DatePeriodManager._get_q()))
         else:
-            return super().get_queryset().filter(Q(easter=False) & Q(datePeriodManager._get_q()))
+            return super().get_queryset().filter(Q(easter=False) & Q(DatePeriodManager._get_q()))
 
 
-class Logo(statusDatePeriodMixin, models.Model):
+class Logo(StatusDatePeriodMixin, models.Model):
     title = models.TextField(_("Title"))
     logo = models.FileField(_("Logo SVG"), upload_to="logos")
     easter = models.BooleanField(_("Easter"), db_default=False)
@@ -43,16 +43,15 @@ class Logo(statusDatePeriodMixin, models.Model):
     effect = models.CharField(
         _("Effect"),
         max_length=max([len(e) for e in EFFECTS]),
-        choices=zip(EFFECTS, [e.capitalize() for e in EFFECTS]),
-        default=None,
+        choices=list(zip(EFFECTS, [e.capitalize() for e in EFFECTS])),
+        default="",
         blank=True,
-        null=True,
     )
 
     objects = EasterManager()
 
     panels = [
-        *statusMixin.mixin_panels,
+        *StatusMixin.mixin_panels,
         MultiFieldPanel(
             [
                 FieldPanel("title"),
@@ -63,7 +62,6 @@ class Logo(statusDatePeriodMixin, models.Model):
         ),
         MultiFieldPanel(
             [
-
                 FieldRowPanel(
                     [
                         FieldPanel("show_from"),
