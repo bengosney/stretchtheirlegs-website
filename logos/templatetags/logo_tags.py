@@ -1,8 +1,8 @@
 # Django
 from django import template
 
-# Locals
-from ..models import EFFECTS, Logo
+# First Party
+from logos.models import EFFECTS, Logo
 
 register = template.Library()
 

@@ -17,7 +17,7 @@ class ModelStatus:
     ]
 
     @classmethod
-    def getName(cls, status):
+    def get_name(cls, status):
         return " ".join([s[1] for s in cls.STATUS_CHOICES if s[0] == status])
 
 

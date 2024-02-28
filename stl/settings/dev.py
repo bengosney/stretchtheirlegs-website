@@ -1,9 +1,9 @@
 # Standard Library
 import os
 
-# Locals
-from .base import *  # noqa
-from .base import INSTALLED_APPS, MIDDLEWARE, PROJECT_DIR, STATICFILES_DIRS
+# First Party
+from stl.settings.base import *  # noqa
+from stl.settings.base import INSTALLED_APPS, MIDDLEWARE, PROJECT_DIR, STATICFILES_DIRS
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -57,7 +57,7 @@ STATICFILES_DIRS += [
 ]
 
 try:
-    # Locals
-    from .local import *  # noqa
+    # First Party
+    from stl.settings.local import *  # noqa
 except ImportError:
     pass

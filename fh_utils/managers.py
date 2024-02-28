@@ -5,39 +5,34 @@ from datetime import datetime
 from django.db import models
 from django.db.models import Q
 
-# Locals
-from . import ModelStatus
-from .fields import DayMonthField
+# First Party
+from fh_utils import ModelStatus
+from fh_utils.fields import DayMonthField
 
 
-class statusManager(models.Manager):
+class StatusManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status=ModelStatus.LIVE_STATUS)
 
 
-class datePeriodManager(models.Manager):
+class DatePeriodManager(models.Manager):
     @staticmethod
     def _get_q():
         today = datetime.now().replace(year=DayMonthField.get_base_year())
-        nextYear = today.replace(year=today.year + 1)
+        next_year = today.replace(year=today.year + 1)
 
-        return Q(show_from__lte=today, show_to__gte=today) | Q(show_from__lte=nextYear, show_to__gte=nextYear)
+        return Q(show_from__lte=today, show_to__gte=today) | Q(show_from__lte=next_year, show_to__gte=next_year)
 
     def get_queryset(self):
-
-        return (
-            super()
-            .get_queryset()
-            .filter(self._get_q())
-        )
+        return super().get_queryset().filter(self._get_q())
 
 
-class dateManager(models.Manager):
+class DateManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(published__lte=datetime.now())
 
 
-class dateRangeManager(models.Manager):
+class DateRangeManager(models.Manager):
     def get_queryset(self):
         return (
             super()

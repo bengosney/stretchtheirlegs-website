@@ -1,8 +1,8 @@
 # Django
 from django import template
 
-# Locals
-from ..models import Message
+# First Party
+from site_messages.models import Message
 
 register = template.Library()
 

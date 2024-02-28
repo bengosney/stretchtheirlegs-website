@@ -8,10 +8,8 @@ from django.test import TestCase
 from freezegun import freeze_time
 
 # First Party
+from banners.models import Banner
 from fh_utils.fields import DayMonthField
-
-# Locals
-from .models import Banner
 
 
 class BannerTests(TestCase):

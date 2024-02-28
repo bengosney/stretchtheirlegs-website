@@ -24,8 +24,12 @@ class ArticleList(Page):
 
     show_in_menus_default = True
     sub_heading = models.CharField(max_length=255, default="", blank=True)
-    list_title = models.CharField(max_length=255, default="", blank=True, help_text="This is shown above the actual list")
-    collection_title = models.CharField(max_length=255, default="", blank=True, help_text="This is shown above any sub lists")
+    list_title = models.CharField(
+        max_length=255, default="", blank=True, help_text="This is shown above the actual list"
+    )
+    collection_title = models.CharField(
+        max_length=255, default="", blank=True, help_text="This is shown above any sub lists"
+    )
 
     body = StreamField(
         [
@@ -76,7 +80,9 @@ class Article(Page):
     summary = models.CharField(max_length=MAX_SUMMARY_LENGTH, default="", blank=True)
 
     date = models.DateField("Post date", null=True, blank=True)
-    banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
+    banner_image = models.ForeignKey(
+        "wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+"
+    )
 
     body = StreamField(
         [

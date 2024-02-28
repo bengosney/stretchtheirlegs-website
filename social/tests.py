@@ -5,9 +5,7 @@ from django.test.client import RequestFactory
 
 # First Party
 from pages.models import Page
-
-# Locals
-from .templatetags.social_tags import get_breadcrumbs, jsonld
+from social.templatetags.social_tags import get_breadcrumbs, jsonld
 
 
 class TestSiteMessages(TestCase):

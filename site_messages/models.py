@@ -10,10 +10,10 @@ from wagtail.admin.panels import FieldPanel, MultiFieldPanel
 from django_extensions.db import fields
 
 # First Party
-from fh_utils.models import statusDateRangeMixin
+from fh_utils.models import StatusDateRangeMixin
 
 
-class Message(statusDateRangeMixin, models.Model):
+class Message(StatusDateRangeMixin, models.Model):
     title = models.CharField(_("Title"), max_length=150)
     message = models.TextField(_("Message"), max_length=1280)
     dismissible = models.BooleanField(_("Dismissible"), default=True)
@@ -45,7 +45,7 @@ class Message(statusDateRangeMixin, models.Model):
     def get_messages(cls, session):
         return [o for o in cls.objects.all() if not session.get(o.session_key, False) or not o.dismissible]
 
-    panels = statusDateRangeMixin.mixin_panels + [
+    panels = StatusDateRangeMixin.mixin_panels + [
         MultiFieldPanel(
             [
                 FieldPanel("title"),

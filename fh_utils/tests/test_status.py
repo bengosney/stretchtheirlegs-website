@@ -3,14 +3,12 @@ from django.test import TestCase
 
 # First Party
 from fh_utils import ModelStatus
-from fh_utils.models import statusMixin
-
-# Locals
-from .abstract_mixin import AbstractModelMixinTestCase
+from fh_utils.models import StatusMixin
+from fh_utils.tests.abstract_mixin import AbstractModelMixinTestCase
 
 
 class StatusTests(AbstractModelMixinTestCase, TestCase):
-    mixin = statusMixin
+    mixin = StatusMixin
 
     def test_live(self):
         self.model.objects.create(status=ModelStatus.LIVE_STATUS)

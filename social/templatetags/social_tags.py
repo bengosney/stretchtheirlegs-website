@@ -12,9 +12,7 @@ from wagtail.models import Site
 
 # First Party
 from banners.models import Banner
-
-# Locals
-from ..models import Social
+from social.models import Social
 
 register = template.Library()
 

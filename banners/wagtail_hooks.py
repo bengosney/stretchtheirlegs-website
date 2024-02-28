@@ -2,8 +2,8 @@
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.views.snippets import SnippetViewSet
 
-# Locals
-from .models import Banner
+# First Party
+from banners.models import Banner
 
 
 class BannerAdmin(SnippetViewSet):

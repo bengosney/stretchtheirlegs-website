@@ -1,4 +1,4 @@
-.PHONY: help clean test install all init dev css watch
+.PHONY: help clean test install all init dev css watch node js clean-pyc
 .DEFAULT_GOAL := install
 .PRECIOUS: requirements.%.in
 
@@ -16,8 +16,8 @@ DBTOSQLPATH=$(BINPATH)/db-to-sqlite
 PYTHON_VERSION:=$(shell python --version | cut -d " " -f 2)
 PIP_PATH:=$(BINPATH)/pip
 WHEEL_PATH:=$(BINPATH)/wheel
-PIP_SYNC_PATH:=$(BINPATH)/pip-sync
 PRE_COMMIT_PATH:=$(BINPATH)/pre-commit
+UV_PATH:=$(BINPATH)/uv
 
 PYTHON_FILES:=$(wildcard ./**/*.py ./**/tests/*.py)
 
@@ -41,13 +41,13 @@ requirements.%.in:
 requirements.in:
 	@touch $@
 
-requirements.%.txt: $(PIP_SYNC_PATH) requirements.%.in requirements.txt
+requirements.%.txt: $(UV_PATH) requirements.%.in requirements.txt
 	@echo "Builing $@"
-	@python -m piptools compile -q -o $@ $(filter-out $<,$^)
+	$(UV_PATH) pip compile -q -o $@ $(filter-out $<,$^)
 
-requirements.txt: $(PIP_SYNC_PATH) requirements.in
+requirements.txt: $(UV_PATH) requirements.in
 	@echo "Builing $@"
-	@python -m piptools compile -q -o $@ $(filter-out $<,$^)
+	$(UV_PATH) pip compile -q -o $@ $(filter-out $<,$^)
 
 .direnv: .envrc
 	python -m pip install --upgrade pip
@@ -72,25 +72,23 @@ $(WHEEL_PATH): $(PIP_PATH)
 	python -m pip install wheel
 	@touch $@
 
-$(PIP_SYNC_PATH): $(PIP_PATH) $(WHEEL_PATH)
-	python -m pip install pip-tools
-	@touch $@
+$(UV_PATH): $(PIP_PATH) $(WHEEL_PATH)
+	@python -m pip install uv
 
 $(PRE_COMMIT_PATH): $(PIP_PATH) $(WHEEL_PATH)
 	python -m pip install pre-commit
 	@touch $@
 
-init: .direnv $(PIP_SYNC_PATH) .git .git/hooks/pre-commit requirements.dev.txt ## Initalise a enviroment
+init: .direnv $(UV_PATH) .git .git/hooks/pre-commit requirements.dev.txt ## Initalise a enviroment
 
-clean: ## Remove all build files
+clean-pyc: ## Remove all python build files
 	find . -name '*.pyc' -delete
 	find . -type d -name '__pycache__' -delete
-	rm -rf .pytest_cache
+
+clean: clean-pyc ## Remove all build files
 	rm -f .testmondata
-	rm -rf .mypy_cache
 	rm -rf .hypothesis
-	rm -rf .parcel-cache
-	rm -rf .sass-cache
+	rm -rf .*cache
 	rm -f .coverage
 	find . -type d -empty -delete
 

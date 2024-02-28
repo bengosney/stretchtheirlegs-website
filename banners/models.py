@@ -8,14 +8,14 @@ from django.utils.html import mark_safe
 from wagtail.admin.panels import FieldPanel, FieldRowPanel
 
 # First Party
-from fh_utils.models import statusDatePeriodMixin, statusMixin
+from fh_utils.models import StatusDatePeriodMixin, StatusMixin
 
 
-class Banner(statusDatePeriodMixin, models.Model):
+class Banner(StatusDatePeriodMixin, models.Model):
     image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
 
     panels = [
-        *statusMixin.mixin_panels,
+        *StatusMixin.mixin_panels,
         FieldRowPanel(
             [
                 FieldPanel("show_from"),
@@ -28,6 +28,9 @@ class Banner(statusDatePeriodMixin, models.Model):
 
     class Meta:
         default_manager_name = "admin_objects"
+
+    def __str__(self):
+        return f"{self.image.title}" if self.image else "No Image"
 
     @classmethod
     def get_current_image(cls):
@@ -43,12 +46,12 @@ class Banner(statusDatePeriodMixin, models.Model):
         if not self.image:
             return ""
 
-        WIDTH = 50
+        width = 50
 
-        rendition = self.image.get_rendition(f"width-{WIDTH}")
+        rendition = self.image.get_rendition(f"width-{width}")
         img_attrs = {
             "src": rendition.url,
-            "width": WIDTH,
+            "width": width,
             "decoding": "async",
             "loading": "lazy",
         }
