@@ -19,7 +19,10 @@ class DatePeriodManager(models.Manager):
     @staticmethod
     def _get_q():
         today = datetime.now().replace(year=DayMonthField.get_base_year())
-        next_year = today.replace(year=today.year + 1)
+        try:
+            next_year = today.replace(year=today.year + 1)
+        except ValueError:
+            next_year = today.replace(year=today.year + 1, day=today.day - 1)
 
         return Q(show_from__lte=today, show_to__gte=today) | Q(show_from__lte=next_year, show_to__gte=next_year)
 
