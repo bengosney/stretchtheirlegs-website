@@ -44,7 +44,7 @@ django==5.0.2
     #   djangorestframework
     #   laces
     #   wagtail
-django-csp==3.7
+django-csp==3.8
     # via -r requirements.in
 django-extensions==3.2.3
     # via -r requirements.in
