@@ -1423,12 +1423,46 @@ nav label {
   flex-wrap: wrap;
 }
 .service-list-block .service-list .service {
+  container-type: inline-size;
   flex: 1;
   flex-basis: 339px;
   margin: 0 0 1rem;
   text-decoration: none;
   display: flex;
   flex-direction: column;
+}
+.service-list-block .service-list .service .content {
+  display: flex;
+  flex-direction: column;
+}
+.service-list-block .service-list .service .content .text {
+  display: flex;
+  flex-direction: column;
+}
+@container (min-width: 640px) {
+  .service-list-block .service-list .service .content {
+    flex-direction: row;
+    gap: 1.65em;
+    padding: 1em 0;
+  }
+  .service-list-block .service-list .service .content .img {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+  }
+  .service-list-block .service-list .service .content .text {
+    flex-grow: 1.75;
+    flex-shrink: 1;
+    flex-basis: 0;
+    display: block;
+  }
+  .service-list-block .service-list .service .content picture {
+    min-width: 320px;
+    max-width: 640px;
+  }
+  .service-list-block .service-list .service .content p, .service-list-block .service-list .service .content .pagination {
+    margin-top: -0.25em;
+  }
 }
 .service-list-block .service-list .service h3, .service-list-block .service-list .service body > footer .title, body > footer .service-list-block .service-list .service .title {
   margin-bottom: 0.5rem;
@@ -1479,6 +1513,9 @@ nav label {
   display: block;
   padding: 0;
   margin: 0;
+  background: gray;
+  max-width: 90vw;
+  width: 100%;
 }
 
 .banner picture img {
