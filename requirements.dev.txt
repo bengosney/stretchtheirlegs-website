@@ -84,7 +84,7 @@ pathspec==0.12.1
     # via black
 pip-chill==1.0.3
     # via -r requirements.dev.in
-pip-tools==7.4.0
+pip-tools==7.4.1
     # via -r requirements.dev.in
 platformdirs==4.2.0
     # via
