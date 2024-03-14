@@ -152,7 +152,7 @@ typing-extensions==4.9.0
     #   django-stubs
     #   django-stubs-ext
     #   mypy
-uv==0.1.18
+uv==0.1.21
     # via -r requirements.dev.in
 virtualenv==20.25.0
     # via pre-commit
