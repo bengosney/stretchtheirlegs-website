@@ -47,7 +47,7 @@ executing==2.0.1
     # via icecream
 filelock==3.13.1
     # via virtualenv
-freezegun==1.4.0
+freezegun==1.5.0
     # via -r requirements.dev.in
 hypothesis==6.100.1
     # via -r requirements.dev.in
