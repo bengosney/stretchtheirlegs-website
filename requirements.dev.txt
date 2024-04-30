@@ -4,6 +4,7 @@ asgiref==3.7.2
     # via
     #   -c requirements.txt
     #   django
+    #   django-stubs
 asttokens==2.4.1
     # via icecream
 attrs==23.2.0
@@ -37,9 +38,9 @@ django-debug-toolbar==4.3.0
     # via -r requirements.dev.in
 django-debugtools==2.0
     # via -r requirements.dev.in
-django-stubs==4.2.7
+django-stubs==5.0.0
     # via -r requirements.dev.in
-django-stubs-ext==4.2.7
+django-stubs-ext==5.0.0
     # via django-stubs
 docopt==0.6.2
     # via pytest-watch
@@ -142,8 +143,6 @@ sqlparse==0.4.4
     #   -c requirements.txt
     #   django
     #   django-debug-toolbar
-types-pytz==2024.1.0.20240203
-    # via django-stubs
 types-pyyaml==6.0.12.12
     # via django-stubs
 typing-extensions==4.9.0
