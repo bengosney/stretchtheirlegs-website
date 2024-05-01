@@ -60,7 +60,7 @@ django-taggit==5.0.1
     # via wagtail
 django-treebeard==4.7.1
     # via wagtail
-djangorestframework==3.14.0
+djangorestframework==3.15.1
     # via wagtail
 draftjs-exporter==5.0.0
     # via wagtail
@@ -72,8 +72,6 @@ gunicorn==22.0.0
     # via -r requirements.in
 honeybadger==0.19.1
     # via -r requirements.in
-html5lib==1.1
-    # via wagtail
 idna==3.7
     # via requests
 jmespath==1.0.1
@@ -113,7 +111,6 @@ python-dateutil==2.9.0.post0
 pytz==2024.1
     # via
     #   django-modelcluster
-    #   djangorestframework
     #   l18n
 redis==5.0.4
     # via -r requirements.in
@@ -126,7 +123,6 @@ s3transfer==0.10.0
 six==1.16.0
     # via
     #   honeybadger
-    #   html5lib
     #   l18n
     #   python-dateutil
 soupsieve==2.5
@@ -141,10 +137,8 @@ urllib3==2.0.7
     # via
     #   botocore
     #   requests
-wagtail==6.0.3
+wagtail==6.1
     # via -r requirements.in
-webencodings==0.5.1
-    # via html5lib
 wheel==0.43.0
     # via -r requirements.in
 whitenoise[brotli]==6.6.0
