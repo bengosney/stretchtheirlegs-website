@@ -107,10 +107,13 @@ python: $(UV_PATH) requirements.txt $(REQS)
 
 install: python node ## Install development requirements (default)
 
-_upgrade: requirements.in $(UV_PATH)
+_upgrade: $(UV_PATH) requirements.in $(INS)
 	@echo "Upgrading pip packages"
 	@python -m pip install --upgrade pip
-	@python -m uv pip compile -q --upgrade requirements.in
+	$(foreach req,$(filter-out $<,$^),\
+	python -m uv pip compile -q --upgrade -o $(subst in,txt,$(req)) $(req);\
+	)
+	$(MAKE) install
 
 upgrade: _upgrade python
 	@echo "Updateing module paths"
