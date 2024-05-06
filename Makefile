@@ -43,11 +43,11 @@ requirements.in:
 
 requirements.%.txt: $(UV_PATH) requirements.%.in requirements.txt
 	@echo "Builing $@"
-	$(UV_PATH) pip compile -q -o $@ $(filter-out $<,$^)
+	@python -m uv pip compile -q -o $@ $(filter-out $<,$^)
 
 requirements.txt: $(UV_PATH) requirements.in
 	@echo "Builing $@"
-	$(UV_PATH) pip compile -q -o $@ $(filter-out $<,$^)
+	@python -m uv pip compile -q -o $@ $(filter-out $<,$^)
 
 .direnv: .envrc
 	python -m pip install --upgrade pip
@@ -101,16 +101,19 @@ node_modules: package.json package-lock.json
 
 node: node_modules
 
-python: $(PIP_SYNC_PATH) requirements.txt $(REQS)
+python: $(UV_PATH) requirements.txt $(REQS)
 	@echo "Installing $(filter-out $<,$^)"
-	@python -m piptools sync $(filter-out $<,$^)
+	@python -m uv pip sync $(filter-out $<,$^)
 
 install: python node ## Install development requirements (default)
 
-_upgrade: requirements.in
+_upgrade: $(UV_PATH) requirements.in $(INS)
 	@echo "Upgrading pip packages"
 	@python -m pip install --upgrade pip
-	@python -m piptools compile -q --upgrade requirements.in
+	$(foreach req,$(filter-out $<,$^),\
+	python -m uv pip compile -q --upgrade -o $(subst in,txt,$(req)) $(req);\
+	)
+	$(MAKE) install
 
 upgrade: _upgrade python
 	@echo "Updateing module paths"
