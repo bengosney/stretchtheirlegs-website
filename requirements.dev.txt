@@ -38,9 +38,9 @@ django-debug-toolbar==4.3.0
     # via -r requirements.dev.in
 django-debugtools==2.0
     # via -r requirements.dev.in
-django-stubs==5.0.0
+django-stubs==5.0.2
     # via -r requirements.dev.in
-django-stubs-ext==5.0.0
+django-stubs-ext==5.0.2
     # via django-stubs
 docopt==0.6.2
     # via pytest-watch
