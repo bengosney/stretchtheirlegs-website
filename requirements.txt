@@ -48,7 +48,7 @@ django-extensions==3.2.3
     # via -r requirements.in
 django-filter==24.2
     # via wagtail
-django-htmx==1.17.3
+django-htmx==1.18.0
     # via -r requirements.in
 django-modelcluster==6.3
     # via wagtail
