@@ -9,7 +9,7 @@ asttokens==2.4.1
     # via icecream
 attrs==23.2.0
     # via hypothesis
-black==24.4.2
+black==24.8.0
     # via -r requirements.dev.in
 build==1.2.1
     # via pip-tools
