@@ -5,8 +5,7 @@
 MAKEFLAGS += -j4
 
 HOOKS=$(.git/hooks/pre-commit)
-INS=$(wildcard requirements.*.in)
-REQS=$(subst in,txt,$(INS))
+REQS=$(shell python -c 'import tomllib;[print(f"requirements.{k}.txt") for k in tomllib.load(open("pyproject.toml", "rb"))["project"]["optional-dependencies"].keys()]')
 
 SCSS=$(shell find scss/ -name "*.scss")
 
@@ -35,19 +34,13 @@ help: ## Display this help
 	python -m pip install pre-commit
 	pre-commit autoupdate
 
-requirements.%.in:
-	echo "-c requirements.txt" > $@
-
-requirements.in:
-	@touch $@
-
-requirements.%.txt: $(UV_PATH) requirements.%.in requirements.txt
+requirements.%.txt: $(UV_PATH) pyproject.toml
 	@echo "Builing $@"
-	@python -m uv pip compile -q -o $@ $(filter-out $<,$^)
+	python -m uv pip compile --generate-hashes --extra $* $(filter-out $<,$^) > $@
 
-requirements.txt: $(UV_PATH) requirements.in
+requirements.txt: $(UV_PATH) pyproject.toml
 	@echo "Builing $@"
-	@python -m uv pip compile -q -o $@ $(filter-out $<,$^)
+	python -m uv pip compile --generate-hashes $(filter-out $<,$^) > $@
 
 .direnv: .envrc
 	python -m pip install --upgrade pip
@@ -73,13 +66,14 @@ $(WHEEL_PATH): $(PIP_PATH)
 	@touch $@
 
 $(UV_PATH): $(PIP_PATH) $(WHEEL_PATH)
-	@python -m pip install uv
+	python -m pip install uv
+	@touch $@
 
 $(PRE_COMMIT_PATH): $(PIP_PATH) $(WHEEL_PATH)
 	python -m pip install pre-commit
 	@touch $@
 
-init: .direnv $(UV_PATH) .git .git/hooks/pre-commit requirements.dev.txt ## Initalise a enviroment
+init: .direnv $(UV_PATH) .git .git/hooks/pre-commit requirements.txt requirements.dev.txt ## Initalise a enviroment
 
 clean-pyc: ## Remove all python build files
 	find . -name '*.pyc' -delete
@@ -107,15 +101,7 @@ python: $(UV_PATH) requirements.txt $(REQS)
 
 install: python node ## Install development requirements (default)
 
-_upgrade: $(UV_PATH) requirements.in $(INS)
-	@echo "Upgrading pip packages"
-	@python -m pip install --upgrade pip
-	$(foreach req,$(filter-out $<,$^),\
-	python -m uv pip compile -q --upgrade -o $(subst in,txt,$(req)) $(req);\
-	)
-	$(MAKE) install
-
-upgrade: _upgrade python
+upgrade: python
 	@echo "Updateing module paths"
 	wagtail updatemodulepaths --ignore-dir .direnv
 	python -m pre_commit autoupdate
