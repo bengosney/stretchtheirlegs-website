@@ -1,35 +1,87 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [ "setuptools", "wheel" ]
+
 [project]
-name = "StretchTheirLegs"
+name = "stretchtheirlegs"
 version = "2.0.0"
 description = "Corporate website for Stretch Their Legs"
 authors = [
-    {name = "Ben Gosney", email = "bengosney@googlemail.com"},
+  { name = "Ben Gosney", email = "bengosney@googlemail.com" },
 ]
 requires-python = ">=3.12.1"
 
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+classifiers = [ "Programming Language :: Python :: 3 :: Only", "Programming Language :: Python :: 3.12" ]
+dependencies = [
+  "boto3",
+  "dj-database-url",
+  "django",
+  "django-csp",
+  "django-extensions",
+  "django-htmx",
+  "django-storages",
+  "gunicorn",
+  "honeybadger",
+  "opencv-python-headless",
+  "psycopg2",
+  "python-dateutil",
+  "redis",
+  "rustface",
+  "wagtail",
+  "wheel",
+  "whitenoise",
+  "whitenoise[brotli]",
+]
+
+optional-dependencies.dev = [
+  "black",
+  "django-debug-toolbar",
+  "django-debugtools",
+  "django-stubs",
+  "freezegun",
+  "hypothesis",
+  "icecream",
+  "model-bakery",
+  "mypy",
+  "packaging",
+  "pip-chill",
+  "pip-tools",
+  "pre-commit",
+  "pytest",
+  "pytest-clarity",
+  "pytest-cov",
+  "pytest-django",
+  "pytest-picked",
+  "pytest-watch",
+  "ruff",
+  "uv",
+]
 
 [tool.black]
 line-length = 128
-target-version = ['py312']
+target-version = [ 'py312' ]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+exclude = [
+  "migrations",
+]
+
+lint.select = [ "C90", "DJ", "E4", "E7", "E9", "F", "N", "UP" ]
 
 [tool.pycln]
 all = true
 
 [tool.mypy]
-plugins = ["mypy_django_plugin.main"]
+plugins = [ "mypy_django_plugin.main" ]
 
 [tool.django-stubs]
 django_settings_module = "stl.settings"
 
-[tool.ruff]
-line-length = 120
-target-version = "py312"
-exclude = [
-    "migrations",
-]
-
-[tool.ruff.lint]
-select = ["E4", "E7", "E9", "F", "UP", "DJ", "C90", "N"]
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "pep440"
+version_provider = "pep621"
+update_changelog_on_bump = true
