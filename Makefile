@@ -12,6 +12,7 @@ SCSS=$(shell find scss/ -name "*.scss")
 BINPATH=$(shell which python | xargs dirname | xargs realpath --relative-to=".")
 DBTOSQLPATH=$(BINPATH)/db-to-sqlite
 
+SYSTEM_PYTHON_VERSION:=$(shell ls /usr/bin/python* | grep -Eo '[0-9]+\.[0-9]+' | sort -V | tail -n 1)
 PYTHON_VERSION:=$(shell python --version | cut -d " " -f 2)
 PIP_PATH:=$(BINPATH)/pip
 WHEEL_PATH:=$(BINPATH)/wheel
@@ -29,9 +30,8 @@ help: ## Display this help
 .git: .gitignore
 	git init
 
-.pre-commit-config.yaml:
+.pre-commit-config.yaml: | $(PRE_COMMIT_PATH) .git
 	curl https://gist.githubusercontent.com/bengosney/4b1f1ab7012380f7e9b9d1d668626143/raw/060fd68f4c7dec75e8481e5f5a4232296282779d/.pre-commit-config.yaml > $@
-	python -m pip install pre-commit
 	pre-commit autoupdate
 
 requirements.%.txt: $(UV_PATH) pyproject.toml
@@ -47,19 +47,14 @@ requirements.txt: $(UV_PATH) pyproject.toml
 	python -m pip install wheel pip-tools
 	@touch $@ $^
 
-.git/hooks/pre-commit: $(PRE_COMMIT_PATH) .pre-commit-config.yaml
+.git/hooks/pre-commit: $(PRE_COMMIT_PATH) .pre-commit-config.yaml .git
 	pre-commit install
 
 .envrc:
 	@echo "Setting up .envrc then stopping"
-	@echo "layout python python3.10" > $@
+	@echo "layout python python$(SYSTEM_PYTHON_VERSION)" > $@
 	@touch -d '+1 minute' $@
 	@false
-
-$(PIP_PATH):
-	@python -m ensurepip
-	@python -m pip install --upgrade pip
-	@touch $@
 
 $(WHEEL_PATH): $(PIP_PATH)
 	python -m pip install wheel

@@ -6,7 +6,13 @@ from wagtail.models import Page
 
 # First Party
 from pages.models import InfoPage
-from pages.templatetags.navigation_tags import get_site_root, has_children, has_menu_children, is_active, top_menu_children
+from pages.templatetags.navigation_tags import (
+    get_site_root,
+    has_children,
+    has_menu_children,
+    is_active,
+    top_menu_children,
+)
 
 
 class NavigationTagsTests(TestCase):

@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags %}
-{% load logo_tags %}
+{% load logo_tags wagtailcore_tags %}
 
 
 {% block body_class %}full-height-banner{% endblock %}
@@ -9,13 +8,11 @@
 {% block banner_text %}
     <h1 class="site-name">{{ page.banner_title }}</h1>
     <h2 class="alt">{{ page.banner_sub_title }}</h2>
-{% endblock %}
-
+{% endblock banner_text %}
 
 {% block content %}
     {% include_block page.body %}
 {% endblock content %}
-
 
 {% block extra_js %}
     {% effects %}
