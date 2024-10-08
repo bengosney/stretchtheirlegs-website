@@ -12,6 +12,7 @@ SCSS=$(shell find scss/ -name "*.scss")
 BINPATH=$(shell which python | xargs dirname | xargs realpath --relative-to=".")
 DBTOSQLPATH=$(BINPATH)/db-to-sqlite
 
+SYSTEM_PYTHON_VERSION:=$(shell ls /usr/bin/python* | grep -Eo '[0-9]+\.[0-9]+' | sort -V | tail -n 1)
 PYTHON_VERSION:=$(shell python --version | cut -d " " -f 2)
 PIP_PATH:=$(BINPATH)/pip
 WHEEL_PATH:=$(BINPATH)/wheel
@@ -52,7 +53,7 @@ requirements.txt: $(UV_PATH) pyproject.toml
 
 .envrc:
 	@echo "Setting up .envrc then stopping"
-	@echo "layout python python3.10" > $@
+	@echo "layout python python$(SYSTEM_PYTHON_VERSION)" > $@
 	@touch -d '+1 minute' $@
 	@false
 
