@@ -57,11 +57,6 @@ requirements.txt: $(UV_PATH) pyproject.toml
 	@touch -d '+1 minute' $@
 	@false
 
-$(PIP_PATH):
-	@python -m ensurepip
-	@python -m pip install --upgrade pip
-	@touch $@
-
 $(WHEEL_PATH): $(PIP_PATH)
 	python -m pip install wheel
 	@touch $@
