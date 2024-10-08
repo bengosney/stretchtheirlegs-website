@@ -30,9 +30,8 @@ help: ## Display this help
 .git: .gitignore
 	git init
 
-.pre-commit-config.yaml:
+.pre-commit-config.yaml: | $(PRE_COMMIT_PATH) .git
 	curl https://gist.githubusercontent.com/bengosney/4b1f1ab7012380f7e9b9d1d668626143/raw/060fd68f4c7dec75e8481e5f5a4232296282779d/.pre-commit-config.yaml > $@
-	python -m pip install pre-commit
 	pre-commit autoupdate
 
 requirements.%.txt: $(UV_PATH) pyproject.toml
@@ -48,7 +47,7 @@ requirements.txt: $(UV_PATH) pyproject.toml
 	python -m pip install wheel pip-tools
 	@touch $@ $^
 
-.git/hooks/pre-commit: $(PRE_COMMIT_PATH) .pre-commit-config.yaml
+.git/hooks/pre-commit: $(PRE_COMMIT_PATH) .pre-commit-config.yaml .git
 	pre-commit install
 
 .envrc:
