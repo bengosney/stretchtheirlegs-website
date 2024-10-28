@@ -1169,7 +1169,7 @@ whitenoise==6.8.1 \
     --hash=sha256:11042f39f1dcfbb3814726b9364703af6901706582d988e96494cfefdc3a89e2 \
     --hash=sha256:196ba04ca0a80f4a3f99f88381864f218a28b5fb5b44d29feea484d501fa0ba3
     # via stretchtheirlegs (pyproject.toml)
-willow==1.8.0 \
-    --hash=sha256:48ccf5ce48ccd29c37a32497cd7af50983f8570543c4de2988b15d583efc66be \
-    --hash=sha256:ef3df6cde80d4914e719188147bef1d71c240edb118340e0c5957ecc8fe08315
+willow==1.9.0 \
+    --hash=sha256:11a13097cffe501898cd434bb5761fb6cdbdb774a7853094cb56a4ba57cbbff7 \
+    --hash=sha256:ffac1406275ae30b60e7c6cbd1245f0bc359d1b5731002b18a712aaf424a5102
     # via wagtail
