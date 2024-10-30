@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     "site_messages",
     "banners",
     "logos",
+    "csp",
     "fh_utils",
     "social",
     "articles",
@@ -59,6 +60,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+    "stl.middleware.SecureHeaders",
     "csp.middleware.CSPMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
     "stl.middleware.ClacksOverhead",
@@ -179,6 +181,7 @@ WAGTAILSEARCH_BACKENDS = {
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = "https://www.stretchtheirlegs.co.uk"
 CDN_URL = "https://cdn.stretchtheirlegs.co.uk"
+WAGTAILADMIN_BASE_URL = BASE_URL
 
 CSP_DEFAULT_SRC = "'self'"
 CSP_SCRIPT_SRC = (
