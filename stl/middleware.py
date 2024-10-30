@@ -31,6 +31,6 @@ class SecureHeaders:
         if csp:
             response["Content-Security-Policy"] = csp
         else:
-            del response["Content-Security-Policy"]
+            response.headers.pop("Content-Security-Policy", None)
 
         return response
