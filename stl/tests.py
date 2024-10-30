@@ -5,7 +5,16 @@ from stl.middleware import SecureHeaders, ClacksOverhead
 
 @pytest.fixture
 def get_response():
-    def _get_response(request):
+    def _get_response(request) -> HttpResponse:
+        response = HttpResponse()
+        return response
+
+    return _get_response
+
+
+@pytest.fixture
+def get_csp_response():
+    def _get_response(request) -> HttpResponse:
         response = HttpResponse()
         response["Content-Security-Policy"] = "default-src 'self'"
         return response
@@ -16,6 +25,11 @@ def get_response():
 @pytest.fixture
 def secure_headers_middleware(get_response):
     return SecureHeaders(get_response)
+
+
+@pytest.fixture
+def secure_headers_middleware_csp(get_csp_response):
+    return SecureHeaders(get_csp_response)
 
 
 @pytest.fixture
@@ -31,17 +45,24 @@ def test_clacks_overhead_middleware(clacks_overhead_middleware):
     assert response["X-Clacks-Overhead"] == "GNU Terry Pratchett"
 
 
-def test_secure_headers_are_set(secure_headers_middleware):
+def test_secure_headers_are_set(secure_headers_middleware_csp):
     request = HttpRequest()
-    response = secure_headers_middleware(request)
+    response = secure_headers_middleware_csp(request)
 
     assert "X-Content-Type-Options" in response
     assert "X-Frame-Options" in response
     assert "Strict-Transport-Security" in response
 
 
-def test_csp_header_is_preserved(secure_headers_middleware):
+def test_csp_header_is_preserved(secure_headers_middleware_csp):
+    request = HttpRequest()
+    response = secure_headers_middleware_csp(request)
+
+    assert response["Content-Security-Policy"] == "default-src 'self'"
+
+
+def test_csp_header_not_set(secure_headers_middleware):
     request = HttpRequest()
     response = secure_headers_middleware(request)
 
-    assert response["Content-Security-Policy"] == "default-src 'self'"
+    assert "Content-Security-Policy" not in response

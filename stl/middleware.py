@@ -26,8 +26,11 @@ class SecureHeaders:
 
     def __call__(self, request: HttpRequest) -> HttpResponse:
         response = self.get_response(request)
-        csp = response.headers["Content-Security-Policy"]
+        csp = response.headers.get("Content-Security-Policy")
         secure_headers.set_headers(response)  # type: ignore
-        response["Content-Security-Policy"] = csp
+        if csp:
+            response["Content-Security-Policy"] = csp
+        else:
+            del response["Content-Security-Policy"]
 
         return response
