@@ -21,6 +21,8 @@ UV_PATH:=$(BINPATH)/uv
 
 PYTHON_FILES:=$(wildcard ./**/*.py ./**/tests/*.py)
 
+check_command = @command -v $(1) >/dev/null 2>&1 || { echo >&2 "$(1) is not installed."; $(2); }
+
 help: ## Display this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
@@ -101,10 +103,9 @@ upgrade: python
 	wagtail updatemodulepaths --ignore-dir .direnv
 	python -m pre_commit autoupdate
 
-$(DBTOSQLPATH):
-	pip install git+https://github.com/bengosney/db-to-sqlite.git
-
-db.sqlite3: $(DBTOSQLPATH)
+db.sqlite3: | $(UV_PATH) ## Import the database from heroku
+	$(call check_command,heroku,exit 1)
+	$(call check_command,db-to-sqlite,uv pip install db-to-sqlite)
 	db-to-sqlite $(shell heroku config | grep DATABASE_URL | tr -s " " | cut -d " " -f 2) $@ --all --skip "cerberus_*" -p
 
 stl/static/css/%.css: scss/%.scss $(SCSS)
