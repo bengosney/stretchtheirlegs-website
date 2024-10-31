@@ -1,2 +1,0 @@
-!function(){var e,d=function(e){if(window.matchMedia&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){var d=document.createElement("script");d.src=e.url,d.async=!0,d.defer=!0,d.onload=e.onload,document.head.appendChild(d),document.body.classList.add("effect-".concat(e.name))}},c=window;c.loadEffect=d,void 0!=(e=c.effect)&&"url"in e&&"name"in e&&d(c.effect)}();
-//# sourceMappingURL=stl.js.map
