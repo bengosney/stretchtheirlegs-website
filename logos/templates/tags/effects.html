@@ -36,3 +36,7 @@
         }
     </script>
 {% endif %}
+
+{% if fireworks or snow or confetti or explosions %}
+    <script src="{% static 'js/stl.min.js' %}" defer async></script>
+{% endif %}
