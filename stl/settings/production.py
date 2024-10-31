@@ -7,7 +7,7 @@ import dj_database_url
 
 # First Party
 from stl.settings.base import *  # noqa
-from stl.settings.base import BASE_URL, DATABASES, MIDDLEWARE
+from stl.settings.base import BASE_URL, DATABASES, MIDDLEWARE, CDN_URL
 
 DEBUG = False
 
@@ -98,6 +98,7 @@ if "REDIS_URL" in os.environ:
         },
     }
 
+STATIC_URL = f"{CDN_URL}/static/"
 
 with contextlib.suppress(ImportError):
     # First Party
