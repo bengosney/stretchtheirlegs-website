@@ -126,16 +126,16 @@ stl/static/js/%.min.js: js/%.ts $(JS_SRC)
 	npx esbuild $< --bundle --minify --sourcemap --outfile=$@
 	@touch $@
 
-stl/static/js/snow.js:
+stl/static/js/snow.min.js:
 	curl https://app.embed.im/snow.js > $@
 
-stl/static/js/fireworks.js:
+stl/static/js/fireworks.min.js:
 	curl https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js > $@
 
-stl/static/js/tsparticles.js:
+stl/static/js/tsparticles.min.js:
 	curl https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js > $@
 
-js: stl/static/js/stl.min.js stl/static/js/snow.js stl/static/js/fireworks.js stl/static/js/tsparticles.js ## Build the js
+js: stl/static/js/stl.min.js stl/static/js/snow.min.js stl/static/js/fireworks.min.js stl/static/js/tsparticles.min.js ## Build the js
 
 watch-css: ## Watch and build the css
 	@echo "Watching scss"
