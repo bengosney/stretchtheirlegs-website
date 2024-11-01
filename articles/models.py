@@ -1,7 +1,8 @@
 # Standard Library
 import re
 
-# Django
+# Third Party
+from bs4 import BeautifulSoup
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db import models
 
@@ -11,9 +12,6 @@ from wagtail.admin.panels import FieldPanel
 from wagtail.fields import StreamField
 from wagtail.models import Page
 from wagtail.search import index
-
-# Third Party
-from bs4 import BeautifulSoup
 
 # First Party
 from pages.blocks import ImageRow, ItemBlock, ServicesBlock

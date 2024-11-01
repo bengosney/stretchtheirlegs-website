@@ -6,6 +6,9 @@ from textwrap import shorten
 from django.db import models
 from django.http import Http404
 
+# Third Party
+from modelcluster.fields import ParentalKey
+
 # Wagtail
 from wagtail import blocks
 from wagtail.admin.mail import send_mail
@@ -16,9 +19,6 @@ from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
 from wagtail.fields import RichTextField, StreamField
 from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
-
-# Third Party
-from modelcluster.fields import ParentalKey
 
 # First Party
 from pages.blocks import FormBlock, ImageRow, ItemBlock, ServicesBlock

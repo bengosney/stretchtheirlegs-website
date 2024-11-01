@@ -7,7 +7,7 @@ import dj_database_url
 
 # First Party
 from stl.settings.base import *  # noqa
-from stl.settings.base import BASE_URL, DATABASES, MIDDLEWARE, CDN_URL
+from stl.settings.base import BASE_URL, CDN_URL, DATABASES, MIDDLEWARE
 
 DEBUG = False
 
