@@ -2,9 +2,11 @@ import contextlib
 from textwrap import shorten
 from typing import ClassVar
 
+from modelcluster.fields import ParentalKey
+
 from django.db import models
 from django.http import Http404
-from modelcluster.fields import ParentalKey
+
 from wagtail import blocks
 from wagtail.admin.mail import send_mail
 from wagtail.admin.panels import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, Panel

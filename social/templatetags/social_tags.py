@@ -4,6 +4,7 @@ from collections.abc import Iterable
 
 from django import template
 from django.utils.safestring import mark_safe
+
 from wagtail.models import Site
 
 from banners.models import Banner

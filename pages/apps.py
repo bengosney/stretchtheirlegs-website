@@ -1,6 +1,7 @@
 import rustface.willow
-from django.apps import AppConfig
 from willow.registry import registry
+
+from django.apps import AppConfig
 
 
 class PagesConfig(AppConfig):

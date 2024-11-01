@@ -1,9 +1,10 @@
 import datetime
 
-from django.core.exceptions import ValidationError
 from hypothesis import given
 from hypothesis.extra.django import TestCase
 from hypothesis.strategies import dates
+
+from django.core.exceptions import ValidationError
 
 from fh_utils import ModelStatus
 from fh_utils.models import StatusDateRangeMixin

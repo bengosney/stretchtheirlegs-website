@@ -1,4 +1,5 @@
 import pytest
+
 from django.http import HttpRequest, HttpResponse
 
 from stl.middleware import ClacksOverhead, SecureHeaders

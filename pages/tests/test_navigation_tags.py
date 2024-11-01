@@ -1,4 +1,5 @@
 from django.test import RequestFactory, TestCase
+
 from wagtail.models import Page
 
 from pages.models import InfoPage

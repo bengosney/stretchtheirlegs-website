@@ -1,6 +1,7 @@
+from model_bakery import baker
+
 from django.test import TestCase
 from django.urls import reverse
-from model_bakery import baker
 
 from site_messages.models import Message
 from site_messages.templatetags.message_tags import messages

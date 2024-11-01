@@ -1,7 +1,8 @@
 from datetime import date
 
-from django.test import TestCase
 from freezegun import freeze_time
+
+from django.test import TestCase
 
 from fh_utils.utils import is_easter, next_easter
 

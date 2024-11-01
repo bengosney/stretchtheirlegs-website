@@ -1,4 +1,5 @@
 from django import template
+
 from wagtail.models import Site
 
 from pages.models import SiteSettings

@@ -6,6 +6,7 @@ from django.db import models
 from django.db.models import Q
 from django.utils.html import mark_safe
 from django.utils.translation import gettext_lazy as _
+
 from wagtail.admin.panels import FieldPanel, FieldRowPanel, MultiFieldPanel, Panel
 
 from fh_utils.managers import DatePeriodManager, StatusManager

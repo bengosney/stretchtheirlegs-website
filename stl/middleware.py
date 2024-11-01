@@ -1,7 +1,8 @@
 from collections.abc import Callable
 
-from django.http import HttpRequest, HttpResponse
 from secure import Secure
+
+from django.http import HttpRequest, HttpResponse
 
 
 class ClacksOverhead:

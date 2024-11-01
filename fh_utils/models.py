@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel, Panel
 
 from fh_utils import ModelStatus

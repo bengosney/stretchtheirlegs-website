@@ -2,8 +2,10 @@ import re
 from typing import Any, ClassVar
 
 from bs4 import BeautifulSoup
+
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db import models
+
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel, Panel
 from wagtail.fields import StreamField

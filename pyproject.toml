@@ -77,6 +77,19 @@ format.docstring-code-format = true
 
 lint.select = [ "C90", "DJ", "E", "ERA", "F", "FURB", "I", "N", "PERF", "PL", "RUF", "TRY", "UP" ]
 
+lint.isort.section-order = [
+  "future",
+  "standard-library",
+  "third-party",
+  "django",
+  "wagtail",
+  "first-party",
+  "local-folder",
+]
+
+lint.isort.sections.django = [ "django" ]
+lint.isort.sections.wagtail = [ "wagtail" ]
+
 [tool.pycln]
 all = true
 

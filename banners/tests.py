@@ -1,7 +1,8 @@
 from datetime import date
 
-from django.test import TestCase
 from freezegun import freeze_time
+
+from django.test import TestCase
 
 from banners.models import Banner
 from fh_utils.fields import DayMonthField
