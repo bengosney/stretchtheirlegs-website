@@ -6,7 +6,8 @@ $font-base-url: "https://cdn.stretchtheirlegs.co.uk";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("#{$font-base-url}/fonts/fontdiner-swanky-v8-latin-regular.eot");
+  src: url("#{$font-base-url}/fonts/fontdiner-swanky-v8-latin-regular.woff2") format("woff2"),
+      url("#{$font-base-url}/fonts/fontdiner-swanky-v8-latin-regular.eot");
   src:
     local("Fontdiner Swanky Regular"),
     local("FontdinerSwanky-Regular"),
