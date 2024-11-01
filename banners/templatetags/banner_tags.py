@@ -1,7 +1,5 @@
-# Django
 from django import template
 
-# First Party
 from banners.models import Banner
 
 register = template.Library()

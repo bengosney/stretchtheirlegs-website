@@ -1,13 +1,9 @@
-# Standard Library
 from datetime import date
 
-# Django
-from django.test import TestCase
-
-# Third Party
 from freezegun import freeze_time
 
-# First Party
+from django.test import TestCase
+
 from fh_utils.utils import is_easter, next_easter
 
 

@@ -1,10 +1,7 @@
-# Django
 from django.test import RequestFactory, TestCase
 
-# Wagtail
 from wagtail.models import Page
 
-# First Party
 from pages.models import InfoPage
 from pages.templatetags.navigation_tags import (
     get_site_root,

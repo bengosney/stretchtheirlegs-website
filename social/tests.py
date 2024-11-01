@@ -1,9 +1,7 @@
-# Django
 from django.template import Context, Template
 from django.test import TestCase
 from django.test.client import RequestFactory
 
-# First Party
 from pages.models import Page
 from social.templatetags.social_tags import get_breadcrumbs, jsonld
 

@@ -1,9 +1,8 @@
-# Standard Library
 from collections.abc import Callable
 
-# Django
-from django.http import HttpRequest, HttpResponse
 from secure import Secure
+
+from django.http import HttpRequest, HttpResponse
 
 
 class ClacksOverhead:

@@ -1,13 +1,9 @@
-# Standard Library
 from datetime import date
 
-# Django
-from django.test import TestCase
-
-# Third Party
 from freezegun import freeze_time
 
-# First Party
+from django.test import TestCase
+
 from logos.models import EFFECT_SNOW, EFFECTS, Logo
 from logos.templatetags.logo_tags import effects
 

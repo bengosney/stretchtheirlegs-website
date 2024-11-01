@@ -1,21 +1,17 @@
-# Standard Library
 import re
+from typing import Any, ClassVar
 
-# Django
+from bs4 import BeautifulSoup
+
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db import models
 
-# Wagtail
 from wagtail import blocks
-from wagtail.admin.panels import FieldPanel
+from wagtail.admin.panels import FieldPanel, Panel
 from wagtail.fields import StreamField
 from wagtail.models import Page
 from wagtail.search import index
 
-# Third Party
-from bs4 import BeautifulSoup
-
-# First Party
 from pages.blocks import ImageRow, ItemBlock, ServicesBlock
 
 
@@ -41,9 +37,10 @@ class ArticleList(Page):
         use_json_field=True,
     )
 
-    subpage_types = ["articles.Article", "articles.ArticleList"]
+    subpage_types: ClassVar[list[str]] = ["articles.Article", "articles.ArticleList"]
 
-    content_panels = Page.content_panels + [
+    content_panels: ClassVar[list[Panel]] = [
+        *Page.content_panels,
         FieldPanel("sub_heading"),
         FieldPanel("body"),
         FieldPanel("collection_title"),
@@ -94,21 +91,19 @@ class Article(Page):
         use_json_field=True,
     )
 
-    subpage_types = ["articles.Article"]
+    subpage_types: ClassVar[list[str]] = ["articles.Article"]
 
-    parent_page_types = ["articles.ArticleList", "articles.Article"]
+    parent_page_types: ClassVar[list[str]] = ["articles.ArticleList", "articles.Article"]
 
-    content_panels = Page.content_panels + [
+    content_panels: ClassVar[list[Panel]] = [
+        *Page.content_panels,
         FieldPanel("sub_heading"),
         FieldPanel("summary"),
         FieldPanel("banner_image"),
         FieldPanel("body"),
     ]
 
-    search_fields = Page.search_fields + [
-        index.SearchField("body"),
-        index.FilterField("date"),
-    ]
+    search_fields: ClassVar[list[Any]] = [*Page.search_fields, index.SearchField("body"), index.FilterField("date")]
 
     @property
     def summary_length(self):

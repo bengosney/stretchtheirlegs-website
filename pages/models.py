@@ -1,15 +1,15 @@
-# Standard Library
 import contextlib
 from textwrap import shorten
+from typing import ClassVar
 
-# Django
+from modelcluster.fields import ParentalKey
+
 from django.db import models
 from django.http import Http404
 
-# Wagtail
 from wagtail import blocks
 from wagtail.admin.mail import send_mail
-from wagtail.admin.panels import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel
+from wagtail.admin.panels import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, Panel
 from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
 from wagtail.contrib.forms.panels import FormSubmissionsPanel
 from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
@@ -17,10 +17,6 @@ from wagtail.fields import RichTextField, StreamField
 from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
 
-# Third Party
-from modelcluster.fields import ParentalKey
-
-# First Party
 from pages.blocks import FormBlock, ImageRow, ItemBlock, ServicesBlock
 
 
@@ -37,7 +33,7 @@ class Membership(models.Model):
     url = models.URLField(blank=True)
     image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
 
-    panels = [
+    panels: ClassVar[list[Panel]] = [
         FieldPanel("name"),
         FieldPanel("url"),
         FieldPanel("image"),
@@ -71,16 +67,11 @@ class HomePage(Page):
         use_json_field=True,
     )
 
-    parent_page_types = ["wagtailcore.Page"]
+    parent_page_types: ClassVar[list[str]] = ["wagtailcore.Page"]
 
-    content_panels = Page.content_panels + [
-        MultiFieldPanel(
-            [
-                FieldPanel("banner_title"),
-                FieldPanel("banner_sub_title"),
-            ],
-            "Banner",
-        ),
+    content_panels: ClassVar[list[MultiFieldPanel | FieldPanel]] = [
+        *Page.content_panels,
+        MultiFieldPanel([FieldPanel("banner_title"), FieldPanel("banner_sub_title")], "Banner"),
         FieldPanel("body"),
     ]
 
@@ -99,7 +90,8 @@ class InfoPage(Page, ParentTools):
         use_json_field=True,
     )
 
-    content_panels = Page.content_panels + [
+    content_panels: ClassVar[list[Panel]] = [
+        *Page.content_panels,
         FieldPanel("sub_heading"),
         FieldPanel("body"),
     ]
@@ -114,7 +106,8 @@ class ServicePage(Page, ParentTools):
     body = RichTextField(blank=True)
     image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
 
-    content_panels = Page.content_panels + [
+    content_panels: ClassVar[list[Panel]] = [
+        *Page.content_panels,
         FieldPanel("sub_heading"),
         FieldPanel("sub_title"),
         FieldPanel("image"),
@@ -148,25 +141,17 @@ class FormPage(AbstractEmailForm, ParentTools):
     thank_you_text = RichTextField(blank=True)
     submit_text = models.CharField(max_length=255, default="Submit")
 
-    content_panels = AbstractEmailForm.content_panels + [
+    content_panels: ClassVar[list[Panel]] = [
+        *AbstractEmailForm.content_panels,
         FieldPanel("sub_heading"),
         FormSubmissionsPanel(),
         FieldPanel("body"),
         InlinePanel("form_fields", label="Form fields"),
-        MultiFieldPanel(
-            [
-                FieldPanel("submit_text"),
-                FieldPanel("thank_you_text"),
-            ],
-            "Submit",
-        ),
+        MultiFieldPanel([FieldPanel("submit_text"), FieldPanel("thank_you_text")], "Submit"),
         MultiFieldPanel(
             [
                 FieldRowPanel(
-                    [
-                        FieldPanel("from_address", classname="col6"),
-                        FieldPanel("to_address", classname="col6"),
-                    ]
+                    [FieldPanel("from_address", classname="col6"), FieldPanel("to_address", classname="col6")]
                 ),
                 FieldPanel("subject"),
             ],

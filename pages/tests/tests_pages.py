@@ -1,10 +1,6 @@
-# Django
-
-# Wagtail
 from wagtail.models import Page
 from wagtail.test.utils import WagtailPageTestCase
 
-# First Party
 from pages.models import InfoPage
 
 

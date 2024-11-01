@@ -1,12 +1,10 @@
 # Create your views here.
-# Standard Library
+
 import contextlib
 
-# Django
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 
-# First Party
 from site_messages.models import Message
 
 

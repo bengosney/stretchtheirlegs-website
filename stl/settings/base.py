@@ -1,8 +1,5 @@
 """Django settings for stl project."""
 
-# Standard Library
-
-# Standard Library
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 

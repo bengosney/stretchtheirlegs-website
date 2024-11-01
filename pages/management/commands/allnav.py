@@ -1,7 +1,5 @@
-# Django
 from django.core.management.base import BaseCommand
 
-# Wagtail
 from wagtail.models import Page
 
 

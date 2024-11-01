@@ -1,7 +1,5 @@
-# Django
 from django.test import TestCase
 
-# First Party
 from fh_utils import ModelStatus
 from fh_utils.models import StatusMixin
 from fh_utils.tests.abstract_mixin import AbstractModelMixinTestCase

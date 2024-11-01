@@ -1,12 +1,15 @@
-# Standard Library
 import contextlib
 import functools
 from typing import cast
 
-# Django
 from django.db import connection
 from django.db.models import Model
 from django.db.models.base import ModelBase
+
+
+class SubclassMixinError(ValueError):
+    def __init__(self):
+        super().__init__("Subclass must specify mixin")
 
 
 def clean_models(func):
@@ -32,7 +35,7 @@ class AbstractModelMixinTestCase:
     @classmethod
     def setUpClass(cls):
         if cls.mixin is None:
-            raise ValueError("Subclass must specify mixin")
+            raise SubclassMixinError()
 
         cls.model = cast(
             type[Model],

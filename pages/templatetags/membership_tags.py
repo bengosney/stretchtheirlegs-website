@@ -1,7 +1,5 @@
-# Django
 from django import template
 
-# First Party
 from pages.models import Membership
 
 register = template.Library()

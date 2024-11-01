@@ -1,8 +1,6 @@
-# Wagtail
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.views.snippets import SnippetViewSet
 
-# First Party
 from site_messages.models import Message
 
 

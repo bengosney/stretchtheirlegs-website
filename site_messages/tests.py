@@ -1,11 +1,8 @@
-# Django
+from model_bakery import baker
+
 from django.test import TestCase
 from django.urls import reverse
 
-# Third Party
-from model_bakery import baker
-
-# First Party
 from site_messages.models import Message
 from site_messages.templatetags.message_tags import messages
 
@@ -59,9 +56,7 @@ class TestSiteMessages(TestCase):
         self.assertEqual(f"{msg}", msg.title)
 
     def test_message_tag(self):
-        msgs = []
-        for _ in range(5):
-            msgs.append(baker.make(Message))
+        msgs = [baker.make(Message) for _ in range(5)]
 
         class MockContext:
             def __init__(self, request) -> None:

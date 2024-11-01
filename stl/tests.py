@@ -1,6 +1,8 @@
-from django.http import HttpRequest, HttpResponse
 import pytest
-from stl.middleware import SecureHeaders, ClacksOverhead
+
+from django.http import HttpRequest, HttpResponse
+
+from stl.middleware import ClacksOverhead, SecureHeaders
 
 
 @pytest.fixture

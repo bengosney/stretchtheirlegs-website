@@ -1,13 +1,9 @@
-# Standard Library
 from datetime import date
 
-# Django
-from django.test import TestCase
-
-# Third Party
 from freezegun import freeze_time
 
-# First Party
+from django.test import TestCase
+
 from fh_utils.fields import DayMonthField
 from fh_utils.models import StatusDatePeriodMixin
 from fh_utils.tests.abstract_mixin import AbstractModelMixinTestCase

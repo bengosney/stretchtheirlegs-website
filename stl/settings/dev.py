@@ -1,7 +1,5 @@
-# Standard Library
 import os
 
-# First Party
 from stl.settings.base import *  # noqa
 from stl.settings.base import INSTALLED_APPS, MIDDLEWARE, PROJECT_DIR, STATICFILES_DIRS
 
@@ -57,7 +55,6 @@ STATICFILES_DIRS += [
 ]
 
 try:
-    # First Party
     from stl.settings.local import *  # noqa
 except ImportError:
     pass

@@ -1,15 +1,14 @@
-# Django
+from typing import ClassVar
+
 from django.contrib import admin
-from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-# Wagtail
-from wagtail.admin.panels import FieldPanel, MultiFieldPanel
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel, Panel
 
-# First Party
 from fh_utils import ModelStatus
+from fh_utils.exceptions import PublishedDateValidationError
 from fh_utils.fields import DayMonthField
 from fh_utils.managers import DateManager, DatePeriodManager, DateRangeManager, StatusManager
 
@@ -31,9 +30,7 @@ class StatusMixin(models.Model):
     def status_name(self) -> str:
         return ModelStatus.get_name(self.status)
 
-    mixin_panels = [
-        FieldPanel("status"),
-    ]
+    mixin_panels: ClassVar[list[Panel]] = [FieldPanel("status")]
 
 
 class StatusDatePeriodMixin(StatusMixin):
@@ -55,13 +52,9 @@ class StatusDatePeriodMixin(StatusMixin):
     def admin_show_to(self) -> str:
         return self.show_to.strftime("%B %d")
 
-    mixin_panels = [
+    mixin_panels: ClassVar[list[MultiFieldPanel]] = [
         MultiFieldPanel(
-            StatusMixin.mixin_panels
-            + [
-                FieldPanel("show_from"),
-                FieldPanel("show_to"),
-            ],
+            [*StatusMixin.mixin_panels, FieldPanel("show_from"), FieldPanel("show_to")],
             heading=_("Date Range"),
         ),
     ]
@@ -75,12 +68,9 @@ class StatusDateMixin(StatusMixin):
     class Meta:
         abstract = True
 
-    mixin_panels = [
+    mixin_panels: ClassVar[list[MultiFieldPanel]] = [
         MultiFieldPanel(
-            StatusMixin.mixin_panels
-            + [
-                FieldPanel("published"),
-            ],
+            [*StatusMixin.mixin_panels, FieldPanel("published")],
             heading=_("Published"),
         ),
     ]
@@ -95,13 +85,9 @@ class StatusDateRangeMixin(StatusMixin):
     class Meta:
         abstract = True
 
-    mixin_panels = [
+    mixin_panels: ClassVar[list[MultiFieldPanel]] = [
         MultiFieldPanel(
-            StatusMixin.mixin_panels
-            + [
-                FieldPanel("published_from"),
-                FieldPanel("published_to"),
-            ],
+            [*StatusMixin.mixin_panels, FieldPanel("published_from"), FieldPanel("published_to")],
             heading=_("Published"),
         ),
     ]
@@ -116,6 +102,4 @@ class StatusDateRangeMixin(StatusMixin):
 
     def _validate_start_end_dates(self):
         if self.published_to < self.published_from:
-            raise ValidationError(
-                f"published_to({self.published_to}) can not be before published_from({self.published_from})"
-            )
+            raise PublishedDateValidationError(self.published_from, self.published_to)

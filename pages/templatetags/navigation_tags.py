@@ -1,10 +1,7 @@
-# Django
 from django import template
 
-# Wagtail
 from wagtail.models import Site
 
-# First Party
 from pages.models import SiteSettings
 
 register = template.Library()

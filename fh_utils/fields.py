@@ -1,7 +1,5 @@
-# Standard Library
 import contextlib
 
-# Django
 from django.db import models
 
 
