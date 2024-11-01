@@ -179,17 +179,13 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = "https://www.stretchtheirlegs.co.uk"
-CDN_URL = "https://cdn.stretchtheirlegs.co.uk"
+BASE_URL = os.environ.get("BASE_URL", "http://localhost")
+CDN_URL = os.environ.get("CDN_URL", "http://localhost")
 WAGTAILADMIN_BASE_URL = BASE_URL
 
 CSP_DEFAULT_SRC = "'self'"
-CSP_SCRIPT_SRC = (
-    "'self'",
-    "'unsafe-inline'",
-    CDN_URL,
-)
-CSP_STYLE_SRC = ("'self'", "fonts.googleapis.com", "'unsafe-inline'", CDN_URL)
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", CDN_URL)
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", CDN_URL)
 CSP_FONT_SRC = ("'self'", CDN_URL)
 CSP_IMG_SRC = ("'self'", "data:", CDN_URL)
 
