@@ -1,6 +1,7 @@
 # Standard Library
 import contextlib
 import os
+from urllib.parse import urlparse
 
 # Third Party
 import dj_database_url
@@ -23,7 +24,7 @@ AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": f"max-age={86400 * 365}",
 }
 
-ALLOWED_HOSTS = ["www.stretchtheirlegs.co.uk"]
+ALLOWED_HOSTS = [urlparse(BASE_URL).netloc]
 
 CSRF_TRUSTED_ORIGINS = [
     BASE_URL,
