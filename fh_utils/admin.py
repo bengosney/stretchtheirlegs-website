@@ -2,7 +2,7 @@ class StatusAdmin:
     def __init__(self, model, admin_site):
         super().__init__(model, admin_site)
 
-        self.list_display = ["status", *list(self.list_display)]
+        self.list_display = ["status", *self.list_display]
         self.list_filter = ["status", *list(self.list_filter)]
 
 
