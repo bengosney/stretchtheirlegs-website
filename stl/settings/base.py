@@ -184,12 +184,8 @@ CDN_URL = os.environ.get("CDN_URL", "http://localhost")
 WAGTAILADMIN_BASE_URL = BASE_URL
 
 CSP_DEFAULT_SRC = "'self'"
-CSP_SCRIPT_SRC = (
-    "'self'",
-    "'unsafe-inline'",
-    CDN_URL,
-)
-CSP_STYLE_SRC = ("'self'", "fonts.googleapis.com", "'unsafe-inline'", CDN_URL)
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", CDN_URL)
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", CDN_URL)
 CSP_FONT_SRC = ("'self'", CDN_URL)
 CSP_IMG_SRC = ("'self'", "data:", CDN_URL)
 
