@@ -1,7 +1,5 @@
-# Django
 from django import template
 
-# First Party
 from logos.models import EFFECTS, Logo
 
 register = template.Library()

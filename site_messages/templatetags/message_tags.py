@@ -1,7 +1,5 @@
-# Django
 from django import template
 
-# First Party
 from site_messages.models import Message
 
 register = template.Library()

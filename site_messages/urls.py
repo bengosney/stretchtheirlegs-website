@@ -1,7 +1,5 @@
-# Django
 from django.urls import path
 
-# First Party
 from site_messages import views
 
 app_name = "site_messages"

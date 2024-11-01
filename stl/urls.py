@@ -1,9 +1,6 @@
-# Django
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
-
-# Wagtail
 from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.contrib.sitemaps.views import sitemap
@@ -30,9 +27,10 @@ if settings.DEBUG:
     urlpatterns += static(settings.SCSS_SOURCEMAP_URL, document_root=settings.SCSS_SOURCEMAP_ROOT)
     urlpatterns += (path("__debug__/", include("debug_toolbar.urls")),)
 
-urlpatterns = urlpatterns + [
-    # For anything not caught by a more specific rule above, hand over to
-    # Wagtail's page serving mechanism. This should be the last pattern in
-    # the list:
+# For anything not caught by a more specific rule above, hand over to
+# Wagtail's page serving mechanism. This should be the last pattern in
+# the list:
+urlpatterns = [
+    *urlpatterns,
     path("", include(wagtail_urls)),
 ]

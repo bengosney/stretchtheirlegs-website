@@ -75,7 +75,7 @@ format.indent-style = "space"
 format.quote-style = "double"
 format.docstring-code-format = true
 
-lint.select = [ "C90", "DJ", "DOC", "E", "ERA", "F", "FURB", "I", "N", "PERF", "PL", "TRY", "UP" ]
+lint.select = [ "C90", "DJ", "E", "ERA", "F", "FURB", "I", "N", "PERF", "PL", "RUF", "TRY", "UP" ]
 
 [tool.pycln]
 all = true

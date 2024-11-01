@@ -1,13 +1,8 @@
-# Standard Library
 from datetime import date
 
-# Django
 from django.test import TestCase
-
-# Third Party
 from freezegun import freeze_time
 
-# First Party
 from banners.models import Banner
 from fh_utils.fields import DayMonthField
 

@@ -1,7 +1,5 @@
-# Django
 from django.http import HttpResponse
 
-# First Party
 from robots.models import Robots
 
 

@@ -1,4 +1,3 @@
-# Django
 from django.template import Context, Template, TemplateSyntaxError
 from django.test import Client, TestCase
 

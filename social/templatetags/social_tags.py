@@ -1,16 +1,11 @@
-# Standard Library
 import contextlib
 import json
 from collections.abc import Iterable
 
-# Django
 from django import template
 from django.utils.safestring import mark_safe
-
-# Wagtail
 from wagtail.models import Site
 
-# First Party
 from banners.models import Banner
 from social.models import Social
 

@@ -1,15 +1,13 @@
-# Django
+from typing import ClassVar
+
 from django import forms
 from django.contrib import admin
 from django.db import models
 from django.db.models import Q
 from django.utils.html import mark_safe
 from django.utils.translation import gettext_lazy as _
+from wagtail.admin.panels import FieldPanel, FieldRowPanel, MultiFieldPanel, Panel
 
-# Wagtail
-from wagtail.admin.panels import FieldPanel, FieldRowPanel, MultiFieldPanel
-
-# First Party
 from fh_utils.managers import DatePeriodManager, StatusManager
 from fh_utils.models import StatusDatePeriodMixin, StatusMixin
 from fh_utils.utils import is_easter
@@ -50,7 +48,7 @@ class Logo(StatusDatePeriodMixin, models.Model):
 
     objects = EasterManager()
 
-    panels = [
+    panels: ClassVar[list[Panel]] = [
         *StatusMixin.mixin_panels,
         MultiFieldPanel(
             [
@@ -91,7 +89,7 @@ class Logo(StatusDatePeriodMixin, models.Model):
 
     class Meta:
         default_manager_name = "admin_objects"
-        ordering = ["-easter", "show_from"]
+        ordering: ClassVar[list[str]] = ["-easter", "show_from"]
 
     def __str__(self):
         return self.title

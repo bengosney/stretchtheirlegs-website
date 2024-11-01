@@ -1,7 +1,6 @@
-# Standard Library
 from datetime import date
+from typing import ClassVar
 
-# Third Party
 from dateutil.easter import easter
 
 
@@ -10,7 +9,7 @@ class ModelStatus:
     DRAFT_STATUS = 2
     HIDDEN_STATUS = 3
 
-    STATUS_CHOICES = [
+    STATUS_CHOICES: ClassVar[list[tuple[int, str]]] = [
         (LIVE_STATUS, "Published"),
         (HIDDEN_STATUS, "Unpublished"),
         (DRAFT_STATUS, "Draft"),

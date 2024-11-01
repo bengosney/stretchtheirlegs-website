@@ -1,9 +1,7 @@
-# Django
 from django import forms
 from django.core import mail
 from django.test import TestCase
 
-# First Party
 from pages.models import FormPage
 
 

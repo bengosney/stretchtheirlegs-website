@@ -1,11 +1,8 @@
-# Standard Library
 import contextlib
 import os
 
-# Third Party
 import dj_database_url
 
-# First Party
 from stl.settings.base import *  # noqa
 from stl.settings.base import BASE_URL, CDN_URL, DATABASES, MIDDLEWARE
 
@@ -19,9 +16,7 @@ AWS_STORAGE_BUCKET_NAME = env["AWS_STORAGE_BUCKET_NAME"]
 AWS_QUERYSTRING_AUTH = False
 AWS_S3_CUSTOM_DOMAIN = env["AWS_S3_CUSTOM_DOMAIN"]
 AWS_LOCATION = env.get("AWS_LOCATION", "")
-AWS_S3_OBJECT_PARAMETERS = {
-    "CacheControl": f"max-age={86400 * 365}",
-}
+AWS_S3_OBJECT_PARAMETERS = {"CacheControl": f"max-age={86400 * 365}"}
 
 ALLOWED_HOSTS = ["www.stretchtheirlegs.co.uk"]
 
@@ -59,9 +54,7 @@ COMPRESS_CSS_HASHING_METHOD = "content"
 
 with contextlib.suppress(KeyError):
     HONEYBADGER = {"API_KEY": env["HONEYBADGER_API_KEY"]}
-    MIDDLEWARE = [
-        "honeybadger.contrib.DjangoHoneybadgerMiddleware",
-    ] + MIDDLEWARE
+    MIDDLEWARE = ["honeybadger.contrib.DjangoHoneybadgerMiddleware", *MIDDLEWARE]
 
 WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = True
 
@@ -101,5 +94,4 @@ if "REDIS_URL" in os.environ:
 STATIC_URL = f"{CDN_URL}/static/"
 
 with contextlib.suppress(ImportError):
-    # First Party
     from stl.settings.local import *  # noqa

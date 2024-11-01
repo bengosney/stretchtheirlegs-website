@@ -1,8 +1,6 @@
-# Django
 from django.urls import path
 from django.views.generic.base import RedirectView
 
-# First Party
 from robots.views import robots
 
 favicon_view = RedirectView.as_view(url="/static/pages/favicon/favicon.ico", permanent=True)

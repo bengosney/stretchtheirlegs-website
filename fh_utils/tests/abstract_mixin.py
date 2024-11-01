@@ -1,9 +1,7 @@
-# Standard Library
 import contextlib
 import functools
 from typing import cast
 
-# Django
 from django.db import connection
 from django.db.models import Model
 from django.db.models.base import ModelBase

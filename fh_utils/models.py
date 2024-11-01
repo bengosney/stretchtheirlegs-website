@@ -1,13 +1,11 @@
-# Django
+from typing import ClassVar
+
 from django.contrib import admin
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel, Panel
 
-# Wagtail
-from wagtail.admin.panels import FieldPanel, MultiFieldPanel
-
-# First Party
 from fh_utils import ModelStatus
 from fh_utils.exceptions import PublishedDateValidationError
 from fh_utils.fields import DayMonthField
@@ -31,9 +29,7 @@ class StatusMixin(models.Model):
     def status_name(self) -> str:
         return ModelStatus.get_name(self.status)
 
-    mixin_panels = [
-        FieldPanel("status"),
-    ]
+    mixin_panels: ClassVar[list[Panel]] = [FieldPanel("status")]
 
 
 class StatusDatePeriodMixin(StatusMixin):
@@ -55,13 +51,9 @@ class StatusDatePeriodMixin(StatusMixin):
     def admin_show_to(self) -> str:
         return self.show_to.strftime("%B %d")
 
-    mixin_panels = [
+    mixin_panels: ClassVar[list[MultiFieldPanel]] = [
         MultiFieldPanel(
-            StatusMixin.mixin_panels
-            + [
-                FieldPanel("show_from"),
-                FieldPanel("show_to"),
-            ],
+            [*StatusMixin.mixin_panels, FieldPanel("show_from"), FieldPanel("show_to")],
             heading=_("Date Range"),
         ),
     ]
@@ -75,12 +67,9 @@ class StatusDateMixin(StatusMixin):
     class Meta:
         abstract = True
 
-    mixin_panels = [
+    mixin_panels: ClassVar[list[MultiFieldPanel]] = [
         MultiFieldPanel(
-            StatusMixin.mixin_panels
-            + [
-                FieldPanel("published"),
-            ],
+            [*StatusMixin.mixin_panels, FieldPanel("published")],
             heading=_("Published"),
         ),
     ]
@@ -95,13 +84,9 @@ class StatusDateRangeMixin(StatusMixin):
     class Meta:
         abstract = True
 
-    mixin_panels = [
+    mixin_panels: ClassVar[list[MultiFieldPanel]] = [
         MultiFieldPanel(
-            StatusMixin.mixin_panels
-            + [
-                FieldPanel("published_from"),
-                FieldPanel("published_to"),
-            ],
+            [*StatusMixin.mixin_panels, FieldPanel("published_from"), FieldPanel("published_to")],
             heading=_("Published"),
         ),
     ]

@@ -1,15 +1,11 @@
-# Django
+from typing import ClassVar
+
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-
-# Third Party
 from django_extensions.db import fields
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel, Panel
 
-# Wagtail
-from wagtail.admin.panels import FieldPanel, MultiFieldPanel
-
-# First Party
 from fh_utils.models import StatusDateRangeMixin
 
 
@@ -45,13 +41,7 @@ class Message(StatusDateRangeMixin, models.Model):
     def get_messages(cls, session):
         return [o for o in cls.objects.all() if not session.get(o.session_key, False) or not o.dismissible]
 
-    panels = StatusDateRangeMixin.mixin_panels + [
-        MultiFieldPanel(
-            [
-                FieldPanel("title"),
-                FieldPanel("message"),
-                FieldPanel("dismissible"),
-            ],
-            heading="Message",
-        ),
+    panels: ClassVar[list[Panel]] = [
+        *StatusDateRangeMixin.mixin_panels,
+        MultiFieldPanel([FieldPanel("title"), FieldPanel("message"), FieldPanel("dismissible")], heading="Message"),
     ]

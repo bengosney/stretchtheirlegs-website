@@ -1,15 +1,10 @@
-# Standard Library
 import datetime
 
-# Django
 from django.core.exceptions import ValidationError
-
-# Third Party
 from hypothesis import given
 from hypothesis.extra.django import TestCase
 from hypothesis.strategies import dates
 
-# First Party
 from fh_utils import ModelStatus
 from fh_utils.models import StatusDateRangeMixin
 from fh_utils.tests import today, tomorrow, yesterday

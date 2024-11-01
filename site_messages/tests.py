@@ -1,11 +1,7 @@
-# Django
 from django.test import TestCase
 from django.urls import reverse
-
-# Third Party
 from model_bakery import baker
 
-# First Party
 from site_messages.models import Message
 from site_messages.templatetags.message_tags import messages
 

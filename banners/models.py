@@ -1,20 +1,18 @@
-# Django
+from typing import ClassVar
+
 from django.contrib import admin
 from django.db import models
 from django.forms.utils import flatatt
 from django.utils.html import mark_safe
+from wagtail.admin.panels import FieldPanel, FieldRowPanel, Panel
 
-# Wagtail
-from wagtail.admin.panels import FieldPanel, FieldRowPanel
-
-# First Party
 from fh_utils.models import StatusDatePeriodMixin, StatusMixin
 
 
 class Banner(StatusDatePeriodMixin, models.Model):
     image = models.ForeignKey("wagtailimages.Image", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
 
-    panels = [
+    panels: ClassVar[list[Panel]] = [
         *StatusMixin.mixin_panels,
         FieldRowPanel(
             [
