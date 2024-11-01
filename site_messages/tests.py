@@ -59,9 +59,7 @@ class TestSiteMessages(TestCase):
         self.assertEqual(f"{msg}", msg.title)
 
     def test_message_tag(self):
-        msgs = []
-        for _ in range(5):
-            msgs.append(baker.make(Message))
+        msgs = [baker.make(Message) for _ in range(5)]
 
         class MockContext:
             def __init__(self, request) -> None:
