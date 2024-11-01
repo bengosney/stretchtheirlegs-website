@@ -118,4 +118,4 @@ class Logo(StatusDatePeriodMixin, models.Model):
         if attr in EFFECTS:
             return attr == self.effect
 
-        raise AttributeError(f"{self.__class__} does not contain {attr}")
+        raise AttributeError(self, attr)

@@ -1,6 +1,5 @@
 # Django
 from django.contrib import admin
-from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
@@ -10,6 +9,7 @@ from wagtail.admin.panels import FieldPanel, MultiFieldPanel
 
 # First Party
 from fh_utils import ModelStatus
+from fh_utils.exceptions import PublishedDateValidationError
 from fh_utils.fields import DayMonthField
 from fh_utils.managers import DateManager, DatePeriodManager, DateRangeManager, StatusManager
 
@@ -116,6 +116,4 @@ class StatusDateRangeMixin(StatusMixin):
 
     def _validate_start_end_dates(self):
         if self.published_to < self.published_from:
-            raise ValidationError(
-                f"published_to({self.published_to}) can not be before published_from({self.published_from})"
-            )
+            raise PublishedDateValidationError(self.published_from, self.published_to)
