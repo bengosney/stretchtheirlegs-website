@@ -121,12 +121,21 @@ JS_SRC = $(wildcard js/*.ts)
 JS_LIB = $(JS_SRC:js/%.ts=stl/static/js/%.js)
 
 stl/static/js/: $(JS_LIB)
-stl/static/js/%.js: js/%.ts $(JS_SRC)
+stl/static/js/%.min.js: js/%.ts $(JS_SRC)
 	@mkdir -p $(@D)
-	npx parcel build $< --dist-dir $(@D)
+	npx esbuild $< --bundle --minify --sourcemap --outfile=$@
 	@touch $@
 
-js: stl/static/js/stl.js ## Build the js
+stl/static/js/snow.min.js:
+	curl https://app.embed.im/snow.js > $@
+
+stl/static/js/fireworks.min.js:
+	curl https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js > $@
+
+stl/static/js/tsparticles.min.js:
+	curl https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js > $@
+
+js: stl/static/js/stl.min.js stl/static/js/snow.min.js stl/static/js/fireworks.min.js stl/static/js/tsparticles.min.js ## Build the js
 
 watch-css: ## Watch and build the css
 	@echo "Watching scss"
