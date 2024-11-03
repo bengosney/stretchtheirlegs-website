@@ -2,8 +2,6 @@
 .DEFAULT_GOAL := install
 .PRECIOUS: requirements.%.in
 
-MAKEFLAGS += -j4
-
 HOOKS=$(.git/hooks/pre-commit)
 REQS=$(shell python -c 'import tomllib;[print(f"requirements.{k}.txt") for k in tomllib.load(open("pyproject.toml", "rb"))["project"]["optional-dependencies"].keys()]')
 
@@ -108,11 +106,12 @@ db.sqlite3: | $(UV_PATH) ## Import the database from heroku
 	$(call check_command,db-to-sqlite,uv pip install db-to-sqlite)
 	db-to-sqlite $(shell heroku config | grep DATABASE_URL | tr -s " " | cut -d " " -f 2) $@ --all --skip "cerberus_*" -p
 
-stl/static/css/%.css: scss/%.scss $(SCSS)
+stl/static/css/%.css: scss/%.scss $(SCSS) node_modules
 	npx sass $< $@
 
-stl/static/css/%.min.css: stl/static/css/%.css postcss.config.js
+stl/static/css/%.min.css: stl/static/css/%.css postcss.config.js node_modules
 	npx postcss $< -o $@
+	@rm -f $<.map
 	@touch $@
 
 css: stl/static/css/main.min.css ## Build the css
