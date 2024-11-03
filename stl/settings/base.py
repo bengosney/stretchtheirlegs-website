@@ -187,3 +187,5 @@ CSP_FONT_SRC = ("'self'", CDN_URL)
 CSP_IMG_SRC = ("'self'", "data:", CDN_URL)
 
 CSP_EXCLUDE_URL_PREFIXES = ("/admin/",)
+
+MAX_FORM_TITLE_LENGTH = 30

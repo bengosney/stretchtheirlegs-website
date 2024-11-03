@@ -4,6 +4,7 @@ from typing import ClassVar
 
 from modelcluster.fields import ParentalKey
 
+from django.conf import settings
 from django.db import models
 from django.http import Http404
 
@@ -127,6 +128,10 @@ class FormField(AbstractFormField):
     page = ParentalKey("FormPage", on_delete=models.CASCADE, related_name="form_fields")
 
 
+def shorten_label(label):
+    return shorten(label, settings.MAX_FORM_TITLE_LENGTH, placeholder="...")
+
+
 class FormPage(AbstractEmailForm, ParentTools):
     sub_heading = models.CharField(max_length=255, default="", blank=True)
     show_in_menus_default = True
@@ -168,7 +173,7 @@ class FormPage(AbstractEmailForm, ParentTools):
         return send_mail(self.subject, self.render_email(form), addresses, self.from_address, reply_to=reply_to)
 
     def get_data_fields(self):
-        return [(name, shorten(label, 30, placeholder="...")) for name, label in super().get_data_fields()]
+        return [(name, shorten_label(label)) for name, label in super().get_data_fields()]
 
 
 class MenuPage(Page):
