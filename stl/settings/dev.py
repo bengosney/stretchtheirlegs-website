@@ -55,6 +55,6 @@ STATICFILES_DIRS += [
 ]
 
 try:
-    from stl.settings.local import *  # noqa
+    from stl.settings.local import *  # type: ignore # noqa
 except ImportError:
     pass
