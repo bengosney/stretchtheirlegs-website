@@ -59,6 +59,7 @@ optional-dependencies.dev = [
   "pytest-picked",
   "pytest-watch",
   "ruff",
+  "testcontainers[postgres]",
   "uv",
 ]
 
