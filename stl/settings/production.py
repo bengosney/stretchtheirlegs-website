@@ -25,7 +25,7 @@ CSRF_TRUSTED_ORIGINS = [
     BASE_URL,
 ]
 
-DATABASES["default"] = dj_database_url.config()
+DATABASES["default"] = dj_database_url.config()  # type: ignore
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -95,4 +95,4 @@ if "REDIS_URL" in os.environ:
 STATIC_URL = f"{CDN_URL}/static/"
 
 with contextlib.suppress(ImportError):
-    from stl.settings.local import *  # noqa
+    from stl.settings.local import *  # type: ignore # noqa
