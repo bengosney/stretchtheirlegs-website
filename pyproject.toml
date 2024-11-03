@@ -58,6 +58,7 @@ optional-dependencies.dev = [
   "pytest-django",
   "pytest-picked",
   "pytest-watch",
+  "pyyaml",
   "ruff",
   "testcontainers[postgres]",
   "uv",
