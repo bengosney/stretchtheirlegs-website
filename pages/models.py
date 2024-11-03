@@ -129,7 +129,10 @@ class FormField(AbstractFormField):
 
 
 def shorten_label(label):
-    return shorten(label, settings.MAX_FORM_TITLE_LENGTH, placeholder="...")
+    short = shorten(label, settings.MAX_FORM_TITLE_LENGTH, placeholder="...")
+    if short == "...":
+        return label[: settings.MAX_FORM_TITLE_LENGTH - 3] + "..."
+    return short
 
 
 class FormPage(AbstractEmailForm, ParentTools):
