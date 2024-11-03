@@ -19,6 +19,10 @@ def test_shorten_label_exactly_max():
 
 
 def test_shorten_label_longer_than_max():
+    label = "12Characters!"
+    assert shorten_label(label) == "12Charac..."
+
+def test_shorten_label_much_longer():
     label = "This is a very long label"
     assert shorten_label(label) == "This is..."
 
