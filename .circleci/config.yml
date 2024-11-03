@@ -34,7 +34,7 @@ jobs:
         name: Run tests
         command: |
           mkdir test-results
-          pytest --junitxml=test-results/junit.xml
+          DJANGO_SETTINGS_MODULE=stl.settings.dev pytest --junitxml=test-results/junit.xml
     - store_test_results:
         path: test-results
     - store_artifacts:
