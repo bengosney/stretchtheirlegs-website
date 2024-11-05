@@ -8,7 +8,7 @@ module.exports = {
     require("cssnano")({ zindex: false }),
     require("@fullhuman/postcss-purgecss")({
       content: ["./**/*.html"],
-      safelist: [/^nav-level-\d$/, /^level-\d$/, /^block-/, /^field-/, /^foreground$/, /^background$/],
+      safelist: [/^nav-level-\d$/, /^level-\d$/, /^block-/, /^field-/, /^foreground$/, /^background$/, /canvas$/],
       skippedContentGlobs: ["node_modules/**", ".direnv/**"],
     }),
   ],
