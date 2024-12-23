@@ -47,9 +47,9 @@ black==24.10.0 \
     --hash=sha256:f9da3333530dbcecc1be13e69c250ed8dfa67f43c4005fb537bb426e19200d50 \
     --hash=sha256:fe4d6476887de70546212c99ac9bd803d90b42fc4767f058a0baa895013fbb3e
     # via stretchtheirlegs (pyproject.toml)
-boto3==1.35.85 \
-    --hash=sha256:6257cad97d92c2b5597aec6e5484b9cfed8c0c785297942ed37cfaf2dd0ec23c \
-    --hash=sha256:f22678bdbdc91ca6022a45696284d236e1fbafa84ca3a69d108d4a155cdd823e
+boto3==1.35.86 \
+    --hash=sha256:d61476fdd5a5388503b72c897083310d2329ce088593c4332b571a860be5d155 \
+    --hash=sha256:ed59fb4883da167464a5dfbc96e76d571db75e1a7a27d8e7b790c3008b02fcc7
     # via stretchtheirlegs (pyproject.toml)
 botocore==1.35.86 \
     --hash=sha256:77cb4b445e4f424f956c68c688bd3ad527f4d214d51d67ffc8e245f4476d7de0 \
