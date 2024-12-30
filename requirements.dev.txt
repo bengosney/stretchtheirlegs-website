@@ -1127,9 +1127,9 @@ testcontainers==4.8.2 \
     --hash=sha256:9e19af077cd96e1957c13ee466f1f32905bc6c5bc1bc98643eb18be1a989bfb0 \
     --hash=sha256:dd4a6a2ea09e3c3ecd39e180b6548105929d0bb78d665ce9919cb3f8c98f9853
     # via stretchtheirlegs (pyproject.toml)
-types-pyyaml==6.0.12.20241221 \
-    --hash=sha256:0657a4ff8411a030a2116a196e8e008ea679696b5b1a8e1a6aa8ebb737b34688 \
-    --hash=sha256:4f149aa893ff6a46889a30af4c794b23833014c469cc57cbc3ad77498a58996f
+types-pyyaml==6.0.12.20241230 \
+    --hash=sha256:7f07622dbd34bb9c8b264fe860a17e0efcad00d50b5f27e93984909d9363498c \
+    --hash=sha256:fa4d32565219b68e6dee5f67534c722e53c00d1cfc09c435ef04d7353e1e96e6
     # via django-stubs
 typing-extensions==4.12.2 \
     --hash=sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d \
