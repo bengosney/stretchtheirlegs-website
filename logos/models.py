@@ -92,6 +92,12 @@ class Logo(StatusDatePeriodMixin, models.Model):
         default_manager_name = "admin_objects"
         ordering: ClassVar[list[str]] = ["-easter", "show_from"]
 
+    def __getattr__(self, attr):
+        if attr in EFFECTS:
+            return attr == self.effect
+
+        raise AttributeError(self, attr)
+
     def __str__(self):
         return self.title
 
@@ -112,9 +118,3 @@ class Logo(StatusDatePeriodMixin, models.Model):
             return cls.objects.all()[0]
         except IndexError:
             return None
-
-    def __getattr__(self, attr):
-        if attr in EFFECTS:
-            return attr == self.effect
-
-        raise AttributeError(self, attr)
