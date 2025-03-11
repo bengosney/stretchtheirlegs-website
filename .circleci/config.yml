@@ -1,27 +1,15 @@
 version: 2.1
 orbs:
-  python: circleci/python@1.5.0
-  heroku: circleci/heroku@1.2.6
+  python: circleci/python@3.0.0
+
 jobs:
-  build:
+  test:
     docker:
     - image: cimg/python:3.12.5
-      environment:
-        DATABASE_URL: postgresql://postgres:password@localhost:5432/circle_test?sslmode=disable
-        ENV: testing
-    - image: cimg/postgres:14.1
-      environment:
-        POSTGRES_USER: postgres
-        POSTGRES_DB: circle_test
-        POSTGRES_PASSWORD: password
-
     steps:
     - checkout
     - restore_cache:
         key: v3-deps-{{ checksum "requirements.dev.txt" }}-{{ checksum "requirements.txt" }}
-    - python/install-packages:
-        pip-dependency-file: requirements.txt
-        pkg-manager: pip
     - python/install-packages:
         pip-dependency-file: requirements.dev.txt
         pkg-manager: pip
@@ -32,11 +20,9 @@ jobs:
         - /home/circleci/.cache/pip
     - run:
         name: Run tests
-        command: |
-          mkdir test-results
-          DJANGO_SETTINGS_MODULE=stl.settings.dev pytest --junitxml=test-results/junit.xml
-    - store_test_results:
-        path: test-results
-    - store_artifacts:
-        path: test-results
-        destination: tr1
+        command: python -m pytest
+
+workflows:
+  tests:
+    jobs:
+    - test
