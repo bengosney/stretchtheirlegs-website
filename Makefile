@@ -34,7 +34,7 @@ help: ## Display this help
 	curl https://gist.githubusercontent.com/bengosney/4b1f1ab7012380f7e9b9d1d668626143/raw/060fd68f4c7dec75e8481e5f5a4232296282779d/.pre-commit-config.yaml > $@
 	pre-commit autoupdate
 
-requirements.%.txt: $(UV_PATH) pyproject.toml
+requirements.%.txt: $(UV_PATH) requirements.txt pyproject.toml
 	@echo "Builing $@"
 	python -m uv pip compile --generate-hashes --extra $* $(filter-out $<,$^) > $@
 
