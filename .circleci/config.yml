@@ -20,7 +20,7 @@ jobs:
         - /home/circleci/.cache/pip
     - run:
         name: Run tests
-        command: python -m pytest
+        command: DJANGO_SETTINGS_MODULE=stl.settings.dev python -m pytest
 
 workflows:
   tests:
