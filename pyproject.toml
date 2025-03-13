@@ -60,6 +60,7 @@ optional-dependencies.dev = [
   "pytest-watch",
   "pyyaml",
   "ruff",
+  "tach",
   "testcontainers[postgres]",
   "uv",
 ]

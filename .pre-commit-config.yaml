@@ -58,3 +58,7 @@ repos:
   rev: v2.5.0
   hooks:
   - id: pyproject-fmt
+- repo: https://github.com/gauge-sh/tach-pre-commit
+  rev: v0.28.0
+  hooks:
+  - id: tach
