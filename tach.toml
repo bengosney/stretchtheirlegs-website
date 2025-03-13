@@ -1,0 +1,38 @@
+exclude = ["**/*__pycache__", "**/*egg-info", "**/docs", "**/tests", "**/venv"]
+source_roots = ["."]
+
+[[interfaces]]
+expose = ["(managers|fields|models|utils).*"]
+from = ["fh_utils"]
+
+[[modules]]
+path = "logos"
+depends_on = ["fh_utils"]
+
+[[modules]]
+path = "articles"
+depends_on = []
+
+[[modules]]
+path = "stl"
+depends_on = []
+
+[[modules]]
+path = "fh_utils"
+depends_on = []
+
+[[modules]]
+path = "search"
+depends_on = []
+
+[[modules]]
+path = "site_messages"
+depends_on = ["fh_utils"]
+
+[[modules]]
+path = "social"
+depends_on = ["banners"]
+
+[[modules]]
+path = "banners"
+depends_on = ["fh_utils"]

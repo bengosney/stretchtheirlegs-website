@@ -1,10 +1,15 @@
 exclude: migrations/.*\.py|Procfile|[aw]sgi\.py|node_modules|.git|\.polar|inputs/.*
 repos:
 - repo: https://github.com/adamchainz/django-upgrade
-  rev: 1.22.2
+  rev: 1.23.1
   hooks:
   - id: django-upgrade
     args: [--target-version, '5.0']
+- repo: https://github.com/asottile/pyupgrade
+  rev: v3.19.1
+  hooks:
+  - id: pyupgrade
+    args: [--py312-plus]
 - repo: https://github.com/MarcoGorelli/absolufy-imports
   rev: v0.3.1
   hooks:
@@ -25,7 +30,7 @@ repos:
   - id: mixed-line-ending
     args: [--fix, lf]
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.9.2
+  rev: v0.10.0
   hooks:
   - id: ruff
     args: [--fix]
@@ -55,6 +60,10 @@ repos:
   hooks:
   - id: djhtml
 - repo: https://github.com/tox-dev/pyproject-fmt
-  rev: v2.5.0
+  rev: v2.5.1
   hooks:
   - id: pyproject-fmt
+- repo: https://github.com/gauge-sh/tach-pre-commit
+  rev: v0.28.0
+  hooks:
+  - id: tach
