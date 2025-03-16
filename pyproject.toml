@@ -9,11 +9,10 @@ description = "Corporate website for Stretch Their Legs"
 authors = [
   { name = "Ben Gosney", email = "bengosney@googlemail.com" },
 ]
-requires-python = ">=3.12.1"
+requires-python = ">=3.13"
 
 classifiers = [
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
