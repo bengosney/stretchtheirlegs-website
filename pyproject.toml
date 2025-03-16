@@ -9,11 +9,23 @@ description = "Corporate website for Stretch Their Legs"
 authors = [
   { name = "Ben Gosney", email = "bengosney@googlemail.com" },
 ]
+# [[[cog
+# import cog
+# with open(".python-version") as f:
+#   version = f.read().strip()
+# cog.outl(f"requires-python = \">={version}\"")
+# ]]]
 requires-python = ">=3.13"
+# [[[end]]] (checksum: cd7dfc1c72006b07656d9d1f6147982b)
 
 classifiers = [
+  # [[[cog
+  # cog.outl(f"\"Programming Language :: Python :: {version.split('.')[0]} :: Only\",", dedent=False)
+  # cog.outl(f"\"Programming Language :: Python :: {version}\",", dedent=False)
+  # ]]]
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.13",
+  # [[[end]]] (checksum: f9312ce79962799e985b47095be03edb)
 ]
 dependencies = [
   "boto3",
@@ -39,6 +51,7 @@ dependencies = [
 
 optional-dependencies.dev = [
   "black",
+  "cogapp",
   "django-debug-toolbar",
   "django-debugtools",
   "django-stubs",
@@ -66,10 +79,18 @@ optional-dependencies.dev = [
 
 [tool.black]
 line-length = 128
-target-version = [ 'py312' ]
+# [[[cog
+# cog.outl(f"target-version = [ 'py{version.replace('.','')}' ]")
+# ]]]
+target-version = [ 'py313' ]
+# [[[end]]] (checksum: 0c7a79d78ab47be389c4270e04207a40)
 
 [tool.ruff]
-target-version = "py312"
+# [[[cog
+# cog.outl(f"target-version = \"py{version.replace('.','')}\"")
+# ]]]
+target-version = "py313"
+# [[[end]]] (checksum: 7ee9b2bab8765cca66d8030a46d4a46e)
 line-length = 120
 exclude = [ "migrations" ]
 
