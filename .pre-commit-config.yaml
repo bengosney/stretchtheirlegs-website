@@ -17,7 +17,7 @@ repos:
     # [[[cog
     # import cog
     # with open(".python-version") as f:
-    #   cog.out(f"args: [--py{f.read().strip().replace(".", "")}-plus]", dedent=False)
+    #   cog.out(f"args: [--py{f.read().strip().replace(".", "")}-plus]")
     # ]]]
     args: [--py313-plus]
     # [[[end]]] (checksum: 6cea9636c70796bb80ba2c43f851874c)
