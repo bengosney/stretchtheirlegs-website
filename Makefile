@@ -1,4 +1,4 @@
-.PHONY: help clean test install all init dev css watch node js clean-pyc
+.PHONY: help clean test install all init dev css watch node js clean-pyc cog COGABLE
 .DEFAULT_GOAL := install
 .PRECIOUS: requirements.%.in
 
@@ -15,7 +15,9 @@ PIP_PATH:=$(BINPATH)/pip
 WHEEL_PATH:=$(BINPATH)/wheel
 PRE_COMMIT_PATH:=$(BINPATH)/pre-commit
 UV_PATH:=$(BINPATH)/uv
+COG_PATH:=$(BINPATH)/cog
 
+COGABLE:=$(shell git ls-files | xargs grep -l "\[\[\[cog")
 PYTHON_FILES:=$(wildcard ./**/*.py ./**/tests/*.py)
 
 check_command = @command -v $(1) >/dev/null 2>&1 || { echo >&2 "$(1) is not installed."; $(2); }
@@ -49,7 +51,7 @@ requirements.txt: $(UV_PATH) pyproject.toml
 .git/hooks/pre-commit: $(PRE_COMMIT_PATH) .pre-commit-config.yaml .git
 	pre-commit install
 
-.envrc:
+.envrc: .python-version
 	@echo "Setting up .envrc then stopping"
 	@echo "layout python python$(PYTHON_VERSION)" > $@
 	@touch -d '+1 minute' $@
@@ -66,6 +68,13 @@ $(UV_PATH): $(PIP_PATH) $(WHEEL_PATH)
 $(PRE_COMMIT_PATH): $(PIP_PATH) $(WHEEL_PATH)
 	python -m pip install pre-commit
 	@touch $@
+
+$(COG_PATH): $(PIP_PATH) $(WHEEL_PATH)
+	python -m pip install cogapp
+	@touch $@
+
+cog: $(COG_PATH) $(COGABLE)
+	@cog -rc $(filter-out $<,$^)
 
 init: .direnv $(UV_PATH) .git .git/hooks/pre-commit requirements.txt requirements.dev.txt ## Initalise a enviroment
 
