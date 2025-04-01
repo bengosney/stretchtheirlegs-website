@@ -4,8 +4,8 @@ updates:
     directory: "/"
     schedule:
       interval: daily
-      time: "20:00"
-      timezone: GMT
+      time: "16:00"
+      timezone: "Europe/London"
     open-pull-requests-limit: 50
     target-branch: main
     versioning-strategy: increase
