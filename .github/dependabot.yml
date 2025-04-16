@@ -8,4 +8,3 @@ updates:
       timezone: GMT
     open-pull-requests-limit: 50
     target-branch: main
-    versioning-strategy: increase
