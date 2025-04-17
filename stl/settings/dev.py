@@ -37,10 +37,16 @@ LOGGING = {
     },
 }
 
-CSP_DEFAULT_SRC = None
-CSP_STYLE_SRC = None
-CSP_FONT_SRC = None
-CSP_IMG_SRC = None
+CONTENT_SECURITY_POLICY = {
+    "EXCLUDE_URL_PREFIXES": ["/admin"],
+    "DIRECTIVES": {
+        "default-src": None,
+        "script-src": None,
+        "style-src": None,
+        "font-src": None,
+        "img-src": None,
+    },
+}
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
