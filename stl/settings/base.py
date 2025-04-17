@@ -3,6 +3,8 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+from csp.constants import SELF, UNSAFE_INLINE
+
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
@@ -180,12 +182,15 @@ BASE_URL = os.environ.get("BASE_URL", "http://localhost")
 CDN_URL = os.environ.get("CDN_URL", "http://localhost")
 WAGTAILADMIN_BASE_URL = BASE_URL
 
-CSP_DEFAULT_SRC = "'self'"
-CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", CDN_URL)
-CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", CDN_URL)
-CSP_FONT_SRC = ("'self'", CDN_URL)
-CSP_IMG_SRC = ("'self'", "data:", CDN_URL)
-
-CSP_EXCLUDE_URL_PREFIXES = ("/admin/",)
+CONTENT_SECURITY_POLICY = {
+    "EXCLUDE_URL_PREFIXES": ["/admin"],
+    "DIRECTIVES": {
+        "default-src": [SELF],
+        "script-src": [SELF, UNSAFE_INLINE, CDN_URL],
+        "style-src": [SELF, UNSAFE_INLINE, CDN_URL],
+        "font-src": [SELF, CDN_URL],
+        "img-src": [SELF, "data:", CDN_URL],
+    },
+}
 
 MAX_FORM_TITLE_LENGTH = 30
