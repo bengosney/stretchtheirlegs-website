@@ -28,7 +28,7 @@ jobs:
         name: Run tests
         command: DJANGO_SETTINGS_MODULE=stl.settings.dev python -m pytest
     - run:
-        name: Dajngo system check
+        name: Django system check
         command: DJANGO_SETTINGS_MODULE=stl.settings.dev python manage.py check
 
 workflows:
