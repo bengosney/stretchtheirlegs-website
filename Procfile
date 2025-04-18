@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn stl.wsgi --log-file -
+web: granian --interface wsgi --port $PORT --host 0.0.0.0 stl.wsgi:application
