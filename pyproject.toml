@@ -35,6 +35,7 @@ dependencies = [
   "django-extensions",
   "django-htmx",
   "django-storages",
+  "granian",
   "gunicorn",
   "honeybadger",
   "opencv-python-headless",
