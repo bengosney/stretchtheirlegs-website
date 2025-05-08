@@ -1,8 +1,12 @@
 ---
 version: 2
 updates:
-  - package-ecosystem: "pip"
+  - package-ecosystem: pip
+    directory: "/"
     schedule:
-      interval: "daily"
-    target-branch: main
-    groups: {}
+      interval: daily
+      time: "13:00"
+    groups:
+      python-packages:
+        patterns:
+          - "*"
