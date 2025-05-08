@@ -36,11 +36,11 @@ help: ## Display this help
 	pre-commit autoupdate
 
 requirements.%.txt: $(UV_PATH) requirements.txt pyproject.toml
-	@echo "Builing $@"
+	@echo "Building $@"
 	$(UV_PATH) pip compile --quiet --generate-hashes -o $@ --extra $* $(filter-out $<,$^)
 
 requirements.txt: $(UV_PATH) pyproject.toml
-	@echo "Builing $@"
+	@echo "Building $@"
 	$(UV_PATH) pip compile --quiet --generate-hashes -o $@ $(filter-out $<,$^)
 
 .direnv: .envrc
