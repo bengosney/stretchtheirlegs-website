@@ -1,6 +1,8 @@
 ---
 version: 2
 updates:
-  - schedule:
+  - package-ecosystem: "pip"
+    schedule:
       interval: "daily"
     target-branch: main
+    groups: {}
