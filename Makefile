@@ -36,12 +36,12 @@ help: ## Display this help
 	pre-commit autoupdate
 
 requirements.%.txt: $(UV_PATH) requirements.txt pyproject.toml
-	@echo "Builing $@"
-	python -m uv pip compile --generate-hashes -o $@ --extra $* $(filter-out $<,$^) > /dev/null
+	@echo "Building $@"
+	$(UV_PATH) pip compile --quiet --generate-hashes -o $@ --extra $* $(filter-out $<,$^)
 
 requirements.txt: $(UV_PATH) pyproject.toml
-	@echo "Builing $@"
-	python -m uv pip compile --generate-hashes -o $@ $(filter-out $<,$^) > /dev/null
+	@echo "Building $@"
+	$(UV_PATH) pip compile --quiet --generate-hashes -o $@ $(filter-out $<,$^)
 
 .direnv: .envrc
 	python -m pip install --upgrade pip
