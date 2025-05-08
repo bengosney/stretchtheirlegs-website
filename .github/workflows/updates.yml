@@ -1,8 +1,6 @@
 name: Update packages
 
-on:
-  schedule:
-    - cron: "0 13 * * *"
+on: workflow_dispatch
 
 jobs:
   uv-example:
