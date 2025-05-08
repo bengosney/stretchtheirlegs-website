@@ -1,8 +1,6 @@
 ---
 version: 2
 updates:
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "weekly"
+  - schedule:
+      interval: "daily"
     target-branch: main
