@@ -1,6 +1,9 @@
 name: Update packages
 
-on: workflow_dispatch
+on: 
+  schedule:
+    - cron: '0 19 * * *' # Every day at 13:00 UTC
+  workflow_dispatch:
 
 jobs:
   uv-example:
