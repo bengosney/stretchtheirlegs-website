@@ -22,10 +22,6 @@ path = "fh_utils"
 depends_on = []
 
 [[modules]]
-path = "search"
-depends_on = []
-
-[[modules]]
 path = "site_messages"
 depends_on = ["fh_utils"]
 
