@@ -74,6 +74,7 @@ optional-dependencies.dev = [
   "ruff",
   "tach",
   "testcontainers[postgres]",
+  "ty",
   "uv",
 ]
 
