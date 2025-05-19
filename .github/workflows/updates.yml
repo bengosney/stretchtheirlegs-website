@@ -2,7 +2,7 @@ name: Update packages
 
 on: 
   schedule:
-    - cron: '0 19 * * *' # Every day at 13:00 UTC
+    - cron: '45 19 * * *'
   workflow_dispatch:
 
 jobs:
