@@ -3,7 +3,7 @@ from typing import ClassVar
 from django.contrib import admin
 from django.db import models
 from django.forms.utils import flatatt
-from django.utils.html import mark_safe
+from django.utils.safestring import mark_safe
 
 from wagtail.admin.panels import FieldPanel, FieldRowPanel, Panel
 

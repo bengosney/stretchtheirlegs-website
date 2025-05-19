@@ -1,10 +1,11 @@
 import contextlib
+from typing import Any
 
 from django.db import models
 
 
 class DayMonthField(models.DateField):
-    def __init__(self, *args: str, after: str | None = None, **kwargs):
+    def __init__(self, *args: Any, after: str | None = None, **kwargs):
         self.after = after
         super().__init__(*args, **kwargs)
 
