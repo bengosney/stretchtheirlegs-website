@@ -100,7 +100,7 @@ node: node_modules
 
 python: $(UV_PATH) requirements.txt $(REQS)
 	@echo "Installing $(filter-out $<,$^)"
-	@python -m uv pip sync $(filter-out $<,$^)
+	@$(UV_PATH) pip sync $(filter-out $<,$^)
 
 install: python node ## Install development requirements (default)
 
