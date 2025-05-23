@@ -645,9 +645,9 @@ icecream==2.1.4 \
     --hash=sha256:58755e58397d5350a76f25976dee7b607f5febb3c6e1cddfe6b1951896e91573 \
     --hash=sha256:7bb715f69102cae871b3a361c3b656536db02cfcadac9664c673581cac4df4fd
     # via stretchtheirlegs (pyproject.toml)
-identify==2.6.10 \
-    --hash=sha256:45e92fd704f3da71cc3880036633f48b4b7265fd4de2b57627cb157216eb7eb8 \
-    --hash=sha256:5f34248f54136beed1a7ba6a6b5c4b6cf21ff495aac7c359e1ef831ae3b8ab25
+identify==2.6.11 \
+    --hash=sha256:63e98071a592f1dc14ab71c0c50644b3e056387aa04cc8c3849f8f0a2d290aea \
+    --hash=sha256:7c637280b88b37110c4b7955c055fc93dcad386973fd9023db5d770c3eed878f
     # via pre-commit
 idna==3.10 \
     --hash=sha256:12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9 \
