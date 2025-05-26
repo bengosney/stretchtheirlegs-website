@@ -1327,9 +1327,9 @@ ty==0.0.1a5 \
     --hash=sha256:e13583a89189546d6efff8579d3a2275c9a6721cc2a1b31af2d5d0160d92ef1f \
     --hash=sha256:f270d5e53eda1469ec6a642b2216634d0390f02cb5eea0ba96f32914cecd83b6
     # via stretchtheirlegs (pyproject.toml)
-types-pyyaml==6.0.12.20250402 \
-    --hash=sha256:652348fa9e7a203d4b0d21066dfb00760d3cbd5a15ebb7cf8d33c88a49546681 \
-    --hash=sha256:d7c13c3e6d335b6af4b0122a01ff1d270aba84ab96d1a1a1063ecba3e13ec075
+types-pyyaml==6.0.12.20250516 \
+    --hash=sha256:8478208feaeb53a34cb5d970c56a7cd76b72659442e733e268a94dc72b2d0530 \
+    --hash=sha256:9f21a70216fc0fa1b216a8176db5f9e0af6eb35d2f2932acb87689d03a5bf6ba
     # via django-stubs
 typing-extensions==4.13.2 \
     --hash=sha256:a439e7c04b49fec3e5d3e2beaa21755cadbbdc391694e28ccdd36ca4a1408f8c \
