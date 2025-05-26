@@ -636,8 +636,8 @@ gunicorn==23.0.0 \
     # via
     #   -r requirements.txt
     #   stretchtheirlegs (pyproject.toml)
-honeybadger==0.23.0 \
-    --hash=sha256:d0eec66c10531dc76e7a1f7de0953882e37d41ad6e6391fa8382be0de37cb8d8
+honeybadger==0.23.1 \
+    --hash=sha256:db42c05aa4d79f30700a1e4bd7b649762226dc9260d3766a77a78976dd853ade
     # via
     #   -r requirements.txt
     #   stretchtheirlegs (pyproject.toml)
