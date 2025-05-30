@@ -58,9 +58,9 @@ boto3==1.38.21 \
     # via
     #   -r requirements.txt
     #   stretchtheirlegs (pyproject.toml)
-botocore==1.38.26 \
-    --hash=sha256:780bf3deba610e915bf1aee32c7ce9cc4ff299a9aab79772dba7936b7dd5b24b \
-    --hash=sha256:d73559858d8fda5d41d3833cc784ba472eb794cff95f94e9f21ba5f03c0dc8db
+botocore==1.38.27 \
+    --hash=sha256:9788f7efe974328a38cbade64cc0b1e67d27944b899f88cb786ae362973133b6 \
+    --hash=sha256:a785d5e9a5eda88ad6ab9ed8b87d1f2ac409d0226bba6ff801c55359e94d91a8
     # via
     #   -r requirements.txt
     #   boto3
