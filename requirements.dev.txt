@@ -52,9 +52,9 @@ black==25.1.0 \
     --hash=sha256:ea0213189960bda9cf99be5b8c8ce66bb054af5e9e861249cd23471bd7b0b3ba \
     --hash=sha256:f3df5f1bf91d36002b0a75389ca8663510cf0531cca8aa5c1ef695b46d98655f
     # via stretchtheirlegs (pyproject.toml)
-boto3==1.38.21 \
-    --hash=sha256:37e4b6b7f77f4cc476ea82eb76a502a289bb750eee96f7d07ec9bcec6592191a \
-    --hash=sha256:417d0328fd3394ffb1c1f400d4277d45b0b86f48d2f088a02306474969344a47
+boto3==1.38.31 \
+    --hash=sha256:491a4f1f2ae64f8e45a9d97896684dde5d8d14d8ab5083d4545ab3cb6a9b005e \
+    --hash=sha256:809945a62d8bea5bbb4e85261530b6481c08aa21579864aa885cb8fd0768ee17
     # via
     #   -r requirements.txt
     #   stretchtheirlegs (pyproject.toml)
