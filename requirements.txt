@@ -14,9 +14,9 @@ beautifulsoup4==4.13.4 \
     --hash=sha256:9bbbb14bfde9d79f38b8cd5f8c7c85f4b8f2523190ebed90e950a8dea4cb1c4b \
     --hash=sha256:dbb3c4e1ceae6aefebdaf2423247260cd062430a410e38c66f2baa50a8437195
     # via wagtail
-boto3==1.38.28 \
-    --hash=sha256:1bbf770339d294c91dd396ac90588753d89b9fdd63496edc9bc6f710f24ed25a \
-    --hash=sha256:69395075d54be4552719ccadad9f65a3dee5bb3751701e8851d65d71974a791d
+boto3==1.38.33 \
+    --hash=sha256:25d0717489c658f7ae6c3c7f0f7e1b4d611b30b2f08f0fcef6455ac6864a8768 \
+    --hash=sha256:6467909c1ae01ff67981f021bb2568592211765ec8a9a1d2c4529191e46c3541
     # via stretchtheirlegs (pyproject.toml)
 botocore==1.38.28 \
     --hash=sha256:515e1a535a27f17e1381aec1fb48eaa2c2308258c4db0bfd09e4f1cd1f239c44 \
