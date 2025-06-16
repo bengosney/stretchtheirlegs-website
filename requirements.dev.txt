@@ -1265,9 +1265,9 @@ telepath==0.3.1 \
     # via
     #   -r requirements.txt
     #   wagtail
-testcontainers==4.10.0 \
-    --hash=sha256:03f85c3e505d8b4edeb192c72a961cebbcba0dd94344ae778b4a159cb6dcf8d3 \
-    --hash=sha256:31ed1a81238c7e131a2a29df6db8f23717d892b592fa5a1977fd0dcd0c23fc23
+testcontainers==4.11.0 \
+    --hash=sha256:36f0e1165ce2b504b1e8b8c9779ca738d3baad57d402e35c22ccf01a371fda0d \
+    --hash=sha256:48faa72d0ba8d141495d5aec08f8cd5d244ed77c1c4089a4ce1df7b5e12caaf3
     # via stretchtheirlegs (pyproject.toml)
 tomli==2.2.1 \
     --hash=sha256:023aa114dd824ade0100497eb2318602af309e5a55595f76b626d6d9f3b7b0a6 \
