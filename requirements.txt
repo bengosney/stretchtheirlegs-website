@@ -728,9 +728,9 @@ urllib3==2.4.0 \
     # via
     #   botocore
     #   requests
-wagtail==7.0 \
-    --hash=sha256:6a254ef84a740689dd844aabc5254828ecb62840257721e639929cb0e1a2b3c1 \
-    --hash=sha256:7c267ead43da3aa9469f233b111624aa1a508a5840f1ddda72d104957fdb3426
+wagtail==7.0.1 \
+    --hash=sha256:92439c50a919826a4ce8c85bdaf3ed0e436d29598bb2954b4fca5f312b969666 \
+    --hash=sha256:cfc5c37738f98cae380a15252f5676604f6c61554bef1a3791e34de1e703beec
     # via stretchtheirlegs (pyproject.toml)
 wheel==0.45.1 \
     --hash=sha256:661e1abd9198507b1409a20c02106d9670b2576e916d58f520316666abca6729 \
