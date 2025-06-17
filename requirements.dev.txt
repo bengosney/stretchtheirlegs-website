@@ -690,9 +690,9 @@ milksnake==0.1.6 \
     # via
     #   -r requirements.txt
     #   rustface
-model-bakery==1.20.4 \
-    --hash=sha256:30ad372604f326a1ba9f949bad9d0f85e6a510db4ef6a0b07be2d6bd7485008b \
-    --hash=sha256:a0c97e8a27329ecad78136f9d8f573ae392e4282326ea5c5f6daed1173013c4e
+model-bakery==1.20.5 \
+    --hash=sha256:107b3efb8889baac83cae0e2d81465903b69a70eeb99ecfd0929d959a653ab90 \
+    --hash=sha256:796e0b7fa6bf2acc09feaadce40c6bcc13e5b55c5bdff9f76e87ceb64f736070
     # via stretchtheirlegs (pyproject.toml)
 mypy==1.16.1 \
     --hash=sha256:051e1677689c9d9578b9c7f4d206d763f9bbd95723cd1416fad50db49d52f359 \
