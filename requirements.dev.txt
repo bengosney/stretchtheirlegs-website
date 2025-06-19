@@ -381,9 +381,9 @@ click==8.2.1 \
     # via
     #   black
     #   pip-tools
-cogapp==3.5.0 \
-    --hash=sha256:25c3bdd6d6cf54eb09bdd875a2f81786aaac3fae62457c15bd8c2be3ff52ca5a \
-    --hash=sha256:f190c4a0f04bb389320a668bc71b13b0b886c0aa1cfa8e7a95bd7ef912e0e3b1
+cogapp==3.5.1 \
+    --hash=sha256:a9e8b8c31e5e47de722f27eaba1ec128dd6c8e7b6015555d9c8edaa5ad6092b4 \
+    --hash=sha256:c14b906ff4d0386735c2d8022ce3d582bf0ec3215a66e9bbb2019e9b4230f413
     # via stretchtheirlegs (pyproject.toml)
 colorama==0.4.6 \
     --hash=sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44 \
