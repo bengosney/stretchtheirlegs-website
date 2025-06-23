@@ -38,7 +38,7 @@ dependencies = [
   "gunicorn",
   "honeybadger",
   "opencv-python-headless",
-  "psycopg2",
+  "psycopg[binary,pool]",
   "python-dateutil",
   "redis",
   "rustface",

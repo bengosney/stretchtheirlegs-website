@@ -26,6 +26,20 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 DATABASES["default"] = dj_database_url.config()  # type: ignore
+DATABASES["default"].update(
+    {
+        "CONN_MAX_AGE": 0,
+        "OPTIONS": {
+            "pool": {
+                "min_size": 4,
+                "max_size": 16,
+                "timeout": 10,
+                "max_lifetime": 1800,
+                "max_idle": 300,
+            },
+        },
+    }
+)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
