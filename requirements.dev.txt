@@ -641,9 +641,9 @@ honeybadger==1.0.1 \
     # via
     #   -r requirements.txt
     #   stretchtheirlegs (pyproject.toml)
-hypothesis==6.135.10 \
-    --hash=sha256:275012ee9a7a1a64fd38745c2b7a07e838fc9f738d49c97a881d235b53fe28c1 \
-    --hash=sha256:ce224e310012e40b8e3aa6edba226c032c57bbcbdccad41212ab6d2d74b602cf
+hypothesis==6.135.14 \
+    --hash=sha256:0dd5b8095e36bd288367c631f864a16c30500b01b17943dcea681233f7421860 \
+    --hash=sha256:2666df50b3cc40ea08b161a5389d6a1cd5aa3cab0dd8fde0ae339389714a4f67
     # via stretchtheirlegs (pyproject.toml)
 icecream==2.1.4 \
     --hash=sha256:58755e58397d5350a76f25976dee7b607f5febb3c6e1cddfe6b1951896e91573 \
