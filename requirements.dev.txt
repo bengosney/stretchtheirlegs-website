@@ -567,9 +567,9 @@ django-taggit==6.1.0 \
     # via
     #   -r requirements.txt
     #   wagtail
-django-tasks==0.7.0 \
-    --hash=sha256:499f80d1a051566443cfa88a300d8b03435af7fc5708cad4d8da6d285614f739 \
-    --hash=sha256:8a8d64f2dc6e29ac2f45092d90e2dd82dc1dca100dfe3a4f2ce1209db99f3527
+django-tasks==0.8.0 \
+    --hash=sha256:7dcb9445ea70b8c9a5a7f4a467c5e704512ad86e29823744b1d088cc2c0003c5 \
+    --hash=sha256:d83c69b0e8c59f56bd451eafbfd58e34221c0627fa3eb8082fb34a0ece3ac6bf
     # via
     #   -r requirements.txt
     #   wagtail
