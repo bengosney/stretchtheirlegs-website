@@ -16,7 +16,9 @@ jobs:
 
       - name: Update packages
         id: update
-        run: uv pip compile --quiet --generate-hashes --upgrade -o requirements.txt pyproject.toml
+        run: |
+          uv pip compile --quiet --generate-hashes --upgrade -o requirements.txt pyproject.toml
+          uv pip compile --quiet --generate-hashes --upgrade -o requirements.dev.txt --extra dev pyproject.toml
       
       - name: Get current date
         id: date
