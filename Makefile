@@ -15,7 +15,6 @@ PIP_PATH:=$(BINPATH)/pip
 WHEEL_PATH:=$(BINPATH)/wheel
 PRE_COMMIT_PATH:=$(BINPATH)/pre-commit
 UV_PATH:=$(BINPATH)/uv
-COG_PATH:=$(BINPATH)/cog
 
 COGABLE:=$(shell git ls-files | xargs grep -l "\[\[\[cog")
 PYTHON_FILES:=$(wildcard ./**/*.py ./**/tests/*.py)
@@ -69,12 +68,8 @@ $(PRE_COMMIT_PATH): $(PIP_PATH) $(WHEEL_PATH)
 	python -m pip install pre-commit
 	@touch $@
 
-$(COG_PATH): $(PIP_PATH) $(WHEEL_PATH)
-	python -m pip install cogapp
-	@touch $@
-
-cog: $(COG_PATH) $(COGABLE)
-	@cog -rc $(filter-out $<,$^)
+cog: $(UV_PATH) $(COGABLE)
+	@uv tool run --from cogapp cog -rc $(filter-out $<,$^)
 
 init: .direnv $(UV_PATH) .git .git/hooks/pre-commit requirements.txt requirements.dev.txt ## Initalise a enviroment
 
