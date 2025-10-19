@@ -1,13 +1,51 @@
+{% load banner_tags logo_tags static wagtailimages_tags %}
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
     <head>
+        <link rel="preconnect" href="https://cdn.stretchtheirlegs.co.uk" />
+        <meta name="color-scheme" content="light dark">
         <meta charset="utf-8" />
-        <title>Internal server error</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.min.css' %}">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </head>
-    <body>
-        <h1>Internal server error</h1>
 
-        <h2>Sorry, there seems to be an error. Please try again soon.</h2>
+        <title>Something Went Wrong</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="container">
+                {% logo %}
+            </div>
+        </header>
+        {% get_banner as banner_image %}
+        <div class="banner" id="banner">
+            {% picture banner_image format-{avif} fill-{2560x1440,1920x1080,1280x720,800x600,640x480} sizes="100vw" %}
+            <div class="banner_text">
+                <div class="container">
+                    <div class="banner_text_inner">
+                        {% block banner_text %}
+                            <h1>Something went wrong</h1>
+                            <h2>Please try again later.</h2>
+                        {% endblock banner_text %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="error500">
+            <blockquote cite="https://www.terrypratchettbooks.com/books/jingo/">
+                <p>One of the universal rules of happiness is: always be wary of any helpful item that weighs less than its operating manual.</p>
+                <footer>
+                    Terry Pratchett, <cite>Jingo</cite>
+                </footer>
+            </blockquote>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-row"></div>
+                <small>&copy; Stretch Their Legs</small>
+            </div>
+        </footer>
     </body>
 </html>
