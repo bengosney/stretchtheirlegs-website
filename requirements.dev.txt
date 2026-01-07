@@ -1419,9 +1419,9 @@ telepath==0.3.1 \
     --hash=sha256:925c0609e0a8a6488ec4a55b19d485882cf72223b2b19fe2359a50fddd813c9c \
     --hash=sha256:c280aa8e77ad71ce80e96500a4e4d4a32f35b7e0b52e896bb5fde9a5bcf0699a
     # via wagtail
-testcontainers==4.13.3 \
-    --hash=sha256:063278c4805ffa6dd85e56648a9da3036939e6c0ac1001e851c9276b19b05970 \
-    --hash=sha256:9d82a7052c9a53c58b69e1dc31da8e7a715e8b3ec1c4df5027561b47e2efe646
+testcontainers==4.14.0 \
+    --hash=sha256:3b2d4fa487af23024f00fcaa2d1cf4a5c6ad0c22e638a49799813cb49b3176c7 \
+    --hash=sha256:64e79b6b1e6d2b9b9e125539d35056caab4be739f7b7158c816d717f3596fa59
     # via stretchtheirlegs (pyproject.toml)
 tomli==2.3.0 \
     --hash=sha256:00b5f5d95bbfc7d12f91ad8c593a1659b6387b43f054104cda404be6bda62456 \
