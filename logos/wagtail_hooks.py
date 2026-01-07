@@ -1,4 +1,4 @@
-from django.utils.html import format_html
+from django.utils.html import mark_safe
 
 from wagtail import hooks
 from wagtail.snippets.models import register_snippet
@@ -22,4 +22,4 @@ register_snippet(LogoAdmin)
 
 @hooks.register("insert_editor_js")
 def load_alpinejs():
-    return format_html('<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>')
+    return mark_safe('<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>')
