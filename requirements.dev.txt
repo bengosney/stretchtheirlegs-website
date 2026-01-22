@@ -632,9 +632,9 @@ hypothesis==6.150.2 \
     --hash=sha256:648d6a2be435889e713ba3d335b0fb5e7a250f569b56e6867887c1e7a0d1f02f \
     --hash=sha256:deb043c41c53eaf0955f4a08739c2a34c3d8040ee3d9a2da0aa5470122979f75
     # via stretchtheirlegs (pyproject.toml)
-icecream==2.1.9 \
-    --hash=sha256:07eac8b1ebd8a77ea9147b043d0ee642a0605678ce5b3c8e0e2e8cd3c918e6d3 \
-    --hash=sha256:e47b6477d29848949ee5050127aeb88fd30f1908e5cf29772e8a1a0fcdf15473
+icecream==2.1.10 \
+    --hash=sha256:15900126ba7dbe1f83819583cbe5ff79a2943224600878d89307e4633b32e528 \
+    --hash=sha256:6b0ae3e899de12954cd26d8611dcff86518ff19f40deef333427da2ccf4036b2
     # via stretchtheirlegs (pyproject.toml)
 identify==2.6.16 \
     --hash=sha256:391ee4d77741d994189522896270b787aed8670389bfd60f326d677d64a6dfb0 \
