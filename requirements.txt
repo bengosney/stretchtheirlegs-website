@@ -388,9 +388,9 @@ django-storages==1.14.6 \
     --hash=sha256:11b7b6200e1cb5ffcd9962bd3673a39c7d6a6109e8096f0e03d46fab3d3aabd9 \
     --hash=sha256:7a25ce8f4214f69ac9c7ce87e2603887f7ae99326c316bc8d2d75375e09341c9
     # via stretchtheirlegs (pyproject.toml)
-django-stubs-ext==5.2.8 \
-    --hash=sha256:1dd5470c9675591362c78a157a3cf8aec45d0e7a7f0cf32f227a1363e54e0652 \
-    --hash=sha256:b39938c46d7a547cd84e4a6378dbe51a3dd64d70300459087229e5fee27e5c6b
+django-stubs-ext==5.2.9 \
+    --hash=sha256:230c51575551b0165be40177f0f6805f1e3ebf799b835c85f5d64c371ca6cf71 \
+    --hash=sha256:6db4054d1580657b979b7d391474719f1a978773e66c7070a5e246cd445a25a9
     # via django-tasks
 django-taggit==6.1.0 \
     --hash=sha256:ab776264bbc76cb3d7e49e1bf9054962457831bd21c3a42db9138b41956e4cf0 \
