@@ -2,19 +2,16 @@
 .DEFAULT_GOAL := install
 .PRECIOUS: requirements.%.in
 
-HOOKS=$(.git/hooks/pre-commit)
 REQS=$(shell python -c 'import tomllib;[print(f"requirements.{k}.txt") for k in tomllib.load(open("pyproject.toml", "rb"))["project"]["optional-dependencies"].keys()]')
 
 SCSS=$(shell find scss/ -name "*.scss")
 
-BINPATH=$(shell which python | xargs dirname | xargs realpath --relative-to=".")
-DBTOSQLPATH=$(BINPATH)/db-to-sqlite
-
 PYTHON_VERSION:=$(shell cat .python-version)
-PIP_PATH:=$(BINPATH)/pip
-WHEEL_PATH:=$(BINPATH)/wheel
-PRE_COMMIT_PATH:=$(BINPATH)/pre-commit
-UV_PATH:=$(BINPATH)/uv
+VENV_PATH:=.venv
+DBTOSQLPATH=$(VENV_PATH)/bin/db-to-sqlite
+
+UV_PATH:=$(shell command -v uv 2>/dev/null || echo ~/.cargo/bin/uv)
+PRE_COMMIT:=$(UV_PATH) tool run pre-commit
 
 COGABLE:=$(shell git ls-files | xargs grep -l "\[\[\[cog")
 PYTHON_FILES:=$(wildcard ./**/*.py ./**/tests/*.py)
@@ -30,9 +27,9 @@ help: ## Display this help
 .git: .gitignore
 	git init
 
-.pre-commit-config.yaml: | $(PRE_COMMIT_PATH) .git
+.pre-commit-config.yaml: | .git
 	curl https://gist.githubusercontent.com/bengosney/4b1f1ab7012380f7e9b9d1d668626143/raw/060fd68f4c7dec75e8481e5f5a4232296282779d/.pre-commit-config.yaml > $@
-	pre-commit autoupdate
+	$(PRE_COMMIT) autoupdate
 
 requirements.%.txt: $(UV_PATH) requirements.txt pyproject.toml
 	@echo "Building $@"
@@ -42,36 +39,29 @@ requirements.txt: $(UV_PATH) pyproject.toml
 	@echo "Building $@"
 	$(UV_PATH) pip compile --quiet --generate-hashes -o $@ $(filter-out $<,$^)
 
-.direnv: .envrc
-	python -m pip install --upgrade pip
-	python -m pip install wheel pip-tools
-	@touch $@ $^
+.git/hooks/pre-commit: .pre-commit-config.yaml .git
+	$(PRE_COMMIT) install
 
-.git/hooks/pre-commit: $(PRE_COMMIT_PATH) .pre-commit-config.yaml .git
-	pre-commit install
-
-.envrc: .python-version
+.envrc:
 	@echo "Setting up .envrc then stopping"
-	@echo "layout python python$(PYTHON_VERSION)" > $@
+	@echo 'if [ ! -d $(VENV_PATH) ]; then' > $@
+	@echo '    make $(VENV_PATH)' >> $@
+	@echo 'fi' >> $@
+	@echo '' >> $@
+	@echo 'PATH_add "$(VENV_PATH)/bin"' >> $@
+	@echo 'export VIRTUAL_ENV="$$PWD/$(VENV_PATH)"' >> $@
+	@echo 'export VIRTUAL_ENV_PROMPT="$$(basename $$PWD)"' >> $@
+	@echo 'watch_file $(VENV_PATH)' >> $@
 	@touch -d '+1 minute' $@
 	@false
 
-$(WHEEL_PATH): $(PIP_PATH)
-	python -m pip install wheel
-	@touch $@
-
-$(UV_PATH): $(PIP_PATH) $(WHEEL_PATH)
-	python -m pip install uv
-	@touch $@
-
-$(PRE_COMMIT_PATH): $(PIP_PATH) $(WHEEL_PATH)
-	python -m pip install pre-commit
-	@touch $@
+$(VENV_PATH): $(UV_PATH) .python-version
+	$(UV_PATH) venv --python $(PYTHON_VERSION)
 
 cog: $(UV_PATH) $(COGABLE)
 	@uv tool run --from cogapp cog -rc $(filter-out $<,$^)
 
-init: .direnv $(UV_PATH) .git .git/hooks/pre-commit requirements.txt requirements.dev.txt ## Initalise a enviroment
+init: .envrc .git .git/hooks/pre-commit requirements.txt requirements.dev.txt ## Initalise a enviroment
 
 clean-pyc: ## Remove all python build files
 	find . -name '*.pyc' -delete
@@ -93,7 +83,7 @@ node_modules: package.json package-lock.json
 
 node: node_modules
 
-python: $(UV_PATH) requirements.txt $(REQS)
+python: $(VENV_PATH) requirements.txt $(REQS)
 	@echo "Installing $(filter-out $<,$^)"
 	@$(UV_PATH) pip sync $(filter-out $<,$^)
 
@@ -101,8 +91,8 @@ install: python node ## Install development requirements (default)
 
 upgrade: python
 	@echo "Updateing module paths"
-	wagtail updatemodulepaths --ignore-dir .direnv
-	python -m pre_commit autoupdate
+	wagtail updatemodulepaths --ignore-dir $(VENV_PATH)
+	$(PRE_COMMIT) autoupdate
 
 db.sqlite3: | $(UV_PATH) ## Import the database from heroku
 	$(call check_command,heroku,exit 1)
