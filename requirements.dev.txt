@@ -1590,9 +1590,9 @@ virtualenv==20.36.1 \
     --hash=sha256:575a8d6b124ef88f6f51d56d656132389f961062a9177016a50e4f507bbcc19f \
     --hash=sha256:8befb5c81842c641f8ee658481e42641c68b5eab3521d8e092d18320902466ba
     # via pre-commit
-wagtail==7.2.2 \
-    --hash=sha256:2e62316717bd19c57de5e6cb7f800c8acdb51862b3067b9e788c0837bda9c9f0 \
-    --hash=sha256:bf6adaa3acd90d9ee7734756dd7031b0901eedb80a4aa4e5188ab1e481ce30be
+wagtail==7.3 \
+    --hash=sha256:519c84c47bccc2e42182a3879c6efe9f34d7233239b2899a99139ae3e17c5266 \
+    --hash=sha256:81c3449652b17341fc794d65bdd208ae9e15f21743e8a6ca6bc2ce2e7b7312ce
     # via stretchtheirlegs (pyproject.toml)
 watchdog==6.0.0 \
     --hash=sha256:07df1fdd701c5d4c8e55ef6cf55b8f0120fe1aef7ef39a1c6fc6bc2e606d517a \
