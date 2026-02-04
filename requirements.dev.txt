@@ -621,9 +621,9 @@ gitpython==3.1.46 \
     --hash=sha256:400124c7d0ef4ea03f7310ac2fbf7151e09ff97f2a3288d64a440c584a29c37f \
     --hash=sha256:79812ed143d9d25b6d176a10bb511de0f9c67b1fa641d82097b0ab90398a2058
     # via tach
-gunicorn==24.1.1 \
-    --hash=sha256:757f6b621fc4f7581a90600b2cd9df593461f06a41d7259cb9b94499dc4095a8 \
-    --hash=sha256:f006d110e5cb3102859b4f5cd48335dbd9cc28d0d27cd24ddbdafa6c60929408
+gunicorn==25.0.1 \
+    --hash=sha256:23cbe968c6ae3c8efc3d118c8353fa0763efc2102d89d0d3cea696cede7ff6b1 \
+    --hash=sha256:573e053aa950246e307ea908bd7ddce1870d41a40aec0c935938c586f0b9b946
     # via stretchtheirlegs (pyproject.toml)
 honeybadger==1.1.1 \
     --hash=sha256:2e8f809717cf0c2afa7b35eaf10b292004ee44db9a0383fe91b04a4e2e95f519
