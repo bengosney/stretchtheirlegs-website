@@ -1,16 +1,20 @@
 import contextlib
 import json
-from collections.abc import Iterable
+from collections.abc import Iterable, Sequence
+from typing import TypedDict
 
 from django import template
 from django.utils.safestring import mark_safe
 
-from wagtail.models import Site
+from wagtail.models import Page, Site
 
 from banners.models import Banner
 from social.models import Social
 
 register = template.Library()
+
+
+BreadcrumbListItem = TypedDict("BreadcrumbListItem", {"@type": str, "position": int, "item": str, "name": str})
 
 
 @register.filter()
@@ -19,17 +23,19 @@ def jsonld(value, indent=None):
     return mark_safe(f"""<script type="application/ld+json">{json_output}</script>""")
 
 
-def get_breadcrumbs(ancestors: list) -> Iterable:
-    for i, ancestor_page in enumerate(ancestors, start=1):
-        ancestor = ancestor_page.get_specific()
-        if ancestor.id > 1:
+def get_breadcrumbs(ancestors: Sequence[Page]) -> Iterable[BreadcrumbListItem]:
+    position = 0
+
+    for ancestor in ancestors:
+        page = ancestor.get_specific()
+        if page.id > 0 and (full_url := page.get_full_url()):
+            position += 1
+
             yield {
                 "@type": "ListItem",
-                "position": i,
-                "item": {
-                    "@id": ancestor.get_full_url() or ancestor.title,
-                    "name": ancestor.title,
-                },
+                "position": position,
+                "item": full_url,
+                "name": page.title,
             }
 
 
@@ -58,7 +64,7 @@ def social_tags(context):
             {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
-                "itemListElement": list(get_breadcrumbs(flat_context["page"].get_ancestors(inclusive=True))),
+                "itemListElement": list(get_breadcrumbs(flat_context["page"].get_ancestors(inclusive=True).live())),
             }
         )
 
