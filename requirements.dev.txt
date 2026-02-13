@@ -1060,9 +1060,9 @@ pip-chill==1.0.3 \
     --hash=sha256:42c3b888efde0b3dc5d5307b92fae5fb67695dd9c29c9d31891b9505dd8b735a \
     --hash=sha256:452a38edbcdfc333301c438c26ba00a0762d2034fe26a235d8587134453ccdb1
     # via stretchtheirlegs (pyproject.toml)
-pip-tools==7.5.2 \
-    --hash=sha256:2d64d72da6a044da1110257d333960563d7a4743637e8617dd2610ae7b82d60f \
-    --hash=sha256:2fe16db727bbe5bf28765aeb581e792e61be51fc275545ef6725374ad720a1ce
+pip-tools==7.5.3 \
+    --hash=sha256:3aac0c473240ae90db7213c033401f345b05197293ccbdd2704e52e7a783785e \
+    --hash=sha256:8fa364779ebc010cbfe17cb9de404457ac733e100840423f28f6955de7742d41
     # via stretchtheirlegs (pyproject.toml)
 platformdirs==4.5.1 \
     --hash=sha256:61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda \
