@@ -628,9 +628,9 @@ gunicorn==25.0.3 \
 honeybadger==1.1.1 \
     --hash=sha256:2e8f809717cf0c2afa7b35eaf10b292004ee44db9a0383fe91b04a4e2e95f519
     # via stretchtheirlegs (pyproject.toml)
-hypothesis==6.151.6 \
-    --hash=sha256:4e6e933a98c6f606b3e0ada97a750e7fff12277a40260b9300a05e7a5c3c5e2e \
-    --hash=sha256:755decfa326c8c97a4c8766fe40509985003396442138554b0ae824f9584318f
+hypothesis==6.151.9 \
+    --hash=sha256:2f284428dda6c3c48c580de0e18470ff9c7f5ef628a647ee8002f38c3f9097ca \
+    --hash=sha256:7b7220585c67759b1b1ef839b1e6e9e3d82ed468cfc1ece43c67184848d7edd9
     # via stretchtheirlegs (pyproject.toml)
 icecream==2.1.10 \
     --hash=sha256:15900126ba7dbe1f83819583cbe5ff79a2943224600878d89307e4633b32e528 \
