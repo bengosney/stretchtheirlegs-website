@@ -18,9 +18,9 @@ boto3==1.42.40 \
     --hash=sha256:91d776b8b68006c1aca204d384be191883c2a36443f4a90561165986dae17b74 \
     --hash=sha256:e9e08059ae1bd47de411d361e9bfaaa6f35c8f996d68025deefff2b4dda79318
     # via stretchtheirlegs (pyproject.toml)
-botocore==1.42.40 \
-    --hash=sha256:6cfa07cf35ad477daef4920324f6d81b8d3a10a35baeafaa5fca22fb3ad225e2 \
-    --hash=sha256:b115cdfece8162cb30f387fdff2ee4693713744c97ebb4b89742e53675dc521c
+botocore==1.42.51 \
+    --hash=sha256:216c4c148f37f882c7239fce1d8023acdc664643952ce1d6827c7edc829903d3 \
+    --hash=sha256:d7b03905b8066c25dd5bde1b7dc4af15ebdbaa313abbb2543db179b1d5efae3d
     # via
     #   boto3
     #   s3transfer
