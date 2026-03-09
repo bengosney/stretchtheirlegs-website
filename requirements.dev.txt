@@ -752,9 +752,9 @@ model-bakery==1.23.3 \
     --hash=sha256:3c378fad570d64b8b15f6cb6acb4f589b0f70d4df823d23257720ba381e18fd5 \
     --hash=sha256:cb94b30eeaf6300336bbfed21f30dbaa01d68e3799e792f60d06e937d5ce46c8
     # via stretchtheirlegs (pyproject.toml)
-modelsearch==1.1.1 \
-    --hash=sha256:25f329c4d93572729c931f65c46cedb5cfc32d368690ebdabc223aa6205251d6 \
-    --hash=sha256:d2580790af76c3a6404f651c9d8ca8695b284551583bb8ca6ddeb17eca0cfb52
+modelsearch==1.2 \
+    --hash=sha256:b4421c134175224e67f1aae9b4f26265347dfa617c2d433520cf379ca37c71f2 \
+    --hash=sha256:c150eb8bc0317fd5e656eb54f3b6809da313588a9998796a4e59a1cfed273ee7
     # via wagtail
 mypy==1.19.1 \
     --hash=sha256:016f2246209095e8eda7538944daa1d60e1e8134d98983b9fc1e92c1fc0cb8dd \
