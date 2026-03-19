@@ -1107,9 +1107,9 @@ pip==26.0.1 \
     --hash=sha256:bdb1b08f4274833d62c1aa29e20907365a2ceb950410df15fc9521bad440122b \
     --hash=sha256:c4037d8a277c89b320abe636d59f91e6d0922d08a05b60e85e53b296613346d8
     # via pip-tools
-pip-chill==1.0.3 \
-    --hash=sha256:42c3b888efde0b3dc5d5307b92fae5fb67695dd9c29c9d31891b9505dd8b735a \
-    --hash=sha256:452a38edbcdfc333301c438c26ba00a0762d2034fe26a235d8587134453ccdb1
+pip-chill==1.0.5 \
+    --hash=sha256:732fae3d695950f6e47ad849480fdfd0fb95fa2f2eed5d9c22354f44adad9f7b \
+    --hash=sha256:e79bc514abfe144f2ef52290f59677d279cb05b4084fa9f814bbe5cc0ea04c1c
     # via stretchtheirlegs (pyproject.toml)
 pip-tools==7.5.3 \
     --hash=sha256:3aac0c473240ae90db7213c033401f345b05197293ccbdd2704e52e7a783785e \
