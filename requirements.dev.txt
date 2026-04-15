@@ -655,8 +655,8 @@ gunicorn==25.1.0 \
     --hash=sha256:1426611d959fa77e7de89f8c0f32eed6aa03ee735f98c01efba3e281b1c47616 \
     --hash=sha256:d0b1236ccf27f72cfe14bce7caadf467186f19e865094ca84221424e839b8b8b
     # via stretchtheirlegs (pyproject.toml)
-honeybadger==1.2.0 \
-    --hash=sha256:95c19d05c5cdfb94693f8054ec609ccc70da8368f31820a0ab0007605fa28790
+honeybadger==1.2.1 \
+    --hash=sha256:8ca8cbfddb8fb446969d27667d8221df6d861627cd628a0fb77474e2755e7ea1
     # via stretchtheirlegs (pyproject.toml)
 hypothesis==6.151.11 \
     --hash=sha256:7ac05173206746cec8312f95164a30a4eb4916815413a278922e63ff1e404648 \
