@@ -463,9 +463,9 @@ milksnake==0.1.6 \
     --hash=sha256:0198f8932b4e136c29c0d0d490ff1bac03f82c3a7b2ee6f666e3683b64314fd9 \
     --hash=sha256:31e3eafaf2a48e177bb4b2dacef2c7ae8c5b2147a19c6d626209b819490e6f1d
     # via rustface
-modelsearch==1.2 \
-    --hash=sha256:b4421c134175224e67f1aae9b4f26265347dfa617c2d433520cf379ca37c71f2 \
-    --hash=sha256:c150eb8bc0317fd5e656eb54f3b6809da313588a9998796a4e59a1cfed273ee7
+modelsearch==1.3.1 \
+    --hash=sha256:a92847f01788d0d615e8715fabb8e823029288840297fb9e7235ee03ad49b6a8 \
+    --hash=sha256:f3b2e304dbef9f7c838423f591cfe0c60f4cef584bae8793d2aa8ac35a3c46e0
     # via wagtail
 numpy==2.4.4 \
     --hash=sha256:07077278157d02f65c43b1b26a3886bce886f95d20aabd11f87932750dfb14ed \
