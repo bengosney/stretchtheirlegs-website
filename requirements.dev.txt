@@ -1638,9 +1638,9 @@ uv==0.11.15 \
     --hash=sha256:e3b68f8bf1a4568710f77e5bda9182ce7682811d89a8e7468c22460e032b234d \
     --hash=sha256:f9f4fbbf4fe485522054f3c7496c6e8e932d6436e4200ff3daf718db0b7c7bd5
     # via stretchtheirlegs (pyproject.toml)
-virtualenv==20.36.1 \
-    --hash=sha256:575a8d6b124ef88f6f51d56d656132389f961062a9177016a50e4f507bbcc19f \
-    --hash=sha256:8befb5c81842c641f8ee658481e42641c68b5eab3521d8e092d18320902466ba
+virtualenv==21.3.1 \
+    --hash=sha256:c2305bc1fddeec40699b8370d13f8d431b0701f00ce895061ce493aeded4426b \
+    --hash=sha256:d1a71cf58f2f9228fff23a1f6ec15d39785c6b32e03658d104974247145edd35
     # via pre-commit
 wagtail==7.3.3 \
     --hash=sha256:0beb7efbf21078397eeab69de579a455b3ad0c4d86ef7ce197d2dbb6a6c7be59 \
