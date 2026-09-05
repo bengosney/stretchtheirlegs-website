@@ -1064,7 +1064,6 @@ typing-extensions==4.16.0 \
     #   beautifulsoup4
     #   django-stubs-ext
     #   django-tasks
-    #   psycopg
     #   psycopg-pool
     #   pydantic
     #   pydantic-core
