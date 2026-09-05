@@ -10,8 +10,14 @@ jobs:
     # ]]]
     - image: cimg/python:3.14
     # [[[end]]] (sum: YXFHBBZ2No) (sum: YXFHBBZ2No)
+    - image: postgres:17-alpine
+      environment:
+        POSTGRES_USER: circleci
+        POSTGRES_PASSWORD: circleci
+        POSTGRES_DB: circleci
     environment:
       DJANGO_SETTINGS_MODULE: stl.settings.testing
+      DATABASE_URL: postgresql://circleci:circleci@localhost:5432/circleci
     steps:
     - checkout
     - run:
@@ -31,6 +37,15 @@ jobs:
         key: v1-uv-{{ checksum "requirements.txt" }}-{{ checksum "requirements.dev.txt" }}
         paths:
         - /home/circleci/.cache/uv
+    - run:
+        name: Wait for postgres
+        command: |
+          for _ in $(seq 1 30); do
+            (echo > /dev/tcp/localhost/5432) 2>/dev/null && exit 0
+            sleep 1
+          done
+          echo "postgres did not become available" >&2
+          exit 1
     - run:
         name: Run tests
         command: python -m pytest

@@ -1,11 +1,13 @@
+import os
+
 import dj_database_url
-from testcontainers.postgres import PostgresContainer
+from testcontainers.community.postgres import PostgresContainer
 
 from stl.settings.dev import *  # noqa: F403
 
-postgres = PostgresContainer("postgres:14.12-alpine")
-postgres.start()
+if not (database_url := os.environ.get("DATABASE_URL")):
+    postgres = PostgresContainer("postgres:17-alpine")
+    postgres.start()
+    database_url = postgres.get_connection_url().replace("postgresql+psycopg2://", "postgresql://")
 
-db_url = postgres.get_connection_url().replace("postgresql+psycopg2://", "postgresql://")
-
-DATABASES = {"default": dj_database_url.parse(db_url)}
+DATABASES = {"default": dj_database_url.parse(database_url)}
