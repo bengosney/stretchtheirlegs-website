@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  python: circleci/python@3.0.0
 
 jobs:
   test:
@@ -12,24 +10,48 @@ jobs:
     # ]]]
     - image: cimg/python:3.14
     # [[[end]]] (sum: YXFHBBZ2No) (sum: YXFHBBZ2No)
+    - image: postgres:17-alpine
+      environment:
+        POSTGRES_USER: circleci
+        POSTGRES_PASSWORD: circleci
+        POSTGRES_DB: circleci
+    environment:
+      DJANGO_SETTINGS_MODULE: stl.settings.testing
+      DATABASE_URL: postgresql://circleci:circleci@localhost:5432/circleci
     steps:
     - checkout
+    - run:
+        name: Install uv
+        command: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo 'export PATH="$HOME/.local/bin:$PATH"' >> $BASH_ENV
     - restore_cache:
-        key: v3-deps-{{ checksum "requirements.dev.txt" }}
-    - python/install-packages:
-        pip-dependency-file: requirements.dev.txt
-        pkg-manager: pip
+        key: v1-uv-{{ checksum "requirements.txt" }}-{{ checksum "requirements.dev.txt" }}
+    - run:
+        name: Install dependencies
+        command: |
+          uv venv --python "$(cat .python-version)"
+          uv pip sync requirements.txt requirements.dev.txt
+          echo 'source .venv/bin/activate' >> $BASH_ENV
     - save_cache:
-        key: v3-deps-{{ checksum "requirements.dev.txt" }}
+        key: v1-uv-{{ checksum "requirements.txt" }}-{{ checksum "requirements.dev.txt" }}
         paths:
-        - /home/circleci/.local/share/virtualenvs
-        - /home/circleci/.cache/pip
+        - /home/circleci/.cache/uv
+    - run:
+        name: Wait for postgres
+        command: |
+          for _ in $(seq 1 30); do
+            (echo > /dev/tcp/localhost/5432) 2>/dev/null && exit 0
+            sleep 1
+          done
+          echo "postgres did not become available" >&2
+          exit 1
     - run:
         name: Run tests
-        command: DJANGO_SETTINGS_MODULE=stl.settings.dev python -m pytest
+        command: python -m pytest
     - run:
         name: Django system check
-        command: DJANGO_SETTINGS_MODULE=stl.settings.dev python manage.py check
+        command: python manage.py check
 
 workflows:
   tests:
