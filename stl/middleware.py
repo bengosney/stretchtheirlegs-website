@@ -20,6 +20,10 @@ class ClacksOverhead:
 
 secure_headers = Secure.with_default_headers()
 
+# Static files are served by WhiteNoise but addressed on the CDN hostname, so they are
+# cross-origin to the site itself. secure's default of "same-origin" blocks them.
+CROSS_ORIGIN_RESOURCE_POLICY = "same-site"
+
 
 class SecureHeaders:
     def __init__(self, get_response: Callable[[HttpRequest], HttpResponse]):
@@ -33,5 +37,6 @@ class SecureHeaders:
             response["Content-Security-Policy"] = csp
         else:
             response.headers.pop("Content-Security-Policy", None)
+        response["Cross-Origin-Resource-Policy"] = CROSS_ORIGIN_RESOURCE_POLICY
 
         return response
